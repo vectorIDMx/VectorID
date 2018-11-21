@@ -9,6 +9,10 @@
 	background:  #0bcbd9;
 }
 
+::selection{
+	background:  #0bcbd9;
+}
+
 /* -- HEADER -- */
 
 .mega-menu .menu-links>li.active>a:before, .mega-menu .menu-links>li:hover>a:before {
@@ -109,4 +113,18 @@
 #back-to-top .top:hover{
 	color: white;
 	background-color: #0bcbd9;
+}
+
+/* SERVICIOS */
+
+.iq-tab6 .nav-pills .nav-link.active, .iq-tab6 .nav-pills .show>.nav-link, .iq-tab6 .nav-pills .nav-link:hover {
+	background:  #0bcbd9;
+}
+
+.iq-feature10 .left i{
+	color:  #0bcbd9;
+}
+
+.typo-style1{
+	border-left:3px solid #0bcbd9;
 }
