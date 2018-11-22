@@ -128,3 +128,8 @@
 .typo-style1{
 	border-left:3px solid #0bcbd9;
 }
+
+.iq-tab6 .nav-pills{
+	border:1px solid rgba(255, 255, 255, 0.0);
+	background: rgba(255, 255, 255, 0.0);
+}
