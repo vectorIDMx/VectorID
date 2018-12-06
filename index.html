@@ -338,23 +338,23 @@ Best Services -->
                                         <div class="row">
                                             <div class="col-lg-6 col-md-12 col-sm-12 iq-mtb-15">
                                                 <h4 class="heading-left iq-tw-6 iq-pb-20 iq-mb-20">Pongámonos en contacto</h4>
-                                                <form id="contact" method="post">
+                                                <form action="https://mailthis.to/vectorID" method="POST" encType="multipart/form-data">
                                                     <div class="contact-form">
                                                         <div class="section-field iq-mt-10">
-                                                            <input class="require" id="contact_name" type="text" placeholder="Nombre*" name="name">
+                                                            <input class="require" id="contact_name" type="text" placeholder="Nombre*" name="name" required>
                                                         </div>
                                                         <div class="section-field iq-mt-10">
-                                                            <input class="require" id="contact_email" type="email" placeholder="Email*" name="email">
+                                                            <input class="require" id="contact_email" type="email" placeholder="Email*" name="email" required>
                                                         </div>
                                                         <div class="section-field iq-mt-10">
-                                                            <input class="require" id="contact_phone" type="text" placeholder="Teléfono*" name="phone">
+                                                            <input class="require" id="contact_phone" type="text" placeholder="Teléfono*" name="phone" required>
                                                         </div>
                                                         <div class="section-field textarea iq-mt-10">
-                                                            <textarea id="contact_message" class="input-message require" placeholder="Mensaje*" rows="5" name="message"></textarea>
+                                                            <textarea id="contact_message" class="input-message require" placeholder="Mensaje*" rows="5" name="message" required></textarea>
                                                         </div>
-                                                        <div class="section-field">
-                                                            <div class="g-recaptcha" data-sitekey="6Lc5XV4UAAAAAJzUmGomye9Peru8lXyzT22FH0lX"></div>
-                                                        </div>
+                                                        <input type="hidden" name="_subject" value="Mensaje desde pagina de VectorID">
+                                                        <input type="hidden" name="_honeypot" value="">
+                                                        <input type="hidden" name="_after" value="https://www.vectorid.mx/">
                                                         <button id="submit" name="submit" type="submit" value="Send" class="button pull-right iq-mt-20">Enviar</button>
                                                         <p role="alert"></p>
                                                     </div>
