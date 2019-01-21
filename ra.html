@@ -67,37 +67,44 @@
 
 <script>
     var boxEl1 = document.getElementById('fb');
-    boxEl1.addEventListener('click', function (e) {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.facebook.com/Vectoridmx/");
-    });
-
+    boxEl1.addEventListener('click', envia(1));
     var boxEl2 = document.getElementById('wa');
-    boxEl2.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://wa.me/+5215584151591");
-    });
+    boxEl2.addEventListener('click', envia(2));
     var boxEl3 = document.getElementById('yt');
-    boxEl3.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.youtube.com/watch?v=NfQPkY0cp2I");
-    });
+    boxEl3.addEventListener('click', envia(3));
     var boxEl4 = document.getElementById('vec');
-    boxEl4.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.vectorid.mx/");
-    });
+    boxEl4.addEventListener('click', envia(4));
     var boxEl5 = document.getElementById('ig');
-    boxEl5.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.instagram.com/vectorinovaciondigital/");
-    });
-
+    boxEl5.addEventListener('click', envia(5));
     var boxEl6 = document.getElementById('powered');
-    boxEl6.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.vectorid.mx");
-    });
+    boxEl6.addEventListener('click', envia(4));
+
+
+    function envia(num) {
+        var direccion = "";
+        switch (num) {
+            case 1:
+                direccion = "https://www.facebook.com/Vectoridmx/";
+                break;
+            case 2:
+                direccion = "https://wa.me/+5215584151591";
+                break;
+            case 3:
+                direccion = "https://www.youtube.com/watch?v=NfQPkY0cp2I";
+                break;
+            case 4:
+                direccion = "https://www.vectorid.mx/";
+                break;
+            case 5:
+                direccion = "https://www.instagram.com/vectorinovaciondigital/";
+                break;
+            default:
+                direccion = "https://www.vectorid.mx/";
+                break;
+        }
+
+        window.open(direccion);
+    }
 
 </script>
 
