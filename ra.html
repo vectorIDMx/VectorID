@@ -22,40 +22,47 @@
             '</a-box></a-entity><a-entity><a-sphere opacity="0" id="wa" color="#CCC" scale="1" position=".59 0 .81" rotation="-90 0 0"></a-sphere><a-box position=".59 0 .81" scale=".5 .5 .5" cursor-listener material="src: images/wa.png"><a-animation attribute="rotation" dur="5000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation></a-box></a-entity><a-entity><a-sphere opacity="0" id="yt" color="#CCC" scale="1" position="-.59 0 .81" rotation="-90 0 0"></a-sphere>' +
             '<a-box position="-.59 0 .81" scale=".5 .5 .5" cursor-listener material="src: images/youtube.jpg"><a-animation attribute="rotation" dur="5000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation></a-box></a-entity><a-entity><a-sphere opacity="0" id="ig" color="#CCC" scale="1" position="-.95 0 -.31" rotation="-90 0 0"></a-sphere><a-box position="-.95 0 -.31" scale=".5 .5 .5" cursor-listener material="src: images/instagram.png"><a-animation attribute="rotation" dur="5000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>' +
             '</a-box></a-entity></a-marker><a-plane id="powered" position="-.001 -.03 -.1" width=".02" height=".006" opacity=".3" material="src: images/powvector.png"></a-plane><a-entity camera></a-entity></a-scene>');
+        carga();
     });
 
-    var boxEl1 = document.getElementById('fb');
-    boxEl1.addEventListener('click', function (e) {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.facebook.com/Vectoridmx/");
-    });
+    function carga() {
 
-    var boxEl2 = document.getElementById('wa');
-    boxEl2.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://wa.me/+5215584151591");
-    });
-    var boxEl3 = document.getElementById('yt');
-    boxEl3.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.youtube.com/watch?v=NfQPkY0cp2I");
-    });
-    var boxEl4 = document.getElementById('vec');
-    boxEl4.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.vectorid.mx/");
-    });
-    var boxEl5 = document.getElementById('ig');
-    boxEl5.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.instagram.com/vectorinovaciondigital/");
-    });
+        var boxEl1 = document.getElementById('fb');
+        boxEl1.addEventListener('click', function (e) {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.facebook.com/Vectoridmx/");
+        });
 
-    var boxEl6 = document.getElementById('powered');
-    boxEl6.addEventListener('click', function () {
-        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-        window.open("https://www.vectorid.mx");
-    });
+        var boxEl2 = document.getElementById('wa');
+        boxEl2.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://wa.me/+5215584151591");
+        });
+        var boxEl3 = document.getElementById('yt');
+        boxEl3.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.youtube.com/watch?v=NfQPkY0cp2I");
+        });
+        var boxEl4 = document.getElementById('vec');
+        boxEl4.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.vectorid.mx/");
+        });
+        var boxEl5 = document.getElementById('ig');
+        boxEl5.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.instagram.com/vectorinovaciondigital/");
+        });
+
+        var boxEl6 = document.getElementById('powered');
+        boxEl6.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.vectorid.mx");
+        });
+
+    }
+
+
 
 </script>
 
