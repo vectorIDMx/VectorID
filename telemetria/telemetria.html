@@ -1,0 +1,336 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+    <script src="scripts/multisrc.js"></script>
+    <script src="scripts/marker.js"></script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            <a-assets>
+                <a-asset-item id="alturaModel" src="modelos/altura/scene.gltf"></a-asset-item>
+                <a-asset-item id="ejesModel" src="modelos/ejes/scene.gltf"></a-asset-item>
+                <a-asset-item id="gpsModel" src="modelos/gps/scene.gltf"></a-asset-item>
+                <a-asset-item id="humedadModel" src="modelos/humedad/scene.gltf"></a-asset-item>
+                <a-asset-item id="termoModel" src="modelos/termo/scene.gltf"></a-asset-item>
+                <a-asset-item id="pcModel" src="modelos/pc/scene.gltf"></a-asset-item>
+                <img id="caratula" src="images/caratula.png">
+                <img id="face" src="images/facebook.jpg">
+                <img id="paredNegra" src="images/negro.png">
+            </a-assets>
+            
+            
+            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
+                <a-entity id="escenaId" position="-10 10 10">
+                    <a-plane id="textoId" rotation="-30 0 0" position="0 2 -1" width="3" height="1" opacity=".9"
+                    material="src: images/letrasModuloPTCN.png"></a-plane>
+                    
+                    
+                    
+                    <a-box id="moduloId"  scale="1.6 .4 1.6" rotation="-45 -60 0" position="0 .5 0" visible="true"
+                    multisrc="srcs:#paredNegra,#paredNegra,#paredNegra,#paredNegra,#caratula,#paredNegra"
+                    >
+                        <a-animation
+                        begin="an2_1"
+                        attribute="rotation"
+                        dur="7000"
+                        to="-45 60  0"
+                        easing="linear"
+                        ></a-animation>
+                    </a-box>
+                    <!--<a-entity id="termoId" gltf-model="#termoModel" scale=".1 .1 .1" rotation="-25 0 0" animation-mixer visible="true">
+                        
+                        <a-animation
+                        begin="an3"
+                        attribute="rotation"
+                        dur="1000"
+                        to="-25 180 0"
+                        easing="linear"
+                        ></a-animation>
+                    </a-entity>-->
+                    <a-entity id="termoId" gltf-model="#termoModel" scale=".1 .1 .1" rotation="-25 0 0" visible="false">
+                        
+                        <a-animation
+                        begin="an3"
+                        attribute="rotation"
+                        dur="2000"
+                        to="-25 180 0"
+                        easing="linear"
+                        ></a-animation>
+                    </a-entity>
+                    <a-entity  id="humedadId" gltf-model="#humedadModel" scale=".5 .5 .5" rotation="0 0 0" visible="false" position="0 1 0"
+                    >
+                            <a-animation
+                            begin="an4"
+                            attribute="rotation"
+                            dur="1300"
+                            to="0 50 0"
+                            easing="linear"
+                            ></a-animation>
+                    </a-entity>
+                    
+                    <a-entity id="alturaId" gltf-model="#alturaModel" scale=".35 .35 .35" rotation="0 0 0" animation-mixer visible="false">
+                            <a-animation
+                            begin="an5"
+                            attribute="rotation"
+                            dur="2300"
+                            to="0 100 0"
+                            easing="linear"
+                            ></a-animation>
+                    </a-entity>
+                    <a-box id="gpsId" scale="1 1 1" rotation="0 0 0" animation-mixer visible="false"
+                    material="src: images/maps.png">
+                            <a-animation
+                            begin="an6"
+                            attribute="rotation"
+                            dur="1500"
+                            to="50 50 0"
+                            easing="linear"
+                            ></a-animation>
+                    </a-box>
+                    <a-box id="velocidadId" scale="1 1 1" rotation="0 0 0" animation-mixer visible="false"
+                    material="src: images/speed.png">
+                            <a-animation
+                            begin="an7"
+                            attribute="rotation"
+                            dur="1500"
+                            to="90 90 0"
+                            easing="linear"
+                            ></a-animation>
+
+                    </a-box>
+                    <a-entity id="ejesId" gltf-model="#ejesModel" scale=".5 .5 .5" rotation="0 0 0" animation-mixer visible="false">
+                            <a-animation
+                            begin="an8"
+                            attribute="rotation"
+                            dur="4600"
+                            to="360 360 0"
+                            easing="linear"
+
+                            ></a-animation>
+                    </a-entity>
+                    <a-entity id="mandoDistId" position="0 0 0" rotation="-25 0 0" visible="false">
+                            <a-entity id="pc-completa" position="0 0 .5" rotation="0 -40 0">
+                                <!--<a-plane position=".05 1.1 -1.3" rotation="0 0 0" width="2" height="1"
+                                 material="src: images/pantalla1.png"></a-plane>-->
+                                
+         
+                                 <a-entity gltf-model="#pcModel" position="0 0 -1.5" scale=".5 .5 .5" rotation="0 0 0"></a-entity>
+                                 <a-animation
+                                 attribute="rotation"
+                                 dur="4000"
+                                 to="0 40 0"
+                                 easing="linear"
+                                 direction="alternate"
+                                 repeat="indefinite"
+                                 ></a-animation>
+                            </a-entity>
+                             
+         
+                            <a-box id="modulo2Id"  scale="1 .25 1" rotation="-25 0 0" position="0 .2 .5" opacity="1"
+                            multisrc="srcs:#paredNegra,#paredNegra,#paredNegra,#paredNegra,#caratula,#paredNegra"
+                            >
+                            <a-animation
+                                 begin="an9"
+                                 attribute="opacity"
+                                 dur="500"
+                                 from="1"
+                                 to=".6"
+                                 easing="linear"
+                                 direction="alternate"
+                                 repeat="10"
+                                 ></a-animation>
+                             </a-box> 
+                             <a-animation
+                                 begin="an9"
+                                 attribute="opacity"
+                                 dur="3000"
+                                 from="1"
+                                 to=".99"
+                                 easing="linear"
+                                 direction="normal"
+                                 ></a-animation>
+                        </a-entity>
+            </a-entity>
+            </a-marker>
+            <!--<a-plane id="powered" position="-.001 -.03 -.1" width=".02" height=".006" opacity=".3"
+            material="src: images/powvector.png"></a-plane>-->
+
+            <a-plane id="ptcnId" position="-.001 .1 -.1" width=".0396" height=".0066" opacity =".999"
+                    material="src: images/PTCN.png">
+                <a-animation
+                attribute="position"
+                dur="5000"
+                from="-.001 .1 -.1"
+                to="-.001 0 -.1"
+                easing="linear"
+                >
+                </a-animation>
+                <a-animation
+                begin="an2"
+                attribute="position"
+                dur="1500"
+                to="-.001 .1 -.1"
+                easing="linear"
+                >
+                </a-animation>
+            </a-plane>
+
+            <a-plane id="comenzarId" position="-.001 -.01 -.1" width=".018" height=".006" opacity="0"
+            material="src: images/verAnimacion.png">
+            <a-animation
+                begin="an1"
+                attribute="opacity"
+                dur="700"
+                from=".2"
+                to=".9"
+                easing="linear"
+                direction="alternate"
+                repeat="indefinite">
+                
+            </a-animation>
+            <a-animation
+                begin="an2"
+                attribute="position"
+                dur="1500"
+                to="-.001 -.1 -.1"
+                easing="linear"
+                >
+                </a-animation>
+            </a-plane>
+            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+            <a-entity camera></a-entity>
+                
+            
+            
+        </a-scene>
+        
+    </body>
+
+    <script>
+    var ptcn = document.getElementById('ptcnId');
+    var comenzar = document.getElementById('comenzarId');
+    var escena = document.getElementById('escenaId');
+    var termo = document.getElementById("termoId");
+    var humedad = document.getElementById('humedadId');
+    var altura = document.getElementById('alturaId');
+    var gps = document.getElementById('gpsId');
+    var altura = document.getElementById('alturaId');
+    var velocidad = document.getElementById('velocidadId');
+    var ejes = document.getElementById('ejesId');
+    var modulo =document.getElementById('moduloId');
+    var mando = document.getElementById('mandoDistId');
+    var modulo2 = document.getElementById('modulo2Id');
+    var texto = document.getElementById('textoId');
+
+    window.setTimeout(function(e){
+        var aud1 =  new Audio();
+        aud1.src="audios/PTCN1.mp3";
+        aud1.play();
+        console.log("supuesta reproduccion");
+    },1500);
+
+
+
+    function disparaAn1()
+    {
+        comenzar.emit('an1');
+        console.log("an1 disparado");
+    }
+    function funcComenzar()
+    {
+        //window.open("https://www.vectorid.mx/");
+        ptcn.emit('an2');
+        comenzar.emit('an2');
+        //escena.setAttribute('position',{x:0, y:0, z:0});
+        window.setTimeout(function(e){
+            escena.setAttribute('position',{x:0, y:0, z:0});
+            modulo.emit('an2_1');
+            var aud2 =new Audio();
+            aud2.src = "audios/PTCN2.mp3"
+            aud2.play();
+        },2000);
+    }
+    ptcn.addEventListener('animationend', function (e) {
+        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+        window.setTimeout('disparaAn1()',3500);
+           
+    });
+
+    modulo.addEventListener('animationend',function(e){
+        modulo.setAttribute('visible', false);
+        termo.setAttribute('visible', true);
+        termo.emit('an3');
+        texto.setAttribute('material',{src: "images/letrasParametros.png"});
+        console.log("animacion brujula terminada")
+    });
+    termo.addEventListener('animationend',function(e){
+        termo.setAttribute('visible', false);
+        humedad.setAttribute('visible', true);
+        humedad.emit('an4');
+        console.log("animacion brujula terminada")
+    });
+    humedad.addEventListener('animationend',function(e){
+        humedad.setAttribute('visible', false);
+        altura.setAttribute('visible', true);
+        altura.emit('an5');
+        console.log("animacion brujula terminada")
+    });
+    altura.addEventListener('animationend',function(e){
+        altura.setAttribute('visible', false);
+        gps.setAttribute('visible', true);
+        gps.emit('an6');
+        console.log("animacion brujula terminada")
+    });
+    gps.addEventListener('animationend',function(e){
+        gps.setAttribute('visible', false);
+        velocidad.setAttribute('visible', true);
+        velocidad.emit('an7');
+        console.log("animacion brujula terminada")
+    });
+    velocidad.addEventListener('animationend',function(e){
+        velocidad.setAttribute('visible', false);
+        ejes.setAttribute('visible', true);
+        ejes.emit('an8');
+        console.log("animacion brujula terminada")
+    });
+    ejes.addEventListener('animationend',function(e){
+        ejes.setAttribute('visible', false);
+        mando.setAttribute('visible', true);
+        mando.emit('an9');
+        modulo2.emit('an9');
+        texto.setAttribute('material',{src: "images/letrasControl.png"});
+        console.log("animacion brujula terminada")
+    });
+
+    comenzar.addEventListener('click',funcComenzar);
+
+    
+
+    
+    
+    //algo.addEventListener('click', function (e) {
+        //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+     //   window.open("https://www.facebook.com/Vectoridmx/");    
+    //});
+
+    
+    
+    
+
+
+    //var altura = document.body.scrollHeight;
+    //altura = -(altura*.03)/667;
+    //console.log("altura: ");
+    //console.log(altura);
+    //boxEl6.setAttribute('position',{x: -.05, y: altura, z: -5});
+
+    </script>
+</html>
