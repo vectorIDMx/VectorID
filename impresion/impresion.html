@@ -158,8 +158,19 @@
     var robot = document.getElementById("robotId"); 
 
     var base = document.getElementById("baseId");
+    var botonWa = document.getElementById("botonWaId");
+    var botonVec = document.getElementById("botonVecId");
 
     var numElem = 1;
+
+    botonVec.addEventListener("click",function(e)
+    {
+        window.open("https://www.vectorid.mx/");
+    });
+    botonWa.addEventListener("click",function(e)
+    {
+        window.open("https://api.whatsapp.com/send?phone=+5215584151591&text=Hola!%20quiero%20saber%20más%20sobre%20los%20servicios%20de%20corte%20láser%20e%20impresión%203D!");
+    });
     /**/
     window.setInterval(function(e)
     {
