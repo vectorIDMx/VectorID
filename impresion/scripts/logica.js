@@ -1,5 +1,7 @@
 var botonV = document.getElementById("botonVecId");
 var botonW = document.getElementById("botonWaId");
+var botonD = document.getElementById("botonDenti");
+var dientes = document.getElementById("dientesId");
 
 botonW.addEventListener("click", function(e)
 {
@@ -9,3 +11,11 @@ botonV.addEventListener("click", function(e)
 {
     window.open("https://www.vectorid.mx/");
 });
+botonD.addEventListener("click", function(e)
+{
+    window.open("https://www.dentimex.mx/?gclid=CjwKCAiAnsnjBRB6EiwATkM1XhXgfRnY_EIYEdie_fE1n3IWCwvs8lzXJC4kPxQieKrVuBqdtGDwpxoCsWUQAvD_BwE");
+});
+window.setTimeout(function(e)
+{
+    dientes.setAttribute("visible",true);
+},15000);
