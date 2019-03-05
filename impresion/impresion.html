@@ -162,21 +162,37 @@
     var botonVec = document.getElementById("botonVecId");
 
     var numElem = 1;
+    function isMobile(){
+    return (
+        (navigator.userAgent.match(/Android/i)) ||
+        (navigator.userAgent.match(/webOS/i)) ||
+        (navigator.userAgent.match(/iPhone/i)) ||
+        (navigator.userAgent.match(/iPod/i)) ||
+        (navigator.userAgent.match(/iPad/i)) ||
+        (navigator.userAgent.match(/BlackBerry/i))
+    );
+}
 
     botonVec.addEventListener("click",function(e)
     {
         //window.open("https://www.vectorid.mx/");
     var facebookId = "fb://page/299366750897285";
     var urlPage = "https://www.facebook.com/Vectoridmx";
-
-     try {
+    if(isMobile())
+    {
+        window.open("fb://page/299366750897285");
+    }else{
+        window.open("https://www.vectorid.mx/");
+    }
+/*try {
             window.open("fb://page/299366750897285");
             //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId)));
         } catch (e) {
          console.log("Aplicación no instalada.");
          //Abre url de pagina.
          //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlPage)));
-        }
+        }*/
+     
     });
     botonWa.addEventListener("click",function(e)
     {
