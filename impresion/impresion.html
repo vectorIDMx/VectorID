@@ -170,12 +170,12 @@
     var urlPage = "https://www.facebook.com/Vectoridmx";
 
      try {
-            //window.open("fb://page/299366750897285");
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId)));
+            window.open("fb://page/299366750897285");
+            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId)));
         } catch (e) {
          console.log("Aplicación no instalada.");
          //Abre url de pagina.
-         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlPage)));
+         //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlPage)));
         }
     });
     botonWa.addEventListener("click",function(e)
