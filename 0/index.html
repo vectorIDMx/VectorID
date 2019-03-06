@@ -14,11 +14,7 @@
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
             <a-assets>
-                <img id="charly1" src="images/charly1.png">
-                <img id="charly2" src="images/charly2.png">
-                <img id="charly3" src="images/charly3.png">
-                <img id="charly4" src="images/charly4.png">
-                <a-asset-item id="dientesModel" src="modelos/dientes/scene.gltf"></a-asset-item>
+
                 <a-asset-item id="casa-obj" src="modelos/sucursal/sucursalTono.obj"></a-asset-item>
                 <a-asset-item id="casa-mtl" src="modelos/sucursal/sucursalTono.mtl"></a-asset-item>
             </a-assets>
@@ -26,7 +22,10 @@
             
             <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='tono-marker.patt'>
                 <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
-                    <a-entity obj-model="obj: #casa-obj; mtl: #casa-mtl" scale=".025 .025 .025" position="-1 0 -2"></a-entity>
+                    <a-entity rotation="-75 0 0" scale="2 2 2" position="2 0 -1">
+                        <a-entity obj-model="obj: #casa-obj; mtl: #casa-mtl" scale=".03 .03 .03" position="-1 0 -2"></a-entity>
+                    </a-entity>
+                    
                 </a-entity>
             </a-marker>
 
