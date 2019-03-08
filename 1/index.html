@@ -23,7 +23,7 @@
             
             
             <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='vector1-marker.patt'>
-                <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                <a-entity id="escenaId" position="2.1 .5 -1" scale="1 1 1" rotation="0 0 0">
                     <a-box position="-.5 0 -.5"
                     material="src: #charly1;">
                     <a-animation
@@ -93,6 +93,56 @@
                     repeat="indefinite"
                     ></a-animation></a-box>
                 </a-entity>
+
+                    <a-cylinder position="2.1 0 -1" height=".001" radius="1" opacity="0"
+                    material="
+                    src:images/pizza.png;
+                    normalMap:images/pizzaMap.png"
+                    >
+                    <a-animation
+                    attribute="rotation"
+                    dur="8000"
+                    to="0 360 0"
+                    easing="linear"
+                    repeat="indefinite">
+
+                    </a-animation>
+                    <a-animation
+                    begin="3000"
+                    attribute="opacity"
+                    dur="12000"
+                    to=".7"
+                    easing="linear"
+                    ></a-animation>
+                    
+                </a-cylinder>
+                <a-plane height=".6" width="1.8" opacity=".9" rotation="-90 0 0" position="4.1 0 1.4"
+                    material="
+                    src:images/click2.png;
+                    "
+                    >
+                <a-animation
+                attribute="opacity"
+                dur="500"
+                to=".3"
+                easing="linear"
+                repeat="indefinite"
+                direction="alternate"
+                >
+
+                </a-animation></a-plane>
+                <a-box position="4.1 0 .27" scale="1.8 .2 1.7" opacity="0"
+                material="src:images/2x1.png"
+                >
+            <a-animation
+            attribute="opacity"
+            begin="20000"
+            dur="5000"
+            to="1"
+            easing="linear">
+
+            </a-animation></a-box>
+                
             </a-marker>
 
             <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
