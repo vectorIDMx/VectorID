@@ -1,7 +1,7 @@
 var botonV = document.getElementById("botonVecId");
 var botonW = document.getElementById("botonWaId");
-var botonD = document.getElementById("botonDenti");
-var dientes = document.getElementById("dientesId");
+
+
 
 botonW.addEventListener("click", function(e)
 {
@@ -9,13 +9,15 @@ botonW.addEventListener("click", function(e)
 });
 botonV.addEventListener("click", function(e)
 {
-    window.open("https://www.vectorid.mx/");
+    var facebookId = "fb://page/299366750897285";
+    var urlPage = "https://www.facebook.com/Vectoridmx";
+
+     try {
+          startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId )));
+        } catch (e) {
+         Log.e(TAG, "Aplicación no instalada.");
+         //Abre url de pagina.
+         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlPage)));
+        }
 });
-botonD.addEventListener("click", function(e)
-{
-    window.open("https://www.dentimex.mx/?gclid=CjwKCAiAnsnjBRB6EiwATkM1XhXgfRnY_EIYEdie_fE1n3IWCwvs8lzXJC4kPxQieKrVuBqdtGDwpxoCsWUQAvD_BwE");
-});
-window.setTimeout(function(e)
-{
-    dientes.setAttribute("visible",true);
-},15000);
+
