@@ -9,15 +9,8 @@ botonW.addEventListener("click", function(e)
 });
 botonV.addEventListener("click", function(e)
 {
-    var facebookId = "fb://page/299366750897285";
-    var urlPage = "https://www.facebook.com/Vectoridmx";
+;
+    window.open("fb://page/299366750897285");
 
-     try {
-          startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId )));
-        } catch (e) {
-         Log.e(TAG, "Aplicación no instalada.");
-         //Abre url de pagina.
-         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlPage)));
-        }
 });
 
