@@ -9,30 +9,48 @@
     
     <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
     <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
-    <script src="scripts/multisrc.js"></script>
+    
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
             <a-assets>
 
-                <a-asset-item id="380model" src="modelos/380/scene.gltf"></a-asset-item>
+                <a-asset-item id="380model" src="modelos/380a/scene.gltf"></a-asset-item>
 
             </a-assets>
             
             
             <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='6'>
-                <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                  
+                <a-entity id="escenaId" position="0 1 1" scale="1 1 1" rotation="0 0 0">
                     <a-entity rotation="-35 0 0">
-                        <a-entity gltf-model="#380model" position="0 1 0" scale=".00005 .00005 .00005" rotation="0 0 0">
+                        <a-entity gltf-model="#380model" position="0 1 0" scale=".05 .05 .05" rotation="0 180 0" animation-mixer>
                         </a-entity>
                     </a-entity>
-                    
-                    
-                </a-entity>       
+                </a-entity>
+                <!--<a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                    <a-entity rotation="-35 0 0">
+                        <a-entity gltf-model="#380model" position="0 1 0" scale="1 1 1" rotation="0 0 0" animation-mixer>
+                        </a-entity>
+                    </a-entity>
+                </a-entity>-->
+                <!--<a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                    <a-entity rotation="-35 0 0">
+                        <a-entity gltf-model="#380model" position="0 1 0" scale=".05 .05 .05" rotation="0 0 0" animation-mixer>
+                        </a-entity>
+                    </a-entity>
+                </a-entity> -->   
+                <!--<a-entity id="escenaId" position="0 1 2" scale="1 1 1" rotation="0 0 0">
+                    <a-entity rotation="-35 0 0">
+                        <a-entity gltf-model="#380model" position="0 1 0" scale=".00005 .00005 .00005" rotation="0 90 0" animation-mixer>
+                        </a-entity>
+                    </a-entity>
+                </a-entity>-->  
             </a-marker>
 
-            <a-plane position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
+            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
             material="src: images/powvector.png"></a-plane>
+
             <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
             ></a-plane>
 
@@ -40,13 +58,11 @@
             <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
             material="src: images/wa2.png"></a-plane>
             <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
-
             <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
             <a-entity camera></a-entity>
         </a-scene>
         
     </body>
+
     <script src="scripts/logica.js"></script>
-
-
 </html>
