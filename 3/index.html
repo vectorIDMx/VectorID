@@ -1,71 +1,84 @@
 <!doctype HTML>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
-    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
-    
-    <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-                <a-entity light="type: ambient; color: #FFF"></a-entity>
-                <a-entity light="type: directional; color: #FFF; intensity: 1" position="-0.5 1 1"></a-entity>
-                
-            <a-assets>
 
-                <a-asset-item id="modelo" src="modelos/pepe/scene.gltf"></a-asset-item>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-            </a-assets>
-            
-            
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='pepe-marker.patt'>
-                  
-                <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
-                    <a-entity rotation="0 0 0">
-                        <a-entity gltf-model="#modelo" position="0 0 0" scale=".015 .015 .015" rotation="0 0 0" animation-mixer>
-                        </a-entity>
+        gtag('config', 'UA-136675623-1');
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+<!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+<!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+
+<body style='margin : 0px; overflow: hidden;'>
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene embedded
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <a-entity light="type: ambient; color: #FFF"></a-entity>
+        <a-entity light="type: directional; color: #FFF; intensity: 1" position="-0.5 1 1"></a-entity>
+
+        <a-assets>
+
+            <a-asset-item id="modelo" src="modelos/pepe/scene.gltf"></a-asset-item>
+
+        </a-assets>
+
+
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern'
+            url='pepe-marker.patt'>
+
+            <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                <a-entity rotation="0 0 0">
+                    <a-entity gltf-model="#modelo" position="0 0 0" scale=".015 .015 .015" rotation="0 0 0"
+                        animation-mixer>
                     </a-entity>
                 </a-entity>
-                <!--<a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+            </a-entity>
+            <!--<a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
                     <a-entity rotation="-35 0 0">
                         <a-entity gltf-model="#380model" position="0 1 0" scale="1 1 1" rotation="0 0 0" animation-mixer>
                         </a-entity>
                     </a-entity>
                 </a-entity>-->
-                <!--<a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+            <!--<a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
                     <a-entity rotation="-35 0 0">
                         <a-entity gltf-model="#380model" position="0 1 0" scale=".05 .05 .05" rotation="0 0 0" animation-mixer>
                         </a-entity>
                     </a-entity>
-                </a-entity> -->   
-                <!--<a-entity id="escenaId" position="0 1 2" scale="1 1 1" rotation="0 0 0">
+                </a-entity> -->
+            <!--<a-entity id="escenaId" position="0 1 2" scale="1 1 1" rotation="0 0 0">
                     <a-entity rotation="-35 0 0">
                         <a-entity gltf-model="#380model" position="0 1 0" scale=".00005 .00005 .00005" rotation="0 90 0" animation-mixer>
                         </a-entity>
                     </a-entity>
-                </a-entity>-->  
-            </a-marker>
+                </a-entity>-->
+        </a-marker>
 
-            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
-            material="src: images/powvector.png"></a-plane>
+        <a-plane position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3" material="src: images/powvector.png">
+        </a-plane>
 
-            <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
-            ></a-plane>
+        <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
 
 
-            <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
-            material="src: images/wa2.png"></a-plane>
-            <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
-            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-            <a-entity camera></a-entity>
-        </a-scene>
-        
-    </body>
+        <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3" material="src: images/wa2.png">
+        </a-plane>
+        <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+    </a-scene>
 
-    <script src="scripts/logica.js"></script>
+</body>
+
+<script src="scripts/logica.js"></script>
+
 </html>

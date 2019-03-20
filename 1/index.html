@@ -1,165 +1,110 @@
 <!doctype HTML>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
-    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
-    <script src="scripts/multisrc.js"></script>
-    <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-            <a-assets>
-                <img id="charly1" src="images/charly1.png">
-                <img id="charly2" src="images/charly2.png">
-                <img id="charly3" src="images/charly3.png">
-                <img id="charly4" src="images/charly4.png">
-                <a-asset-item id="dientesModel" src="modelos/dientes/scene.gltf"></a-asset-item>
-            </a-assets>
-            
-            
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='vector1-marker.patt'>
-                <a-entity id="escenaId" position="2.1 .5 -1" scale="1 1 1" rotation="0 0 0">
-                    <a-box position="-.5 0 -.5"
-                    material="src: #charly1;">
-                    <a-animation
-                    attribute="position"
-                    dur="2500"
-                    to="-1.5 0 -1.5"
-                    direction="alternate"
-                    repeat="indefinite"
-                    ></a-animation>
-                    <a-animation
-                    attribute="rotation"
-                    dur="5000"
-                    to="360 0 360"
-                    direction="normal"
-                    repeat="indefinite"
-                    ></a-animation>
-                    </a-box>
 
-                    <a-box position=".5 0 -.5"
-                    material="src: #charly2;">
-                    <a-animation
-                    attribute="position"
-                    dur="2500"
-                    to="1.5 0 -1.5"
-                    direction="alternate"
-                    repeat="indefinite"
-                    ></a-animation>
-                    <a-animation
-                    attribute="rotation"
-                    dur="5000"
-                    to="360 0 360"
-                    direction="normal"
-                    repeat="indefinite"
-                    ></a-animation></a-box>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-                    <a-box position="-.5 0 .5"
-                    material="src: #charly3;">
-                    <a-animation
-                    attribute="position"
-                    dur="2500"
-                    to="-1.5 0 1.5"
-                    direction="alternate"
-                    repeat="indefinite"
-                    ></a-animation>
-                    <a-animation
-                    attribute="rotation"
-                    dur="5000"
-                    to="360 0 360"
-                    direction="normal"
-                    repeat="indefinite"
-                    ></a-animation></a-box>
+        gtag('config', 'UA-136675623-1');
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-                    <a-box position=".5 0 .5"
-                    material="src: #charly4;">
-                    <a-animation
-                    attribute="position"
-                    dur="2500"
-                    to="1.5 0 1.5"
-                    direction="alternate"
-                    repeat="indefinite"
-                    ></a-animation>
-                    <a-animation
-                    attribute="rotation"
-                    dur="5000"
-                    to="360 0 360"
-                    direction="normal"
-                    repeat="indefinite"
-                    ></a-animation></a-box>
-                </a-entity>
+<!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+<!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+<script src="scripts/multisrc.js"></script>
 
-                    <a-cylinder position="2.1 0 -1" height=".001" radius="1" opacity="0"
-                    material="
-                    src:images/pizza.png;
-                    normalMap:images/pizzaMap.png"
-                    >
-                    <a-animation
-                    attribute="rotation"
-                    dur="8000"
-                    to="0 360 0"
-                    easing="linear"
-                    repeat="indefinite">
+<body style='margin : 0px; overflow: hidden;'>
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene embedded
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <a-assets>
+            <img id="charly1" src="images/charly1.png">
+            <img id="charly2" src="images/charly2.png">
+            <img id="charly3" src="images/charly3.png">
+            <img id="charly4" src="images/charly4.png">
+            <a-asset-item id="dientesModel" src="modelos/dientes/scene.gltf"></a-asset-item>
+        </a-assets>
 
+
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern'
+            url='vector1-marker.patt'>
+            <a-entity id="escenaId" position="2.1 .5 -1" scale="1 1 1" rotation="0 0 0">
+                <a-box position="-.5 0 -.5" material="src: #charly1;">
+                    <a-animation attribute="position" dur="2500" to="-1.5 0 -1.5" direction="alternate"
+                        repeat="indefinite"></a-animation>
+                    <a-animation attribute="rotation" dur="5000" to="360 0 360" direction="normal" repeat="indefinite">
                     </a-animation>
-                    <a-animation
-                    begin="3000"
-                    attribute="opacity"
-                    dur="12000"
-                    to=".7"
-                    easing="linear"
-                    ></a-animation>
-                    
-                </a-cylinder>
-                <a-plane height=".6" width="1.8" opacity=".9" rotation="-90 0 0" position="4.1 0 1.4"
-                    material="
+                </a-box>
+
+                <a-box position=".5 0 -.5" material="src: #charly2;">
+                    <a-animation attribute="position" dur="2500" to="1.5 0 -1.5" direction="alternate"
+                        repeat="indefinite"></a-animation>
+                    <a-animation attribute="rotation" dur="5000" to="360 0 360" direction="normal" repeat="indefinite">
+                    </a-animation>
+                </a-box>
+
+                <a-box position="-.5 0 .5" material="src: #charly3;">
+                    <a-animation attribute="position" dur="2500" to="-1.5 0 1.5" direction="alternate"
+                        repeat="indefinite"></a-animation>
+                    <a-animation attribute="rotation" dur="5000" to="360 0 360" direction="normal" repeat="indefinite">
+                    </a-animation>
+                </a-box>
+
+                <a-box position=".5 0 .5" material="src: #charly4;">
+                    <a-animation attribute="position" dur="2500" to="1.5 0 1.5" direction="alternate"
+                        repeat="indefinite"></a-animation>
+                    <a-animation attribute="rotation" dur="5000" to="360 0 360" direction="normal" repeat="indefinite">
+                    </a-animation>
+                </a-box>
+            </a-entity>
+
+            <a-cylinder position="2.1 0 -1" height=".001" radius="1" opacity="0" material="
+                    src:images/pizza.png;
+                    normalMap:images/pizzaMap.png">
+                <a-animation attribute="rotation" dur="8000" to="0 360 0" easing="linear" repeat="indefinite">
+
+                </a-animation>
+                <a-animation begin="3000" attribute="opacity" dur="12000" to=".7" easing="linear"></a-animation>
+
+            </a-cylinder>
+            <a-plane height=".6" width="1.8" opacity=".9" rotation="-90 0 0" position="4.1 0 1.4" material="
                     src:images/click2.png;
-                    "
-                    >
-                <a-animation
-                attribute="opacity"
-                dur="500"
-                to=".3"
-                easing="linear"
-                repeat="indefinite"
-                direction="alternate"
-                >
+                    ">
+                <a-animation attribute="opacity" dur="500" to=".3" easing="linear" repeat="indefinite"
+                    direction="alternate">
 
-                </a-animation></a-plane>
-                <a-box position="4.1 0 .27" scale="1.8 .2 1.7" opacity="0"
-                material="src:images/2x1.png"
-                >
-            <a-animation
-            attribute="opacity"
-            begin="20000"
-            dur="5000"
-            to="1"
-            easing="linear">
+                </a-animation>
+            </a-plane>
+            <a-box position="4.1 0 .27" scale="1.8 .2 1.7" opacity="0" material="src:images/2x1.png">
+                <a-animation attribute="opacity" begin="20000" dur="5000" to="1" easing="linear">
 
-            </a-animation></a-box>
-                
-            </a-marker>
+                </a-animation>
+            </a-box>
 
-            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
-            material="src: images/powvector.png"></a-plane>
+        </a-marker>
 
-            <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
-            ></a-plane>
+        <a-plane position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3" material="src: images/powvector.png">
+        </a-plane>
+
+        <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
 
 
-            <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
-            material="src: images/wa2.png"></a-plane>
-            <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
-            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-            <a-entity camera></a-entity>
-        </a-scene>
-        
-    </body>
+        <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3" material="src: images/wa2.png">
+        </a-plane>
+        <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+    </a-scene>
+
+</body>
 
 
 </html>

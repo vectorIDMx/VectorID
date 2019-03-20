@@ -1,95 +1,113 @@
 <!doctype HTML>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
-    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
-    <script src="scripts/multisrc.js"></script>
-    <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-            <a-entity light="type: ambient; color: #fff"></a-entity>
-            <a-entity light="type: directional; color: #FFF; intensity: 1" position="-0.5 1 1"></a-entity>
-                
-            <a-assets>
-                <img id="piso" src="images/piso.png">
-                <img id="pared" src="images/pared.png">
-                <img id="mensaje" src="images/mensaje.png">
-                
-                <a-asset-item id="checo" src="modelos/checo/scene.gltf"></a-asset-item>
-                <a-asset-item id="chr" src="modelos/chr/scene.gltf"></a-asset-item>
-                <a-asset-item id="franco" src="modelos/franco/scene.gltf"></a-asset-item>
-                <a-asset-item id="memo" src="modelos/memo/scene.gltf"></a-asset-item>
-                <a-asset-item id="mole" src="modelos/mole/scene.gltf"></a-asset-item>
-                <a-asset-item id="poncho" src="modelos/poncho/scene.gltf"></a-asset-item>
-            </a-assets>
-            
-            
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='0'>
-                <a-entity id="escenaId" position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
 
-                    <a-entity gltf-model="#franco" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer></a-entity>
-        
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136675623-1');
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+<!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+<!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+<script src="scripts/multisrc.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene embedded
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <a-entity light="type: ambient; color: #fff"></a-entity>
+        <a-entity light="type: directional; color: #FFF; intensity: 1" position="-0.5 1 1"></a-entity>
+
+        <a-assets>
+            <img id="piso" src="images/piso.png">
+            <img id="pared" src="images/pared.png">
+            <img id="mensaje" src="images/mensaje.png">
+
+            <a-asset-item id="checo" src="modelos/checo/scene.gltf"></a-asset-item>
+            <a-asset-item id="chr" src="modelos/chr/scene.gltf"></a-asset-item>
+            <a-asset-item id="franco" src="modelos/franco/scene.gltf"></a-asset-item>
+            <a-asset-item id="memo" src="modelos/memo/scene.gltf"></a-asset-item>
+            <a-asset-item id="mole" src="modelos/mole/scene.gltf"></a-asset-item>
+            <a-asset-item id="poncho" src="modelos/poncho/scene.gltf"></a-asset-item>
+        </a-assets>
+
+
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='0'>
+            <a-entity id="escenaId" position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
+
+                <a-entity gltf-model="#franco" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer>
                 </a-entity>
-            </a-marker>
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='1'>
-                <a-entity  position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
 
-                    <a-entity gltf-model="#chr" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer></a-entity>
-        
+            </a-entity>
+        </a-marker>
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='1'>
+            <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
+
+                <a-entity gltf-model="#chr" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer>
                 </a-entity>
-            </a-marker>
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='2'>
-                <a-entity  position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
 
-                    <a-entity gltf-model="#poncho" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer></a-entity>
-        
+            </a-entity>
+        </a-marker>
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='2'>
+            <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
+
+                <a-entity gltf-model="#poncho" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer>
                 </a-entity>
-            </a-marker>
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='3'>
-                <a-entity  position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
 
-                    <a-entity gltf-model="#mole" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer></a-entity>
-        
+            </a-entity>
+        </a-marker>
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='3'>
+            <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
+
+                <a-entity gltf-model="#mole" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer>
                 </a-entity>
-            </a-marker>
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='4'>
-                <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
 
-                    <a-entity gltf-model="#checo" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer></a-entity>
-        
+            </a-entity>
+        </a-marker>
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='4'>
+            <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
+
+                <a-entity gltf-model="#checo" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer>
                 </a-entity>
-            </a-marker>
-            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='5'>
-                <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
 
-                    <a-entity gltf-model="#memo" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer></a-entity>
-        
+            </a-entity>
+        </a-marker>
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='barcode' value='5'>
+            <a-entity position="0 0 0" scale=".8 .8 .8" rotation="0 0 0">
+
+                <a-entity gltf-model="#memo" position="0 0 0" scale=".02 .02 .02" rotation="0 0 0" animation-mixer>
                 </a-entity>
-            </a-marker>
 
-            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".2"
-            material="src: images/powvector.png"></a-plane>
+            </a-entity>
+        </a-marker>
 
-            <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
-            ></a-plane>
+        <a-plane position="-.01 -.03 -.1" width=".02" height=".006" opacity=".2" material="src: images/powvector.png">
+        </a-plane>
+
+        <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
 
 
-            
 
-            <!--<a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
+
+        <!--<a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
             material="src: images/wa2.png"></a-plane>
             <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>-->
-            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-            <a-entity camera></a-entity>
-        </a-scene>
-        
-    </body>
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
+    </a-scene>
 
-    <script src="scripts/logica.js"></script>
+</body>
+
+<script src="scripts/logica.js"></script>
+
 </html>
