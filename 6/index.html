@@ -1,0 +1,669 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+    <script src="scripts/multisrc.js"></script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+                <a-entity light="type: ambient; color: #FFF"></a-entity>
+                <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity>
+                
+            <a-assets>
+                <img id="imga" src="images/a.png" >
+                <img id="imgb" src="images/b.png" >
+                <img id="imgc" src="images/c.png" >
+                <img id="imgd" src="images/d.png" >
+                <img id="imge" src="images/e.png" >
+                <img id="imgf" src="images/f.png" >
+                <img id="imgg" src="images/g.png" >
+                <img id="imgh" src="images/h.png" >
+                <img id="imgi" src="images/i.png" >
+                <img id="imgj" src="images/j.png" >
+                <img id="imgk" src="images/k.png" >
+                <img id="imgl" src="images/l.png" >
+                <img id="imgm" src="images/m.png" >
+                <img id="imgn" src="images/n.png" >
+                <img id="imgo" src="images/o.png" >
+                <img id="imgp" src="images/p.png" >
+                <img id="imgq" src="images/q.png" >
+                <img id="imgr" src="images/r.png" >
+                <img id="imgs" src="images/s.png" >
+                <img id="imgt" src="images/t.png" >
+                <img id="imgu" src="images/u.png" >
+                <img id="imgv" src="images/v.png" >
+                <img id="imgw" src="images/w.png" >
+                <img id="imgx" src="images/x.png" >
+                <img id="imgy" src="images/y.png" >
+                <img id="imgz" src="images/z.png" >
+                <img id="img0" src="images/0.png" >
+                <img id="img1" src="images/1.png" >
+                <img id="img2" src="images/2.png" >
+                <img id="img3" src="images/3.png" >
+                <img id="img4" src="images/4.png" >
+                <img id="img5" src="images/5.png" >
+                <img id="img6" src="images/6.png" >
+                <img id="img7" src="images/7.png" >
+                <img id="img8" src="images/8.png" >
+                <img id="img9" src="images/9.png" >
+                <img id="img10" src="images/10.png" >
+                <img id="img11" src="images/11.png" >
+                <img id="img12" src="images/12.png" >
+                <img id="img13" src="images/13.png" >
+                <img id="img14" src="images/14.png" >
+                <img id="img15" src="images/15.png" >
+                <img id="img16" src="images/16.png" >
+                <img id="img17" src="images/17.png" >
+                <img id="img18" src="images/18.png" >
+                <img id="img19" src="images/19.png" >
+                <img id="img20" src="images/20.png" >
+                <img id="img21" src="images/21.png" >
+                <img id="img22" src="images/22.png" >
+                <img id="img23" src="images/23.png" >
+                <img id="img24" src="images/24.png" >
+                <img id="img25" src="images/25.png" >
+                <img id="img26" src="images/26.png" >
+                <img id="img27" src="images/27.png" >
+                
+                
+
+            </a-assets>
+            <!--         -->
+            
+            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='redes-marker.patt'>
+                  
+                <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                    <!--<a-box id="a" position="-.5 .25 0" scale=".5 .5 .5"></a-box>
+                    <a-box id="a" position="0 .25 0" scale=".5 .5 .5"></a-box>
+                    <a-box id="a" position=".5 .25 0" scale=".5 .5 .5"></a-box>
+
+                    <a-box id="a" position="-.5 .75 0" scale=".5 .5 .5"></a-box>
+                    <a-box id="a" position="0 .75 0" scale=".5 .5 .5"></a-box>
+                    <a-box id="a" position=".5 .75 0" scale=".5 .5 .5"></a-box>
+
+                    <a-box id="a" position="-.5 1.25 0" scale=".5 .5 .5"></a-box>
+                    <a-box id="a" position="0 1.25 0" scale=".5 .5 .5"></a-box>
+                    <a-box id="a" position=".5 1.25 0" scale=".5 .5 .5"></a-box>-->
+                    
+                        <a-entity id="entInstaId" position=".75 125 .25" rotation="0 90 0">
+                            <a-plane id="instaId" position=".25 0 0" height=".5" width=".5" material="src: images/instaBrazo.png;" opacity=".9"
+                            >
+                            <a-animation 
+                            attribute="position"
+                            dur="2000"
+                            to=".25 .2 0"
+                            easing="ease-in-sine"
+                            direction="alternate"
+                            repeat="indefinite"
+                            ></a-animation>
+                            </a-plane>
+                            <a-animation 
+                        attribute="rotation"
+                        begin="25000"
+                        dur="1000"
+                        to="0 0 0"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="rotation"
+                        begin="an2"
+                        dur="1000"
+                        to="0 0 0"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="position"
+                        begin="25000"
+                        dur="10"
+                        to=".75 1.25 .25"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="rotation"
+                        begin="an1"
+                        dur="1000"
+                        to="0 90 0"
+                        easing="linear"
+                        ></a-animation>
+                        
+                        
+                        </a-entity>
+                        <a-entity id="entFaceId" position="-.75 125 .25" rotation="0 270 0">
+                            <a-plane id="faceId" position="-.25 0 0" height=".5" width=".5" material="src: images/faceBrazo.png;" opacity=".8"
+                            >
+                            <a-animation 
+                            attribute="position"
+                            dur="2000"
+                            to="-.25 .2 0"
+                            easing="ease-in-sine"
+                            direction="alternate"
+                            repeat="indefinite"
+                            ></a-animation>
+                            </a-plane>
+                            <a-animation 
+                        attribute="rotation"
+                        begin="an2"
+                        dur="1000"
+                        to="0 360 0"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="rotation"
+                        begin="an1"
+                        dur="1000"
+                        to="0 270 0"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="position"
+                        begin="an2"
+                        dur="10"
+                        to="-.75 1.25 .25"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="rotation"
+                        begin="an1"
+                        dur="1000"
+                        to="0 90 0"
+                        easing="linear"
+                        ></a-animation>
+                        
+                        
+                        </a-entity>
+
+                    <a-box id="aid" position="0 0 0" scale="0 0 0" multisrc="srcs:#imga,#imgb,#imgc,#imgd,#imge,#imgf">
+                        <a-animation 
+                        attribute="position"
+                        begin="2500"
+                        dur="1000"
+                        to="0 .25 2"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="scale"
+                        begin="2500"
+                        dur="1000"
+                        to=".5 .5 .5"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="rotation"
+                        dur="3000"
+                        to="0 360 0"
+                        easing="linear"
+                        repeat="6"
+                        ></a-animation>
+                        <a-animation 
+                        attribute="position"
+                        begin="4000"
+                        dur="1000"
+                        from="0 .25 2"
+                        to="-.7 .25 0"
+                        easing="linear"
+                        ></a-animation>
+                        <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                        attribute="position"
+                        begin="23000"
+                        dur="1000"
+                        from="-.7 .25 0"
+                        to="-.5 .45 0"
+                        easing="linear"
+                        ></a-animation>
+                    </a-box>
+                    <a-box id="bid" position="0 0 0" scale="0 0 0" multisrc="srcs:#imgg,#imgh,#imgi,#imgj,#imgk,#imgl">
+                            <a-animation 
+                            attribute="position"
+                            begin="4000"
+                            dur="1000"
+                            to="0 .25 2"
+                            easing="linear"
+                            ></a-animation>
+                            <a-animation 
+                            attribute="scale"
+                            begin="4000"
+                            dur="1000"
+                            to=".5 .5 .5"
+                            easing="linear"
+                            ></a-animation>
+                            <a-animation 
+                            attribute="rotation"
+                            dur="3000"
+                            to="0 360 0"
+                            easing="linear"
+                            repeat="6"
+                            ></a-animation>
+                            <a-animation 
+                            attribute="position"
+                            begin="5500"
+                            dur="1000"
+                            from="0 .25 2"
+                            to="0 .25 0"
+                            easing="linear"
+                            ></a-animation>
+                            <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                            attribute="position"
+                            begin="23000"
+                            dur="1000"
+                            from="0 .25 0"
+                            to="0 .45 0"
+                            easing="linear"
+                            ></a-animation>
+                        </a-box>
+                        <a-box id="cid" position="0 0 0" scale="0 0 0" multisrc="srcs:#imgm,#imgn,#imgo,#imgp,#imgq,#imgr">
+                                <a-animation 
+                                attribute="position"
+                                begin="5500"
+                                dur="1000"
+                                to="0 .25 2"
+                                easing="linear"
+                                ></a-animation>
+                                <a-animation 
+                                attribute="scale"
+                                begin="5500"
+                                dur="1000"
+                                to=".5 .5 .5"
+                                easing="linear"
+                                ></a-animation>
+                                <a-animation 
+                                attribute="rotation"
+                                dur="3000"
+                                to="0 360 0"
+                                easing="linear"
+                                repeat="6"
+                                ></a-animation>
+                                <a-animation 
+                                attribute="position"
+                                begin="7000"
+                                dur="1000"
+                                from="0 .25 2"
+                                to=".7 .25 0"
+                                easing="linear"
+                                ></a-animation>
+                                <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                attribute="position"
+                                begin="23000"
+                                dur="1000"
+                                from=".7 .25 0"
+                                to=".5 .45 0"
+                                easing="linear"
+                                ></a-animation>
+                            </a-box>
+
+                            <a-box id="did" position="0 0 0" scale="0 0 0" multisrc="srcs:#imgs,#imgt,#imgu,#imgv,#imgw,#imgx">
+                                    <a-animation 
+                                    attribute="position"
+                                    begin="8000"
+                                    dur="1000"
+                                    to="0 .25 2"
+                                    easing="linear"
+                                    ></a-animation>
+                                    <a-animation 
+                                    attribute="scale"
+                                    begin="8000"
+                                    dur="1000"
+                                    to=".5 .5 .5"
+                                    easing="linear"
+                                    ></a-animation>
+                                    <a-animation 
+                                    attribute="rotation"
+                                    dur="3000"
+                                    to="0 360 0"
+                                    easing="linear"
+                                    repeat="6"
+                                    ></a-animation>
+                                    <a-animation 
+                                    attribute="position"
+                                    begin="9500"
+                                    dur="1000"
+                                    from="0 .25 2"
+                                    to="-.7 .95 0"
+                                    easing="linear"
+                                    ></a-animation>
+                                    <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                    attribute="position"
+                                    begin="23000"
+                                    dur="1000"
+                                    from="-.7 .95 0"
+                                    to="-.5 .95 0"
+                                    easing="linear"
+                                    ></a-animation>
+                                </a-box>
+                                <a-box id="eid" position="0 0 0" scale="0 0 0" multisrc="srcs:#imgy,#imgz,#img0,#img1,#img2,#img3">
+                                        <a-animation 
+                                        attribute="position"
+                                        begin="9500"
+                                        dur="1000"
+                                        to="0 .25 2"
+                                        easing="linear"
+                                        ></a-animation>
+                                        <a-animation 
+                                        attribute="scale"
+                                        begin="9500"
+                                        dur="1000"
+                                        to=".5 .5 .5"
+                                        easing="linear"
+                                        ></a-animation>
+                                        <a-animation 
+                                        attribute="rotation"
+                                        dur="3000"
+                                        to="0 360 0"
+                                        easing="linear"
+                                        repeat="6"
+                                        ></a-animation>
+                                        <a-animation 
+                                        attribute="position"
+                                        begin="11000"
+                                        dur="1000"
+                                        from="0 .25 2"
+                                        to="0 .95 0"
+                                        easing="linear"
+                                        ></a-animation>
+                                        <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                        attribute="position"
+                                        begin="23000"
+                                        dur="1000"
+                                        from="0 .95 0"
+                                        to="0 .95 0"
+                                        easing="linear"
+                                        ></a-animation>
+                                    </a-box>
+                                    <a-box id="fid" position="0 0 0" scale="0 0 0" multisrc="srcs:#img4,#img5,#img6,#img7,#img8,#img9">
+                                            <a-animation 
+                                            attribute="position"
+                                            begin="11000"
+                                            dur="1000"
+                                            to="0 .25 2"
+                                            easing="linear"
+                                            ></a-animation>
+                                            <a-animation 
+                                            attribute="scale"
+                                            begin="11000"
+                                            dur="1000"
+                                            to=".5 .5 .5"
+                                            easing="linear"
+                                            ></a-animation>
+                                            <a-animation 
+                                            attribute="rotation"
+                                            dur="3000"
+                                            to="0 360 0"
+                                            easing="linear"
+                                            repeat="6"
+                                            ></a-animation>
+                                            <a-animation 
+                                            attribute="position"
+                                            begin="12500"
+                                            dur="1000"
+                                            from="0 .25 2"
+                                            to=".7 .95 0"
+                                            easing="linear"
+                                            ></a-animation>
+                                            <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                            attribute="position"
+                                            begin="23000"
+                                            dur="1000"
+                                            from=".7 .95 0"
+                                            to=".5 .95 0"
+                                            easing="linear"
+                                            ></a-animation>
+                                        </a-box>
+
+
+                                        <a-box id="eid" position="0 0 0" scale="0 0 0" multisrc="srcs:#img10,#img11,#img12,#img13,#img14,#img15">
+                                                <a-animation 
+                                                attribute="position"
+                                                begin="12500"
+                                                dur="1000"
+                                                to="0 .25 2"
+                                                easing="linear"
+                                                ></a-animation>
+                                                <a-animation 
+                                                attribute="scale"
+                                                begin="12500"
+                                                dur="1000"
+                                                to=".5 .5 .5"
+                                                easing="linear"
+                                                ></a-animation>
+                                                <a-animation 
+                                                attribute="rotation"
+                                                dur="3000"
+                                                to="0 360 0"
+                                                easing="linear"
+                                                repeat="6"
+                                                ></a-animation>
+                                                <a-animation 
+                                                attribute="position"
+                                                begin="14000"
+                                                dur="1000"
+                                                from="0 .25 2"
+                                                to="-.7 1.65 0"
+                                                easing="linear"
+                                                ></a-animation>
+                                                <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                attribute="position"
+                                                begin="23000"
+                                                dur="1000"
+                                                from="-.7 1.65 0"
+                                                to="-.5 1.45 0"
+                                                easing="linear"
+                                                ></a-animation>
+                                            </a-box>
+                                            <a-box id="fid" position="0 0 0" scale="0 0 0" multisrc="srcs:#img16,#img17,#img18,#img19,#img20,#img21">
+                                                    <a-animation 
+                                                    attribute="position"
+                                                    begin="14000"
+                                                    dur="1000"
+                                                    to="0 .25 2"
+                                                    easing="linear"
+                                                    ></a-animation>
+                                                    <a-animation 
+                                                    attribute="scale"
+                                                    begin="14000"
+                                                    dur="1000"
+                                                    to=".5 .5 .5"
+                                                    easing="linear"
+                                                    ></a-animation>
+                                                    <a-animation 
+                                                    attribute="rotation"
+                                                    dur="3000"
+                                                    to="0 360 0"
+                                                    easing="linear"
+                                                    repeat="6"
+                                                    ></a-animation>
+                                                    <a-animation 
+                                                    attribute="position"
+                                                    begin="15500"
+                                                    dur="1000"
+                                                    from="0 .25 2"
+                                                    to="0 1.65 0"
+                                                    easing="linear"
+                                                    ></a-animation>
+                                                    <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                    attribute="position"
+                                                    begin="23000"
+                                                    dur="1000"
+                                                    from="0 1.65 0"
+                                                    to="0 1.45 0"
+                                                    easing="linear"
+                                                    ></a-animation>
+                                                </a-box>
+                                                <a-box id="gid" position="0 0 0" scale="0 0 0" multisrc="srcs:#img22,#img23,#img24,#img25,#img26,#img27">
+                                                        <a-animation 
+                                                        attribute="position"
+                                                        begin="15500"
+                                                        dur="1000"
+                                                        to="0 .25 2"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                        attribute="scale"
+                                                        begin="15500"
+                                                        dur="1000"
+                                                        to=".5 .5 .5"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                        attribute="rotation"
+                                                        dur="3000"
+                                                        to="0 360 0"
+                                                        easing="linear"
+                                                        repeat="6"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                        attribute="position"
+                                                        begin="17000"
+                                                        dur="1000"
+                                                        from="0 .25 2"
+                                                        to=".7 1.65 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                        attribute="rotation"
+                                                        begin="21000"
+                                                        dur="1000"
+                                                        
+                                                        to="90 0 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                        <a-animation 
+                                                        attribute="position"
+                                                        begin="23000"
+                                                        dur="1000"
+                                                        from=".7 1.65 0"
+                                                        to=".5 1.45 0"
+                                                        easing="linear"
+                                                        ></a-animation>
+                                                    </a-box>
+
+
+                </a-entity>
+
+            </a-marker>
+
+            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
+            material="src: images/powvector.png"></a-plane>
+
+            <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
+            ></a-plane>
+
+
+            <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
+            material="src: images/wa2.png"></a-plane>
+            <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
+            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+            <a-entity camera></a-entity>
+        </a-scene>
+        
+    </body>
+
+    <script>
+    var botonV = document.getElementById("botonVecId");
+    var botonW = document.getElementById("botonWaId");
+    var insta = document.getElementById("instaId");
+    var EntInsta = document.getElementById("entInstaId");
+    var face = document.getElementById("faceId");
+    var EntFace = document.getElementById("entFaceId");
+
+    
+    
+    
+
+
+
+    console.log("inicia")
+    botonW.addEventListener("click", function(e)
+    {
+        window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20quiero%20saber%20más%20sobre%20Realidad%20Aumentada%20Web");
+    });
+    botonV.addEventListener("click", function(e)
+    {
+        window.open("fb://page/299366750897285");
+    });
+    insta.addEventListener("click",function(e){
+        EntInsta.emit("an1");
+        EntFace.emit("an2");
+        window.setTimeout(function(e){
+            window.open("https://www.instagram.com/tabatajaliloficial/");
+        },2000);
+    });
+    face.addEventListener("click",function(e){
+        EntInsta.emit("an2");
+        EntFace.emit("an1");
+        window.setTimeout(function(e){
+            window.open("fb://page/299366750897285");
+        },2000);
+    });
+    
+    </script>
+</html>
