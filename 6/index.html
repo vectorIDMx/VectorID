@@ -35,7 +35,7 @@
                 <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
                     
                         <a-entity id="entInstaId" position=".75 125 .25" rotation="0 90 0">
-                            <a-plane id="instaId" position=".25 0 0" height=".5" width=".5" material="src: images/instaBrazo.png;" opacity=".9"
+                            <a-plane id="instaId" position=".5 0 0" height="1" width="1" material="src: images/instaBrazo.png;" opacity=".9"
                             >
                             <a-animation 
                             attribute="position"
@@ -48,7 +48,7 @@
                             </a-plane>
                             <a-animation 
                         attribute="rotation"
-                        begin="25000"
+                        begin="12000"
                         dur="1000"
                         to="0 0 0"
                         easing="linear"
@@ -62,7 +62,7 @@
                         ></a-animation>
                         <a-animation 
                         attribute="position"
-                        begin="25000"
+                        begin="12000"
                         dur="10"
                         to=".75 1.25 .25"
                         easing="linear"
@@ -139,10 +139,11 @@
                         <a-animation 
                         attribute="rotation"
                         dur="3000"
-                        to="0 360 0"
+                        to="0 360 360"
                         easing="linear"
-                        repeat="6"
+                        repeat="3"
                         ></a-animation>
+                        
                         <a-animation 
                         attribute="position"
                         begin="4000"
@@ -153,7 +154,7 @@
                         ></a-animation>
                         <a-animation 
                         attribute="rotation"
-                        begin="21000"
+                        begin="12000"
                         dur="1000"
                         
                         to="90 0 0"
