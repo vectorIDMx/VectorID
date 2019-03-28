@@ -210,8 +210,11 @@
     insta.addEventListener("click",function(e){
         EntInsta.emit("an1");
         EntFace.emit("an2");
+
         window.setTimeout(function(e){
             window.open("https://www.instagram.com/tabatajaliloficial/");
+            insta.setAttribute('opacity',"0");
+            face.setAttribute('opacity',"1");
         },2000);
     });
     face.addEventListener("click",function(e){
@@ -219,6 +222,8 @@
         EntFace.emit("an1");
         window.setTimeout(function(e){
             window.open("fb://page/299366750897285");
+            face.setAttribute('opacity',"0");
+            insta.setAttribute('opacity',"1");
         },2000);
     });
     
