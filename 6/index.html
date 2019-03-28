@@ -212,18 +212,20 @@
         EntFace.emit("an2");
 
         window.setTimeout(function(e){
-            window.open("https://www.instagram.com/tabatajaliloficial/");
+            
             insta.setAttribute('opacity',"0");
-            face.setAttribute('opacity',"1");
+            face.setAttribute('opacity',".8");
+            window.open("https://www.instagram.com/tabatajaliloficial/");
         },2000);
     });
     face.addEventListener("click",function(e){
         EntInsta.emit("an2");
         EntFace.emit("an1");
         window.setTimeout(function(e){
-            window.open("fb://page/299366750897285");
+            
             face.setAttribute('opacity',"0");
-            insta.setAttribute('opacity',"1");
+            insta.setAttribute('opacity',".8");
+            window.open("fb://page/299366750897285");
         },2000);
     });
     
