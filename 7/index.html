@@ -226,7 +226,10 @@
 
     <script>
     var botonV = document.getElementById("botonVecId");
-    var botonW = document.getElementById("botonWaId");
+    var whats = document.getElementById("whatsId");
+    var mail = document.getElementById("mailID");
+    var face = document.getElementById("faceId");
+    var web = document.getElementById("webId");
 
 
     
@@ -236,13 +239,25 @@
 
 
     console.log("inicia")
-    botonW.addEventListener("click", function(e)
+    whats.addEventListener("click", function(e)
     {
         window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20quiero%20saber%20más%20sobre%20Realidad%20Aumentada%20Web");
     });
     botonV.addEventListener("click", function(e)
     {
         window.open("fb://page/299366750897285");
+    });
+    mail.addEventListener("click", function(e)
+    {
+        window.open("ricardo.herrera@vectorid.mx");
+    });
+    face.addEventListener("click", function(e)
+    {
+        window.open("fb://page/299366750897285");
+    });
+    web.addEventListener("click", function(e)
+    {
+        window.open("https://vectorid.mx");
     });
 
     
