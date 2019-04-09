@@ -1,0 +1,250 @@
+<!doctype HTML>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136675623-1');
+    </script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+    <script src="scripts/multisrc.js"></script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+                <a-entity light="type: ambient; color: #FFF"></a-entity>
+                <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity>
+                
+            <a-assets>
+             
+                
+
+            </a-assets>
+            <!--         -->
+            
+            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='pattern-marker.patt'>
+                  
+                <a-entity id="escenaId" position="0 0 0" scale="1 1 1" rotation="0 0 0">
+                    <a-plane position="1.4 .1 -.6" width="4" height="2" rotation="-90" opacity=".99" material="
+                    src:images/nada.png">
+                    <a-animation
+                    attribute="position"
+                    begin="5000"
+                    dur="5"
+                    to="120 0 0"
+                    easing="linear">
+
+                    </a-animation>
+                </a-plane>
+
+                    <a-plane position="0 .15 0" width=".7" height=".7" rotation="-90" opacity=".8" material="
+                    src:images/loader.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="0"
+                            dur="700"
+                            to="-90 360 0"
+                            easing="linear"
+                            repeat="indefinite">
+
+                            </a-animation>
+                            <a-animation
+                            attribute="opacity"
+                            begin="3300"
+                            dur="700"
+                            to="0"
+                            easing="linear">
+
+                            </a-animation>
+                            <a-animation
+                    attribute="position"
+                    begin="5000"
+                    dur="5"
+                    to="120 0 0"
+                    easing="linear">
+
+                    </a-animation>
+                    </a-plane>
+                    <a-box position=".5 .2 -1.05" scale=".1 .05 .02" color="#2ED8F2" opacity="0">
+                        <a-animation
+                        attribute="position"
+                        begin="3500"
+                        dur="500"
+                        to="2.5 .2 -1.05">
+                        </a-animation>
+                        <a-animation
+                        attribute="opacity"
+                        begin="3500"
+                        dur="5"
+                        to=".8">
+                        </a-animation>
+                        <a-animation
+                        attribute="opacity"
+                        begin="4000"
+                        dur="5"
+                        to="0">
+                        </a-animation>
+                    </a-box>
+
+                    <a-plane position="0 0 -1.1" width="1" height="1" rotation="-90" opacity="0" material="
+                    src:images/facePhoto.png">
+                        <a-animation
+                        attribute="position"
+                        begin="4000"
+                        dur="500"
+                        to="-1.5 0 -1.1">
+
+                        </a-animation>
+                        <a-animation
+                        attribute="opacity"
+                        begin="4000"
+                        dur="1"
+                        to=".99">
+
+                        </a-animation>
+                    </a-plane>
+
+                    <a-plane position=".2 0 -.4" width="1.5" height=".15" rotation="-90" opacity="0" material="
+                    src:images/nombre.png">
+                        <a-animation
+                            attribute="position"
+                            begin="4200"
+                            dur="500"
+                            to="-1.5 0 -.4">
+
+                        </a-animation>
+                        <a-animation
+                        attribute="opacity"
+                        begin="4200"
+                        dur="1"
+                        to=".99"></a-animation>
+                    
+                    </a-plane>
+
+                    <a-plane position="-2.5 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/msg.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="5200"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="5000"
+                            dur="500"
+                            to=".99">
+
+                        </a-animation>
+                    </a-plane>
+                    <a-plane position="-1.75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/tel.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="5700"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="5500"
+                            dur="500"
+                            to=".99">
+
+                        </a-animation>
+                    </a-plane>
+                    <a-plane position="-1 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/face.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="6200"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="6000"
+                            dur="500"
+                            to=".99">
+
+                        </a-animation>
+                    </a-plane>
+                    <a-plane position="-.25 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/www.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="6700"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="6500"
+                            dur="500"
+                            to=".99">
+
+                        </a-animation>
+                    </a-plane>
+                    
+                </a-entity>
+
+            </a-marker>
+
+            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
+            material="src: images/powvector.png"></a-plane>
+
+            <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
+            ></a-plane>
+
+
+            <a-plane position=".015 -.03 -.1" width=".013" height=".01" opacity=".3"
+            material="src: images/wa2.png"></a-plane>
+            <a-plane id="botonWaId" position="0.05 -0.035 -.099" width=".1" height=".03" opacity="0"></a-plane>
+            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+            <a-entity camera></a-entity>
+        </a-scene>
+        
+    </body>
+
+    <script>
+    var botonV = document.getElementById("botonVecId");
+    var botonW = document.getElementById("botonWaId");
+
+
+    
+    
+    
+
+
+
+    console.log("inicia")
+    botonW.addEventListener("click", function(e)
+    {
+        window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20quiero%20saber%20más%20sobre%20Realidad%20Aumentada%20Web");
+    });
+    botonV.addEventListener("click", function(e)
+    {
+        window.open("fb://page/299366750897285");
+    });
+
+    
+    </script>
+</html>
