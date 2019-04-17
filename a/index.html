@@ -141,7 +141,7 @@
                         </a-plane>
                     </a-entity>
                 <a-entity>
-                    <a-plane position="1.2 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/fb.png" opacity="0">
+                    <a-plane id="fbId" position="1.2 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/fb.png" opacity="0">
                         <a-animation
                         attribute="opacity"
                         begin="6000"
@@ -211,6 +211,11 @@
     </body>
 
     <script>
-    
+        var fb = document.getElementById("fbId");
+
+        fb.addEventListener("click", function(e)
+        {
+            window.open("https://www.vectorid.mx/");
+        });
     </script>
 </html>
