@@ -140,6 +140,7 @@
                         ></a-animation>
                         </a-plane>
                     </a-entity>
+
                 <a-entity>
                     <a-plane id="fbId" position="1.2 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/fb.png" opacity="0">
                         <a-animation
@@ -149,7 +150,7 @@
                         to=".7"
                         ></a-animation>
                     </a-plane>
-                    <a-plane position="2 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/ins.png" opacity="0">
+                    <a-plane id="insId" position="2 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/ins.png" opacity="0">
                         <a-animation
                         attribute="opacity"
                         begin="6200"
@@ -157,7 +158,7 @@
                         to=".7"
                         ></a-animation>
                     </a-plane>
-                    <a-plane position="2.8 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/wats.png" opacity="0">
+                    <a-plane id="whaId" position="2.8 .1 -.35" rotation="-90 0 0" height=".4" width=".4" src="images/wats.png" opacity="0">
                         <a-animation
                         attribute="opacity"
                         begin="6400"
@@ -165,7 +166,7 @@
                         to=".7"
                         ></a-animation>
                     </a-plane>
-                    <a-plane position="1.6 .1 .3" rotation="-90 0 0" height=".4" width=".4" src="images/fb.png" opacity="0">
+                    <a-plane id="gmasId" position="1.6 .1 .3" rotation="-90 0 0" height=".4" width=".4" src="images/gmas.png" opacity="0">
                         <a-animation
                         attribute="opacity"
                         begin="6600"
@@ -173,7 +174,7 @@
                         to=".7"
                         ></a-animation>
                     </a-plane>
-                    <a-plane position="2.4 .1 .3" rotation="-90 0 0" height=".4" width=".4" src="images/fb.png" opacity="0">
+                    <a-plane id="gdId" position="2.4 .1 .3" rotation="-90 0 0" height=".4" width=".4" src="images/gd.png" opacity="0">
                         <a-animation
                         attribute="opacity"
                         begin="6800"
@@ -208,8 +209,28 @@
 
     <script>
         var fb = document.getElementById("fbId");
+        var wha = document.getElementById("whaId");
+        var ins = document.getElementById("insId");
+        var gmas = document.getElementById("gmasId");
+        var gd = document.getElementById("gdId");
 
         fb.addEventListener("click", function(e)
+        {
+            window.open("https://youtu.be/t0NlRzU7mAE");
+        });
+        wha.addEventListener("click", function(e)
+        {
+            window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20me%20gustaria%20saber%20a%20cerca%20de%20...");
+        });
+        ins.addEventListener("click", function(e)
+        {
+            window.open("https://www.instagram.com/vectoridoficial/");
+        });
+        gmas.addEventListener("click", function(e)
+        {
+            window.open("https://www.vectorid.mx/");
+        });
+        gd.addEventListener("click", function(e)
         {
             window.open("https://www.vectorid.mx/");
         });
