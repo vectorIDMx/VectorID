@@ -1,0 +1,90 @@
+<!doctype HTML>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136675623-1');
+    </script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+    <script src="scripts/multisrc.js"></script>
+    <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+
+        
+    </body>
+
+    <script>
+        $(function () {
+        $("#cuerpo").append('<a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; patternRatio: 0.8;"> <a-entity light="type: ambient; color: #FFF"></a-entity> <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity> <a-assets> </a-assets> <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern" url="pattern-b.patt"> <a-entity position="0 0 -.3"> <a-entity id="escenaId" position="2 0 0" scale="1 1 1" rotation="0 0 0"> <a-entity scale="1.5 1.5 1.5"> <a-sphere id="logoId" position="-1.5 -10 .2" radius=".4" opacity="0"> <a-animation attribute="position" begin="5500" dur="10" to="-1.5 .1 .2"> </a-animation> </a-sphere> <a-plane position="-1.5 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/w1.png"> <a-animation attribute="rotation" begin="5700" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="5500" dur="500" to="1"> </a-animation> </a-plane> <a-sphere id="faceId" position="-.75 0 .2"  radius=".4" opacity="0"></a-sphere> <a-plane  position="-.75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/face.png"> <a-animation attribute="rotation" begin="6200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="6000" dur="500" to="1"> </a-animation> </a-plane> <a-sphere id="logo2Id" position="0 .1 .2" radius=".4" opacity="0"></a-sphere> <a-plane  position="0 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/face.png"> <a-animation attribute="rotation" begin="6700" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="6500" dur="500" to="1"> </a-animation> </a-plane> <a-sphere id="face2Id" position=".75 .1 .2" radius=".4" opacity="0"></a-sphere> <a-plane  position=".75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/insta.png"> <a-animation attribute="rotation" begin="7200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="7000" dur="500" to="1"> </a-animation> </a-plane> <a-entity position=".5 0 0"> <a-sphere id="telId" position="-1.5 .1 -.5" radius=".4" opacity="0"></a-sphere> <a-plane  position="-1.5 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/tel.png"> <a-animation attribute="rotation" begin="4200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="4000" dur="500" to="1"> </a-animation> </a-plane> <a-sphere id="whatsId" position="-.75 .1 -.5" radius=".4" opacity="0"></a-sphere> <a-plane position="-.75 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/msg.png"> <a-animation attribute="rotation" begin="4700" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="4500" dur="500" to="1"> </a-animation> </a-plane> <a-sphere id="mapId" position="0 .1 -.5" radius=".4" opacity="0"></a-sphere> <a-plane  position="0 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/ub.png"> <a-animation attribute="rotation" begin="5200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="5000" dur="500" to="1"> </a-animation> </a-plane> </a-entity> </a-entity> </a-entity> <a-plane position="0 .15 0" width=".7" height=".7" rotation="-90" opacity=".8" material=" src:images/loader.png"> <a-animation attribute="rotation" begin="0" dur="700" to="-90 360 0" easing="linear" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="3300" dur="700" to="0" easing="linear"> </a-animation> <a-animation attribute="position" begin="5000" dur="5" to="120 0 0" easing="linear"> </a-animation> </a-plane> </a-entity> </a-marker> <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3" material="src: images/powvector.png"></a-plane> <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0" ></a-plane> <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> --> <a-entity camera></a-entity> </a-scene>');
+        carga();
+    });
+    function carga()
+    {
+          var tel = document.getElementById("telId");
+    var whats = document.getElementById("whatsId");
+    var map = document.getElementById("mapId");
+
+    var face = document.getElementById("faceId");
+    var face2 = document.getElementById("face2Id");
+    var logo = document.getElementById("logoId");
+    var logo2 = document.getElementById("logo2Id");
+
+
+
+
+    
+    
+    
+
+
+
+    console.log("inicia")
+    tel.addEventListener("click", function(e)
+    {
+        window.open("tel:6441560226");
+    });
+    whats.addEventListener("click", function(e)
+    {
+        window.open("https://api.whatsapp.com/send?phone=+5216441560226&text=");
+    });
+    map.addEventListener("click", function(e)
+    {
+        window.open("https://www.google.com/maps/place/Repobox/@27.5028573,-109.9300814,17z/data=!3m1!4b1!4m5!3m4!1s0x86c815953c7f53c9:0xa8312df775005efc!8m2!3d27.5028526!4d-109.9278927");
+    });
+    
+    face.addEventListener("click", function(e)
+    {
+        window.open("fb://page/1153446314675202");
+    });
+    logo.addEventListener("click", function(e)
+    {
+        window.open("http://www.repobox.com.mx");
+    });
+    face2.addEventListener("click", function(e)
+    {
+        window.open("https://www.instagram.com/thehandicapp/");
+    });
+    logo2.addEventListener("click", function(e)
+    {
+        window.open("fb://page/1122685577913445");
+    });  
+    }
+  
+
+
+    
+    </script>
+</html>
