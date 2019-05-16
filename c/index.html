@@ -17,21 +17,247 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="scripts/multisrc.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        
+        <a-scene  embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; patternRatio: 0.8;'>
+            <a-entity light="type: ambient; color: #FFF"></a-entity>
+                <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity>
+            
+            <a-marker markerhandler emitevents="true" cursor="fuse:false; rayOrigin: mouse" type='pattern' url='pattern-b.patt'>
+                
+                <a-entity position="-2 0 0" scale=".8 .8 .8">
+                    <a-plane position=".3 0 1" rotation="-90 0 0" height=".3" width="1.2"  src="images/repobox.png" opacity="0">
+                        <a-animation
+                            attribute="opacity"
+                            begin="8500"
+                            dur="1000"
+                            to=".8"
+                            easing="linear">
+
+                        </a-animation>
+                    </a-plane>
+                    <a-plane position="2.6 0 1" rotation="-90 0 0" height=".3" width="1.5"  src="images/handicapp.png" opacity="0">
+                        <a-animation
+                            attribute="opacity"
+                            begin="8500"
+                            dur="1000"
+                            to=".8"
+                            easing="linear">
+
+                        </a-animation>
+                    </a-plane>
+                   <a-entity id="escenaId" position="2 0 0" scale="1 1 1" rotation="0 0 0">
+                    
+    
+
+                    
+                    <a-entity scale="1.5 1.5 1.5">
+
+
+                        <a-plane id="v4_Id" rotation="-90"  position="-26 -.1 .2" width="50" height=".7" opacity="0"></a-plane>
+                        <a-plane id="v4Id" position="-1.5 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/w1.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="5700"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="5500"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+                    
+                    
+                    <a-plane id="v5Id" position="-.75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/face.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="6200"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="6000"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+                    
+                 
+                    <a-plane id="v6Id" position="0 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/face.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="6700"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="6500"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+                    
+                    <a-plane id="v7_Id" rotation="-90"  position="25.7 -.1 .2" width="50" height=".7" opacity="0"></a-plane>
+                    <a-plane id="v7Id" position=".75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/insta.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="7200"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="7000"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+
+
+
+                
+                    <a-entity position=".5 0 0"> 
+
+                        <!---->
+                <a-plane id="v1v_Id" rotation="-90"  position="-1.5 -.1 -25.2" width=".6" height="50" opacity="0"></a-plane>
+                <a-plane id="v1_Id" rotation="-90"  position="-26.2 -.1 -.5" width="50" height=".7" opacity="0"></a-plane>
+                <a-plane id="v1Id" position="-1.5 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/tel.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="4200"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="4000"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+                    
+                    <a-plane id="v2v_Id" rotation="-90"  position="-0.75 -.1 -25.2" width=".6" height="50" opacity="0"></a-plane>
+                    <a-plane id="v2Id" position="-.75 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/msg.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="4700"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="4500"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+
+                    <a-plane id="v3v_Id" rotation="-90"  position="0 -.1 -25.2" width=".6" height="50" opacity="0"></a-plane>
+                    <a-plane id="v3_Id" rotation="-90"  position="24.7 -.1 -.5" width="50" height=".7" opacity="0"></a-plane>
+                    <a-plane id="v3Id" position="0 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material="
+                    src:images/ub.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="5200"
+                            dur="1000"
+                            to="-90 0 360"
+                            repeat="indefinite">
+
+                        </a-animation>
+                        <a-animation
+                            attribute="opacity"
+                            begin="5000"
+                            dur="500"
+                            to="1">
+
+                        </a-animation>
+                    </a-plane>
+                    </a-entity>
+
+                    
+
+
+
+                    </a-entity>
+
+                    
+                    
+                </a-entity>
+                <a-plane position="2.5 0 0" width=".7" height=".7" rotation="-90" opacity=".8" material="
+                    src:images/loader.png">
+                        <a-animation
+                            attribute="rotation"
+                            begin="0"
+                            dur="700"
+                            to="-90 360 0"
+                            easing="linear"
+                            repeat="indefinite">
+
+                            </a-animation>
+                            <a-animation
+                            attribute="opacity"
+                            begin="3300"
+                            dur="700"
+                            to="0"
+                            easing="linear">
+
+                            </a-animation>
+                            <a-animation
+                    attribute="position"
+                    begin="5000"
+                    dur="5"
+                    to="120 0 0"
+                    easing="linear">
+
+                    </a-animation>
+                    </a-plane> 
+                </a-entity>
+            </a-marker>
+
+            <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
+            material="src: images/powvector.png"></a-plane>
+
+            <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0"
+            ></a-plane>
+            <a-entity camera></a-entity>
+        </a-scene>
         
     </body>
 
     <script>
-
-$(function () {
-        $("#cuerpo").append('<a-scene  embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; patternRatio: 0.8;"> <a-entity light="type: ambient; color: #FFF"></a-entity> <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity> <a-marker markerhandler emitevents="true" cursor="fuse:false; rayOrigin: mouse" type="pattern" url="pattern-b.patt"> <a-entity position="-2 0 0" scale=".8 .8 .8"> <a-plane position=".3 0 1" rotation="-90 0 0" height=".3" width="1.2"  src="images/repobox.png" opacity="0"> <a-animation attribute="opacity" begin="8500" dur="1000" to=".8" easing="linear"> </a-animation> </a-plane> <a-plane position="2.6 0 1" rotation="-90 0 0" height=".3" width="1.5"  src="images/handicapp.png" opacity="0"> <a-animation attribute="opacity" begin="8500" dur="1000" to=".8" easing="linear"> </a-animation> </a-plane> <a-entity id="escenaId" position="2 0 0" scale="1 1 1" rotation="0 0 0"> <a-entity scale="1.5 1.5 1.5"> <a-plane id="v4_Id" rotation="-90"  position="-26 -.1 .2" width="50" height=".7" opacity="0"></a-plane> <a-plane id="v4Id" position="-1.5 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/w1.png"> <a-animation attribute="rotation" begin="5700" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="5500" dur="500" to="1"> </a-animation> </a-plane> <a-plane id="v5Id" position="-.75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/face.png"> <a-animation attribute="rotation" begin="6200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="6000" dur="500" to="1"> </a-animation> </a-plane> <a-plane id="v6Id" position="0 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/face.png"> <a-animation attribute="rotation" begin="6700" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="6500" dur="500" to="1"> </a-animation> </a-plane> <a-plane id="v7_Id" rotation="-90"  position="25.7 -.1 .2" width="50" height=".7" opacity="0"></a-plane> <a-plane id="v7Id" position=".75 0 .2" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/insta.png"> <a-animation attribute="rotation" begin="7200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="7000" dur="500" to="1"> </a-animation> </a-plane> <a-entity position=".5 0 0"> <!----> <a-plane id="v1v_Id" rotation="-90"  position="-1.5 -.1 -25.2" width=".6" height="50" opacity="0"></a-plane> <a-plane id="v1_Id" rotation="-90"  position="-26.2 -.1 -.5" width="50" height=".7" opacity="0"></a-plane> <a-plane id="v1Id" position="-1.5 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/tel.png"> <a-animation attribute="rotation" begin="4200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="4000" dur="500" to="1"> </a-animation> </a-plane> <a-plane id="v2v_Id" rotation="-90"  position="-0.75 -.1 -25.2" width=".6" height="50" opacity="0"></a-plane> <a-plane id="v2Id" position="-.75 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/msg.png"> <a-animation attribute="rotation" begin="4700" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="4500" dur="500" to="1"> </a-animation> </a-plane> <a-plane id="v3v_Id" rotation="-90"  position="0 -.1 -25.2" width=".6" height="50" opacity="0"></a-plane> <a-plane id="v3_Id" rotation="-90"  position="24.7 -.1 -.5" width="50" height=".7" opacity="0"></a-plane> <a-plane id="v3Id" position="0 0 -.5" width=".5" height=".5" rotation="-90" opacity="0" material=" src:images/ub.png"> <a-animation attribute="rotation" begin="5200" dur="1000" to="-90 0 360" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="5000" dur="500" to="1"> </a-animation> </a-plane> </a-entity> </a-entity> </a-entity> <a-plane position="2.5 0 0" width=".7" height=".7" rotation="-90" opacity=".8" material=" src:images/loader.png"> <a-animation attribute="rotation" begin="0" dur="700" to="-90 360 0" easing="linear" repeat="indefinite"> </a-animation> <a-animation attribute="opacity" begin="3300" dur="700" to="0" easing="linear"> </a-animation> <a-animation attribute="position" begin="5000" dur="5" to="120 0 0" easing="linear"> </a-animation> </a-plane> </a-entity> </a-marker> <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3" material="src: images/powvector.png"></a-plane> <a-plane id="botonVecId" position="-.05 -0.035 -.099" width=".1" height=".03" opacity="0" ></a-plane> <a-entity camera></a-entity> </a-scene>');
-        carga();
-    });
-
-    function carga() {
-        var v1 = document.getElementById("v1Id");
+  
+    
+  var v1 = document.getElementById("v1Id");
   var v2 = document.getElementById("v2Id");
     var v3 = document.getElementById("v3Id");
 
@@ -40,6 +266,8 @@ $(function () {
     var v5 = document.getElementById("v5Id");
     var v6 = document.getElementById("v6Id");
     var v7 = document.getElementById("v7Id");
+
+
     
     v1.addEventListener("click", function(e)
     {
@@ -72,6 +300,7 @@ $(function () {
     });
     
 
+
     var v4_ = document.getElementById("v4_Id");
     v4_.addEventListener("click", function(e)
     {
@@ -100,10 +329,26 @@ $(function () {
         window.open("https://www.google.com/maps/place/Repobox/@27.5028573,-109.9300814,17z/data=!3m1!4b1!4m5!3m4!1s0x86c815953c7f53c9:0xa8312df775005efc!8m2!3d27.5028526!4d-109.9278927");
     });
 
-    }
-  
-    
-  
+/////////////////////////////////////////////////////////////////////////////////////////////////
+    var v1v_ = document.getElementById("v1v_Id");
+    v1v_.addEventListener("click", function(e)
+    {
+        console.log("click en plano 1v");
+        window.open("tel:6441560226");
+    });
 
+    var v2v_ = document.getElementById("v2v_Id");
+    v2v_.addEventListener("click", function(e)
+    {
+        console.log("click en plano 2v");
+        window.open("https://api.whatsapp.com/send?phone=+5216441560226&text=");
+    });
+
+    var v3v_ = document.getElementById("v3v_Id");
+    v3v_.addEventListener("click", function(e)
+    {
+        console.log("click en plano 3v");
+        window.open("https://www.google.com/maps/place/Repobox/@27.5028573,-109.9300814,17z/data=!3m1!4b1!4m5!3m4!1s0x86c815953c7f53c9:0xa8312df775005efc!8m2!3d27.5028526!4d-109.9278927");
+    });
     </script>
 </html>
