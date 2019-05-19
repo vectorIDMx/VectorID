@@ -1,0 +1,355 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136675623-1');
+    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<body style='margin : 0px; overflow: hidden;' id="cuerpo">
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
+        <a-marker emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern" url="pattern-v1.patt">
+            <a-entity id="id1" position="0 0 0">
+                    
+                    <a-box id="v1" position="0 .5 0" scale="1 1 1" rotation="0 360 0" material="src: images/vector.jpg">
+                        <a-animation attribute="rotation" dur="5000" to="0 0 0" easing="linear" repeat="indefinite"></a-animation>  
+                        <a-animation
+                        attribute="position"
+                        begin="derecha"
+                        dur="1000"
+                        to="6 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="centro"
+                        dur="1000"
+                        to="0 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="izquierda"
+                        dur="1000"
+                        to="-6 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="dc"
+                        from="6 .5 0"
+                        dur="1000"
+                        to="0 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="ic"
+                        from="-6 .5 0"
+                        dur="1000"
+                        to="0 .5 0"
+                        ></a-animation>
+                    </a-box>
+
+
+                    <a-box id="v2" position="6 .5 0" scale="1 1 1" rotation="0 360 0" material="src: images/vector.jpg">
+                        <a-animation attribute="rotation" dur="5000" to="0 0 0" easing="linear" repeat="indefinite"></a-animation>  
+                        <a-animation
+                        attribute="position"
+                        begin="derecha"
+                        dur="1000"
+                        to="6 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="centro"
+                        dur="1000"
+                        to="0 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="izquierda"
+                        dur="1000"
+                        to="-6 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="dc"
+                        from="6 .5 0"
+                        dur="1000"
+                        to="0 .5 0"
+                        ></a-animation>
+                        <a-animation
+                        attribute="position"
+                        begin="ic"
+                        from="-6 .5 0"
+                        dur="1000"
+                        to="0 .5 0"
+                        ></a-animation>
+                        
+                    </a-box>
+                    
+            </a-entity>
+  
+            
+        </a-marker>
+        <a-plane id="powered" position="-.001 -.03 -.1" width=".02" height=".006" opacity=".3" material="src: images/powvector.png"></a-plane>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+<script>
+
+
+
+// Create the event
+
+
+/*var event2 = new CustomEvent("link2", { "detail": "Example of an event" });
+var event3 = new CustomEvent("link3", { "detail": "Example of an event" });
+var event4 = new CustomEvent("link4", { "detail": "Example of an event" });
+var event5 = new CustomEvent("link5", { "detail": "Example of an event" });*/
+
+
+// Add an event listener
+document.addEventListener("link1", function(e) {
+  console.log(e.detail); // Prints "Example of an event"
+  alert("entra al evento");
+  window.open("https://www.vectorid.mx/");
+});
+
+var event1 = new CustomEvent("link1", { "detail": "Example of an event" });
+
+/*document.addEventListener("link2", function(e) {
+  console.log(e.detail); // Prints "Example of an event"
+  window.open("fb://page/299366750897285");
+});
+document.addEventListener("link3", function(e) {
+  console.log(e.detail); // Prints "Example of an event"
+  window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?");
+});
+document.addEventListener("link4", function(e) {
+  console.log(e.detail); // Prints "Example of an event"
+  window.open("https://www.youtube.com/watch?v=8s4TuIQcLjk");
+});
+document.addEventListener("link5", function(e) {
+  console.log(e.detail); // Prints "Example of an event"
+  window.open("https://www.instagram.com/vectoridoficial/");
+});*/
+
+
+
+        var xIni;
+        var yIni;
+        var canvas = document.getElementById('cuerpo');
+        var cuenta = 0;
+        var direccion = 0;
+        //var v1 = document.getElementById("v1");
+        var status = 1;
+        //var v2 = document.getElementById("v2");
+        //var v3 = document.getElementById("v3");
+
+        
+        canvas.addEventListener('touchstart', function(e){
+            
+            if (e.targetTouches.length == 1) 
+            {
+                direccion=5;
+                 
+                var touch = e.targetTouches[0];
+                
+xIni = touch.pageX;
+                yIni = touch.pageY;
+                
+               // alert("toquesito: " + direccion);
+                window.setTimeout(function(e)
+                {
+                    
+                    if(direccion==5)
+                    {
+                        
+                        
+                        switch(cuenta)
+                        {
+                            
+                            case 0:
+                            {
+                                document.dispatchEvent(event1);
+                                
+                            }break;
+                            case 1:
+                            {
+                                //document.dispatchEvent(event2);
+                                
+                            }break;
+                            case 2:
+                            {
+                                //document.dispatchEvent(event3);
+                            }break;
+                            case 3:
+                            {
+                                //document.dispatchEvent(event4);
+                            }break;
+                            case 4:
+                            {
+                                //document.dispatchEvent(event5);
+                            }break;
+                        }
+                    }
+                if(direccion == 0)
+                {
+                    cuenta++;
+                }else if(direccion == 1){
+                    cuenta--;
+                }
+                
+                
+                if(cuenta >= 5)
+                {
+                    cuenta = 0;
+                }else if(cuenta <= -1)
+                {
+                    cuenta = 4;
+                }
+                console.log("cuenta: " + cuenta);
+                switch(cuenta)
+                {
+                    case 0:
+                    {
+                        if(status==1)
+                        {document.getElementById("v2").setAttribute("material",{src:"images/vector.jpg"});
+                            
+                        }else{document.getElementById("v1").setAttribute("material",{src:"images/vector.jpg"});
+                            
+                        }
+                        
+                        
+                        
+                    }break;
+                    case 1:
+                    {
+                        if(status ==1)
+                        {document.getElementById("v2").setAttribute("material",{src:"images/facebook.jpg"});
+                            
+                        }else{document.getElementById("v1").setAttribute("material",{src:"images/facebook.jpg"});
+                            
+                        }
+                        
+                        
+                    }break;
+                    case 2:
+                    {
+                        if(status==1)
+                        {document.getElementById("v2").setAttribute("material",{src:"images/wa.png"});
+                            
+                        }else{document.getElementById("v1").setAttribute("material",{src:"images/wa.png"});
+                            
+                        }
+                        
+                        
+                    }break;
+                    case 3:
+                    {
+                        if(status==1)
+                        {document.getElementById("v2").setAttribute("material",{src:"images/youtube.jpg"});
+                           
+                        }else{document.getElementById("v1").setAttribute("material",{src:"images/youtube.jpg"});
+                            
+                        }
+                        
+                       
+                    }break;
+                    case 4:
+                    {
+                        if(status==1)
+                        {document.getElementById("v2").setAttribute("material",{src:"images/instagram.png"});
+                            
+                        }else{document.getElementById("v1").setAttribute("material",{src:"images/instagram.png"});
+                            
+                        }
+                        
+                        
+                    }break;
+                }
+
+                if(direccion==0)
+                {
+                   
+                        if(status==1)
+                        {
+                            
+                            
+                            document.getElementById("v2").emit("ic");
+                            document.getElementById("v1").emit("derecha");
+                            status=2;
+                            
+                        }else{
+                            
+                            document.getElementById("v1").emit("ic");
+                            document.getElementById("v2").emit("derecha");
+                            status=1;
+                        }
+                        
+                        
+                    
+                }else if(direccion == 1){
+                   
+                        if(status==1)
+                        {
+                            document.getElementById("v2").emit("dc");
+                            document.getElementById("v1").emit("izquierda");
+                            status=2;
+                            console.log("status 1, izquierda");
+                        }else{
+                            document.getElementById("v1").emit("dc");
+                            document.getElementById("v2").emit("izquierda");
+                            status=1;
+                            console.log("status 2, izquierda");
+                        }
+                        
+                    
+                }
+                console.log("status: " + status);
+                },50);
+                 
+                
+                
+            }
+        }, false);
+
+      canvas.addEventListener('touchmove', function(e){
+            if (e.targetTouches.length == 1) 
+            { 
+                var touch = e.targetTouches[0]; 
+                if((touch.pageX>xIni+20))
+                {
+                    console.log("el swipe se genera hacia la derecha");
+                    direccion=1;
+                    //
+                    
+                    
+                    
+                }else if((touch.pageX<xIni-20)){
+                    console.log("el swipe se genera hacia la izquierda");
+                    direccion=0;
+                    //alert("izquierda");
+                    
+                    
+                }
+                
+            }
+        }, false);
+
+        
+</script>
+
+</html>
