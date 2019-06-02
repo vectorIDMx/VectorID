@@ -220,6 +220,7 @@
             var puntajeRepetido = 0;
             var tiempo = 63;
             var tiempoAgotado=0;
+            var alter=0;
 
             function aleat(min, max) 
             {
@@ -244,12 +245,22 @@
                         //posComY-=1;
                         var posComZ = aleat(-3.5,-2);
                         //posComZ=-posComZ;
-                        var rotY = aleat(0,360);
+                        var rotY = aleat(-360,360);
                         console.log("rotacion: "+rotY);
                         document.getElementById("marciano").setAttribute("rotation",{x:0, y: rotY, z:0});
                         if(tiempoAgotado==0)
                         {
                             caja.setAttribute("scale",{x:.3, y:.3, z:.3});
+                            if(alter==0)
+                            {
+                                caja.setAttribute("material",{src:"images/pp.png"});
+                                alter=1;
+                            }else{
+                                caja.setAttribute("material",{src:"images/vm.jpg"});
+                                alter=0;
+                            }
+                            
+                            
                         }
                         
                         caja.setAttribute("position",{x:0, y: posComY, z:posComZ});
