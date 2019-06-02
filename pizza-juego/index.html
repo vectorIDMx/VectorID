@@ -92,7 +92,7 @@
                 
             </a-marker>
 
-            <a-entity rotation="0 180 0">
+            <a-entity id="global" rotation="0 180 0">
                 <a-entity id="marciano" >
                     <!--<a-gltf-model id="cajaId" src="modelos/martian/scene.gltf" position=".1 0 -3.5" rotation="0 0 0" scale=".3 .3 .3" material="color:white;">
                     <a-animation
@@ -109,6 +109,7 @@
                     to=".001 .001 .001"
                     ></a-animation>
                     </a-gltf-model>-->
+                    
                    <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".3 .3 .3" material="src:images/vm.jpg;">
                     <a-animation
                     attribute="rotation"
@@ -133,7 +134,7 @@
                    ></a-animation>-->
                    
                 </a-entity>
-                <a-entity id="textId" text="value: aPuntaje: 0;" position=".4 0 -1" scale="1 1 1" rotation="0 0 0"></a-entity>
+                <a-entity id="textId" text="value: bPuntaje: 0;" position=".4 0 -1" scale="1 1 1" rotation="0 0 0"></a-entity>
                 <a-entity id="timeId" text="value: 60;" position="4.7 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>
 
                 <a-plane  position="0 0 -2.1" width=".8" height=".44" opacity=".5"
@@ -247,7 +248,7 @@
                         //posComZ=-posComZ;
                         var rotY = aleat(-360,360);
                         console.log("rotacion: "+rotY);
-                        document.getElementById("marciano").setAttribute("rotation",{x:0, y: rotY, z:0});
+                        document.getElementById("global").setAttribute("rotation",{x:0, y: rotY, z:0});
                         if(tiempoAgotado==0)
                         {
                             caja.setAttribute("scale",{x:.3, y:.3, z:.3});
