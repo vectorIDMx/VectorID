@@ -131,7 +131,8 @@
                 </a-entity>
                 
             </a-marker>
-            
+
+            <a-entity rotation="0 180 0">
                 <a-entity id="marciano" >
                    <a-gltf-model id="cajaId" src="modelos/martian/scene.gltf" position=".1 0 -3.5" rotation="0 0 0" scale=".3 .3 .3" material="color:white;">
                     <a-animation
@@ -157,11 +158,14 @@
                    repeat="indefinite"
                    ></a-animation>
                 </a-entity>
-                <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -1" scale="1 1 1" rotation="0 0 0"></a-entity>
+                <a-entity id="textId" text="value: aPuntaje: 0;" position=".4 0 -1" scale="1 1 1" rotation="0 0 0"></a-entity>
                 <a-entity id="timeId" text="value: 60;" position="4.7 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>
 
                 <a-plane  position="0 0 -2.1" width=".8" height=".44" opacity=".5"
                 material="src: images/puntuacion.png"></a-plane>
+            </a-entity>
+            
+                
                 
                   
 
@@ -187,7 +191,7 @@
             
             -->
             <a-entity camera look-controls>
-                <a-entity rotation="0 180 0">
+                
                     <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
                 material="src: images/powvector.png"></a-plane>
                 <a-plane id="clickZone" position="0 0 -.99" width="20" height="20" opacity="0"></a-plane>
@@ -221,7 +225,7 @@
                         direction="alternate"
                         ></a-animation>
                     </a-gltf-model>
-                </a-entity>
+                
                 
                     <!--<a-entity id="timId" text="value: 600;" position="5 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>-->
 
