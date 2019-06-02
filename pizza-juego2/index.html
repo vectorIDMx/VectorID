@@ -1,0 +1,119 @@
+<!doctype HTML>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136675623-1');
+    </script>-->
+    
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var isTargetFound = false;
+        var interacted = false;
+        var dino = null;
+        var cuenta =0;
+            AFRAME.registerComponent("markerhandler",{
+                    init:function() {
+                        console.log('markerhandler-init');
+    
+                       markerObj = document.querySelector('a-marker');
+                       markerObj.hidden = true;
+
+                    },
+    
+                    tick:function() {
+    
+                        if (markerObj != null)
+                            {
+                                if (markerObj.object3D.visible == true) {
+                                    
+                                  if (isTargetFound)
+                                    return;
+    
+                                  isTargetFound = true;
+                                  console.log ("marker visible");
+                                  cuenta++;
+                                  /*if(cuenta == 1)
+                                  {
+                                    document.getElementById("ufo").emit("ufoin");
+                                    document.getElementById("plane").emit("planeout");
+                                    document.getElementById("qr").emit("qrout"); 
+
+                                    window.setTimeout(function(e){
+                                        document.getElementById("cone").emit("conein");
+                                    },4000);
+                                    window.setTimeout(function(e){
+                                        document.getElementById("logo").emit("logoin");
+                                        document.getElementById("box").emit("boxin");
+                                    },4500);
+                                    window.setTimeout(function(e){
+                                        document.getElementById("cone").emit("coneout");
+                                    },6500);
+                                    window.setTimeout(function(e){
+                                        document.getElementById("ufo").emit("ufoout");
+                                    },7000);
+                                    window.setTimeout(function(e){
+                                        document.getElementById("ufo").emit("ufodisa");
+                                    },11000);
+                                  }*/
+                                  
+                                  
+                                  
+                                }
+                                else {
+                                    
+                                  if (!isTargetFound)
+                                    return;
+    
+                                  isTargetFound = false;
+                                console.log ("marker invisible");
+                                }
+                              }
+                      }
+                    });
+        </script>
+    <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; patternRatio:0.8;'>
+                <a-entity light="type: ambient; color: #FFF"></a-entity>
+                <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity>
+                
+<a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='pattern-v3.patt'>
+
+                
+            </a-marker>
+            
+        
+
+                <a-plane  position="0 0 -2.1" width=".8" height=".44" opacity=".5"
+                material="src: images/puntuacion.png"></a-plane>
+
+            <a-entity camera look-controls>
+                <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
+                material="src: images/powvector.png"></a-plane>
+
+
+                <a-plane  position="0 0 -.1" width=".006" height=".006" opacity=".5"
+                material="src: images/mirilla.png"></a-plane>
+
+                    <!--<a-entity id="timId" text="value: 600;" position="5 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>-->
+
+            </a-entity>
+                
+
+                
+            </a-scene>
+            
+        </body>
+    
+</html>
