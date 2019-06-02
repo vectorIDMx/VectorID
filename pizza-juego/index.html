@@ -113,7 +113,7 @@
                     <a-animation
                     attribute="rotation"
                     dur="5000"
-                    to="0 360 0"
+                    to="0 360 360"
                     repeat="indefinite"
                     easing="linear"
                     ></a-animation>
@@ -245,7 +245,7 @@
                         var posComZ = aleat(-3.5,-2);
                         //posComZ=-posComZ;
                         var rotY = aleat(0,360);
-                        //alert(""+posComZ);
+                        console.log("rotacion: "+rotY);
                         document.getElementById("marciano").setAttribute("rotation",{x:0, y: rotY, z:0});
                         if(tiempoAgotado==0)
                         {
