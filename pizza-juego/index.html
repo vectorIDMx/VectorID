@@ -93,7 +93,8 @@
             </a-marker>
 
             <a-entity id="global" rotation="0 180 0">
-                <a-entity id="marciano" rotation="0 30 0">
+                <a-entity id="marPos">
+                    <a-entity id="marciano" rotation="0 30 0">
                     <!--<a-gltf-model id="cajaId" src="modelos/martian/scene.gltf" position=".1 0 -3.5" rotation="0 0 0" scale=".3 .3 .3" material="color:white;">
                     <a-animation
                     attribute="rotation"
@@ -125,16 +126,18 @@
                     to=".001 .001 .001"
                     ></a-animation>
                     </a-box> 
-                    <!--<a-animation
+                    <!---->
+                   <a-animation
                    attribute="rotation"
                    dur="80000"
                    to="0 360 0"
                    easing="linear"
                    repeat="indefinite"
-                   ></a-animation>-->
-                   
+                   ></a-animation>
                 </a-entity>
-                <a-entity id="textId" text="value: aPuntaje: 0;" position=".4 0 -1" scale="1 1 1" rotation="0 0 0"></a-entity>
+                </a-entity>
+                
+                <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -1" scale="1 1 1" rotation="0 0 0"></a-entity>
                 <a-entity id="timeId" text="value: 60;" position="4.7 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>
 
                 <a-plane  position="0 0 -2.1" width=".8" height=".44" opacity=".5"
@@ -248,7 +251,7 @@
                         //posComZ=-posComZ;
                         var rotY = aleat(-360,360);
                         console.log("rotacion: "+rotY);
-                        document.getElementById("global").setAttribute("rotation",{x:0, y: rotY, z:0});
+                        document.getElementById("marPos").setAttribute("rotation",{x:0, y: rotY, z:0});
                         if(tiempoAgotado==0)
                         {
                             caja.setAttribute("scale",{x:.3, y:.3, z:.3});
