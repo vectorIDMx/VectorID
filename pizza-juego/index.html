@@ -187,7 +187,8 @@
             
             -->
             <a-entity camera look-controls>
-                <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
+                <a-entity rotation="0 180 0">
+                    <a-plane  position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
                 material="src: images/powvector.png"></a-plane>
                 <a-plane id="clickZone" position="0 0 -.99" width="20" height="20" opacity="0"></a-plane>
 
@@ -220,6 +221,8 @@
                         direction="alternate"
                         ></a-animation>
                     </a-gltf-model>
+                </a-entity>
+                
                     <!--<a-entity id="timId" text="value: 600;" position="5 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>-->
 
             </a-entity>
