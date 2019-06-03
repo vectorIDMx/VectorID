@@ -144,6 +144,48 @@
                 material="src: images/puntuacion.png"></a-plane>
                 <a-plane  position="-.25 .25 -2" rotation="0 0 20" width=".6" height=".3" opacity=".9"
                 material="src: images/inst1.png"></a-plane>
+
+
+                <a-entity id="logo" position=".25 0 -1.5" scale=".5 .5 .5" rotation="-90 0 0">
+                        <a-sphere position="0 1 0" radius=".125" material="color: yellow;" ></a-sphere>    
+                        <a-entity>
+                            <a-ring position="0 1 0" radius-inner=".15" radius-outer=".2" rotation="-80 0 0" material="color:red;" opacity=".5" ></a-ring>
+                            <a-ring position="0 1 0" radius-inner=".2" radius-outer=".25" rotation="-80 0 0" material="color:yellow;" opacity=".5"></a-ring>
+    
+                            <a-ring position="0 .99 0" radius-inner=".15" radius-outer=".2" rotation="100 0 0" material="color:red;" opacity=".5"></a-ring>
+                            <a-ring position="0 .99 0" radius-inner=".2" radius-outer=".25" rotation="100 0 0" material="color:yellow;" opacity=".5"></a-ring>
+                            <a-animation
+                            attribute="rotation"
+                            dur="3000"
+                            to="0 360 0"
+                            repeat="indefinite"
+                            easing="linear"
+                            ></a-animation>
+                        </a-entity>
+                        <a-entity>
+                            <a-plane position="0 .7 0" rotation="0 0 0" width="1.18" height=".18" material="src:images/logopp.png" opacity=".7"></a-plane>
+                            <a-plane position="0 .7 -.1" rotation="0 180 0" width="1.18" height=".18" material="src:images/logopp.png" opacity=".7"></a-plane>
+                            <a-animation
+                            attribute="rotation"
+                            begin="7000"
+                            dur="1000"
+                            to="0 360 0"
+                            repeat="indefinite"
+                            ></a-animation>
+                        </a-entity>
+                        <a-animation
+                            attribute="position"
+                            begin="logoin"
+                            dur="1500"
+                            to="0 0 0"
+                            ></a-animation>
+                            <a-animation
+                            attribute="scale"
+                            begin="logoin"
+                            dur="1500"
+                            to="1 1 1"
+                            ></a-animation>
+                    </a-entity>
             </a-entity>
             
                 
