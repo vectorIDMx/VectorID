@@ -346,11 +346,12 @@
                         var posComZ = aleat(-3.5,-2);
                         //posComZ=-posComZ;
                         var rotY = aleat(-360,360);
-                        console.log("rotacion: "+rotY);
+                        //console.log("rotacion: "+rotY);
                         document.getElementById("marPos").setAttribute("rotation",{x:0, y: rotY, z:0});
                         if(tiempoAgotado==0)
                         {
                             caja.setAttribute("scale",{x:.3, y:.3, z:.3});
+                            console.log("aparece");
                             if(alter==0)
                             {
                                 caja.setAttribute("material",{src:"images/pp.png"});
