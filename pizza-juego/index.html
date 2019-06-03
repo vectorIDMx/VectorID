@@ -167,20 +167,28 @@
                 ></a-animation>
             </a-plane>
 
-            <a-plane id="continuar"  position="0 0 -2.1" width=".4" height=".2" opacity=".9"
+            <a-plane id="continuar"  position="0 0 -2" width=".4" height=".2" opacity=".9"
                 material="src: images/continuar.png">
                 <a-animation
-                attribute="opacity"
+                attribute="position"
                 begin="continuarOut"
-                dur="1000"
-                to=".5"
+                dur="100"
+                to="500 500 500"
                 easing="linear"
                 ></a-animation>
             </a-plane>
 
 
-                <a-plane id="inst" position="0 .2 -2" rotation="0 0 2" width=".6" height=".3" opacity=".9"
-                material="src: images/inst1.png"></a-plane>
+                <a-plane id="inst" position="0 .4 -2" rotation="0 0 2" width=".6" height=".3" opacity=".9"
+                material="src: images/inst1.png">
+                <a-animation
+                attribute="position"
+                begin="continuarOut"
+                dur="100"
+                to="500 500 500"
+                easing="linear"
+                ></a-animation>
+            </a-plane>
 
 
                 <a-entity id="logo" position="0 0 -2" scale="1 1 1" rotation="0 0 0">
@@ -210,18 +218,7 @@
                             repeat="indefinite"
                             ></a-animation>
                         </a-entity>
-                        <a-animation
-                            attribute="position"
-                            begin="logoin"
-                            dur="1500"
-                            to="0 0 0"
-                            ></a-animation>
-                            <a-animation
-                            attribute="scale"
-                            begin="logoin"
-                            dur="1500"
-                            to="1 1 1"
-                            ></a-animation>
+                       
                     </a-entity>
             </a-entity>
             
@@ -310,6 +307,8 @@
             var tiempo = 63;
             var tiempoAgotado=0;
             var alter=0;
+            var continuar = document.getElementById("continuar");
+            var balaCont = 0;
 
             function aleat(min, max) 
             {
@@ -320,6 +319,14 @@
             {
                 crash.emit("anCrash");
                 console.log("crash");
+                if(balaCont==1)
+                {
+                    document.getElementById("textId").emit("marcadorIn");
+                    document.getElementById("timeId").emit("marcadorIn");
+                    document.getElementById("puntuacion").emit("marcadorIn");
+                    document.getElementById("inst").emit("continuarOut");
+                    document.getElementById("inst").emit("continuarOut");
+                }
                 if(matchBala == 1)
                 {
                     console.log("disparo certero");
@@ -368,6 +375,19 @@
             caja.addEventListener("mouseleave", function(e)
             {
                 matchBala = 0;
+                console.log("leave");
+                //document.getElementById("cajaId").setAttribute("material",{color:"red"});
+            });
+            //////////////////////////
+            continuar.addEventListener("mouseenter", function(e)
+            {
+                balaCont = 1;
+                console.log("enter");
+                //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+            });
+            continuar.addEventListener("mouseleave", function(e)
+            {
+                balaCont = 0;
                 console.log("leave");
                 //document.getElementById("cajaId").setAttribute("material",{color:"red"});
             });
