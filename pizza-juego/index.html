@@ -111,7 +111,7 @@
                     ></a-animation>
                     </a-gltf-model>-->
                     
-                   <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".3 .3 .3" material="src:images/vm.jpg;">
+                   <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003" material="src:images/vm.jpg;">
                     <a-animation
                     attribute="rotation"
                     dur="5000"
@@ -129,10 +129,11 @@
                     <!---->
                    <a-animation
                    attribute="rotation"
+                   begin="cajaRot"
                    dur="80000"
                    to="0 360 0"
                    easing="linear"
-                   repeat="indefinite"
+                   repeat="50"
                    ></a-animation>
                 </a-entity>
                 </a-entity>
@@ -304,7 +305,7 @@
             var caja = document.getElementById("cajaId");
             var score = 0;
             var puntajeRepetido = 0;
-            var tiempo = 63;
+            var tiempo = 0;
             var tiempoAgotado=0;
             var alter=0;
             var continuar = document.getElementById("continuar");
@@ -321,11 +322,15 @@
                 console.log("crash");
                 if(balaCont==1)
                 {
+
                     document.getElementById("textId").emit("marcadorIn");
                     document.getElementById("timeId").emit("marcadorIn");
                     document.getElementById("puntuacion").emit("marcadorIn");
                     document.getElementById("inst").emit("continuarOut");
                     document.getElementById("continuar").emit("continuarOut");
+                    time=60;
+                    caja.setAttribute("scale",{x:.3, y:.3, z:.3});
+                    caja.emit("cajaRot");
                 }
                 if(matchBala == 1)
                 {
