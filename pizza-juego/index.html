@@ -129,7 +129,6 @@
                     <!---->
                    <a-animation
                    attribute="rotation"
-                   begin="cajaRot"
                    dur="80000"
                    to="0 360 0"
                    easing="linear"
@@ -330,7 +329,7 @@
                     document.getElementById("continuar").emit("continuarOut");
                     time=60;
                     caja.setAttribute("scale",{x:.3, y:.3, z:.3});
-                    caja.emit("cajaRot");
+                    //document.getElementById("marciano").emit("cajaRot");
                 }
                 if(matchBala == 1)
                 {
