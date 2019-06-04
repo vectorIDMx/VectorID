@@ -43,32 +43,7 @@
                                   isTargetFound = true;
                                   console.log ("marker visible");
                                   cuenta++;
-                                  /*if(cuenta == 1)
-                                  {
-                                    document.getElementById("ufo").emit("ufoin");
-                                    document.getElementById("plane").emit("planeout");
-                                    document.getElementById("qr").emit("qrout"); 
 
-                                    window.setTimeout(function(e){
-                                        document.getElementById("cone").emit("conein");
-                                    },4000);
-                                    window.setTimeout(function(e){
-                                        document.getElementById("logo").emit("logoin");
-                                        document.getElementById("box").emit("boxin");
-                                    },4500);
-                                    window.setTimeout(function(e){
-                                        document.getElementById("cone").emit("coneout");
-                                    },6500);
-                                    window.setTimeout(function(e){
-                                        document.getElementById("ufo").emit("ufoout");
-                                    },7000);
-                                    window.setTimeout(function(e){
-                                        document.getElementById("ufo").emit("ufodisa");
-                                    },11000);
-                                  }*/
-                                  
-                                  
-                                  
                                 }
                                 else {
                                     
@@ -93,13 +68,13 @@
             </a-marker>
 
             <a-entity id="global" rotation="0 180 0">
-                <a-entity id="marPos">
+                <a-entity id="marPos" rotation="0 0 0">
                     <a-entity id="marciano" rotation="0 0 0">
-                    <!--<a-gltf-model id="cajaId" src="modelos/martian/scene.gltf" position=".1 0 -3.5" rotation="0 0 0" scale=".3 .3 .3" material="color:white;">
+                   <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003" material="src:images/vm.jpg;">
                     <a-animation
                     attribute="rotation"
                     dur="5000"
-                    to="0 360 0"
+                    to="0 360 360"
                     repeat="indefinite"
                     easing="linear"
                     ></a-animation>
@@ -109,9 +84,80 @@
                     dur="500"
                     to=".001 .001 .001"
                     ></a-animation>
-                    </a-gltf-model>-->
-                    
-                   <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003" material="src:images/vm.jpg;">
+                    </a-box> 
+                    <!---->
+                   <a-animation
+                   attribute="rotation"
+                   dur="80000"
+                   to="0 360 0"
+                   easing="linear"
+                   repeat="50"
+                   ></a-animation>
+                </a-entity>
+                </a-entity>
+                <!----------------------------------------------------------------->
+                <a-entity id="marPos2" rotation="0 90 0">
+                    <a-entity id="marciano2" rotation="0 0 0">
+
+                   <a-box id="cajaId2" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003" material="src:images/pp.png;">
+                    <a-animation
+                    attribute="rotation"
+                    dur="5000"
+                    to="0 360 360"
+                    repeat="indefinite"
+                    easing="linear"
+                    ></a-animation>
+                    <a-animation
+                    attribute="scale"
+                    begin="anScale"
+                    dur="500"
+                    to=".001 .001 .001"
+                    ></a-animation>
+                    </a-box> 
+                    <!---->
+                   <a-animation
+                   attribute="rotation"
+                   dur="80000"
+                   to="0 360 0"
+                   easing="linear"
+                   repeat="50"
+                   ></a-animation>
+                </a-entity>
+                </a-entity>
+                <!----------------------------------------------------------------->
+                <a-entity id="marPos3" rotation="0 180 0">
+                    <a-entity id="marciano3" rotation="0 0 0">
+
+                   <a-box id="cajaId3" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003" material="src:images/vm.jpg;">
+                    <a-animation
+                    attribute="rotation"
+                    dur="5000"
+                    to="0 360 360"
+                    repeat="indefinite"
+                    easing="linear"
+                    ></a-animation>
+                    <a-animation
+                    attribute="scale"
+                    begin="anScale"
+                    dur="500"
+                    to=".001 .001 .001"
+                    ></a-animation>
+                    </a-box> 
+                    <!---->
+                   <a-animation
+                   attribute="rotation"
+                   dur="80000"
+                   to="0 360 0"
+                   easing="linear"
+                   repeat="50"
+                   ></a-animation>
+                </a-entity>
+                </a-entity>
+                <!----------------------------------------------------------------->
+                <a-entity id="marPos4" rotation="0 270 0">
+                    <a-entity id="marciano4" rotation="0 0 0">
+
+                   <a-box id="cajaId4" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003" material="src:images/pp.png;">
                     <a-animation
                     attribute="rotation"
                     dur="5000"
@@ -300,8 +346,14 @@
     
         <script>
             var matchBala = 0;
+            var matchBala2 = 0;
+            var matchBala3 = 0;
+            var matchBala4 = 0;
             var crash = document.getElementById("crashId");
             var caja = document.getElementById("cajaId");
+            var caja2 = document.getElementById("cajaId2");
+            var caja3 = document.getElementById("cajaId3");
+            var caja4 = document.getElementById("cajaId4");
             var score = 0;
             var puntajeRepetido = 0;
             var tiempo = 600;
@@ -329,6 +381,9 @@
                     document.getElementById("continuar").emit("continuarOut");
                     tiempo=60;
                     caja.setAttribute("scale",{x:.3, y:.3, z:.3});
+                    caja2.setAttribute("scale",{x:.3, y:.3, z:.3});
+                    caja3.setAttribute("scale",{x:.3, y:.3, z:.3});
+                    caja4.setAttribute("scale",{x:.3, y:.3, z:.3});
                     //document.getElementById("marciano").emit("cajaRot");
                 }
                 if(matchBala == 1)
@@ -369,6 +424,124 @@
                         caja.setAttribute("position",{x:0, y: posComY, z:posComZ});
                     },1000);
                 }
+                //-------------------------------------------------------------------------------
+                if(matchBala2 == 1)
+                {
+                    console.log("disparo certero");
+                    //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+                    
+                    caja2.emit("anScale");
+                    puntajeRepetido=1;
+                    /**/
+                    window.setTimeout(function(e)
+                    {
+                        var posComY = aleat(-1,1);
+                        //posComY-=1;
+                        var posComZ = aleat(-3.5,-2);
+                        //posComZ=-posComZ;
+                        var rotY = aleat(-360,360);
+                        //console.log("rotacion: "+rotY);
+                        document.getElementById("marPos2").setAttribute("rotation",{x:0, y: rotY, z:0});
+                        if(tiempoAgotado==0)
+                        {
+                            caja2.setAttribute("scale",{x:.3, y:.3, z:.3});
+                            console.log("aparece");
+                            if(alter==0)
+                            {
+                                caja2.setAttribute("material",{src:"images/pp.png"});
+                                alter=1;
+                                console.log("pizza");
+                            }else{
+                                caja2.setAttribute("material",{src:"images/vm.jpg"});
+                                alter=0;
+                                console.log("vm");
+                            }
+                            
+                            
+                        }
+                        
+                        caja2.setAttribute("position",{x:0, y: posComY, z:posComZ});
+                    },1000);
+                }
+                //-------------------------------------------------------------------------------
+                if(matchBala3 == 1)
+                {
+                    console.log("disparo certero");
+                    //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+                    
+                    caja3.emit("anScale");
+                    puntajeRepetido=1;
+                    /**/
+                    window.setTimeout(function(e)
+                    {
+                        var posComY = aleat(-1,1);
+                        //posComY-=1;
+                        var posComZ = aleat(-3.5,-2);
+                        //posComZ=-posComZ;
+                        var rotY = aleat(-360,360);
+                        //console.log("rotacion: "+rotY);
+                        document.getElementById("marPos3").setAttribute("rotation",{x:0, y: rotY, z:0});
+                        if(tiempoAgotado==0)
+                        {
+                            caja3.setAttribute("scale",{x:.3, y:.3, z:.3});
+                            console.log("aparece");
+                            if(alter==0)
+                            {
+                                caja3.setAttribute("material",{src:"images/pp.png"});
+                                alter=1;
+                                console.log("pizza");
+                            }else{
+                                caja3.setAttribute("material",{src:"images/vm.jpg"});
+                                alter=0;
+                                console.log("vm");
+                            }
+                            
+                            
+                        }
+                        
+                        caja3.setAttribute("position",{x:0, y: posComY, z:posComZ});
+                    },1000);
+                }
+                //-------------------------------------------------------------------------------
+                if(matchBala4 == 1)
+                {
+                    console.log("disparo certero");
+                    //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+                    
+                    caja4.emit("anScale");
+                    puntajeRepetido=1;
+                    /**/
+                    window.setTimeout(function(e)
+                    {
+                        var posComY = aleat(-1,1);
+                        //posComY-=1;
+                        var posComZ = aleat(-3.5,-2);
+                        //posComZ=-posComZ;
+                        var rotY = aleat(-360,360);
+                        //console.log("rotacion: "+rotY);
+                        document.getElementById("marPos4").setAttribute("rotation",{x:0, y: rotY, z:0});
+                        if(tiempoAgotado==0)
+                        {
+                            caja4.setAttribute("scale",{x:.3, y:.3, z:.3});
+                            console.log("aparece");
+                            if(alter==0)
+                            {
+                                caja4.setAttribute("material",{src:"images/pp.png"});
+                                alter=1;
+                                console.log("pizza");
+                            }else{
+                                caja4.setAttribute("material",{src:"images/vm.jpg"});
+                                alter=0;
+                                console.log("vm");
+                            }
+                            
+                            
+                        }
+                        
+                        caja4.setAttribute("position",{x:0, y: posComY, z:posComZ});
+                    },1000);
+                }
+                //-------------------------------------------------------------------------------
             });
 
             caja.addEventListener("mouseenter", function(e)
@@ -380,6 +553,45 @@
             caja.addEventListener("mouseleave", function(e)
             {
                 matchBala = 0;
+                console.log("leave");
+                //document.getElementById("cajaId").setAttribute("material",{color:"red"});
+            });
+            //////////////////////////
+            caja2.addEventListener("mouseenter", function(e)
+            {
+                matchBala2 = 1;
+                console.log("enter");
+                //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+            });
+            caja2.addEventListener("mouseleave", function(e)
+            {
+                matchBala2 = 0;
+                console.log("leave");
+                //document.getElementById("cajaId").setAttribute("material",{color:"red"});
+            });
+            //////////////////////////
+            caja3.addEventListener("mouseenter", function(e)
+            {
+                matchBala3 = 1;
+                console.log("enter");
+                //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+            });
+            caja3.addEventListener("mouseleave", function(e)
+            {
+                matchBala3 = 0;
+                console.log("leave");
+                //document.getElementById("cajaId").setAttribute("material",{color:"red"});
+            });
+            //////////////////////////
+            caja4.addEventListener("mouseenter", function(e)
+            {
+                matchBala4 = 1;
+                console.log("enter");
+                //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
+            });
+            caja4.addEventListener("mouseleave", function(e)
+            {
+                matchBala4 = 0;
                 console.log("leave");
                 //document.getElementById("cajaId").setAttribute("material",{color:"red"});
             });
@@ -418,6 +630,9 @@
                 {
                     tiempoAgotado=1;
                     caja.setAttribute("scale",{x:.0001, y:.0001, z:.0001});
+                    caja2.setAttribute("scale",{x:.0001, y:.0001, z:.0001});
+                    caja3.setAttribute("scale",{x:.0001, y:.0001, z:.0001});
+                    caja4.setAttribute("scale",{x:.0001, y:.0001, z:.0001});
                 }
                 
             },1000);
