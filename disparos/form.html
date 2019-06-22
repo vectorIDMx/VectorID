@@ -114,8 +114,10 @@
 
                     var arrayData = arrayJSON(nombre,tel,mail,nick,score);
                     datos.set(arrayData);
+                    alert("Tus datos se han guardado!");
+                    window.close();
                 }else{
-                    alert("Ahora ya hay un puntaje mas alto, sorry");
+                    alert("Ahora ya hay un puntaje mas alto, intentalo de nuevo");
                 }
                 
             });
