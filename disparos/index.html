@@ -451,14 +451,17 @@
             {
                 return (Math.random() * (max - min) + min);
             }
-
-            document.getElementById("clickZone").addEventListener("click", function(e)
+            document.getElementById("newrecord").addEventListener("click",function(e)
             {
                 if(newRecord)
                 {
                     var val = ((score*5)/2)+7;
                     window.open("http://localhost:8080/disparos/form.html?qw="+score+"&val="+val);
                 }
+            });
+            document.getElementById("clickZone").addEventListener("click", function(e)
+            {
+                
                 crash.emit("anCrash");
                 console.log("crash");
                 if(balaCont==1)
