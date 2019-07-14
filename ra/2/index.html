@@ -181,10 +181,10 @@
                 ></a-animation>
             </a-plane>
             <!--Planos clickables-->
-            <a-plane position="-25.9 -.01 1" rotation="-90 0 0" width="50" height=".5"></a-plane>
-            <a-plane position="25.7 -.01 1" rotation="-90 0 0" width="50" height=".5"></a-plane>
-            <a-plane position="-.5 0 1" rotation="-90 0 0" width=".5" height="50"></a-plane>
-            <a-plane position=".2 0 1" rotation="-90 0 0" width=".5" height="50"></a-plane>
+            <a-plane id="clk1" position="-25.9 -.01 1" rotation="-90 0 0" width="50" height=".5"></a-plane>
+            <a-plane id="clk4" position="25.7 -.01 1" rotation="-90 0 0" width="50" height=".5"></a-plane>
+            <a-plane id="clk2" position="-.5 0 1" rotation="-90 0 0" width=".5" height="50"></a-plane>
+            <a-plane id="clk3" position=".2 0 1" rotation="-90 0 0" width=".5" height="50"></a-plane>
         </a-marker>
 
         <a-entity camera></a-entity>
@@ -206,17 +206,36 @@
     var btn3 = document.getElementById("btn3");
     var btn4 = document.getElementById("btn4");
 
+    var clk1 = document.getElementById("clk1");
+    var clk2 = document.getElementById("clk2");
+    var clk3 = document.getElementById("clk3");
+    var clk4 = document.getElementById("clk4");
+
+    clk1.addEventListener("click", function(e){
+        alert("clk1");
+    });
+    clk2.addEventListener("click", function(e){
+        alert("clk2");
+    });
+    clk3.addEventListener("click", function(e){
+        alert("clk3");
+    });
+    clk4.addEventListener("click", function(e){
+        alert("clk4");
+    });
+
+
     btn1.addEventListener("click", function(e){
-        alert("este wey me pico! btn1");
+        alert("btn1");
     });
     btn2.addEventListener("click", function(e){
-        alert("este wey me pico! btn2");
+        alert("btn2");
     });
     btn3.addEventListener("click", function(e){
-        alert("este wey me pico! btn3");
+        alert("btn3");
     });
     btn4.addEventListener("click", function(e){
-        alert("este wey me pico! btn4");
+        alert("btn4");
     });
 
 
