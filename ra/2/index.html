@@ -181,10 +181,10 @@
                 ></a-animation>
             </a-plane>
             <!--Planos clickables-->
-            <a-plane id="clk1" position="-25.9 -.01 1" rotation="-90 0 0" width="50" height=".5"></a-plane>
-            <a-plane id="clk4" position="25.6 -.01 1" rotation="-90 0 0" width="50" height=".5"></a-plane>
-            <a-plane id="clk2" position="-.5 -.01 1" rotation="-90 0 0" width=".7" height="50"></a-plane>
-            <a-plane id="clk3" position=".2 -.01 1" rotation="-90 0 0" width=".7" height="50"></a-plane>
+            <a-plane id="clk1" position="-25.9 -.01 1" rotation="-90 0 0" width="50" height=".5" opacity="0"></a-plane>
+            <a-plane id="clk4" position="25.6 -.01 1" rotation="-90 0 0" width="50" height=".5" opacity="0"></a-plane>
+            <a-plane id="clk2" position="-.5 -.01 1" rotation="-90 0 0" width=".7" height="50" opacity="0"></a-plane>
+            <a-plane id="clk3" position=".2 -.01 1" rotation="-90 0 0" width=".7" height="50" opacity="0"></a-plane>
         </a-marker>
 
         <a-entity camera></a-entity>
@@ -212,16 +212,16 @@
     var clk4 = document.getElementById("clk4");
 
     clk1.addEventListener("click", function(e){
-        alert("clk1");
+        window.open("https://api.whatsapp.com/send?phone=+5215583520531&text=Hola!%20en%20que%20podemos%20ayudarte?");
     });
     clk2.addEventListener("click", function(e){
-        alert("clk2");
+        window.open("fb://page/100000931927523");
     });
     clk3.addEventListener("click", function(e){
-        alert("clk3");
+        window.open("tel:5583520531");
     });
     clk4.addEventListener("click", function(e){
-        alert("clk4");
+        window.open("www.miguelangelgutierrez.com.mx");
     });
 
     /*btn1.addEventListener("click", function(e){
@@ -229,10 +229,10 @@
     });*/
     
     btn2.addEventListener("click", function(e){
-        alert("btn2");
+        window.open("fb://page/100000931927523");
     });
     btn3.addEventListener("click", function(e){
-        alert("btn3");
+        window.open("tel:5583520531");
     });
     /*btn4.addEventListener("click", function(e){
         alert("btn4");
