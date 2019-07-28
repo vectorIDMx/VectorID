@@ -19,6 +19,7 @@
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script>
         var isTargetFound = false;
         var interacted = false;
@@ -60,7 +61,14 @@
                     });
         </script>
     <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
-        
+        <div id="ventana">
+            <div id="contenido">
+                <p class="centrar">Haz click aqui para registrar tu nuevo record!</p>
+                <div id="butId">
+                    <button onClick="abreRegistro()">OK</button>  
+                </div>
+            </div>
+        </div>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
         <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; patternRatio:0.8;'>
                 <a-entity light="type: ambient; color: #FFF"></a-entity>
@@ -421,6 +429,17 @@
         }
         return data;
     }
+    function abreRegistro()
+    {
+        console.log("clickbutton");
+        if(newRecord)
+        {
+            console.log("Haciendo click en el nuevo record2...")
+            var val = ((score*5)/2)+7;
+            window.open("https://www.vectorid.mx/disparos/form.html?qw="+score+"&val="+val);
+            window.close();
+        }
+    }
 /*function haceClick()
     {
         var dato1 = document.getElementById("dato1").value;
@@ -451,7 +470,7 @@
             {
                 return (Math.random() * (max - min) + min);
             }
-            document.getElementById("cuerpo").addEventListener("touchstart",function(e)
+            /* document.getElementById("cuerpo").addEventListener("touchstart",function(e)
             {
                 if(newRecord)
                 {
@@ -460,7 +479,7 @@
                     window.open("https://www.vectorid.mx/disparos/form.html?qw="+score+"&val="+val);
                     window.close();
                 }
-            });
+            }); */
             document.getElementById("cuerpo").addEventListener("touchstart", function(e)
             {
                 
@@ -738,8 +757,9 @@
                         if(accept==0)
                         {
                             document.getElementById("timeId").setAttribute("text",{value: "Nuevo record!"});
+                            document.getElementById('ventana').style.display = 'flex';
                             alert("Felicidades! eres el nuevo ganador");
-                            document.getElementById("newrecord").emit("newRecordIn");
+                            //document.getElementById("newrecord").emit("newRecordIn");
                             newRecord=1;
                             console.log("Nuevo record");
                             accept=1;
@@ -753,7 +773,7 @@
                     //task.set(arrayData);
                 }
                 
-            },1000);
+            },100);
             
             
         </script>   
