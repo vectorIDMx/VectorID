@@ -451,7 +451,7 @@
             {
                 return (Math.random() * (max - min) + min);
             }
-            /* document.getElementById("cuerpo").addEventListener("click",function(e)
+            document.getElementById("cuerpo").addEventListener("touchstart",function(e)
             {
                 if(newRecord)
                 {
@@ -460,19 +460,13 @@
                     window.open("https://www.vectorid.mx/disparos/form.html?qw="+score+"&val="+val);
                     window.close();
                 }
-            }); */
+            });
             document.getElementById("cuerpo").addEventListener("touchstart", function(e)
             {
                 
                 crash.emit("anCrash");
                 console.log("crash");
-                if(newRecord)
-                {
-                    console.log("Haciendo click en el nuevo record...")
-                    var val = ((score*5)/2)+7;
-                    window.open("https://www.vectorid.mx/disparos/form.html?qw="+score+"&val="+val);
-                    window.close();
-                }
+                
                 if(balaCont==1)
                 {
 
