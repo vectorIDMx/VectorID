@@ -1,0 +1,104 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+#ventana{
+    /* position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#playAgain{
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#puntuacionBan{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenido{
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60vw;
+    /* min-height: 30vw; */
+    background: rgba(34, 225, 250,.4);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+.contenido2{
+    
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    justify-content: center;
+    flex-direction: column;
+    /* width: 60vw; */
+    /* min-height: 30vw; */
+    background: rgba(34, 225, 250,.4);
+    color: white;
+    padding: 0px 10px 0px 10px;
+}
+.contenido2 ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+}
+.butId{
+    display: flex;
+    justify-content: center;
+}
+.centrar{
+    text-align: center;
+    margin: 10px;
+}
+button{
+    background: rgb(252, 227, 8);
+    color: white;
+    min-width: 80px;
+    min-height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+#formulario{
+    display: none;
+    justify-content: center;    
+}
+#for{
+    margin-top: 55px;
+    width: 90vw;
+    height: 80vh;
+    background: rgba(34, 225, 250,.4);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.inline li{
+    display: inline-block;
+}
+#tiempoBan{
+    font-size: 2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(0, 101, 196);
+}
