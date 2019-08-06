@@ -86,8 +86,8 @@ button{
 }
 #for{
     margin-top: 55px;
-    min-width: 10px;
-    height: 80vh;
+    width: 90vw;
+    min-height: 10px;
     background: rgba(34, 225, 250,.4);
     border-radius: 10px;
     color: white;
