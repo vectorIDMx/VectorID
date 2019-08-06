@@ -22,7 +22,7 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style4.css">
     <script>
         var isTargetFound = false;
         var interacted = false;
@@ -99,19 +99,19 @@
                 <br><br><br>
                 <form action="">
                     <div class="form-group">
-                        <label for="nombre">NickName:</label>
+                        <!-- <label for="nombre">NickName:</label> -->
                         <input id="nickId" class="form-control" type="text" placeholder="nickName">
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Nombre:</label>
+                        <!-- <label for="nombre">Nombre:</label> -->
                         <input id="nombreId" class="form-control" type="text" placeholder="nombre">
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Telefono:</label>
+                        <!-- <label for="nombre">Telefono:</label> -->
                         <input id="telId" class="form-control" type="text" placeholder="telefono">
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Mail:</label>
+                        <!-- <label for="nombre">Mail:</label> -->
                         <input id="mailId" class="form-control" type="text" placeholder="mail">
                     </div>
                     
@@ -852,11 +852,11 @@
                             console.log(nick +nombre+mail+tel);
                             var arrayData = arrayJSON(nombre,tel,mail,nick,scoreLocal);
                             datos.set(arrayData);
-                            alert("Tus datos se han guardado!");
+                            //alert("Tus datos se han guardado!");
                             location.reload();
         
                         }else{
-                            alert("Ahora ya hay un puntaje mas alto, intentalo de nuevo");
+                            //alert("Ahora ya hay un puntaje mas alto, intentalo de nuevo");
                         }
                         
                     });
