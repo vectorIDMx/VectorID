@@ -108,6 +108,21 @@ button{
     align-items: center;
     height: 100vh;
 }
+#suerte{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#datosGuardados{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .yellow{
     color: yellow;
+}
+.strong{
+    font-weight: 700;
 }

@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style4.css">
+<link rel="stylesheet" href="style.css">
 <script>
     var isTargetFound = false;
     var interacted = false;
@@ -68,10 +68,20 @@
 <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
     <div id="ventana">
         <div class="contenido">
-            <p class="centrar">!Felicidades superaste el record!</p>
-            <p class="centrar">Haz click aqui para registrar tu nickname</p>
+            <p class="centrar">!Felicidades eres el nuevo GANADOR!</p>
+            <p class="centrar">Haz click aqui para registrar tus datos</p>
             <div class="butId">
                 <button onClick="abreRegistro()">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="datosGuardados">
+        <div class="contenido">
+            <p class="centrar">!Felicidades ahora eres el nuevo GANADOR!</p>
+            <p id="newWinner" class="centrar yellow strong"></p>
+            <p class="centrar">Tus datos se guardaron satisfactoriamente</p>
+            <div class="butId">
+                <button onClick="play()">OK</button>
             </div>
         </div>
     </div>
@@ -93,6 +103,15 @@
                 </div> -->
         </div>
     </div>
+    <div id="suerte">
+        <div class="contenido">
+            <p class="centrar">Upss no superaste el record :(</p>
+            <p class="centrar">Intentalo de nuevo dentro de 1 hora!</p>
+            <div class="butId">
+                <button onClick="play()">Ok</button>
+            </div>
+        </div>
+    </div>
     <div id="puntuacionBan">
         <div class="contenido2">
             <ul class="inline">
@@ -111,19 +130,19 @@
             <form action="">
                 <div class="form-group">
                     <!-- <label for="nombre">NickName:</label> -->
-                    <input id="nickId" class="form-control" type="text" placeholder="nickName">
+                    <input id="nickId" class="form-control" type="text" placeholder="nickName" maxlength="12">
                 </div>
                 <div class="form-group">
                     <!-- <label for="nombre">Nombre:</label> -->
-                    <input id="nombreId" class="form-control" type="text" placeholder="nombre">
+                    <input id="nombreId" class="form-control" type="text" placeholder="nombre" maxlength="60">
                 </div>
                 <div class="form-group">
                     <!-- <label for="nombre">Telefono:</label> -->
-                    <input id="telId" class="form-control" type="text" placeholder="telefono">
+                    <input id="telId" class="form-control" type="text" placeholder="telefono" maxlength="20">
                 </div>
                 <div class="form-group">
                     <!-- <label for="nombre">Mail:</label> -->
-                    <input id="mailId" class="form-control" type="text" placeholder="mail">
+                    <input id="mailId" class="form-control" type="text" placeholder="mail" maxlength="60">
                 </div>
 
             </form>
@@ -385,46 +404,46 @@
         let timeToPlay = 0;
         let secondsToPlay = 59;
 
-        
-            if (!anoAlmacenado) {
-                console.log("no hay datos guardados");
-                
-                puedeJugar = 1;
-            } else {
-                if ((anoAlmacenado > anoStart) || (mesAlmacenado > mesStart) || (diaAlmacenado > diaStart) || (horaAlmacenado > (horaStart + 1))) {
-                    puedeJugar = 1;
-                    
-                } else {
-                    let horaAlmacenadoMin = (horaAlmacenado * 60) + minutoAlmacenado;
-                    let horaStartMin = (horaStart * 60) + minutoStart;
-                    console.log("hora en min almac: " + horaAlmacenadoMin + "  hora en min start: " + horaStartMin);
-                    tiempoTranscurrido = horaStartMin - horaAlmacenadoMin;
-                    timeToPlay = 59 - tiempoTranscurrido;
-                    if (tiempoTranscurrido > 60) {
-                        puedeJugar = 1;
-                        
-                    } else {
-                        console.log("espera una hora :(");
-                        document.getElementById("espera-hora").style.display = "flex";
-                        var countdown = window.setInterval(function (e) {
-                            secondsToPlay--;
-                            if (secondsToPlay <= 0) {
-                                secondsToPlay = 59;
-                                timeToPlay--;
-                            }
-                            if (timeToPlay <= -1) {
-                                puedeJugar = 1;
-                                
-                                document.getElementById("espera-hora").style.display = "none";
-                                clearInterval("countdown");
-                            }
 
-                            document.getElementById("tiempoRestante").innerHTML = "Espera " + timeToPlay + ":" + secondsToPlay + " para jugar de nuevo :(";
-                        }, 1000);
-                    }
+        if (!anoAlmacenado) {
+            console.log("no hay datos guardados");
+
+            puedeJugar = 1;
+        } else {
+            if ((anoAlmacenado > anoStart) || (mesAlmacenado > mesStart) || (diaAlmacenado > diaStart) || (horaAlmacenado > (horaStart + 1))) {
+                puedeJugar = 1;
+
+            } else {
+                let horaAlmacenadoMin = (horaAlmacenado * 60) + minutoAlmacenado;
+                let horaStartMin = (horaStart * 60) + minutoStart;
+                console.log("hora en min almac: " + horaAlmacenadoMin + "  hora en min start: " + horaStartMin);
+                tiempoTranscurrido = horaStartMin - horaAlmacenadoMin;
+                timeToPlay = 59 - tiempoTranscurrido;
+                if (tiempoTranscurrido > 60) {
+                    puedeJugar = 1;
+
+                } else {
+                    console.log("espera una hora :(");
+                    document.getElementById("espera-hora").style.display = "flex";
+                    var countdown = window.setInterval(function (e) {
+                        secondsToPlay--;
+                        if (secondsToPlay <= 0) {
+                            secondsToPlay = 59;
+                            timeToPlay--;
+                        }
+                        if (timeToPlay <= -1) {
+                            puedeJugar = 1;
+
+                            document.getElementById("espera-hora").style.display = "none";
+                            clearInterval("countdown");
+                        }
+
+                        document.getElementById("tiempoRestante").innerHTML = "Espera " + timeToPlay + ":" + secondsToPlay + " para jugar de nuevo :)";
+                    }, 1000);
                 }
             }
-        
+        }
+
 
 
 
@@ -662,7 +681,7 @@
 
         caja.addEventListener("mouseenter", function (e) {
             matchBala = 1;
-            
+
             console.log("enter");
             //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
         });
@@ -674,7 +693,7 @@
         //////////////////////////
         caja2.addEventListener("mouseenter", function (e) {
             matchBala2 = 1;
-            
+
             console.log("enter");
             //document.getElementById("cajaId").setAttribute("material",{color:"blue"});
         });
@@ -758,7 +777,8 @@
 
                 } else {
                     console.log("quieres jugar de nuevo?");
-                    document.getElementById("playAgain").style.display = "flex";
+                    //document.getElementById("playAgain").style.display = "flex";
+                    document.getElementById("suerte").style.display = "flex";
                 }
                 clearInterval("tiempoInterval");
             }
@@ -784,7 +804,9 @@
                     var arrayData = arrayJSON(nombre, tel, mail, nick, scoreLocal);
                     datos.set(arrayData);
                     //alert("Tus datos se han guardado!");
-                    location.reload();
+                    document.getElementById("newWinner").innerHTML = nick;
+                    document.getElementById("formulario").style.display = "none";
+                    document.getElementById("datosGuardados").style.display = "flex";
 
                 } else {
                     //alert("Ahora ya hay un puntaje mas alto, intentalo de nuevo");
