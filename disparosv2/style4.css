@@ -102,3 +102,12 @@ button{
     font-family: 'Anton', sans-serif;
     color: rgb(0, 101, 196);
 }
+#espera-hora{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.yellow{
+    color: yellow;
+}
