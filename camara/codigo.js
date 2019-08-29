@@ -5,6 +5,7 @@ const canvas = document.getElementById('canvas');
 const snap = document.getElementById("snap");
 const errorMsgElement = document.querySelector('span#errorMsg');
 let dispositivo;
+
 //////////////////////
 navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
@@ -12,7 +13,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
       console.log('index: ' + el.label.indexOf('back'));
       if(el.label.indexOf('back') > 0)
       {
-        dispositivo = el;
+        dispositivo = el.deviceId;
         console.log('camara:');
         console.log(el);
       }
@@ -26,8 +27,6 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
 const constraints = {
   audio: false,
   video: {
-    width: 1280, 
-    height: 720,
     optional: [{
       sourceId: dispositivo
     }]
