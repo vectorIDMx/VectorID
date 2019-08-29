@@ -4,12 +4,33 @@ const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const snap = document.getElementById("snap");
 const errorMsgElement = document.querySelector('span#errorMsg');
+let dispositivo;
+//////////////////////
+navigator.mediaDevices.enumerateDevices().then(function(e) {
+  e.forEach(el => {
+    if(el.kind == 'videoinput'){
+      console.log('index: ' + el.label.indexOf('back'));
+      if(el.label.indexOf('back') > 0)
+      {
+        dispositivo = el;
+        console.log('camara:');
+        console.log(el);
+      }
+    }
+  });
+  
+});
+//////////////////////
 
 
 const constraints = {
   audio: false,
   video: {
-    width: 1280, height: 720
+    width: 1280, 
+    height: 720,
+    optional: [{
+      sourceId: dispositivo
+    }]
   }
 };
 
@@ -47,22 +68,3 @@ snap.addEventListener("click", function() {
   });
 }
  */
-navigator.mediaDevices.enumerateDevices().then(function(e) {
-  e.forEach(el => {
-    if(el.kind == 'videoinput'){
-      console.log('index: ' + el.label.indexOf('back'));
-      if(el.label.indexOf('back') > 0)
-      {
-        console.log('camara:');
-        console.log(el);
-      }
-    }
-  });
-  let camaras = e.filter(el => {
-    if(el.kind == 'videoinput'){
-      return el;
-    }
-  });
-  console.log(camaras);
-  
-});
