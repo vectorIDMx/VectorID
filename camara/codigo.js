@@ -50,6 +50,6 @@ function handleSuccess(stream) {
 }
 
 // Load init
-init();
+await init();
 
 
