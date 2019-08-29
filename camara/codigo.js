@@ -50,8 +50,12 @@ snap.addEventListener("click", function() {
 navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
     if(el.kind == 'videoinput'){
-      console.log('camara:');
-      console.log(el.label);
+      
+      if(el.label.indexOf('back'))
+      {
+        console.log('camara:');
+        console.log(el);
+      }
     }
   });
   let camaras = e.filter(el => {
