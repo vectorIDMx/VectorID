@@ -13,6 +13,17 @@ const constraints = {
     }
   };
 //////////////////////
+async function init() {
+  
+  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(stream);
+  } catch (e) {
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+  }
+}
+//////////////////////
 navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
     if(el.kind == 'videoinput'){
@@ -24,7 +35,12 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
         console.log('dispositivo: ' + dispositivo);
       }
     }
-  });
+  }).then(
+    function(e)
+    {
+      init();
+    }
+  );
   
 });
 //////////////////////
@@ -33,16 +49,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
 
 
 // Access webcam
-async function init() {
-  
-  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-  } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-  }
-}
+
 
 // Success
 function handleSuccess(stream) {
@@ -52,9 +59,9 @@ function handleSuccess(stream) {
 
 // Load init
 
-window.setTimeout(function()
+/* window.setTimeout(function()
 {
   console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
-  init();
-}, 2000);
+  
+}, 2000); */
 
