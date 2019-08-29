@@ -32,7 +32,7 @@ const constraints = {
 };
 
 // Access webcam
-async function init() {
+function init() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
