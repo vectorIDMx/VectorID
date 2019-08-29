@@ -15,7 +15,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
       {
         dispositivo = el.deviceId;
         console.log('camara:');
-        console.log('dispositivo: '+dispositivo);
+        console.log('dispositivo: ' + dispositivo);
       }
     }
   });
@@ -32,7 +32,7 @@ const constraints = {
 };
 
 // Access webcam
-function init() {
+async function init() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
