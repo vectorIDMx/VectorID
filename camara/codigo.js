@@ -11,11 +11,11 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
     if(el.kind == 'videoinput'){
       console.log('index: ' + el.label.indexOf('back'));
-      if(el.label.indexOf('front') > 0)
+      if(el.label.indexOf('back') > 0)
       {
         dispositivo = el.deviceId;
         console.log('camara:');
-        console.log(el);
+        console.log('dispositivo: '+dispositivo);
       }
     }
   });
@@ -52,18 +52,4 @@ function handleSuccess(stream) {
 // Load init
 init();
 
-// Draw image
-/* var context = canvas.getContext('2d');
-snap.addEventListener("click", function() {
-        context.drawImage(video, 0, 0, 640, 480);
-}); */
 
-/* if (typeof MediaStreamTrack === 'undefined' ||
-    typeof MediaStreamTrack.getSources === 'undefined') {
-  alert('This browser does not support MediaStreamTrack.getSources().');
-} else {
-  navigator.mediaDevices.enumerateDevices().then(function(e) {
-    console.log(e);
-  });
-}
- */
