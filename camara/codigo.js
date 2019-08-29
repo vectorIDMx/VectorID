@@ -23,18 +23,18 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
 });
 //////////////////////
 
-
-
-
-// Access webcam
-async function init() {
-  const constraints = {
+const constraints = {
     audio: false,
     video: {
       optional: [{sourceId: dispositivo}]
     }
   };
+
+
+// Access webcam
+async function init() {
   
+  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
