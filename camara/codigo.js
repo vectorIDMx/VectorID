@@ -35,14 +35,12 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
         console.log('dispositivo: ' + dispositivo);
       }
     }
-  }).then(
-    function(e)
-    {
-      init();
-    }
-  );
-  
-});
+  })  
+}).then(
+  function(e)
+  {
+    init();
+  });
 //////////////////////
 
 
