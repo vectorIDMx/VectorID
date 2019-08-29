@@ -51,7 +51,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
     if(el.kind == 'videoinput'){
       console.log('index: ' + el.label.indexOf('back'));
-      if(el.label.indexOf('back'))
+      if(el.label.indexOf('back') > 0)
       {
         console.log('camara:');
         console.log(el);
