@@ -27,9 +27,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
 const constraints = {
   audio: false,
   video: {
-    optional: [{
-      sourceId: dispositivo
-    }]
+    optional: [{sourceId: dispositivo}]
   }
 };
 
