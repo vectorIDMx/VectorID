@@ -9,13 +9,20 @@ let dispositivo;
 const constraints = {
     audio: false,
     video: {
-      optional: [{sourceId: dispositivo}]
+      /* optional: [
+        {
+          sourceId: dispositivo
+        }
+      ] */
+      width: 1280,
+      height: 720,
+      sourceId: dispositivo 
     }
   };
 //////////////////////
 async function init() {
   
-  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
+  //console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
@@ -30,7 +37,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
       console.log('index: ' + el.label.indexOf('back'));
       if(el.label.indexOf('back') > 0)
       {
-        constraints.video.optional[0].sourceId = el.deviceId;
+        constraints.video.sourceId = el.deviceId;
         console.log('camara:');
         console.log('dispositivo: ' + dispositivo);
       }
