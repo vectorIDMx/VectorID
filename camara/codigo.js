@@ -24,15 +24,17 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
 //////////////////////
 
 
-const constraints = {
-  audio: false,
-  video: {
-    optional: [{sourceId: dispositivo}]
-  }
-};
+
 
 // Access webcam
 async function init() {
+  const constraints = {
+    audio: false,
+    video: {
+      optional: [{sourceId: dispositivo}]
+    }
+  };
+  
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
