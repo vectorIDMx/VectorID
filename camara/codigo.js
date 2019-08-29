@@ -51,9 +51,10 @@ function handleSuccess(stream) {
 }
 
 // Load init
-init();
+
 window.setTimeout(function()
 {
   console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
+  init();
 }, 2000);
 
