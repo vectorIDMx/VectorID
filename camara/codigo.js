@@ -6,6 +6,12 @@ const snap = document.getElementById("snap");
 const errorMsgElement = document.querySelector('span#errorMsg');
 let dispositivo;
 
+const constraints = {
+    audio: false,
+    video: {
+      optional: [{sourceId: dispositivo}]
+    }
+  };
 //////////////////////
 navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
@@ -13,7 +19,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
       console.log('index: ' + el.label.indexOf('back'));
       if(el.label.indexOf('back') > 0)
       {
-        dispositivo = el.deviceId;
+        constraints.video.optional[0].sourceId = el.deviceId;
         console.log('camara:');
         console.log('dispositivo: ' + dispositivo);
       }
@@ -23,12 +29,7 @@ navigator.mediaDevices.enumerateDevices().then(function(e) {
 });
 //////////////////////
 
-const constraints = {
-    audio: false,
-    video: {
-      optional: [{sourceId: dispositivo}]
-    }
-  };
+
 
 
 // Access webcam
@@ -50,6 +51,9 @@ function handleSuccess(stream) {
 }
 
 // Load init
-await init();
-
+init();
+window.setTimeout(function()
+{
+  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
+}, 2000);
 
