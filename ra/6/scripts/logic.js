@@ -1,3 +1,4 @@
+console.log("Logic.js i working!");
 document.getElementById('red1').addEventListener('click', function(e){
     window.open('https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?');
 })

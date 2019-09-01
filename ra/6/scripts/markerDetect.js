@@ -2,14 +2,13 @@
 var isTargetFound = false;
 var interacted = false;
 var cuenta2 = 0;
+var cuenta3 = 0;
 AFRAME.registerComponent("markerhandler", {
     init: function () {
         console.log('markerhandler-init');
 
         markerObj = document.querySelector('a-marker');
         markerObj.hidden = true;
-
-        //dino.setAttribute('animation-mixer', {clip: 'C4D Animation Take', loop: 'repeat'});
     },
 
     tick: function () {
@@ -26,29 +25,51 @@ AFRAME.registerComponent("markerhandler", {
                 if (cuenta2 == 1) {
                     document.getElementById("qr").emit("qrout");
                     document.getElementById("plane").emit("planeout");
-
                 }
                 document.getElementById("ring").emit("ringOut");
-                /* window.setTimeout(function()
-                {
-                    document.getElementById("ring").emit("ringKeepTurn");
-                },2500); */
+
                 document.getElementById("ring").addEventListener('animationcomplete__gira1', function () {
-                    document.getElementById("redes").emit("redCrece");
-                    document.getElementById("ring").emit("ringKeepTurn");
-                    window.setTimeout(function () {
+                    if(cuenta3 == 0){
+                       document.getElementById("redes").emit("redCrece");  
+                       window.setTimeout(function () {
                         document.getElementById("box2").emit("boxRueda");
                         document.getElementById("box3").emit("boxRueda");
                         document.getElementById("box4").emit("boxRueda");
                         document.getElementById("box5").emit("boxRueda");
-                    }, 2000);
+                        document.getElementById("ring").emit("ringKeepTurn");
+                    }, 1500);
+                    }
+                    cuenta3++;
+                   
+                    
+                    
 
-                })
+                });
+
+                document.getElementById('qr').addEventListener('animationcomplete', function (e) {
+                    document.getElementById('planoInicial').setAttribute('position',{x:500, y:500, z:500});//Aleja plano para poder escuchar los clicks
+                });
+                document.getElementById('box2').addEventListener('animationcomplete', function (e) {
+                    document.getElementById('cilbox1').setAttribute('animation',{from: {x:0, y:0, z:0}});
+                    document.getElementById('cilbox1').setAttribute('animation',{to: {x:0, y:360, z:0}});
+
+                    document.getElementById('cilbox2').setAttribute('animation',{from: {x:0, y:0, z:0}});
+                    document.getElementById('cilbox2').setAttribute('animation',{to: {x:0, y:360, z:0}});
+
+                    document.getElementById('cilbox3').setAttribute('animation',{from: {x:0, y:0, z:0}});
+                    document.getElementById('cilbox3').setAttribute('animation',{to: {x:0, y:360, z:0}});
+
+                    document.getElementById('cilbox4').setAttribute('animation',{from: {x:0, y:0, z:0}});
+                    document.getElementById('cilbox4').setAttribute('animation',{to: {x:0, y:360, z:0}});
+
+                    document.getElementById('cilbox5').setAttribute('animation',{from: {x:0, y:0, z:0}});
+                    document.getElementById('cilbox5').setAttribute('animation',{to: {x:0, y:360, z:0}});
+                    console.log('Aqui se ejecuta kjhasj');
+                });
+
 
                 document.querySelector('#logoEmpresa').emit('startLogoE');
-                window.setInterval(function () {
-                    document.querySelector('#logoEmpresa').emit('startGiroLogoE');
-                }, 10000);
+                
 
             }
             else {
@@ -63,3 +84,12 @@ AFRAME.registerComponent("markerhandler", {
         }
     }
 });
+window.setInterval(function () {
+    document.querySelector('#logoEmpresa').emit('startGiroLogoE');
+    console.log('Timer giro de logo');
+}, 10000);
+
+/*  */
+
+/*
+ */
