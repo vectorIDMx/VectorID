@@ -30,7 +30,7 @@
         <a-assets>
 
         </a-assets>
-        <a-marker emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
             url="pattern-qr_ra_6.patt">
             <a-entity id="global" scale="1 1 1">
                 <!-- <a-plane width="1" height=".4" rotation="-90 0 0"  material="src: images/logo_kapta.png" opacity=".9"></a-plane> -->
@@ -48,43 +48,37 @@
 
                 </a-plane>
                 <!--redes--------------------------->
-                <a-entity id="redes" position="0 -.15 0" scale=".001 .001 .001"
-                    animation__crece="startEvents: redCrece; property: scale; from: .01 .01 .01; to: 1 1 1; easing: linear; dur: 1000">
+                <a-entity id="redes" position="0 -.15 0" scale=".001 .001 .001" animation__crece="startEvents: redCrece; property: scale; from: .01 .01 .01; to: 1 1 1; easing: linear; dur: 1000">
                     <a-entity rotation="0 0 0">
-                        <a-sphere opacity=".5" id="red1" color="#CCC" scale="1" position="0 0 -1" rotation="-90 0 0">
+                        <a-sphere opacity="0" id="red1" color="#CCC" scale="1" position="0 0 -1" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position="0 0 -1" scale=".3 .3 .3" material="src: images/red1.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 72 0" id="box2"
-                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity=".5" id="red2" color="#CCC" scale="1" position=".95 0 -.31" rotation="-90 0 0">
+                    <a-entity rotation="0 72 0" id="box2" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                        <a-sphere opacity="0" id="red2" color="#CCC" scale="1" position=".95 0 -.31" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position=".95 0 -.31" scale=".3 .3 .3" material="src: images/red2.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 144 0" id="box3"
-                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity=".5" id="red3" color="#CCC" scale="1" position=".59 0 .81" rotation="-90 0 0">
+                    <a-entity rotation="0 144 0" id="box3" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                        <a-sphere opacity="0" id="red3" color="#CCC" scale="1" position=".59 0 .81" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position=".59 0 .81" scale=".3 .3 .3" material="src: images/red3.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 216 0" id="box4"
-                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity=".5" id="red4" color="#CCC" scale="1" position="-.59 0 .81" rotation="-90 0 0">
+                    <a-entity rotation="0 216 0" id="box4" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                        <a-sphere opacity="0" id="red4" color="#CCC" scale="1" position="-.59 0 .81" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position="-.59 0 .81" scale=".3 .3 .3" material="src: images/red4.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 288 0" id="box5"
-                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity=".5" id="red5" color="#CCC" scale="1" position="-.95 0 -.31"
-                            rotation="-90 0 0">
+                    <a-entity rotation="0 288 0" id="box5" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                        <a-sphere opacity="0" id="red5" color="#CCC" scale="1" position="-.95 0 -.31" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position="-.95 0 -.31" scale=".3 .3 .3" material="src: images/red5.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
@@ -108,51 +102,7 @@
         <a-entity camera></a-entity>
     </a-scene>
 
-    <script>
-        /* var hola = document.getElementById('red1');
-        hola.addEventListener('click', function (e) {
-            window.open('https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?');
-        });
-        document.getElementById('red2').addEventListener('click', function (e) {
-            window.open('https://www.skype.com/es/');
-        });
-        document.getElementById('red3').addEventListener('click', function (e) {
-            window.open('https://www.instagram.com/vectoridoficial/');
-        });
-        document.getElementById('red4').addEventListener('click', function (e) {
-            window.open('fb://page/299366750897285');
-        });
-        document.getElementById('red5').addEventListener('click', function (e) {
-            window.open('https://www.vectorid.mx/');
-        }); */
-       /*  var boxEl1 = document.getElementById('red1');
-        boxEl1.addEventListener('click', function (e) {
-            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-            window.open("https://www.facebook.com/Vectoridmx/");
-        });
-
-        var boxEl2 = document.getElementById('red2');
-        boxEl2.addEventListener('click', function () {
-            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-            window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?");
-        });
-        var boxEl3 = document.getElementById('red3');
-        boxEl3.addEventListener('click', function () {
-            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-            window.open("https://www.youtube.com/watch?v=8s4TuIQcLjk&t=");
-        });
-        var boxEl4 = document.getElementById('red4');
-        boxEl4.addEventListener('click', function () {
-            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-            window.open("https://www.vectorid.mx/");
-        });
-        var boxEl5 = document.getElementById('red5');
-        boxEl5.addEventListener('click', function () {
-            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
-            window.open("https://www.instagram.com/vectoridoficial/");
-        }); */
-
-    </script>
+    <script src="scripts/logic.js"></script>
 </body>
 
 </html>
