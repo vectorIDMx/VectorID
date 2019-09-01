@@ -30,7 +30,7 @@
         <a-assets>
 
         </a-assets>
-        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
+        <a-marker emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
             url="pattern-qr_ra_6.patt">
             <a-entity id="global" scale="1 1 1">
                 <!-- <a-plane width="1" height=".4" rotation="-90 0 0"  material="src: images/logo_kapta.png" opacity=".9"></a-plane> -->
@@ -109,7 +109,7 @@
     </a-scene>
 
     <script>
-        var hola = document.getElementById('red1');
+        /* var hola = document.getElementById('red1');
         hola.addEventListener('click', function (e) {
             window.open('https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?');
         });
@@ -124,7 +124,34 @@
         });
         document.getElementById('red5').addEventListener('click', function (e) {
             window.open('https://www.vectorid.mx/');
+        }); */
+        var boxEl1 = document.getElementById('red1');
+        boxEl1.addEventListener('click', function (e) {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.facebook.com/Vectoridmx/");
         });
+
+        var boxEl2 = document.getElementById('red2');
+        boxEl2.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?");
+        });
+        var boxEl3 = document.getElementById('red3');
+        boxEl3.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.youtube.com/watch?v=8s4TuIQcLjk&t=");
+        });
+        var boxEl4 = document.getElementById('red4');
+        boxEl4.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.vectorid.mx/");
+        });
+        var boxEl5 = document.getElementById('red5');
+        boxEl5.addEventListener('click', function () {
+            //boxEl.setAttribute('scale', {x: 2, y: 2, z: 2});
+            window.open("https://www.instagram.com/vectoridoficial/");
+        });
+
     </script>
 </body>
 
