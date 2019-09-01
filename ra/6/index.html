@@ -48,7 +48,8 @@
 
                 </a-plane>
                 <!--redes--------------------------->
-                <a-entity id="redes" position="0 -.15 0" scale=".001 .001 .001" animation__crece="startEvents: redCrece; property: scale; from: .01 .01 .01; to: 1 1 1; easing: linear; dur: 1000">
+                <a-entity id="redes" position="0 -.15 0" scale=".001 .001 .001"
+                    animation__crece="startEvents: redCrece; property: scale; from: .01 .01 .01; to: 1 1 1; easing: linear; dur: 1000">
                     <a-entity rotation="0 0 0">
                         <a-sphere opacity="0" id="red1" color="#CCC" scale="1" position="0 0 -1" rotation="-90 0 0">
                         </a-sphere>
@@ -56,29 +57,34 @@
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 72 0" id="box2" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                    <a-entity rotation="0 72 0" id="box2"
+                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
                         <a-sphere opacity="0" id="red2" color="#CCC" scale="1" position=".95 0 -.31" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position=".95 0 -.31" scale=".3 .3 .3" material="src: images/red2.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 144 0" id="box3" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                    <a-entity rotation="0 144 0" id="box3"
+                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
                         <a-sphere opacity="0" id="red3" color="#CCC" scale="1" position=".59 0 .81" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position=".59 0 .81" scale=".3 .3 .3" material="src: images/red3.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 216 0" id="box4" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                    <a-entity rotation="0 216 0" id="box4"
+                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
                         <a-sphere opacity="0" id="red4" color="#CCC" scale="1" position="-.59 0 .81" rotation="-90 0 0">
                         </a-sphere>
                         <a-box position="-.59 0 .81" scale=".3 .3 .3" material="src: images/red4.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-box>
                     </a-entity>
-                    <a-entity rotation="0 288 0" id="box5" animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity="0" id="red5" color="#CCC" scale="1" position="-.95 0 -.31" rotation="-90 0 0">
+                    <a-entity rotation="0 288 0" id="box5"
+                        animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
+                        <a-sphere opacity="0" id="red5" color="#CCC" scale="1" position="-.95 0 -.31"
+                            rotation="-90 0 0">
                         </a-sphere>
                         <a-box position="-.95 0 -.31" scale=".3 .3 .3" material="src: images/red5.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
@@ -102,7 +108,23 @@
         <a-entity camera></a-entity>
     </a-scene>
 
-    <script src="scripts/logic.js"></script>
+    <script>
+        document.getElementById('red1').addEventListener('click', function (e) {
+            window.open('https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20en%20que%20podemos%20ayudarte?');
+        });
+        document.getElementById('red2').addEventListener('click', function (e) {
+            window.open('https://www.skype.com/es/');
+        });
+        document.getElementById('red3').addEventListener('click', function (e) {
+            window.open('https://www.instagram.com/vectoridoficial/');
+        });
+        document.getElementById('red4').addEventListener('click', function (e) {
+            window.open('fb://page/299366750897285');
+        });
+        document.getElementById('red5').addEventListener('click', function (e) {
+            window.open('https://www.vectorid.mx/');
+        });
+    </script>
 </body>
 
 </html>
