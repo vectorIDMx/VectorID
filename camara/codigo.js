@@ -23,7 +23,7 @@ const constraints = {
 //////////////////////
 async function init() {
   
-  console.log("id de la fuenteqa: " + constraints.video.optional[0].sourceId);
+  console.log("id de la fuenteqaa: " + constraints.video.optional[0].sourceId);
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
