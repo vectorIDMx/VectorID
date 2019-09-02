@@ -62,9 +62,9 @@ async function init() {
 }
 //////////////////////
 
-
-console.log("pvto el k lo lea: " + navigator.getUserMedia);
-if(navigator.getUserMedia)
+console.log("si actualizo");
+console.log("pvto el k lo lea: " + navigator.mediaDevices.getUserMedia);
+if(navigator.mediaDevices.getUserMedia)
 {
   alert("si dio permiso");
 }
