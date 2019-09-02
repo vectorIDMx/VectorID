@@ -84,7 +84,7 @@ var strm;
 function handleSuccess(stream) {
   window.stream = stream;
   video.srcObject = stream;
-  console.log('paso 1');
+ /*  console.log('paso 1');
   if (stream) {
     stream.getTracks().forEach(function (track) {
       track.stop();
@@ -118,7 +118,7 @@ function handleSuccess(stream) {
     window.stream = strm;
     video.srcObject = strm;
     console.log('nueva camara fijada');
-  });
+  }); */
 
 
 
