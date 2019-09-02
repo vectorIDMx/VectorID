@@ -63,7 +63,7 @@ async function init() {
 //////////////////////
 
 
-
+console.log("pvto el k lo lea: " + navigator.getUserMedia);
 if(navigator.getUserMedia)
 {
   alert("si dio permiso");
