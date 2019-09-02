@@ -7,19 +7,19 @@ const errorMsgElement = document.querySelector('span#errorMsg');
 let dispositivo;
 
 const constraints = {
-    audio: false,
-    mandatory: {
-      "minWidth": 1280,
-      "minHeight": 720
-    },
-    video: {
-      optional: [
-        {
-          sourceId: dispositivo
-        }
-      ]
-    }
-  };
+  audio: false,
+  mandatory: {
+    "minWidth": 1280,
+    "minHeight": 720
+  },
+  video: {
+    optional: [
+      {
+        sourceId: dispositivo
+      }
+    ]
+  }
+};
 //////////////////////
 /* async function init() {
   
@@ -51,7 +51,7 @@ const streamert = await navigator.mediaDevices.enumerateDevices().then(function(
   }); */
 //////////////////////
 async function init() {
-  
+
   console.log("id de la fuentey: " + constraints.video.optional[0].sourceId);
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -61,13 +61,17 @@ async function init() {
   }
 }
 //////////////////////
-
-console.log("si actualizo");
-console.log("pvto el k lo lea: " + navigator.mediaDevices.getUserMedia);
-if(navigator.mediaDevices.getUserMedia)
-{
-  alert("si dio permiso");
+console.log("si actualizo osiosi");
+async function readDev() {
+  const variable = await navigator.mediaDevices.getUserMedia;
+  console.log("pvto el k lo lea: " + variable);
+  if (variable) {
+    alert("si dio permiso");
+  }
 }
+
+readDev();
+
 
 /* const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
     e.forEach(el => {
@@ -97,7 +101,7 @@ function handleSuccess(stream) {
 /* window.setTimeout(function()
 {
   console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
-  
+
 }, 2000); */
 
 
