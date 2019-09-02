@@ -171,7 +171,7 @@
             </a-marker>-->
 
 
-        <a-entity id="global" scale="2 2 2" rotation="0 180 0">
+        <a-entity id="global" rotation="0 180 0">
             <a-entity id="marPos" rotation="0 0 0">
                 <a-entity id="marciano" rotation="0 0 0">
                     <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003"
@@ -324,7 +324,7 @@
             
             -->
         <a-entity camera look-controls>
-            <a-entity scale="2 2 2">
+
                 <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
                 </a-plane>
 
@@ -346,7 +346,7 @@
                     material="src:images/newrecord.png" opacity=".8">
                     <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
                 </a-plane>
-            </a-entity>
+
 
 
             <!-- <a-plane id="clickZone" position="0 0 -.99" width="20" height="20" opacity="0"></a-plane> -->
@@ -558,7 +558,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-4, 4);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -593,7 +593,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-4, 4);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -628,7 +628,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-4, 4);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -663,7 +663,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-4, 4);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
