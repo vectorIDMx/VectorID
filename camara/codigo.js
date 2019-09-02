@@ -84,12 +84,15 @@ async function init() {
 function handleSuccess(stream) {
   window.stream = stream;
   video.srcObject = stream;
+  console.log('paso 1');
   if (stream) {
     stream.getTracks().forEach(function (track) {
       track.stop();
     });
+    console.log('paso 2');
 }
   navigator.mediaDevices.enumerateDevices().then(function (e) {
+    console.log('paso 3');
     e.forEach(el => {
       if (el.kind == 'videoinput') {
         console.log('id: ' + el.deviceId);
@@ -102,6 +105,7 @@ function handleSuccess(stream) {
     });
 
  // Mostrar el nuevo stream con el dispositivo seleccionado
+ console.log('paso 4');
   const strm = navigator.mediaDevices.getUserMedia(constraints);
 
   window.stream = strm;
