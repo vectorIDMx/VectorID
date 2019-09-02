@@ -95,11 +95,12 @@ function handleSuccess(stream) {
         }
       }
     });
-    const strm = navigator.mediaDevices.getUserMedia(constraints);
-    window.stream = strm;
-    video.srcObject = strm;
-    console.log('nueva camara fijada');
+
   });
+  const strm = navigator.mediaDevices.getUserMedia(constraints);
+  window.stream = strm;
+  video.srcObject = strm;
+  console.log('nueva camara fijada');
 
 }
 
