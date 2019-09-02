@@ -19,7 +19,7 @@
 </head>
 <!--<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>-->
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<!-- <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -66,6 +66,16 @@
 </script>
 
 <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
+    <!-- Stream video via webcam playsinline-->
+    <div class="cont-video">
+        <video id="video" autoplay></video>
+    </div>
+
+    <footer>
+        <img src="images/powvector.png" alt="">
+    </footer>
+
+
     <div id="ventana">
         <div class="contenido">
             <p class="centrar">!Felicidades eres el nuevo GANADOR!</p>
@@ -151,8 +161,8 @@
     </div>
 
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-    <a-scene embedded
-        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; patternRatio:0.8;'>
+    <a-scene id="escena">
+
         <a-entity light="type: ambient; color: #FFF"></a-entity>
         <a-entity light="type: directional; color: #FFF; intensity: .6" position="-0.5 1 1"></a-entity>
 
@@ -164,7 +174,7 @@
         <a-entity id="global" rotation="0 180 0">
             <a-entity id="marPos" rotation="0 0 0">
                 <a-entity id="marciano" rotation="0 0 0">
-                    <a-box id="cajaId" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003"
+                    <a-box id="cajaId" position=".1 0 -2" rotation="0 0 0" scale=".0003 .0003 .0003"
                         material="src:images/vm.jpg;">
                         <a-animation attribute="rotation" dur="5000" to="0 360 360" repeat="indefinite" easing="linear">
                         </a-animation>
@@ -179,7 +189,7 @@
             <a-entity id="marPos2" rotation="0 90 0">
                 <a-entity id="marciano2" rotation="0 0 0">
 
-                    <a-box id="cajaId2" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003"
+                    <a-box id="cajaId2" position=".1 0 -2" rotation="0 0 0" scale=".0003 .0003 .0003"
                         material="src:images/pp.png;">
                         <a-animation attribute="rotation" dur="5000" to="0 360 360" repeat="indefinite" easing="linear">
                         </a-animation>
@@ -194,7 +204,7 @@
             <a-entity id="marPos3" rotation="0 180 0">
                 <a-entity id="marciano3" rotation="0 0 0">
 
-                    <a-box id="cajaId3" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003"
+                    <a-box id="cajaId3" position=".1 0 -2" rotation="0 0 0" scale=".0003 .0003 .0003"
                         material="src:images/vm.jpg;">
                         <a-animation attribute="rotation" dur="5000" to="0 360 360" repeat="indefinite" easing="linear">
                         </a-animation>
@@ -209,7 +219,7 @@
             <a-entity id="marPos4" rotation="0 270 0">
                 <a-entity id="marciano4" rotation="0 0 0">
 
-                    <a-box id="cajaId4" position=".1 0 -3.5" rotation="0 0 0" scale=".0003 .0003 .0003"
+                    <a-box id="cajaId4" position=".1 0 -2" rotation="0 0 0" scale=".0003 .0003 .0003"
                         material="src:images/pp.png;">
                         <a-animation attribute="rotation" dur="5000" to="0 360 360" repeat="indefinite" easing="linear">
                         </a-animation>
@@ -221,47 +231,44 @@
                 </a-entity>
             </a-entity>
 
-            <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -1" scale=".0001 .0001 .0001"
-                rotation="0 0 0" opacity="0">
-                <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear"></a-animation>
-            </a-entity>
-            <a-entity id="timeId" text="value: 60;" position="4.7 .8 -3" scale=".00001 .00001 .00001" rotation="0 0 0"
+
+            <a-entity id="timeId" text="value: 60;" position="4.7 .35 -2" scale=".00001 .00001 .00001" rotation="0 0 0"
                 opacity="0">
                 <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="10 10 10" easing="linear">
                 </a-animation>
             </a-entity>
-            <a-entity id="textRecord" text="value: Record: Ricardo     Puntaje: 250;" position=".1 .29 -2"
-                scale=".00008 .00008 .00008" rotation="0 0 0">
-                <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
-                </a-animation>
+            <a-entity position="0 -.5 0">
+                <a-entity id="textId" text="value: Puntaje: 0;" position=".4 .3 -.5" scale=".0001 .0001 .0001"
+                    rotation="0 0 0" opacity="0">
+                    <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear">
+                    </a-animation>
+                </a-entity>
+
+                <a-entity id="textRecord" text="value: Record: Ricardo     Puntaje: 250;" position=".1 .31 -1"
+                    scale=".00008 .00008 .00008" rotation="0 0 0">
+                    <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
+                    </a-animation>
+                </a-entity>
+                <a-plane id="record" position="0 .3 -1.1" height=".2" width=".7" material="src:images/record.png"
+                    opacity="0">
+                    <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear">
+                    </a-animation>
+                </a-plane>
+
+
+                <a-plane id="puntuacion" position="0 0 -1.1" width=".8" height=".44" opacity="0"
+                    material="src: images/puntuacion.png">
+                    <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear">
+                    </a-animation>
+                </a-plane>
             </a-entity>
-            <a-plane id="record" position="0 .3 -2.1" height=".15" width=".7" material="src:images/record.png"
-                opacity="0">
-                <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear"></a-animation>
-            </a-plane>
 
 
-            <a-plane id="puntuacion" position="0 0 -2.1" width=".8" height=".44" opacity="0"
-                material="src: images/puntuacion.png">
-                <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear"></a-animation>
-            </a-plane>
 
 
-            <a-plane id="continuar" position="0 0 -2" width=".4" height=".2" opacity=".9"
-                material="src: images/continuar.png">
-                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
-                </a-animation>
-            </a-plane>
 
 
-            <a-plane id="inst" position="0 .5 -2" rotation="0 .1 0" width="1.1" height=".5" opacity=".8"
-                material="src: images/inst1.png">
-                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
-                </a-animation>
-            </a-plane>
-
-
-            <a-entity id="logo" position="0 .3 -2" scale="1 1 1" rotation="0 0 0">
+            <a-entity id="logo" position="0 0 -1.5" scale="1 1 1" rotation="0 0 0">
                 <a-sphere position="0 1 0" radius=".125" material="color: yellow;"></a-sphere>
                 <a-entity>
                     <a-ring position="0 1 0" radius-inner=".15" radius-outer=".2" rotation="-80 0 0"
@@ -286,6 +293,19 @@
                 </a-entity>
 
             </a-entity>
+
+            <a-plane id="continuar" position="0 -.5 -1" width=".4" height=".2" opacity=".9"
+                material="src: images/continuar.png">
+                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
+                </a-animation>
+            </a-plane>
+
+
+            <a-plane id="inst" position="0 0 -1" rotation="0 .1 0" width="1.1" height=".5" opacity=".8"
+                material="src: images/inst1.png">
+                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
+                </a-animation>
+            </a-plane>
         </a-entity>
 
 
@@ -315,32 +335,32 @@
             -->
         <a-entity camera look-controls>
 
-            <a-plane position="-.01 -.03 -.1" width=".02" height=".006" opacity=".3"
-                material="src: images/powvector.png"></a-plane>
+            <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
+            </a-plane>
+
+
+
+            <a-plane id="crashId" position="0 0 -.049" width=".001" height=".001" opacity="0" material="color:yellow;">
+                <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
+            </a-plane>
+
+            <a-entity cursor position="0 0 -.5" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
+                material="color: red; shader: flat">
+            </a-entity>
+            <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -1" rotation="-5 190 0" scale=".1 .1 .1">
+                <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
+                    direction="alternate"></a-animation>
+            </a-gltf-model>
+            <!-- <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
+                    material="src:images/newrecord.png" opacity=".8">
+                    <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
+                </a-plane> -->
+
 
 
             <!-- <a-plane id="clickZone" position="0 0 -.99" width="20" height="20" opacity="0"></a-plane> -->
 
-            <a-plane position="0 0 -.1" width=".006" height=".006" opacity=".5" material="src: images/mirilla.png">
-            </a-plane>
 
-
-
-            <a-plane id="crashId" position="0 0 -.098" width=".001" height=".001" opacity="0" material="color:yellow;">
-                <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
-            </a-plane>
-
-            <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
-                material="color: red; shader: flat">
-            </a-entity>
-            <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -2" rotation="-5 190 0" scale=".15 .15 .15">
-                <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
-                    direction="alternate"></a-animation>
-            </a-gltf-model>
-            <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
-                material="src:images/newrecord.png" opacity=".8">
-                <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
-            </a-plane>
 
 
             <!--<a-entity id="timId" text="value: 600;" position="5 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>-->
@@ -425,6 +445,7 @@
                 } else {
                     console.log("espera una hora :(");
                     document.getElementById("espera-hora").style.display = "flex";
+                    document.getElementById('escena').style.display = 'none';
                     var countdown = window.setInterval(function (e) {
                         secondsToPlay--;
                         if (secondsToPlay <= 0) {
@@ -435,6 +456,7 @@
                             puedeJugar = 1;
 
                             document.getElementById("espera-hora").style.display = "none";
+                            document.getElementById('escena').style.display = 'block';
                             clearInterval("countdown");
                         }
 
@@ -545,7 +567,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -580,7 +602,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -615,7 +637,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -650,7 +672,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-1, 1);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -769,6 +791,7 @@
                     if (accept == 0) {
                         document.getElementById("timeId").setAttribute("text", { value: "Nuevo record!" });
                         document.getElementById('ventana').style.display = 'flex';
+                        document.getElementById('escena').style.display = 'none';
                         //document.getElementById("newrecord").emit("newRecordIn");
                         newRecord = 1;
                         console.log("Nuevo record");
@@ -779,6 +802,7 @@
                     console.log("quieres jugar de nuevo?");
                     //document.getElementById("playAgain").style.display = "flex";
                     document.getElementById("suerte").style.display = "flex";
+                    document.getElementById('escena').style.display = 'none';
                 }
                 clearInterval("tiempoInterval");
             }
@@ -818,6 +842,7 @@
         }
 
     </script>
+    <script src="codigo.js"></script>
 </body>
 
 </html>
