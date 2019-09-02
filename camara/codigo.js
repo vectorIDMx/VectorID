@@ -79,7 +79,7 @@ async function init() {
 
 // Access webcam
 
-
+var strm;
 // Success
 function handleSuccess(stream) {
   window.stream = stream;
@@ -111,7 +111,10 @@ function handleSuccess(stream) {
   }).then(function () {
     // Mostrar el nuevo stream con el dispositivo seleccionado
     console.log('paso 4');
-    const strm = navigator.mediaDevices.getUserMedia(constraints);
+    strm = navigator.mediaDevices.getUserMedia(constraints);
+
+  }).then(function () {
+    console.log('paso 5');
     window.stream = strm;
     video.srcObject = strm;
     console.log('nueva camara fijada');
