@@ -61,17 +61,23 @@ async function init() {
   }
 }
 //////////////////////
-console.log("si actualizo osiosi");
-async function readDev() {
-  const variable = await navigator.mediaDevices.getUserMedia;
-  console.log("pvto el k lo lea: " + variable);
-  if (variable) {
-    alert("si dio permiso");
-  }
+console.log("si actualizo fredy");
+
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+
+if (navigator.getUserMedia) {
+  /* navigator.getUserMedia({audio: true, video: true}, function(stream) {
+    if (navigator.webkitGetUserMedia) {
+      video.src = window.webkitURL.createObjectURL(stream);
+    } else {
+      video.src = stream; //Opera
+    }
+  }, onFailSoHard); */
+  console.log("si entro");
+} else {
+  //video.src = 'somevideo.webm'; //fallback.
+  console.log("no entro");
 }
-
-readDev();
-
 
 /* const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
     e.forEach(el => {
