@@ -64,16 +64,12 @@ async function init() {
 
 
 
+if(navigator.getUserMedia)
+{
+  alert("si dio permiso");
+}
 
-
-
-
-// Access webcam
-
-
-// Success
-function handleSuccess(stream) {
-  const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
+/* const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
     e.forEach(el => {
       if(el.kind == 'videoinput'){
         console.log('index: ' + el.label.indexOf('back'));
@@ -85,18 +81,19 @@ function handleSuccess(stream) {
         }
       }
     })  
-  });
-  const stream2 = await navigator.mediaDevices.getUserMedia(constraints);
+  }); */
 
-  window.stream = stream2;
-  video.srcObject = stream2;
+// Access webcam
 
 
-
+// Success
+function handleSuccess(stream) {
+  window.stream = stream;
+  video.srcObject = stream;
 }
 
 // Load init
-init();
+//init();
 /* window.setTimeout(function()
 {
   console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
