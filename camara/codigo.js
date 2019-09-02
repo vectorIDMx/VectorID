@@ -82,25 +82,25 @@ async function init() {
 
 // Success
 function handleSuccess(stream) {
-  window.stream = stream;
-  video.srcObject = stream;
+
   console.log('Abre camara con exito');
   navigator.mediaDevices.enumerateDevices().then(function (e) {
     e.forEach(el => {
       if (el.kind == 'videoinput') {
-        console.log('id: '+el.deviceId);
+        console.log('id: ' + el.deviceId);
         console.log('index: ' + el.label.indexOf('back'));
         if (el.label.indexOf('back') > 0) {
           constraints.video.optional[0].sourceId = el.deviceId;
-          console.log('camara:');
           console.log('dispositivo: ' + constraints.video.optional[0].sourceId);
         }
       }
-    })
-  }).then(
-    navigator.mediaDevices.getUserMedia(constraints)
-  );
-  
+    });
+    const strm = navigator.mediaDevices.getUserMedia(constraints);
+    window.stream = strm;
+    video.srcObject = strm;
+    console.log('nueva camara fijada');
+  });
+
 }
 
 // Load init
