@@ -83,7 +83,7 @@ async function init() {
 // Success
 function handleSuccess(stream) {
   window.stream = stream;
-  //video.srcObject = stream;
+  video.srcObject = stream;
   console.log('paso 1');
   if (stream) {
     stream.getTracks().forEach(function (track) {
