@@ -231,44 +231,41 @@
                 </a-entity>
             </a-entity>
 
-            <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -.5" scale=".0001 .0001 .0001"
-                rotation="0 0 0" opacity="0">
-                <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear"></a-animation>
-            </a-entity>
+
             <a-entity id="timeId" text="value: 60;" position="4.7 .8 -2" scale=".00001 .00001 .00001" rotation="0 0 0"
                 opacity="0">
                 <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="10 10 10" easing="linear">
                 </a-animation>
             </a-entity>
-            <a-entity id="textRecord" text="value: Record: Ricardo     Puntaje: 250;" position=".1 .29 -1"
-                scale=".00008 .00008 .00008" rotation="0 0 0">
-                <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
-                </a-animation>
+            <a-entity position="0 -.5 0">
+                <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -.5" scale=".0001 .0001 .0001"
+                    rotation="0 0 0" opacity="0">
+                    <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear">
+                    </a-animation>
+                </a-entity>
+
+                <a-entity id="textRecord" text="value: Record: Ricardo     Puntaje: 250;" position=".1 .29 -1"
+                    scale=".00008 .00008 .00008" rotation="0 0 0">
+                    <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
+                    </a-animation>
+                </a-entity>
+                <a-plane id="record" position="0 .3 -1.1" height=".15" width=".7" material="src:images/record.png"
+                    opacity="0">
+                    <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear">
+                    </a-animation>
+                </a-plane>
+
+
+                <a-plane id="puntuacion" position="0 0 -1.1" width=".8" height=".44" opacity="0"
+                    material="src: images/puntuacion.png">
+                    <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear">
+                    </a-animation>
+                </a-plane>
             </a-entity>
-            <a-plane id="record" position="0 .3 -1.1" height=".15" width=".7" material="src:images/record.png"
-                opacity="0">
-                <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear"></a-animation>
-            </a-plane>
 
 
-            <a-plane id="puntuacion" position="0 0 -1.1" width=".8" height=".44" opacity="0"
-                material="src: images/puntuacion.png">
-                <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear"></a-animation>
-            </a-plane>
 
 
-            <a-plane id="continuar" position="0 0 -1" width=".4" height=".2" opacity=".9"
-                material="src: images/continuar.png">
-                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
-                </a-animation>
-            </a-plane>
-
-
-            <a-plane id="inst" position="0 .5 -1" rotation="0 .1 0" width="1.1" height=".5" opacity=".8"
-                material="src: images/inst1.png">
-                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
-                </a-animation>
-            </a-plane>
 
 
             <a-entity id="logo" position="0 .3 -1" scale="1 1 1" rotation="0 0 0">
@@ -296,6 +293,19 @@
                 </a-entity>
 
             </a-entity>
+
+            <a-plane id="continuar" position="0 0 -1" width=".4" height=".2" opacity=".9"
+                material="src: images/continuar.png">
+                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
+                </a-animation>
+            </a-plane>
+
+
+            <a-plane id="inst" position="0 .5 -1" rotation="0 .1 0" width="1.1" height=".5" opacity=".8"
+                material="src: images/inst1.png">
+                <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
+                </a-animation>
+            </a-plane>
         </a-entity>
 
 
@@ -325,24 +335,23 @@
             -->
         <a-entity camera look-controls>
 
-                <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
-                </a-plane>
+            <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
+            </a-plane>
 
 
 
-                <a-plane id="crashId" position="0 0 -.049" width=".001" height=".001" opacity="0"
-                    material="color:yellow;">
-                    <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
-                </a-plane>
+            <a-plane id="crashId" position="0 0 -.049" width=".001" height=".001" opacity="0" material="color:yellow;">
+                <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
+            </a-plane>
 
-                <a-entity cursor position="0 0 -.5" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
-                    material="color: red; shader: flat">
-                </a-entity>
-                <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -1" rotation="-5 190 0" scale=".1 .1 .1">
-                    <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
-                        direction="alternate"></a-animation>
-                </a-gltf-model>
-                <!-- <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
+            <a-entity cursor position="0 0 -.5" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
+                material="color: red; shader: flat">
+            </a-entity>
+            <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -1" rotation="-5 190 0" scale=".1 .1 .1">
+                <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
+                    direction="alternate"></a-animation>
+            </a-gltf-model>
+            <!-- <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
                     material="src:images/newrecord.png" opacity=".8">
                     <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
                 </a-plane> -->
