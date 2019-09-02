@@ -82,7 +82,8 @@ async function init() {
 
 // Success
 function handleSuccess(stream) {
-
+  window.stream = stream;
+  video.srcObject = stream;
   
   navigator.mediaDevices.enumerateDevices().then(function (e) {
     e.forEach(el => {
