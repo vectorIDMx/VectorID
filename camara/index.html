@@ -68,12 +68,12 @@
 <body id="cuerpo" style='margin : 0px; overflow: hidden;'>
     <!-- Stream video via webcam playsinline-->
     <div class="cont-video">
-        <video id="video"  autoplay></video>
+        <video id="video" autoplay></video>
     </div>
 
     <footer>
         <img src="images/powvector.png" alt="">
-    </footer> 
+    </footer>
 
 
     <div id="ventana">
@@ -324,30 +324,34 @@
             
             -->
         <a-entity camera look-controls>
+            <a-entity scale="2 2 2">
+                <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
+                </a-plane>
+
+
+
+                <a-plane id="crashId" position="0 0 -.098" width=".002" height=".002" opacity="0"
+                    material="color:yellow;">
+                    <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
+                </a-plane>
+
+                <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
+                    material="color: red; shader: flat">
+                </a-entity>
+                <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -2" rotation="-5 190 0" scale=".25 .25 .25">
+                    <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
+                        direction="alternate"></a-animation>
+                </a-gltf-model>
+                <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
+                    material="src:images/newrecord.png" opacity=".8">
+                    <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
+                </a-plane>
+            </a-entity>
 
 
             <!-- <a-plane id="clickZone" position="0 0 -.99" width="20" height="20" opacity="0"></a-plane> -->
 
-            <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
-            </a-plane>
 
-
-
-            <a-plane id="crashId" position="0 0 -.098" width=".002" height=".002" opacity="0" material="color:yellow;">
-                <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
-            </a-plane>
-
-            <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
-                material="color: red; shader: flat">
-            </a-entity>
-            <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -2" rotation="-5 190 0" scale=".25 .25 .25">
-                <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
-                    direction="alternate"></a-animation>
-            </a-gltf-model>
-            <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
-                material="src:images/newrecord.png" opacity=".8">
-                <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
-            </a-plane>
 
 
             <!--<a-entity id="timId" text="value: 600;" position="5 .6 -3" scale="10 10 10" rotation="0 0 0"></a-entity>-->
