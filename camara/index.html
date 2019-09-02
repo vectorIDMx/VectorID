@@ -231,47 +231,47 @@
                 </a-entity>
             </a-entity>
 
-            <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -1" scale=".0001 .0001 .0001"
+            <a-entity id="textId" text="value: Puntaje: 0;" position=".4 0 -.5" scale=".0001 .0001 .0001"
                 rotation="0 0 0" opacity="0">
                 <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear"></a-animation>
             </a-entity>
-            <a-entity id="timeId" text="value: 60;" position="4.7 .8 -3" scale=".00001 .00001 .00001" rotation="0 0 0"
+            <a-entity id="timeId" text="value: 60;" position="4.7 .8 -2" scale=".00001 .00001 .00001" rotation="0 0 0"
                 opacity="0">
                 <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="10 10 10" easing="linear">
                 </a-animation>
             </a-entity>
-            <a-entity id="textRecord" text="value: Record: Ricardo     Puntaje: 250;" position=".1 .29 -2"
+            <a-entity id="textRecord" text="value: Record: Ricardo     Puntaje: 250;" position=".1 .29 -1"
                 scale=".00008 .00008 .00008" rotation="0 0 0">
                 <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
                 </a-animation>
             </a-entity>
-            <a-plane id="record" position="0 .3 -2.1" height=".15" width=".7" material="src:images/record.png"
+            <a-plane id="record" position="0 .3 -1.1" height=".15" width=".7" material="src:images/record.png"
                 opacity="0">
                 <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear"></a-animation>
             </a-plane>
 
 
-            <a-plane id="puntuacion" position="0 0 -2.1" width=".8" height=".44" opacity="0"
+            <a-plane id="puntuacion" position="0 0 -1.1" width=".8" height=".44" opacity="0"
                 material="src: images/puntuacion.png">
                 <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear"></a-animation>
             </a-plane>
 
 
-            <a-plane id="continuar" position="0 0 -2" width=".4" height=".2" opacity=".9"
+            <a-plane id="continuar" position="0 0 -1" width=".4" height=".2" opacity=".9"
                 material="src: images/continuar.png">
                 <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
                 </a-animation>
             </a-plane>
 
 
-            <a-plane id="inst" position="0 .5 -2" rotation="0 .1 0" width="1.1" height=".5" opacity=".8"
+            <a-plane id="inst" position="0 .5 -1" rotation="0 .1 0" width="1.1" height=".5" opacity=".8"
                 material="src: images/inst1.png">
                 <a-animation attribute="position" begin="continuarOut" dur="100" to="500 500 500" easing="linear">
                 </a-animation>
             </a-plane>
 
 
-            <a-entity id="logo" position="0 .3 -2" scale="1 1 1" rotation="0 0 0">
+            <a-entity id="logo" position="0 .3 -1" scale="1 1 1" rotation="0 0 0">
                 <a-sphere position="0 1 0" radius=".125" material="color: yellow;"></a-sphere>
                 <a-entity>
                     <a-ring position="0 1 0" radius-inner=".15" radius-outer=".2" rotation="-80 0 0"
@@ -558,7 +558,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-4, 4);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -593,7 +593,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-4, 4);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -628,7 +628,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-4, 4);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
@@ -663,7 +663,7 @@
                 puntajeRepetido = 1;
                 /**/
                 window.setTimeout(function (e) {
-                    var posComY = aleat(-4, 4);
+                    var posComY = aleat(-2, 2);
                     //posComY-=1;
                     var posComZ = aleat(-3.5, -2);
                     //posComZ=-posComZ;
