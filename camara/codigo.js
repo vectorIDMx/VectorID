@@ -32,7 +32,7 @@ async function init() {
   }
 }
 //////////////////////
-navigator.mediaDevices.enumerateDevices().then(function(e) {
+const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
   e.forEach(el => {
     if(el.kind == 'videoinput'){
       console.log('index: ' + el.label.indexOf('back'));
