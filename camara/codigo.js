@@ -20,36 +20,7 @@ const constraints = {
     ]
   }
 };
-//////////////////////
-/* async function init() {
-  
-  console.log("id de la fuentey: " + constraints.video.optional[0].sourceId);
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-  } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-  }
-}
-//////////////////////
-const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
-  e.forEach(el => {
-    if(el.kind == 'videoinput'){
-      console.log('index: ' + el.label.indexOf('back'));
-      if(el.label.indexOf('back') > 0)
-      {
-        constraints.video.optional[0].sourceId = el.deviceId;
-        console.log('camara:');
-        console.log('dispositivo: ' + constraints.video.optional[0].sourceId);
-      }
-    }
-  })  
-}).then(
-  function(e)
-  {
-    init();
-  }); */
-//////////////////////
+
 async function init() {
 
   console.log("id de la fuentey: " + constraints.video.optional[0].sourceId);
@@ -60,69 +31,12 @@ async function init() {
     errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
   }
 }
-//////////////////////
-
-
-/* const streamert = await navigator.mediaDevices.enumerateDevices().then(function(e) {
-    e.forEach(el => {
-      if(el.kind == 'videoinput'){
-        console.log('index: ' + el.label.indexOf('back'));
-        if(el.label.indexOf('back') > 0)
-        {
-          constraints.video.optional[0].sourceId = el.deviceId;
-          console.log('camara:');
-          console.log('dispositivo: ' + constraints.video.optional[0].sourceId);
-        }
-      }
-    })  
-  }); */
-
-// Access webcam
 
 var strm;
 // Success
 function handleSuccess(stream) {
   window.stream = stream;
   video.srcObject = stream;
-  /*  console.log('paso 1');
-   if (stream) {
-     stream.getTracks().forEach(function (track) {
-       track.stop();
-     });
-     console.log('paso 2');
-   }
-   navigator.mediaDevices.enumerateDevices().then(function (e) {
-     console.log('paso 3');
-     e.forEach(el => {
-       if (el.kind == 'videoinput') {
-         console.log('id: ' + el.deviceId);
-         console.log('index: ' + el.label.indexOf('back'));
-         if (el.label.indexOf('back') > 0) {
-           constraints.video.optional[0].sourceId = el.deviceId;
-           console.log('dispositivo: ' + constraints.video.optional[0].sourceId);
-         }
-       }
-     });
- 
- 
- 
- 
- 
-   }).then(function () {
-     // Mostrar el nuevo stream con el dispositivo seleccionado
-     console.log('paso 4');
-     strm = navigator.mediaDevices.getUserMedia(constraints);
- 
-   }).then(function () {
-     console.log('paso 5');
-     window.stream = strm;
-     video.srcObject = strm;
-     console.log('nueva camara fijada');
-   }); */
-
-
-
-
 }
 
 // Load init
@@ -157,7 +71,6 @@ async function init() {
     });
 
   } catch (e) {
-    //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
     console.log('no se pudo abrir la camara');
   }
 }
@@ -165,8 +78,3 @@ async function init() {
 
 
 init();
-/* window.setTimeout(function()
-{
-  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
-
-}, 2000); */
