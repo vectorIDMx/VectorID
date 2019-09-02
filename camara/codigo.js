@@ -84,7 +84,11 @@ async function init() {
 function handleSuccess(stream) {
   window.stream = stream;
   video.srcObject = stream;
-  
+  if (stream) {
+    stream.getTracks().forEach(function (track) {
+      track.stop();
+    });
+}
   navigator.mediaDevices.enumerateDevices().then(function (e) {
     e.forEach(el => {
       if (el.kind == 'videoinput') {
@@ -97,19 +101,16 @@ function handleSuccess(stream) {
       }
     });
 
-
-  });
-  if (stream) {
-    stream.getTracks().forEach(function (track) {
-      track.stop();
-    });
-  }
-  // Mostrar el nuevo stream con el dispositivo seleccionado
+ // Mostrar el nuevo stream con el dispositivo seleccionado
   const strm = navigator.mediaDevices.getUserMedia(constraints);
 
   window.stream = strm;
   video.srcObject = strm;
   console.log('nueva camara fijada');
+  });
+  
+  
+ 
 
 }
 
