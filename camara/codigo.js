@@ -83,11 +83,7 @@ async function init() {
 // Success
 function handleSuccess(stream) {
 
-  if (stream) {
-    stream.getTracks().forEach(function (track) {
-      track.stop();
-    });
-  }
+  
   navigator.mediaDevices.enumerateDevices().then(function (e) {
     e.forEach(el => {
       if (el.kind == 'videoinput') {
@@ -102,6 +98,11 @@ function handleSuccess(stream) {
 
 
   });
+  if (stream) {
+    stream.getTracks().forEach(function (track) {
+      track.stop();
+    });
+  }
   // Mostrar el nuevo stream con el dispositivo seleccionado
   const strm = navigator.mediaDevices.getUserMedia(constraints);
 
