@@ -29,6 +29,7 @@ AFRAME.registerComponent("markerhandler", {
                 document.getElementById("ring").emit("ringOut");
 
                 document.getElementById("ring").addEventListener('animationcomplete__gira1', function () {
+                    document.getElementById("ring").emit("ringKeepTurn");
                     if(cuenta3 == 0){
                        document.getElementById("redes").emit("redCrece");  
                        window.setTimeout(function () {
@@ -36,7 +37,7 @@ AFRAME.registerComponent("markerhandler", {
                         document.getElementById("box3").emit("boxRueda");
                         document.getElementById("box4").emit("boxRueda");
                         document.getElementById("box5").emit("boxRueda");
-                        document.getElementById("ring").emit("ringKeepTurn");
+                        
                     }, 1500);
                     }
                     cuenta3++;
