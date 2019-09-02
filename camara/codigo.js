@@ -90,7 +90,7 @@ function handleSuccess(stream) {
       track.stop();
     });
     console.log('paso 2');
-}
+  }
   navigator.mediaDevices.enumerateDevices().then(function (e) {
     console.log('paso 3');
     e.forEach(el => {
@@ -104,17 +104,19 @@ function handleSuccess(stream) {
       }
     });
 
- // Mostrar el nuevo stream con el dispositivo seleccionado
- console.log('paso 4');
-  const strm = navigator.mediaDevices.getUserMedia(constraints);
+    // Mostrar el nuevo stream con el dispositivo seleccionado
+    console.log('paso 4');
+    const strm = navigator.mediaDevices.getUserMedia(constraints).then(function () {
+      window.stream = strm;
+      video.srcObject = strm;
+      console.log('nueva camara fijada');
+    });
 
-  window.stream = strm;
-  video.srcObject = strm;
-  console.log('nueva camara fijada');
+
   });
-  
-  
- 
+
+
+
 
 }
 
