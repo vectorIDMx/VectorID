@@ -8,6 +8,11 @@ let dispositivo;
 
 const constraints = {
     audio: false,
+    /* mandatory: {
+      "minWidth": 1280,
+      "minHeight": 720,
+      "minFrameRate": "30"
+    }, */
     video: {
       optional: [
         {
@@ -19,7 +24,7 @@ const constraints = {
 //////////////////////
 async function init() {
   
-  console.log("id de la fuente: " + constraints.video.optional[0].sourceId);
+  console.log("id de la fuentes: " + constraints.video.optional[0].sourceId);
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
