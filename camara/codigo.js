@@ -83,23 +83,10 @@ async function init() {
 // Success
 function handleSuccess(stream) {
 
-  console.log('Abre camara con exito');
-  navigator.mediaDevices.enumerateDevices().then(function (e) {
-    e.forEach(el => {
-      if (el.kind == 'videoinput') {
-        console.log('id: ' + el.deviceId);
-        console.log('index: ' + el.label.indexOf('back'));
-        if (el.label.indexOf('back') > 0) {
-          constraints.video.optional[0].sourceId = el.deviceId;
-          console.log('dispositivo: ' + constraints.video.optional[0].sourceId);
-        }
-      }
-    });
-
-  });
-  const strm = navigator.mediaDevices.getUserMedia(constraints);
-  window.stream = strm;
-  video.srcObject = strm;
+  console.log('Abre camara con exito: '+stream);
+  
+  window.stream = stream;
+  video.srcObject = stream;
   console.log('nueva camara fijada');
 
 }
@@ -110,7 +97,21 @@ async function init() {
   console.log("id de la fuentey: " + constraints.video.optional[0].sourceId);
   try {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
+    navigator.mediaDevices.enumerateDevices().then(function (e) {
+      e.forEach(el => {
+        if (el.kind == 'videoinput') {
+          console.log('id: ' + el.deviceId);
+          console.log('index: ' + el.label.indexOf('back'));
+          if (el.label.indexOf('back') > 0) {
+            constraints.video.optional[0].sourceId = el.deviceId;
+            console.log('dispositivo: ' + constraints.video.optional[0].sourceId);
+          }
+        }
+      });
+  
+    });
+    const strm = navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(strm);
   } catch (e) {
     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
     console.log('no se pudo abrir la camara');
