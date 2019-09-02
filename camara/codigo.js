@@ -66,13 +66,15 @@ console.log("si actualizo fredy");
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
 
 if (navigator.getUserMedia) {
-  /* navigator.getUserMedia({audio: true, video: true}, function(stream) {
+   navigator.getUserMedia({audio: true, video: true}, function(stream) {
     if (navigator.webkitGetUserMedia) {
-      video.src = window.webkitURL.createObjectURL(stream);
+      //video.src = window.webkitURL.createObjectURL(stream);
+      console.log("juyt");
     } else {
-      video.src = stream; //Opera
+      //video.src = stream; //Opera
+      console.log("loik");
     }
-  }, onFailSoHard); */
+  }, onFailSoHard); 
   console.log("si entro");
 } else {
   //video.src = 'somevideo.webm'; //fallback.
