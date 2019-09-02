@@ -8,11 +8,11 @@ let dispositivo;
 
 const constraints = {
     audio: false,
-    /* mandatory: {
+    mandatory: {
       "minWidth": 1280,
       "minHeight": 720,
       "minFrameRate": "30"
-    }, */
+    },
     video: {
       optional: [
         {
