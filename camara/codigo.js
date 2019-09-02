@@ -108,10 +108,10 @@ async function init() {
           }
         }
       });
-  
-    });
-    const strm = navigator.mediaDevices.getUserMedia(constraints);
+  const strm = navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(strm);
+    });
+    
   } catch (e) {
     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
     console.log('no se pudo abrir la camara');
