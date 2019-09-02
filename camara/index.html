@@ -330,22 +330,22 @@
 
 
 
-                <a-plane id="crashId" position="0 0 -.098" width=".002" height=".002" opacity="0"
+                <a-plane id="crashId" position="0 0 -.049" width=".001" height=".001" opacity="0"
                     material="color:yellow;">
                     <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation>
                 </a-plane>
 
-                <a-entity cursor position="0 0 -1" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
+                <a-entity cursor position="0 0 -.5" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003;"
                     material="color: red; shader: flat">
                 </a-entity>
-                <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -2" rotation="-5 190 0" scale=".25 .25 .25">
+                <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -1" rotation="-5 190 0" scale=".15 .15 .15">
                     <a-animation attribute="rotation" dur="1000" to="-3.5 190 0" repeat="indefinite" easing="linear"
                         direction="alternate"></a-animation>
                 </a-gltf-model>
-                <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
+                <!-- <a-plane id="newrecord" position="500 500 500" width=".019" height=".015"
                     material="src:images/newrecord.png" opacity=".8">
                     <a-animation attribute="position" dur="100" begin="newRecordIn" to="0 0 -0.07"></a-animation>
-                </a-plane>
+                </a-plane> -->
 
 
 
