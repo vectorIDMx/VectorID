@@ -127,7 +127,7 @@ button{
     font-weight: 700;
 }
 #video{
-    height: 500px; 
+    height: 100%; 
 }
 .cont-video{
     position: absolute;
