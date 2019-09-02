@@ -104,15 +104,17 @@ function handleSuccess(stream) {
       }
     });
 
+
+
+
+
+  }).then(function () {
     // Mostrar el nuevo stream con el dispositivo seleccionado
     console.log('paso 4');
-    const strm = navigator.mediaDevices.getUserMedia(constraints).then(function () {
-      window.stream = strm;
-      video.srcObject = strm;
-      console.log('nueva camara fijada');
-    });
-
-
+    const strm = navigator.mediaDevices.getUserMedia(constraints);
+    window.stream = strm;
+    video.srcObject = strm;
+    console.log('nueva camara fijada');
   });
 
 
