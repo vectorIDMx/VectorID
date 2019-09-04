@@ -1,1 +1,10 @@
-BEGIN:VCARD VERSION:2.1 N:Doe;John FN:John Doe ORG:Tirhakah Game Corporation TITLE:Programmer TEL;HOME;VOICE:(555)555-4568 TEL;CELL;VOICE:(555)555-4868 URL;WORK:http://www.contactswebsiteURL.com EMAIL;INTERNET:jdoe11@tirhakah.com END:VCARD
+BEGIN:VCARD
+VERSION:2.1
+N:Costa Ros;Jose
+FN:Jose Costa Ros
+ORG:josecostaros.es
+TITLE:Asesor Nuevas Tecnologías
+TEL;CELL;+34 690 016 779
+URL;WORK:http://www.josecostaros.es
+EMAIL:escribeme@josecostaros.es
+END:VCARD
