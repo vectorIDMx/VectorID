@@ -37,6 +37,8 @@ AFRAME.registerComponent("markerhandler", {
                             document.getElementById("box3").emit("boxRueda");
                             document.getElementById("box4").emit("boxRueda");
                             document.getElementById("box5").emit("boxRueda");
+                            document.getElementById("box6").emit("boxRueda");
+                            document.getElementById("box7").emit("boxRueda");
 
                         }, 1500);
                     }
@@ -65,6 +67,12 @@ AFRAME.registerComponent("markerhandler", {
 
                     document.getElementById('cilbox5').setAttribute('animation', { from: { x: 0, y: 0, z: 0 } });
                     document.getElementById('cilbox5').setAttribute('animation', { to: { x: 0, y: 360, z: 0 } });
+
+                    document.getElementById('cilbox6').setAttribute('animation', { from: { x: 0, y: 0, z: 0 } });
+                    document.getElementById('cilbox6').setAttribute('animation', { to: { x: 0, y: 360, z: 0 } });
+
+                    document.getElementById('cilbox7').setAttribute('animation', { from: { x: 0, y: 0, z: 0 } });
+                    document.getElementById('cilbox7').setAttribute('animation', { to: { x: 0, y: 360, z: 0 } });
                     console.log('Aqui se ejecuta kjhasj');
                 });
 
