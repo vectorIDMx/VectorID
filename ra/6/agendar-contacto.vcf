@@ -2,11 +2,15 @@ BEGIN:VCARD
 VERSION:3.0
 N:Torres;Julio;;Sr.;
 FN:Julio Torres
-ORG:Kapta studio
+ORG:Kapta Studio.
 TITLE:Kapta
-PHOTO;VALUE=URI;TYPE=GIF:http://www.vectorid.mx/ra/6/images/logo_kapta3.png
+PHOTO;VALUE=URI;TYPE=PNG:http://www.vectorid.mx/ra/6/logo_kapta3.png
 TEL;TYPE=WORK,VOICE:(111) 555-1212
-TEL;TYPE=HOME,VOICE:+51 930 484 626
-EMAILjctorres@kaptastudio.com
+TEL;TYPE=HOME,VOICE:(404) 555-1212
+ADR;TYPE=WORK,PREF:;;100 Waters Edge;Baytown;LA;30314;Peru
+LABEL;TYPE=WORK,PREF:100 Waters Edge\nBaytown\, LA 30314\nPeru
+ADR;TYPE=HOME:;;42 Plantation St.;Baytown;LA;30314;Peru
+LABEL;TYPE=HOME:42 Plantation St.\nBaytown\, LA 30314\nPeru
+EMAIL:jctorres@kaptastudio.com
 REV:2008-04-24T19:52:43Z
 END:VCARD
