@@ -3,7 +3,7 @@ document.getElementById('red1').addEventListener('click', function(e){
     window.open('https://www.vectorid.mx/ra/6/agendar-contacto.vcf');
 })
 document.getElementById('red2').addEventListener('click', function(e){
-    window.open('tel:6441560226');
+    window.open('tel:51930484626');
 })
 document.getElementById('red3').addEventListener('click', function(e){
     window.open('https://www.vectorid.mx/');
