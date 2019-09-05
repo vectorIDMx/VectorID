@@ -1,0 +1,202 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  top: 0%;
+  width: 100%;
+  background: fixed;
+}
+
+.titulo-startup {
+  font-size: 40px;
+  font-weight: 700;
+  position: relative;
+  top: 80px;
+  margin-left: 50px;
+}
+
+header .menu {
+  margin: 40px 0;
+  text-align: right;
+}
+
+header .menu a {
+  margin: 0 15px;
+  color: #fff;
+  padding-bottom: 9px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+header .menu a:hover {
+  color: #afafaf;
+}
+
+#home-jumbotron {
+  background: green;
+  background-image: url("https://images.pexels.com/photos/2115217/pexels-photo-2115217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.jumbotron-description {
+  z-index: 1;
+}
+
+.jumbotron-description h1 {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.contenedor {
+  width: 100%;
+  min-height: 500px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.caja1 {
+  width: 350px;
+  height: 280px;
+  background: radial-gradient(circle at 1.98% 13.04%, #FF512F, transparent 100%), radial-gradient(circle at 98.02% 28.95%, #DD2476, transparent 100%), radial-gradient(circle at 50% 50%, #ffffff, #ffffff 100%);
+  text-align: center;
+  padding: 70px 0px;
+  -webkit-box-shadow: 0 40px 120px -20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 40px 120px -20px rgba(0, 0, 0, 0.3);
+}
+
+.parrafo1 {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.69);
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.parrafo2 {
+  font-size: 23px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.parrafo3 {
+  font-size: 23px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 0;
+}
+
+.caja2 {
+  width: 350px;
+  height: 280px;
+  position: relative;
+  left: 100px;
+  text-align: center;
+  padding: 70px 0px;
+}
+
+.parrafo-1 {
+  font-size: 13px;
+  color: #aaaaaa;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.parrafo-2 {
+  font-size: 23px;
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+.parrafo-3 {
+  font-size: 23px;
+  color: #0a0a0a;
+  font-weight: 700;
+  line-height: 0;
+}
+
+.caja3 {
+  width: 350px;
+  height: 280px;
+  text-align: center;
+  padding: 70px 0px;
+  position: relative;
+  left: 200px;
+}
+
+.fondo-1 {
+  background-image: url(https://demos.hogash.com/agency-html/images/contact.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  left: -15px;
+}
+
+#ancho-5 {
+  width: 800px;
+  position: relative;
+  left: 200px;
+}
+
+.padding-1 {
+  padding: 50px;
+}
+
+#color-negro {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 20px;
+  position: relative;
+  left: 500px;
+  top: 10px;
+  border: 2px solid;
+}
+
+.fondo-gris {
+  background: #191919;
+  padding: 100px 20px;
+}
+
+.text-calle {
+  font-size: 15px;
+  font-weight: 400;
+  color: #808080;
+  line-height: 15px;
+  position: relative;
+  left: 26px;
+}
+
+.cell-correo {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 15px;
+}
+
+.fondo-black {
+  background: #141414;
+}
+
+.iconn- {
+  font-size: 22px;
+  font-weight: 400;
+  color: #686868;
+  padding: 15px;
+  position: relative;
+  top: 120px;
+  left: 180px;
+}
+/*# sourceMappingURL=styles-contac.css.map */

@@ -1,0 +1,28 @@
+
+// defininnmos variables    
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xlg: 1200
+
+//un mixin nos permite agrupar declaraciones que despues podemos reutilizar en nuestro codigo
+
+//podemos utilizar parametros
+=from($value)
+    @media (min-width: $value + 'px')
+        @content
+
+// podemos usar maxins sin parametros
+// el simbolo = indica que es un mixin y sm es el nombre que le asignamos
+=sm 
+    @media (min-width: $sm)
+        @content
+=md 
+    @media (min-width: $md)
+        @content
+=lg 
+    @media (min-width: $lg)
+        @content
+=xlg 
+    @media (min-width: $lg)
+        @content
