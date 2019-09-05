@@ -94,6 +94,9 @@ header .menu a {
 }
 
 #listaMenu {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   display: none;
 }
 
@@ -102,6 +105,9 @@ header .menu a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 }
 
