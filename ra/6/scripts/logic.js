@@ -18,5 +18,10 @@ document.getElementById('red6').addEventListener('click', function(e){
     window.open('https://www.instagram.com/kaptastudio/');
 })
 document.getElementById('red7').addEventListener('click', function(e){
-    window.open('skype:++51930484626?call');
+    window.open('skype:+51930484626?call');
+})
+
+
+document.getElementById('pred1').addEventListener('click', function(e){
+    alert("click al plano");
 })
