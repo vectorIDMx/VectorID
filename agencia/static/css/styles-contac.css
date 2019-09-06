@@ -1,13 +1,7 @@
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-header {
-  top: 0%;
-  width: 100%;
-  background: fixed;
-}
-
+/* header
+    top: 0%
+    width: 100%
+    background: fixed */
 .titulo-startup {
   font-size: 40px;
   font-weight: 700;
@@ -16,27 +10,20 @@ header {
   margin-left: 50px;
 }
 
-header .menu {
-  margin: 40px 0;
-  text-align: right;
-}
-
-header .menu a {
-  margin: 0 15px;
-  color: #fff;
-  padding-bottom: 9px;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1em;
-  font-weight: 700;
-}
-
-header .menu a:hover {
-  color: #afafaf;
-}
-
-#home-jumbotron {
-  background: green;
+/* header .menu
+    margin: 40px 0
+    text-align: right */
+/* header .menu a
+    margin: 0 15px
+    color: #fff
+    padding-bottom: 9px
+    display: inline-block
+    text-decoration: none
+    font-size: 1em
+    font-weight: 700 */
+/* header .menu a:hover
+    color: #afafaf */
+#work-jumbotron {
   background-image: url("https://images.pexels.com/photos/2115217/pexels-photo-2115217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-position: center;
   background-repeat: no-repeat;
@@ -44,6 +31,7 @@ header .menu a:hover {
 }
 
 .overlay {
+  position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
@@ -52,7 +40,8 @@ header .menu a:hover {
 }
 
 .jumbotron-description {
-  z-index: 1;
+  position: absolute;
+  z-index: 3;
 }
 
 .jumbotron-description h1 {
@@ -70,8 +59,6 @@ header .menu a:hover {
 }
 
 .caja1 {
-  width: 350px;
-  height: 280px;
   background: radial-gradient(circle at 1.98% 13.04%, #FF512F, transparent 100%), radial-gradient(circle at 98.02% 28.95%, #DD2476, transparent 100%), radial-gradient(circle at 50% 50%, #ffffff, #ffffff 100%);
   text-align: center;
   padding: 70px 0px;
@@ -100,8 +87,6 @@ header .menu a:hover {
 }
 
 .caja2 {
-  width: 350px;
-  height: 280px;
   position: relative;
   left: 100px;
   text-align: center;
@@ -129,8 +114,6 @@ header .menu a:hover {
 }
 
 .caja3 {
-  width: 350px;
-  height: 280px;
   text-align: center;
   padding: 70px 0px;
   position: relative;
@@ -188,6 +171,16 @@ header .menu a:hover {
 
 .fondo-black {
   background: #141414;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .iconn- {
@@ -195,8 +188,5 @@ header .menu a:hover {
   font-weight: 400;
   color: #686868;
   padding: 15px;
-  position: relative;
-  top: 120px;
-  left: 180px;
 }
 /*# sourceMappingURL=styles-contac.css.map */
