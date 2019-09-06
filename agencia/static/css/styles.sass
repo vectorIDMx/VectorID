@@ -122,7 +122,9 @@ header .menu a:hover
         padding: 60px 90px 130px 90px
 .strong
     font-weight: 700
-    font-size: 3rem
+    font-size: 2rem
+    +md 
+        font-size: 3rem
 .center
     display: flex
     justify-content: center
@@ -131,8 +133,13 @@ header .menu a:hover
 #introTexto
     padding-bottom: 50px
     font-family: 'Gilda Display', serif
-    font-size: 1.5rem
+    font-size: .8rem
     font-weight: 100
+    +md 
+        font-size: 1.5rem
+.introInfo
+    padding: 0px
+
 .services
     display: flex
     justify-content: space-between
@@ -142,12 +149,12 @@ header .menu a:hover
         display: flex
         justify-content: space-between
         align-items: center
-        font-size: .6rem
+        font-size: .5rem
         font-weight: 600
         +md 
             font-size: .8rem
         i 
-            font-size: 1.5rem
+            font-size: 1rem
             +md 
                 font-size: 2rem
         
@@ -185,7 +192,7 @@ img
 
 .ag-vertical-separator 
     width: 1px
-    height: 80px
+    height: 5vw
     background: #e4e4e4
     margin: 0 auto
 .margin
@@ -300,18 +307,24 @@ img
 
 .icon-blanco
     color: #fff
-    font-size: 48px
+    font-size: 1rem
+    +md     
+        font-size: 3rem
 
 .mini-title
-    font-size: 13
+    font-size: .8rem
     color: white
     font-weight: 700
+    +md 
+        font-size: .8rem
 
 .text-s
-    font-size: 15px
+    font-size: .6rem
     font-weight: 400
-    line-height: 30px
+    /* line-height: 30px */
     color: rgba(255, 255, 255, 0.4)
+    +md     
+        font-size: .4rem
 
 .color-blanco2
     color: white
@@ -320,8 +333,10 @@ img
 
 .title-version4
     color: white
-    font-size: 34px
+    font-size: 2rem
     font-weight: 700
+    +md 
+        font-size: 1rem
 
 .centerText
     text-align: center
@@ -358,19 +373,22 @@ img
     font-size: 1.1rem
     padding-top: 20px
 footer
-    padding: 100px 50px
+    padding: 50px 20px
     background: #000
+    +md 
+        padding: 100px 50px
     div>div>div>div
         color: #565656
         font-family: Arial, Helvetica, sans-serif
 .center2
     display: flex
     align-items: center 
+    justify-content: flex-start
 .white
     color: #fff
 .iconos
     color: #565656
-    font-size: 1.5rem
+    font-size: 1rem
     padding: 20px
 .right
     display: flex

@@ -191,7 +191,13 @@ header .menu a:hover {
 
 .strong {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .strong {
+    font-size: 3rem;
+  }
 }
 
 .center {
@@ -209,8 +215,18 @@ header .menu a:hover {
 #introTexto {
   padding-bottom: 50px;
   font-family: 'Gilda Display', serif;
-  font-size: 1.5rem;
+  font-size: .8rem;
   font-weight: 100;
+}
+
+@media (min-width: 768px) {
+  #introTexto {
+    font-size: 1.5rem;
+  }
+}
+
+.introInfo {
+  padding: 0px;
 }
 
 .services {
@@ -234,7 +250,7 @@ header .menu a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: .6rem;
+  font-size: .5rem;
   font-weight: 600;
 }
 
@@ -245,7 +261,7 @@ header .menu a:hover {
 }
 
 .services span i {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -300,7 +316,7 @@ img {
 
 .ag-vertical-separator {
   width: 1px;
-  height: 80px;
+  height: 5vw;
   background: #e4e4e4;
   margin: 0 auto;
 }
@@ -457,20 +473,38 @@ img {
 
 .icon-blanco {
   color: #fff;
-  font-size: 48px;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .icon-blanco {
+    font-size: 3rem;
+  }
 }
 
 .mini-title {
-  font-size: 13;
+  font-size: .8rem;
   color: white;
   font-weight: 700;
 }
 
+@media (min-width: 768px) {
+  .mini-title {
+    font-size: .8rem;
+  }
+}
+
 .text-s {
-  font-size: 15px;
+  font-size: .6rem;
   font-weight: 400;
-  line-height: 30px;
+  /* line-height: 30px */
   color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 768px) {
+  .text-s {
+    font-size: .4rem;
+  }
 }
 
 .color-blanco2 {
@@ -481,8 +515,14 @@ img {
 
 .title-version4 {
   color: white;
-  font-size: 34px;
+  font-size: 2rem;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .title-version4 {
+    font-size: 1rem;
+  }
 }
 
 .centerText {
@@ -540,8 +580,14 @@ img {
 }
 
 footer {
-  padding: 100px 50px;
+  padding: 50px 20px;
   background: #000;
+}
+
+@media (min-width: 768px) {
+  footer {
+    padding: 100px 50px;
+  }
 }
 
 footer div > div > div > div {
@@ -556,6 +602,9 @@ footer div > div > div > div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .white {
@@ -564,7 +613,7 @@ footer div > div > div > div {
 
 .iconos {
   color: #565656;
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 20px;
 }
 
