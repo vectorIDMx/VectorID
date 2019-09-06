@@ -1,7 +1,13 @@
 .title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 600;
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
 }
 
 .union-padre {
@@ -42,8 +48,14 @@
 
 #menuPortafolio li {
   display: inline-block;
-  font-size: .8rem;
+  font-size: .6rem;
   color: #0a0a0a;
+}
+
+@media (min-width: 768px) {
+  #menuPortafolio li {
+    font-size: .8rem;
+  }
 }
 
 #menuPortafolio li:hover {

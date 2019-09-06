@@ -1,7 +1,10 @@
+@import "media-querys"
 .title
-    font-size: 4rem
+    font-size: 3rem
     font-weight: 600
     color: #fff
+    +md 
+        font-size: 4rem
 .union-padre
     z-index: 1
     position: absolute
@@ -29,8 +32,10 @@
     width: 100%
     li
         display: inline-block
-        font-size: .8rem
+        font-size: .6rem
         color: #0a0a0a
+        +md 
+            font-size: .8rem
         &:hover
             color: #c2c2c2
             cursor: pointer
