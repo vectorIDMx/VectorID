@@ -21,7 +21,9 @@ document.getElementById('red7').addEventListener('click', function(e){
     window.open('skype:+51930484626?call');
 }) */
 
-
+document.getElementById('cilbox1').addEventListener('click', function(e){
+    alert("click al plano2");
+})
 document.getElementById('pred2').addEventListener('click', function(e){
     alert("click al plano2");
 })
