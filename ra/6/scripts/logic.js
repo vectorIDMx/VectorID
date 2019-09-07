@@ -38,7 +38,7 @@ document.getElementById('pred4').addEventListener('click', function(e){
     window.open('https://api.whatsapp.com/send?phone=+51930484626&text=Hola!%20somos%20Kapta%20studio,%20en%20que%20podemos%20ayudarte?');
 })
 document.getElementById('pred5').addEventListener('click', function(e){
-    alert("pagina Facebook pendiente");
+    alert("Facebook pendiente");
     //window.open('fb://page/299366750897285');
 })
 document.getElementById('pred6').addEventListener('click', function(e){
