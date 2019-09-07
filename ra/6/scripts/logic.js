@@ -22,6 +22,21 @@ document.getElementById('red7').addEventListener('click', function(e){
 })
 
 
-document.getElementById('pred1').addEventListener('click', function(e){
-    alert("click al plano");
+document.getElementById('pred2').addEventListener('click', function(e){
+    alert("click al plano2");
+})
+document.getElementById('pred3').addEventListener('click', function(e){
+    alert("click al plano3");
+})
+document.getElementById('pred4').addEventListener('click', function(e){
+    alert("click al plano4");
+})
+document.getElementById('pred5').addEventListener('click', function(e){
+    alert("click al plano5");
+})
+document.getElementById('pred6').addEventListener('click', function(e){
+    alert("click al plano6");
+})
+document.getElementById('pred7').addEventListener('click', function(e){
+    alert("click al plano7");
 })

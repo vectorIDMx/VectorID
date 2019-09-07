@@ -47,37 +47,39 @@
                     animation="startEvents: startLogoE; property: scale; from: .01 .01 .01; to: 1 1 1; dur: 2000;"
                     animation__gira="startEvents: startGiroLogoE; property: rotation; from: -90 0 0; to: -90 360 0; dur: 2000; easing: easeInOutSine; loop:2"
                     animation__desa="startEvents: desa; property: opacity; from: .9; to: 0; dur: 2000; easing: linear;"
-                    animation__apa="startEvents: apa; property: opacity; from: 0; to: .9; dur: 1000; easing: linear;"
-                ></a-plane>
+                    animation__apa="startEvents: apa; property: opacity; from: 0; to: .9; dur: 1000; easing: linear;"></a-plane>
+                </a-plane>
                 <!--redes--------------------------->
                 <a-entity id="redes" position="0 -.15 0" scale=".001 .001 .001"
                     animation__crece="startEvents: redCrece; property: scale; from: .01 .01 .01; to: 1 1 1; easing: linear; dur: 1000">
                     <a-entity rotation="0 0 0">
                         <a-sphere opacity="0" id="red1" color="#CCC" radius=".5" position="0 0 -1" rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox1" position="0 0 -1" scale=".25 .001 .25"  material="src: images/red1.png"
-                            animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;"
-                            >
+                        <a-cylinder id="cilbox1" position="0 0 -1" scale=".25 .001 .25" material="src: images/red1.png"
+                            animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
-                        <a-entity rotation="0 0 0">
-                           <a-plane id="pred1" width="60" height=".7" rotation="-90 0 0" position="0 .3 0"></a-plane> 
-                        </a-entity>
+
                         
+
+
                     </a-entity>
                     <a-entity rotation="0 52.14 0" id="box2"
                         animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity="0" id="red2" color="#CCC" radius=".5" position=".78 0 -.62" rotation="-90 0 0">
+                        <a-sphere opacity="0" id="red2" color="#CCC" radius=".5" position=".78 0 -.62"
+                            rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox2" position=".78 0 -.62" scale=".25 .001 .25"  material="src: images/red2.png"
-                            animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;"
-                            >
+                        <a-cylinder id="cilbox2" position=".78 0 -.62" scale=".25 .001 .25"
+                            material="src: images/red2.png"
+                            animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
                     </a-entity>
                     <a-entity rotation="0 104.28 0" id="box3"
                         animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
-                        <a-sphere opacity="0" id="red3" color="#CCC" radius=".5" position=".97 0 .22" rotation="-90 0 0">
+                        <a-sphere opacity="0" id="red3" color="#CCC" radius=".5" position=".97 0 .22"
+                            rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox3" position=".97 0 .22" scale=".25 .001 .25"  material="src: images/red3.png"
+                        <a-cylinder id="cilbox3" position=".97 0 .22" scale=".25 .001 .25"
+                            material="src: images/red3.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
                     </a-entity>
@@ -85,7 +87,8 @@
                         animation="startEvents: boxRueda; property: rotation; to: 0 0 0; dur: 2500; easing: easeInOutSine;">
                         <a-sphere opacity="0" id="red4" color="#CCC" radius=".5" position=".43 0 .9" rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox4" position=".43 0 .9" scale=".325 .001 .325"  material="src: images/red4.png"
+                        <a-cylinder id="cilbox4" position=".43 0 .9" scale=".325 .001 .325"
+                            material="src: images/red4.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
                     </a-entity>
@@ -94,7 +97,8 @@
                         <a-sphere opacity="0" id="red5" color="#CCC" radius=".5" position="-.43 0 .9"
                             rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox5" position="-.43 0 .9" scale=".25 .001 .25"  material="src: images/red5.png"
+                        <a-cylinder id="cilbox5" position="-.43 0 .9" scale=".25 .001 .25"
+                            material="src: images/red5.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
                     </a-entity>
@@ -103,7 +107,8 @@
                         <a-sphere opacity="0" id="red6" color="#CCC" radius=".5" position="-.97 0 .22"
                             rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox6" position="-.97 0 .22" scale=".25 .001 .25"  material="src: images/red6.png"
+                        <a-cylinder id="cilbox6" position="-.97 0 .22" scale=".25 .001 .25"
+                            material="src: images/red6.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
                     </a-entity>
@@ -112,10 +117,22 @@
                         <a-sphere opacity="0" id="red7" color="#CCC" radius=".5" position="-.78 0 -.62"
                             rotation="-90 0 0">
                         </a-sphere>
-                        <a-cylinder id="cilbox7" position="-.78 0 -.62" scale=".25 .001 .25"  material="src: images/red7.png"
+                        <a-cylinder id="cilbox7" position="-.78 0 -.62" scale=".25 .001 .25"
+                            material="src: images/red7.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
                         </a-cylinder>
                     </a-entity>
+                </a-entity>
+                <a-entity position="0 .05 0">
+                    <!-- <a-plane id="pred1" position="4.75 0 -1" width="10" height=".4" rotation="-90 0 0"></a-plane> -->
+                    <a-plane id="pred2" position="5.5 0 -.62" width="10" height=".5" rotation="-90 0 0" opacity="0"></a-plane>
+                    <a-plane id="pred3" position="5.72 0 .22" width="10" height=".5" rotation="-90 0 0" opacity="0"></a-plane>
+                    <a-plane id="pred4" position="5.18 0 .9" width="10" height=".5" rotation="-90 0 0" opacity="0"></a-plane>
+
+                    <a-plane id="pred5" position="-5.5 0 -.62" width="10" height=".5" rotation="-90 0 0" opacity="0"></a-plane>
+                    <a-plane id="pred6" position="-5.72 0 .22" width="10" height=".5" rotation="-90 0 0" opacity="0"></a-plane>
+                    <a-plane id="pred7" position="-5.18 0 .9" width="10" height=".5" rotation="-90 0 0" opacity="0"></a-plane>
+
                 </a-entity>
 
                 <!----------------------------->
