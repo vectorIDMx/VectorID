@@ -1,5 +1,5 @@
 console.log("Logic.js is working!");
-document.getElementById('red1').addEventListener('click', function(e){
+/* document.getElementById('red1').addEventListener('click', function(e){
     window.open('https://www.vectorid.mx/ra/6/agendar-contacto.vcf');
 })
 document.getElementById('red2').addEventListener('click', function(e){
@@ -19,7 +19,7 @@ document.getElementById('red6').addEventListener('click', function(e){
 })
 document.getElementById('red7').addEventListener('click', function(e){
     window.open('skype:+51930484626?call');
-})
+}) */
 
 
 document.getElementById('pred2').addEventListener('click', function(e){
