@@ -22,7 +22,7 @@ document.getElementById('red7').addEventListener('click', function(e){
 }) */
 
 document.getElementById('cilbox1').addEventListener('click', function(e){
-    alert("click al plano2");
+    alert("click al plano1");
 })
 document.getElementById('pred2').addEventListener('click', function(e){
     alert("click al plano2");
