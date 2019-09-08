@@ -98,15 +98,15 @@ window.setInterval(function () {
     document.querySelector('#logoEmpresa').emit('startGiroLogoE');
     if (cambioImagen == 0) {
         document.querySelector('#logoEmpresa').emit('desa');
-        document.querySelector('#logoEmpresa').addEventListener('animationcomplete__desa', function(){
-            document.querySelector('#logoEmpresa').setAttribute('material',{src: 'images/logo_kapta3.png'});
+        document.querySelector('#logoEmpresa').addEventListener('animationcomplete__desa', function () {
+            document.querySelector('#logoEmpresa').setAttribute('material', { src: 'images/logo_kapta3.png' });
             document.querySelector('#logoEmpresa').emit('apa');
         });
         cambioImagen = 1;
     } else {
         document.querySelector('#logoEmpresa').emit('desa');
-        document.querySelector('#logoEmpresa').addEventListener('animationcomplete__desa', function(){
-            document.querySelector('#logoEmpresa').setAttribute('material',{src: 'images/logo_kapta2.png'});
+        document.querySelector('#logoEmpresa').addEventListener('animationcomplete__desa', function () {
+            document.querySelector('#logoEmpresa').setAttribute('material', { src: 'images/logo_kapta2.png' });
             document.querySelector('#logoEmpresa').emit('apa');
         });
         cambioImagen = 0;
@@ -116,6 +116,13 @@ window.setInterval(function () {
 }, 10000);
 
 /*  */
+/* document.getElementById('cuerpo').addEventListener('load',function(ev){
+    console.log('que pedo wwey');
+    document.getElementsByClassName('a-enter-vr-button')[0].style.display = 'none';
+}); */
+window.setTimeout(function (e) {
+    document.getElementsByClassName('a-enter-vr-button')[0].style.display = 'none';
+},500);
 
 /*
  */
