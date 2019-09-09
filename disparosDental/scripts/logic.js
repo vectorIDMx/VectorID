@@ -200,7 +200,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const x = aleat(0, 360);
                 const y = aleat(0, 360);
                 const z = aleat(0, 360);
-                const dist = -aleat(2, 5);
+                const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
                 cubo.setAttribute('scale', { x: .1, y: .1, z: .1 });
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
