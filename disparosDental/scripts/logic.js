@@ -1,10 +1,10 @@
 //Parametros de inicio
 const cantidadCubos = 10;
-let cantidadBalas = 100;
+let cantidadBalas = 1000;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = 10;
-let tiempo = 100;
+let tiempo = 1000;
 
 //Variables globales
 let puntos = 0;
@@ -78,7 +78,7 @@ for (let i = 0; i < cantidadCubos; i++) {
     let size = '.1 .1 .1';
     statusCubos.push(0);
 
-    if (i < 2) {
+    /* if (i < 2) {
         ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
         prefix = 'not';
         size = '.1 .1 .1';
@@ -90,6 +90,19 @@ for (let i = 0; i < cantidadCubos; i++) {
         ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
         prefix = 'not';
         size = '.03 .03 .03';
+    } */
+    if (i < 3) {
+        ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
+        prefix = 'not';
+        size = '.1 .1 .1';
+    } else if (i < 6) {
+        ruta = 'src="modelos/cepillo/cepillo.obj" mtl="modelos/cepillo/cepillo.mtl"';
+        prefix = 'not';
+        size = '.1 .1 .1';
+    } else if (i < 9) {
+        ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
+        prefix = 'not';
+        size = '.1 .1 .1';
     }
 
     /* cubos.innerHTML += `<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
@@ -180,7 +193,7 @@ pantalla.addEventListener('touchstart', function (ev) {
     }
     //disparo Notcubo
     else if (elementoApuntado.indexOf('not') == 0) {
-        console.log('disparo en notcubo');
+        console.log('disparo en notcubo: ' + elementoApuntado);
         const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
         if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
         {
