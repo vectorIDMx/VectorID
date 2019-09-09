@@ -1,5 +1,5 @@
 //Parametros de inicio
-const cantidadCubos = 10;
+const cantidadCubos = 20;
 let cantidadBalas = 60;
 let timePlayAgain = 0;
 const valorCubo = 10;
@@ -91,6 +91,7 @@ for (let i = 0; i < cantidadCubos; i++) {
         prefix = 'not';
         size = '.1 .1 .1';
     }
+    console.log(ruta);
 
     /* cubos.innerHTML += `<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
     <a-entity rotation="0 0 0" animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: ${velocidad}; easing: linear; loop: true;">
