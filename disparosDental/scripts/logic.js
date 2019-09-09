@@ -78,15 +78,15 @@ for (let i = 0; i < cantidadCubos; i++) {
     let size = '.1 .1 .1';
     statusCubos.push(0);
 
-    if (i < 5) {
+    if (i < 4) {
         ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
         prefix = 'not';
         size = '.1 .1 .1';
-    } else if (i < 10) {
+    } else if (i < 8) {
         ruta = 'src="modelos/cepillo/cepillo.obj" mtl="modelos/cepillo/cepillo.mtl"';
         prefix = 'not';
         size = '.07 .07 .07';
-    } else if (i < 15) {
+    } else if (i < 12) {
         ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
         prefix = 'not';
         size = '.03 .03 .03';
