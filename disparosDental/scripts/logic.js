@@ -78,28 +78,15 @@ for (let i = 0; i < cantidadCubos; i++) {
     let size = '.1 .1 .1';
     statusCubos.push(0);
 
-    /* if (i < 2) {
+    if (i < 2) {
         ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
         prefix = 'not';
         size = '.1 .1 .1';
     } else if (i < 4) {
         ruta = 'src="modelos/cepillo/cepillo.obj" mtl="modelos/cepillo/cepillo.mtl"';
         prefix = 'not';
-        size = '.07 .07 .07';
-    } else if (i < 6) {
-        ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
-        prefix = 'not';
-        size = '.03 .03 .03';
-    } */
-    if (i < 3) {
-        ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
-        prefix = 'not';
         size = '.1 .1 .1';
     } else if (i < 6) {
-        ruta = 'src="modelos/cepillo/cepillo.obj" mtl="modelos/cepillo/cepillo.mtl"';
-        prefix = 'not';
-        size = '.1 .1 .1';
-    } else if (i < 9) {
         ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
         prefix = 'not';
         size = '.1 .1 .1';
