@@ -79,8 +79,9 @@
         <img src="images/powvector.png" alt="">
     </footer>
     <a-scene>
-        <a-entity id="cubos" scale=".0001 .0001 .0001">
-            <!-- <a-entity id="0">
+        <a-entity id="global" rotation="0 180 0">
+            <a-entity id="cubos" scale=".0001 .0001 .0001">
+                <!-- <a-entity id="0">
                <a-entity rotation="0 0 0" animation="property: rotation; from: 0 0 0 to: 360 360 0; dur: 20000; easing: linear; loop: true;">
                     <a-box id="cubo0" class="cubo" scale=".5 .5 .5" position="0 0 -2" material="src: images/vm.jpg"
                         animation="property: rotation; to: 0 360 360; dur: 10000; easing: linear; loop: true;"
@@ -89,8 +90,8 @@
                 </a-entity> 
             </a-entity> -->
 
-        </a-entity>
-        <!-- <a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
+            </a-entity>
+            <!-- <a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
             <a-entity rotation="0 0 0"
                 animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: ${velocidad}; easing: linear; loop: true;">
                 <a-box id="${prefix}cubo${i}" class="cubo" scale=".5 .5 .5" position="0 0 -${distancia}"
@@ -101,7 +102,7 @@
             </a-entity>
         </a-entity> -->
 
-        <!-- <a-entity id="0" rotation="0 0 0">
+            <!-- <a-entity id="0" rotation="0 0 0">
             <a-entity rotation="0 0 0"
                 animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: 20000; easing: linear; loop: true;">
                 <a-gltf-model src="modelos/pasta/scene.gltf" id="cubo0" class="cubo" scale="1 1 1" position="0 0 -2"
@@ -111,77 +112,81 @@
             </a-entity>
         </a-entity> -->
 
-        <a-entity id="escenaInicial">
-            <a-entity id="logo" position="0 0 -1.5" scale="1 1 1" rotation="0 0 0">
-                <a-sphere position="0 1 0" radius=".125" material="color: #00FFFF;"></a-sphere>
-                <a-entity animation="property: rotation; dur: 3000; to: 0 360 0; loop: true; easing: linear;">
-                    <a-ring position="0 1 0" radius-inner=".15" radius-outer=".2" rotation="-80 0 0"
-                        material="color:#003399;" opacity=".5"></a-ring>
-                    <a-ring position="0 1 0" radius-inner=".2" radius-outer=".25" rotation="-80 0 0"
-                        material="color:#00FFFF;" opacity=".5"></a-ring>
+            <a-entity id="escenaInicial">
+                <a-entity id="logo" position="0 0 -1.5" scale="1 1 1" rotation="0 0 0">
+                    <a-sphere position="0 1 0" radius=".125" material="color: #00FFFF;"></a-sphere>
+                    <a-entity animation="property: rotation; dur: 3000; to: 0 360 0; loop: true; easing: linear;">
+                        <a-ring position="0 1 0" radius-inner=".15" radius-outer=".2" rotation="-80 0 0"
+                            material="color:#003399;" opacity=".5"></a-ring>
+                        <a-ring position="0 1 0" radius-inner=".2" radius-outer=".25" rotation="-80 0 0"
+                            material="color:#00FFFF;" opacity=".5"></a-ring>
 
-                    <a-ring position="0 .99 0" radius-inner=".15" radius-outer=".2" rotation="100 0 0"
-                        material="color:#003399;" opacity=".5"></a-ring>
-                    <a-ring position="0 .99 0" radius-inner=".2" radius-outer=".25" rotation="100 0 0"
-                        material="color:#00FFFF;" opacity=".5"></a-ring>
-                    <!-- <a-animation attribute="rotation" dur="3000" to="0 360 0" repeat="indefinite" easing="linear">
+                        <a-ring position="0 .99 0" radius-inner=".15" radius-outer=".2" rotation="100 0 0"
+                            material="color:#003399;" opacity=".5"></a-ring>
+                        <a-ring position="0 .99 0" radius-inner=".2" radius-outer=".25" rotation="100 0 0"
+                            material="color:#00FFFF;" opacity=".5"></a-ring>
+                        <!-- <a-animation attribute="rotation" dur="3000" to="0 360 0" repeat="indefinite" easing="linear">
                         </a-animation> -->
-                </a-entity>
-                <a-entity animation="startEvents: giraLogo property: rotation; dur: 1000; to: 0 360 0; loop: true;">
-                    <a-plane position="0 .7 0" rotation="0 0 0" width="1.18" height=".18"
-                        material="src:images/logopp.png" opacity=".7"></a-plane>
-                    <a-plane position="0 .7 -.1" rotation="0 180 0" width="1.18" height=".18"
-                        material="src:images/logopp.png" opacity=".7"></a-plane>
-                    <!-- <a-animation attribute="rotation" begin="7000" dur="1000" to="0 360 0" repeat="indefinite">
+                    </a-entity>
+                    <a-entity animation="startEvents: giraLogo property: rotation; dur: 1000; to: 0 360 0; loop: true;">
+                        <a-plane position="0 .7 0" rotation="0 0 0" width="1.18" height=".18"
+                            material="src:images/logopp.png" opacity=".7"></a-plane>
+                        <a-plane position="0 .7 -.1" rotation="0 180 0" width="1.18" height=".18"
+                            material="src:images/logopp.png" opacity=".7"></a-plane>
+                        <!-- <a-animation attribute="rotation" begin="7000" dur="1000" to="0 360 0" repeat="indefinite">
                         </a-animation> -->
+                    </a-entity>
+
                 </a-entity>
 
+                <a-plane id="continuar" class="initialScreen" position="0 -.5 -1" width=".4" height=".2" opacity=".9"
+                    material="src: images/continuar.png"
+                    animation="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;"></a-plane>
+
+
+                <a-plane id="inst" class="initialScreen" position="0 0 -1" rotation="0 .1 0" width="1.1" height=".5"
+                    opacity=".8" material="src: images/inst1.png"
+                    animation="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
+                </a-plane>
             </a-entity>
 
-            <a-plane id="continuar" class="initialScreen" position="0 -.5 -1" width=".4" height=".2" opacity=".9"
-                material="src: images/continuar.png"
-                animation="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;"></a-plane>
+            <a-entity position="0 -.5 0">
+                <a-entity id="timeId" class="dashboard" text="value: 60;" position="4.7 .85 -2"
+                    scale=".00001 .00001 .00001" rotation="0 0 0" opacity=".9"
+                    animation="startEvents: in; property: scale; to: 10 10 10; dur: 1000">
+                    <!-- <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="10 10 10" easing="linear">
+                </a-animation> -->
+                </a-entity>
+                <a-entity id="puntosId" class="dashboard" text="value: Puntaje: 0;" position=".4 .3 -.5"
+                    scale=".0001 .0001 .0001" rotation="0 0 0" opacity=".9"
+                    animation="startEvents: in; property: scale; to: 1 1 1; dur: 1000">
+                    <!-- <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear">
+                </a-animation> -->
+                </a-entity>
+
+                <a-entity id="recordId" class="dashboard" text="value: Record: Ricardo     Puntaje: 250;"
+                    position=".1 .31 -1" scale=".00008 .00008 .00008" rotation="0 0 0"
+                    animation="startEvents: in; property: scale; to: .8 .8 .8; dur: 1000">
+                    <!-- <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
+                </a-animation> -->
+                </a-entity>
+                <a-plane id="record" class="dashboard" position="0 .3 -1.1" height=".2" width=".7"
+                    material="src:images/record.png" opacity="0"
+                    animation="startEvents: in; property: opacity; to: .8; dur: 1000">
+                    <!-- <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear">
+                </a-animation> -->
+                </a-plane>
 
 
-            <a-plane id="inst" class="initialScreen" position="0 0 -1" rotation="0 .1 0" width="1.1" height=".5"
-                opacity=".8" material="src: images/inst1.png"
-                animation="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
-            </a-plane>
+                <a-plane id="puntuacion" class="dashboard" position="0 0 -1.1" width=".8" height=".44" opacity="0"
+                    material="src: images/puntuacion.png"
+                    animation="startEvents: in; property: opacity; to: .5; dur: 1000">
+                    <!-- <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear">
+                </a-animation> -->
+                </a-plane>
+            </a-entity>
         </a-entity>
 
-        <a-entity position="0 -.5 0">
-            <a-entity id="timeId" class="dashboard" text="value: 60;" position="4.7 .85 -2" scale=".00001 .00001 .00001"
-                rotation="0 0 0" opacity=".9" animation="startEvents: in; property: scale; to: 10 10 10; dur: 1000">
-                <!-- <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="10 10 10" easing="linear">
-                </a-animation> -->
-            </a-entity>
-            <a-entity id="puntosId" class="dashboard" text="value: Puntaje: 0;" position=".4 .3 -.5"
-                scale=".0001 .0001 .0001" rotation="0 0 0" opacity=".9"
-                animation="startEvents: in; property: scale; to: 1 1 1; dur: 1000">
-                <!-- <a-animation attribute="scale" begin="marcadorIn" dur="1000" to="1 1 1" easing="linear">
-                </a-animation> -->
-            </a-entity>
-
-            <a-entity id="recordId" class="dashboard" text="value: Record: Ricardo     Puntaje: 250;"
-                position=".1 .31 -1" scale=".00008 .00008 .00008" rotation="0 0 0"
-                animation="startEvents: in; property: scale; to: .8 .8 .8; dur: 1000">
-                <!-- <a-animation attribute="scale" begin="marcadorIn" dur="1000" to=".8 .8 .8" easing="linear">
-                </a-animation> -->
-            </a-entity>
-            <a-plane id="record" class="dashboard" position="0 .3 -1.1" height=".2" width=".7"
-                material="src:images/record.png" opacity="0"
-                animation="startEvents: in; property: opacity; to: .8; dur: 1000">
-                <!-- <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".8" easing="linear">
-                </a-animation> -->
-            </a-plane>
-
-
-            <a-plane id="puntuacion" class="dashboard" position="0 0 -1.1" width=".8" height=".44" opacity="0"
-                material="src: images/puntuacion.png" animation="startEvents: in; property: opacity; to: .5; dur: 1000">
-                <!-- <a-animation attribute="opacity" begin="marcadorIn" dur="1000" to=".5" easing="linear">
-                </a-animation> -->
-            </a-plane>
-        </a-entity>
 
 
 
@@ -197,7 +202,7 @@
                 material="color: red; shader: flat">
             </a-entity>
             <a-gltf-model src="modelos/gun/scene.gltf" position=".1 -.1 -1" rotation="-5 190 0" scale=".1 .1 .1"
-            animation="property: rotation; dur:1000; to: -3.5 190 0; loop: true; easing: linear; dir: alternate;">
+                animation="property: rotation; dur:1000; to: -3.5 190 0; loop: true; easing: linear; dir: alternate;">
             </a-gltf-model>
 
         </a-entity>
