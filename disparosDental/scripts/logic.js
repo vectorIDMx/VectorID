@@ -1,10 +1,10 @@
 //Parametros de inicio
-const cantidadCubos = 20;
-let cantidadBalas = 80;
+const cantidadCubos = 10;
+let cantidadBalas = 100;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = 10;
-let tiempo = 50;
+let tiempo = 100;
 
 //Variables globales
 let puntos = 0;
@@ -78,15 +78,15 @@ for (let i = 0; i < cantidadCubos; i++) {
     let size = '.1 .1 .1';
     statusCubos.push(0);
 
-    if (i < 4) {
+    if (i < 2) {
         ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
         prefix = 'not';
         size = '.1 .1 .1';
-    } else if (i < 8) {
+    } else if (i < 4) {
         ruta = 'src="modelos/cepillo/cepillo.obj" mtl="modelos/cepillo/cepillo.mtl"';
         prefix = 'not';
         size = '.07 .07 .07';
-    } else if (i < 12) {
+    } else if (i < 6) {
         ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
         prefix = 'not';
         size = '.03 .03 .03';
