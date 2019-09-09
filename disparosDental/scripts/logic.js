@@ -1,10 +1,10 @@
 //Parametros de inicio
 const cantidadCubos = 10;
-let cantidadBalas = 1000;
+let cantidadBalas = 60;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = 10;
-let tiempo = 1000;
+let tiempo = 60;
 
 //Variables globales
 let puntos = 0;
