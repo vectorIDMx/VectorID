@@ -187,7 +187,21 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
-                cubo.setAttribute('scale', { x: .1, y: .1, z: .1 });
+                switch(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length)){
+                    case 0:{
+                        cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
+                    }break;
+                    case 1:{
+                        cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                    }break;
+                    case 2:{
+                        cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
+                    }break;
+                    case 3:{
+                        cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                    }break;
+                }
+                
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
@@ -220,7 +234,20 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
-                cubo.setAttribute('scale', { x: .1, y: .1, z: .1 });
+                switch(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length)){
+                    case 0:{
+                        cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
+                    }break;
+                    case 1:{
+                        cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                    }break;
+                    case 2:{
+                        cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
+                    }break;
+                    case 3:{
+                        cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                    }break;
+                }
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
