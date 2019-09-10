@@ -79,18 +79,21 @@ for (let i = 0; i < cantidadCubos; i++) {
     let size = '.5 .5 .5';
     let shader = '';
     statusCubos.push(0);
+    const grupo1 = 5;
+    const grupo2 = 10;
+    const grupo3 = 15;
 
-    if (i < 5) {
+    if (i < grupo1) {
         ruta = '#diente';
         prefix = 'not';
         size = '.7 .7 .7';
         shader = 'material="shader: gif"';
-    } else if (i < 10) {
+    } else if (i < grupo2) {
         ruta = '#cep';
         prefix = 'not';
         size = '1 1 1';
         shader = '';
-    } else if (i < 15) {
+    } else if (i < grupo3) {
         ruta = '#pasta';
         prefix = 'not';
         size = '.8 .4 .6';
@@ -189,7 +192,20 @@ pantalla.addEventListener('touchstart', function (ev) {
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
                 
                 console.log('este: '+numCubo);
-                switch(numCubo){
+                if (numCubo < grupo1) {
+                    cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
+                        alert(numCubo);
+                } else if (numCubo < grupo2) {
+                    cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                    alert(numCubo);
+                } else if (numCubo < grupo3) {
+                    cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
+                        alert(numCubo);
+                }else{
+                    cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                        alert(numCubo);
+                }
+                /* switch(numCubo){
                     case '0':{
                         cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
                         alert(numCubo);
@@ -206,7 +222,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                         cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
                         alert(numCubo);
                     }break;
-                }
+                } */
                 
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
                 statusCubos[numCubo] = 0;
@@ -242,23 +258,18 @@ pantalla.addEventListener('touchstart', function (ev) {
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
                 
                 console.log('este: '+numCubo);
-                switch(numCubo){
-                    case '0':{
-                        cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
+                if (numCubo < grupo1) {
+                    cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
                         alert(numCubo);
-                    }break;
-                    case '1':{
-                        cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                } else if (numCubo < grupo2) {
+                    cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                    alert(numCubo);
+                } else if (numCubo < grupo3) {
+                    cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
                         alert(numCubo);
-                    }break;
-                    case '2':{
-                        cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
+                }else{
+                    cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
                         alert(numCubo);
-                    }break;
-                    case '3':{
-                        cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
-                        alert(numCubo);
-                    }break;
                 }
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
                 statusCubos[numCubo] = 0;
