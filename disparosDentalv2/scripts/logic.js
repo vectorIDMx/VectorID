@@ -187,7 +187,9 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
-                switch(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length)){
+                
+                console.log('este: '+numCubo);
+                switch(numCubo){
                     case '0':{
                         cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
                     }break;
@@ -234,7 +236,9 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
-                switch(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length)){
+                
+                console.log('este: '+numCubo);
+                switch(numCubo){
                     case '0':{
                         cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
                     }break;
