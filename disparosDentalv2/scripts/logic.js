@@ -4,7 +4,7 @@ let cantidadBalas = 80;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = 10;
-let tiempo = 100;
+let tiempo = 101;
 
 //Variables globales
 let puntos = 0;
