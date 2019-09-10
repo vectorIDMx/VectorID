@@ -196,16 +196,19 @@ pantalla.addEventListener('touchstart', function (ev) {
 
                 console.log('este: ' + numCubo);
                 if (numCubo < grupo1) {
-                    cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
-                    //alert(numCubo);
-                } else if (numCubo < grupo2) {
                     cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
                     //alert(numCubo);
-                } else if (numCubo < grupo3) {
+                } else if (numCubo < grupo2) {
+                    
                     cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
                     //alert(numCubo);
-                } else {
+                } else if (numCubo < grupo3) {
+                    
                     cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                    //alert(numCubo);
+                } else {
+                    
+                    cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
                     //alert(numCubo);
                 }
                 /* switch(numCubo){
@@ -262,16 +265,19 @@ pantalla.addEventListener('touchstart', function (ev) {
 
                 console.log('este: ' + numCubo);
                 if (numCubo < grupo1) {
-                    cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
-                    //alert(numCubo);
-                } else if (numCubo < grupo2) {
                     cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
                     //alert(numCubo);
-                } else if (numCubo < grupo3) {
+                } else if (numCubo < grupo2) {
+                    
                     cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
                     //alert(numCubo);
-                } else {
+                } else if (numCubo < grupo3) {
+                    
                     cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                    //alert(numCubo);
+                } else {
+                    
+                    cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
                     //alert(numCubo);
                 }
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
