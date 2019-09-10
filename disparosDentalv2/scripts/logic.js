@@ -71,7 +71,7 @@ function aleat(desde, hasta) {
 for (let i = 0; i < cantidadCubos; i++) {
     const posIniX = aleat(0, 360);
     const posIniY = aleat(0, 360);
-    const velocidad = aleat(60000, 60000);
+    const velocidad = aleat(30000, 60000);
     const distancia = aleat(4, 4);
     /* let ruta = 'src="modelos/muelaCa/carie.obj" mtl="modelos/muelaCa/carie.mtl"'; */
     let ruta = '#carie';
