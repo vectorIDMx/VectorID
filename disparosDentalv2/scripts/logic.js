@@ -3,7 +3,7 @@ const cantidadCubos = 20;
 let cantidadBalas = 150;
 let timePlayAgain = 0;
 const valorCubo = 10;
-const valorResta = 0;
+const valorResta = -10;
 let tiempo = 150;
 
 //Variables globales
