@@ -74,7 +74,7 @@ function aleat(desde, hasta) {
     return Math.trunc(desde + random);
 }
 for (let i = 0; i < cantidadCubos; i++) {
-    const posIniX = aleat(0, 360);
+    const posIniX = aleat(-90, 90);
     const posIniY = aleat(0, 360);
     const velocidad = aleat(30000, 60000);
     const distancia = aleat(4, 4);
@@ -125,7 +125,7 @@ for (let i = 0; i < cantidadCubos; i++) {
     } */
     cubos.innerHTML += `<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
  <a-entity rotation="0 0 0"
-     animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: ${velocidad}; easing: linear; loop: true;">
+     animation="property: rotation; from: -30 0 0; to: 30 360 0; dur: ${velocidad}; easing: linear; loop: true; dir: alternate;">
      <a-plane id="${prefix}cubo${i}" class="cubo" scale="${size}" position="0 0 -${distancia}" ${shader} src="${ruta}" opacity=".9"
          animation="property: rotation; to: 0 0 0; dur: 10000; easing: linear; loop: true;"
          animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
@@ -188,9 +188,9 @@ pantalla.addEventListener('touchstart', function (ev) {
             const padreCubo = document.getElementById(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length));
 
             window.setTimeout(function (ev) {
-                const x = aleat(0, 360);
+                const x = 0;//aleat(0, 360);
                 const y = aleat(0, 360);
-                const z = aleat(0, 360);
+                const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
                 console.log(padreCubo);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
@@ -258,9 +258,9 @@ pantalla.addEventListener('touchstart', function (ev) {
             const padreCubo = document.getElementById(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length));
 
             window.setTimeout(function (ev) {
-                const x = aleat(0, 360);
+                const x = 0;//aleat(0, 360);
                 const y = aleat(0, 360);
-                const z = aleat(0, 360);
+                const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
                 console.log(padreCubo);
