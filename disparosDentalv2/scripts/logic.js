@@ -192,6 +192,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const y = aleat(0, 360);
                 const z = aleat(0, 360);
                 const dist = -aleat(4, 4);
+                console.log(padreCubo);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
 
                 console.log('este: ' + numCubo);
@@ -262,6 +263,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
+                console.log(padreCubo);
 
                 console.log('este: ' + numCubo);
                 if (numCubo < grupo1) {
