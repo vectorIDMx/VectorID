@@ -132,6 +132,7 @@ for (let i = 0; i < cantidadCubos; i++) {
      </a-plane>
  </a-entity>
 </a-entity>`;
+}
 
 //agrega evento mouseenter y mouseleave a cubos y elementos disparables
 const listCubos = document.getElementsByClassName('cubo');
