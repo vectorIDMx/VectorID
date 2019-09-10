@@ -1,10 +1,10 @@
 //Parametros de inicio
 const cantidadCubos = 20;
-let cantidadBalas = 150;
+let cantidadBalas = 1150;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = -10;
-let tiempo = 150;
+let tiempo = 1150;
 
 //Variables globales
 let puntos = 0;
@@ -131,10 +131,8 @@ for (let i = 0; i < cantidadCubos; i++) {
          animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
      </a-plane>
  </a-entity>
-</a-entity>`
-}
-`<a-plane position="0 0 -.091" width=".02" height=".02" opacity=".9" material="shader: gif" src= "#diente">
-</a-plane>`
+</a-entity>`;
+
 //agrega evento mouseenter y mouseleave a cubos y elementos disparables
 const listCubos = document.getElementsByClassName('cubo');
 for (i = 0; i < listCubos.length; i++) {
