@@ -86,7 +86,7 @@ for (let i = 0; i < cantidadCubos; i++) {
     statusCubos.push(0);
 
 
-    /* if (i < grupo1) {
+    if (i < grupo1) {
         ruta = '#diente';
         prefix = 'not';
         size = '.7 .7 .7';
@@ -101,7 +101,7 @@ for (let i = 0; i < cantidadCubos; i++) {
         prefix = 'not';
         size = '.8 .4 .6';
         shader = '';
-    } */
+    }
     console.log(ruta);
 
     /* cubos.innerHTML += `<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
