@@ -74,7 +74,7 @@ function aleat(desde, hasta) {
     return Math.trunc(desde + random);
 }
 for (let i = 0; i < cantidadCubos; i++) {
-    const posIniX = aleat(-90, 90);
+    const posIniX = aleat(-45, 45);
     const posIniY = aleat(0, 360);
     const velocidad = aleat(30000, 60000);
     const distancia = aleat(4, 4);
