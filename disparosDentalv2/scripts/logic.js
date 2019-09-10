@@ -18,6 +18,11 @@ let statusCubos = []; //array que cambia el estatus del cubo 1=cubo disparado  0
 var hiloRelojId;
 var hiloMonitoreoId;
 
+
+const grupo1 = 5;
+    const grupo2 = 10;
+    const grupo3 = 15;
+
 const ventanaContent = [
     {
         title: 'Felicidades!',
@@ -79,9 +84,7 @@ for (let i = 0; i < cantidadCubos; i++) {
     let size = '.5 .5 .5';
     let shader = '';
     statusCubos.push(0);
-    const grupo1 = 5;
-    const grupo2 = 10;
-    const grupo3 = 15;
+    
 
     if (i < grupo1) {
         ruta = '#diente';
