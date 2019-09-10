@@ -188,7 +188,7 @@ pantalla.addEventListener('touchstart', function (ev) {
 
             window.setTimeout(function (ev) {
                 const x = 0;//aleat(0, 360);
-                const y = aleat(0, 360);
+                const y = 0;//aleat(0, 360);
                 const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
                 console.log(padreCubo);
@@ -258,7 +258,7 @@ pantalla.addEventListener('touchstart', function (ev) {
 
             window.setTimeout(function (ev) {
                 const x = 0;//aleat(0, 360);
-                const y = aleat(0, 360);
+                const y = 0;//aleat(0, 360);
                 const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
                 padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
