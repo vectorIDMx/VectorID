@@ -231,7 +231,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                     }break;
                 } */
 
-                cubo.setAttribute('position', { x: 0, y: 0, z: dist });
+                cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
             }, 500);
@@ -282,7 +282,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                     cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
                     //alert(numCubo);
                 }
-                cubo.setAttribute('position', { x: 0, y: 0, z: dist });
+                cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
             }, 500);
