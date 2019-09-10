@@ -1,10 +1,10 @@
 //Parametros de inicio
 const cantidadCubos = 20;
-let cantidadBalas = 80;
+let cantidadBalas = 150;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = 10;
-let tiempo = 101;
+let tiempo = 150;
 
 //Variables globales
 let puntos = 0;
@@ -231,7 +231,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                     }break;
                 } */
 
-                cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
+                //cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
             }, 500);
@@ -282,7 +282,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                     cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
                     //alert(numCubo);
                 }
-                cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
+                //cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
             }, 500);
