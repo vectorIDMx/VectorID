@@ -192,15 +192,19 @@ pantalla.addEventListener('touchstart', function (ev) {
                 switch(numCubo){
                     case '0':{
                         cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
+                        alert(numCubo);
                     }break;
                     case '1':{
                         cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                        alert(numCubo);
                     }break;
                     case '2':{
                         cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
+                        alert(numCubo);
                     }break;
                     case '3':{
                         cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                        alert(numCubo);
                     }break;
                 }
                 
@@ -241,15 +245,19 @@ pantalla.addEventListener('touchstart', function (ev) {
                 switch(numCubo){
                     case '0':{
                         cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
+                        alert(numCubo);
                     }break;
                     case '1':{
                         cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
+                        alert(numCubo);
                     }break;
                     case '2':{
                         cubo.setAttribute('scale', { x: 1, y: 1, z: 1 });
+                        alert(numCubo);
                     }break;
                     case '3':{
                         cubo.setAttribute('scale', { x: .8, y: .4, z: .6 });
+                        alert(numCubo);
                     }break;
                 }
                 cubo.setAttribute('position', { x: 0, y: 0, z: dist });
