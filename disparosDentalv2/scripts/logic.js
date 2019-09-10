@@ -74,8 +74,8 @@ function aleat(desde, hasta) {
     return Math.trunc(desde + random);
 }
 for (let i = 0; i < cantidadCubos; i++) {
-    const posIniX = aleat(-45, 45);
-    const posIniY = aleat(0, 360);
+    const posIniX = aleat(0, 0);
+    const posIniY = aleat(360, 360);
     const velocidad = aleat(30000, 60000);
     const distancia = aleat(4, 4);
     /* let ruta = 'src="modelos/muelaCa/carie.obj" mtl="modelos/muelaCa/carie.mtl"'; */
@@ -184,15 +184,16 @@ pantalla.addEventListener('touchstart', function (ev) {
             console.log('disparo en cubo');
             const cubo = document.getElementById(elementoApuntado);
             cubo.emit('out');
-            const padreCubo = document.getElementById(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length));
+            const padreCubo = document.getElementById(numCubo);
 
             window.setTimeout(function (ev) {
                 const x = 0;//aleat(0, 360);
-                const y = 0;//aleat(0, 360);
+                const y = aleat(0, 360);
                 const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
+                //console.log(padreCubo);
+                padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
                 console.log(padreCubo);
-                padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
 
                 console.log('este: ' + numCubo);
                 if (numCubo < grupo1) {
@@ -254,16 +255,17 @@ pantalla.addEventListener('touchstart', function (ev) {
             console.log('disparo en cubo');
             const cubo = document.getElementById(elementoApuntado);
             cubo.emit('out');
-            const padreCubo = document.getElementById(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length));
+            const padreCubo = document.getElementById(numCubo);
 
             window.setTimeout(function (ev) {
                 const x = 0;//aleat(0, 360);
-                const y = 0;//aleat(0, 360);
+                const y = aleat(0, 360);
                 const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
-                padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
+                
+                padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
+                
                 console.log(padreCubo);
-
                 console.log('este: ' + numCubo);
                 if (numCubo < grupo1) {
                     cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
