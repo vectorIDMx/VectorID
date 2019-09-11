@@ -63657,7 +63657,7 @@ module.exports={
     "super-animejs": "^3.0.0",
     "super-three": "^0.102.2",
     "three-bmfont-text": "^2.1.0",
-    "webvr-polyfill": "0.9.36"
+    "webvr-polyfill": "0.9.87h"
   },
   "devDependencies": {
     "browserify": "^13.1.0",
