@@ -1,10 +1,10 @@
 //Parametros de inicio
-const cantidadCubos = 20;
-let cantidadBalas = 1150;
+const cantidadCubos = 30;
+let cantidadBalas = 100;
 let timePlayAgain = 0;
 const valorCubo = 10;
-const valorResta = -10;
-let tiempo = 1150;
+const valorResta = 10;
+let tiempo = 60;
 
 //Variables globales
 let puntos = 0;
@@ -74,7 +74,7 @@ function aleat(desde, hasta) {
     return Math.trunc(desde + random);
 }
 for (let i = 0; i < cantidadCubos; i++) {
-    const posIniX = aleat(-20, 20);
+    const posIniX = aleat(-45, 45);
     const posIniY = aleat(0, 360);
     const velocidad = aleat(30000, 60000);
     const distancia = aleat(4, 4);
