@@ -128,7 +128,8 @@ for (let i = 0; i < cantidadCubos; i++) {
      animation="property: rotation; from: -30 0 0; to: 30 360 0; dur: ${velocidad}; easing: linear; loop: true; dir: alternate;">
      <a-plane id="${prefix}cubo${i}" class="cubo" scale="${size}" position="0 0 -${distancia}" ${shader} src="${ruta}" opacity=".9"
          animation="property: rotation; to: 0 0 0; dur: 10000; easing: linear; loop: true;"
-         animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
+         animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;"
+         animation__in="startEvents: in; property: scale; to: ${size}; dur: 500;">
      </a-plane>
  </a-entity>
 </a-entity>`;
@@ -196,7 +197,8 @@ pantalla.addEventListener('touchstart', function (ev) {
                 console.log(padreCubo);
 
                 console.log('este: ' + numCubo);
-                if (numCubo < grupo1) {
+                cubo.emit('in');
+                /* if (numCubo < grupo1) {
                     cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
                     //alert(numCubo);
                 } else if (numCubo < grupo2) {
@@ -211,7 +213,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                     
                     cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
                     //alert(numCubo);
-                }
+                } */
                 /* switch(numCubo){
                     case '0':{
                         cubo.setAttribute('scale', { x: .5, y: .5, z: .5});
@@ -267,7 +269,8 @@ pantalla.addEventListener('touchstart', function (ev) {
                 
                 console.log(padreCubo);
                 console.log('este: ' + numCubo);
-                if (numCubo < grupo1) {
+                cubo.emit('in');
+                /* if (numCubo < grupo1) {
                     cubo.setAttribute('scale', { x: .7, y: .7, z: .7 });
                     //alert(numCubo);
                 } else if (numCubo < grupo2) {
@@ -282,7 +285,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                     
                     cubo.setAttribute('scale', { x: .5, y: .5, z: .5 });
                     //alert(numCubo);
-                }
+                } */
                 //cubo.setAttribute('position', { x: 0, y: 0, z: -2 });
                 statusCubos[numCubo] = 0;
                 console.log('aparece de nuevo--------------------------------------s');
