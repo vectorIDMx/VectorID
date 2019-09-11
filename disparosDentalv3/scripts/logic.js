@@ -170,6 +170,7 @@ document.getElementById('continuar').addEventListener('mouseleave', function (ev
 //disparo
 const pantalla = document.getElementsByTagName('body')[0];
 pantalla.addEventListener('touchstart', function (ev) {
+    navigator.vibrate(1000);
 
     if (statusGame == 0) {
         cantidadBalas--;
