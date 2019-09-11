@@ -250,7 +250,7 @@ pantalla.addEventListener('touchstart', function (ev) {
     }
     //disparo Notcubo
     else if (elementoApuntado.indexOf('not') == 0) {
-        navigator.vibrate(100);
+        navigator.vibrate(60);
         console.log('disparo en notcubo: ' + elementoApuntado);
         const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
         if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
