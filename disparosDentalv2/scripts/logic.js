@@ -100,7 +100,7 @@ for (let i = 0; i < cantidadCubos; i++) {
         ruta = '#pasta';
         prefix = 'not';
         size = '.8 .4 .6';
-        shader = '';
+        shader = 'material="shader: gif"';
     }
     console.log(ruta);
 
