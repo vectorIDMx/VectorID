@@ -74,8 +74,8 @@ function aleat(desde, hasta) {
     return Math.trunc(desde + random);
 }
 for (let i = 0; i < cantidadCubos; i++) {
-    const posIniX = aleat(0, 0);
-    const posIniY = aleat(360, 360);
+    const posIniX = aleat(-20, 20);
+    const posIniY = aleat(0, 360);
     const velocidad = aleat(30000, 60000);
     const distancia = aleat(4, 4);
     /* let ruta = 'src="modelos/muelaCa/carie.obj" mtl="modelos/muelaCa/carie.mtl"'; */
@@ -193,7 +193,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
                 //console.log(padreCubo);
-                padreCubo.setAttribute('rotation', { x: 0, y: 0, z: 0 });
+                padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
                 console.log(padreCubo);
 
                 console.log('este: ' + numCubo);
@@ -265,7 +265,7 @@ pantalla.addEventListener('touchstart', function (ev) {
                 const z = 0;//aleat(0, 360);
                 const dist = -aleat(4, 4);
                 
-                padreCubo.setAttribute('rotation', { x: 0, y: 0, z: 0 });
+                padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
                 
                 console.log(padreCubo);
                 console.log('este: ' + numCubo);
