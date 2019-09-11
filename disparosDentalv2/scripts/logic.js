@@ -56,13 +56,20 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var datos = firebase.database().ref("ganador");
+var reproducciones = firebase.database().ref("plays");
 
 firebase.database().ref("ganador").once("value").then(function (data) {
     record = data.val().score;
     nameRecord = data.val().nickname;
     console.log('record: ' + nameRecord + '   ' + record);
+    
     document.getElementById('recordId').setAttribute('text', { value: `Record: ${nameRecord}     Puntaje: ${record}` });
 });
+reproducciones.once("value").then(function (data) {
+    let numPlays = data.val().vistas +1;
+    reproducciones.set({vistas: numPlays});
+});
+
 document.getElementById('balasBan').innerHTML = cantidadBalas;
 document.getElementById('tiempoBan').innerHTML = tiempo;
 document.getElementById('puntosBan').innerHTML = puntos;
