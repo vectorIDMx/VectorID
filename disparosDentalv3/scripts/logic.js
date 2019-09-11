@@ -170,7 +170,7 @@ document.getElementById('continuar').addEventListener('mouseleave', function (ev
 //disparo
 const pantalla = document.getElementsByTagName('body')[0];
 pantalla.addEventListener('touchstart', function (ev) {
-    navigator.vibrate(1000);
+    
 
     if (statusGame == 0) {
         cantidadBalas--;
@@ -250,6 +250,7 @@ pantalla.addEventListener('touchstart', function (ev) {
     }
     //disparo Notcubo
     else if (elementoApuntado.indexOf('not') == 0) {
+        navigator.vibrate(100);
         console.log('disparo en notcubo: ' + elementoApuntado);
         const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
         if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
