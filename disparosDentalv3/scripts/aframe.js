@@ -59265,6 +59265,8 @@ var assign = _dereq_('object-assign')
 
 var vertices = _dereq_('./lib/vertices')
 var utils = _dereq_('./lib/utils')
+console.log('imprime esto prro: ');
+console.log(utils);
 
 var Base = THREE.BufferGeometry
 
@@ -62027,12 +62029,14 @@ var PoseSensor = function () {
     value: function init() {
       var sensor = null;
       try {
+        
         sensor = new RelativeOrientationSensor({
           frequency: SENSOR_FREQUENCY,
           referenceFrame: 'screen'
         });
         sensor.addEventListener('error', this._onSensorError);
       } catch (error) {
+        
         this.errors.push(error);
         if (error.name === 'SecurityError') {
           console.error('Cannot construct sensors due to the Feature Policy');
@@ -62091,11 +62095,14 @@ var PoseSensor = function () {
   }, {
     key: '_onSensorError',
     value: function _onSensorError(event) {
+      console.log('no se encontro el sensor');
+      console.log(event);
       this.errors.push(event.error);
       if (event.error.name === 'NotAllowedError') {
         console.error('Permission to access sensor was denied');
       } else if (event.error.name === 'NotReadableError') {
         console.error('Sensor could not be read');
+        alert('Puede que tu dispositivo no cuente con sensor de orientacion :(');
       } else {
         console.error(event.error);
       }
