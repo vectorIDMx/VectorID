@@ -1,3 +1,5 @@
+//import haySensor from './aframe.js'
+
 //Parametros de inicio
 const cantidadCubos = 30;
 let cantidadBalas = 100;
@@ -385,10 +387,10 @@ function showVentana(objeto) {
 
 
 //quitar VR button
-window.setTimeout(function (ev) {
+/* window.setTimeout(function (ev) {
     const boton = document.getElementsByClassName('a-enter-vr-button')[0];
     boton.style.display = 'none';
-}, 1500);
+}, 1500); */
 
 function validar(e, num) {
     tecla = (document.all) ? e.keyCode : e.which;

@@ -21,7 +21,7 @@ const constraints = {
   }
 };
 
-async function init() {
+/* async function init() {
 
   console.log("id de la fuentey: " + constraints.video.optional[0].sourceId);
   try {
@@ -30,7 +30,7 @@ async function init() {
   } catch (e) {
     errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
   }
-}
+} */
 
 var strm;
 // Success
@@ -76,5 +76,16 @@ async function init() {
 }
 //////////////////////
 
+window.setTimeout(function () {
+  console.log(haySensor);
+  if (haySensor) {
+    init();
+  } else {
+    console.log('ejecuta esto');
+    const cielo = document.getElementById('skyCont')//.innerHTML = `<a-sky src="#sky"></a-sky>`;
+    cielo.innerHTML = `<a-sky src="#sky"></a-sky>`;
+    console.log(cielo);
+  }
+},500);
 
-init();
+

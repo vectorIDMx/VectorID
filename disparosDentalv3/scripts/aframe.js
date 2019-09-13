@@ -1,3 +1,4 @@
+var haySensor = true;
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.AFRAME = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(_dereq_,module,exports){
 var str = Object.prototype.toString
 
@@ -62102,7 +62103,8 @@ var PoseSensor = function () {
         console.error('Permission to access sensor was denied');
       } else if (event.error.name === 'NotReadableError') {
         console.error('Sensor could not be read');
-        alert('Puede que tu dispositivo no cuente con sensor de orientacion :(');
+        //alert('Puede que tu dispositivo no cuente con sensor de orientacion :(');
+        haySensor = false;
       } else {
         console.error(event.error);
       }
@@ -66848,6 +66850,9 @@ module.exports.Component = registerComponent('look-controls', {
       // On mobile, do camera rotation with touch events and sensors.
       object3D.rotation.x = hmdEuler.x + pitchObject.rotation.x;
       object3D.rotation.y = hmdEuler.y + yawObject.rotation.y;
+      //console.log('object3D.rotation.x: ' + object3D.rotation.x);
+     
+      //marcaabc
     };
   })(),
 
@@ -66951,18 +66956,36 @@ module.exports.Component = registerComponent('look-controls', {
     var canvas = this.el.sceneEl.canvas;
     var deltaY;
     var yawObject = this.yawObject;
+    var pitchObject = this.pitchObject;
+    var deltaX;
+
+
+    var movementY;
 
     if (!this.touchStarted || !this.data.touchEnabled) { return; }
 
     deltaY = 2 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
+    deltaX = 2 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientHeight;
 
     direction = this.data.reverseTouchDrag ? 1 : -1;
     // Limit touch orientaion to to yaw (y axis).
     yawObject.rotation.y -= deltaY * 0.5 * direction;
+
+    //mimodificacion
+    pitchObject.rotation.x -= deltaX * 0.5 * direction;
+    if(pitchObject.rotation.x > 1.2){
+      pitchObject.rotation.x = 1.2;
+    }else if(pitchObject.rotation.x < -1.2){
+      pitchObject.rotation.x = -1.2;
+    }
+    console.log('pitchObject.rotation.x: ' + pitchObject.rotation.x);
+
     this.touchStart = {
       x: evt.touches[0].pageX,
       y: evt.touches[0].pageY
     };
+    //console.log('x: ' + this.touchStart.x);
+    //console.log('y: ' + this.touchStart.y);
   },
 
   /**
@@ -66970,6 +66993,7 @@ module.exports.Component = registerComponent('look-controls', {
    */
   onTouchEnd: function () {
     this.touchStarted = false;
+
   },
 
   /**
