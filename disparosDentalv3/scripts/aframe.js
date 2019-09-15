@@ -66978,7 +66978,7 @@ module.exports.Component = registerComponent('look-controls', {
     }else if(pitchObject.rotation.x < -1.2){
       pitchObject.rotation.x = -1.2;
     }
-    console.log('pitchObject.rotation.x: ' + pitchObject.rotation.x);
+    //console.log('pitchObject.rotation.x: ' + pitchObject.rotation.x);
 
     this.touchStart = {
       x: evt.touches[0].pageX,
