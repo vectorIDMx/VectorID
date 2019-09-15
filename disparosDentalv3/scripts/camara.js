@@ -79,14 +79,15 @@ async function init() {
 window.setTimeout(function () {
   console.log(haySensor);
   if (haySensor) {
-    init();
+    
   } else {
-    console.log('ejecuta esto');
+    /* console.log('ejecuta esto');
     const cielo = document.getElementById('skyCont')//.innerHTML = `<a-sky src="#sky"></a-sky>`;
-    cielo.innerHTML = `<a-sky src="#sky"></a-sky>`;
+    cielo.innerHTML = `<a-sky src="#sky"></a-sky>`; */
     document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0});
     console.log(cielo);
   }
 },500);
+init();
 
 
