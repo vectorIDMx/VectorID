@@ -84,9 +84,7 @@ window.setTimeout(function () {
     /* console.log('ejecuta esto');
     const cielo = document.getElementById('skyCont')//.innerHTML = `<a-sky src="#sky"></a-sky>`;
     cielo.innerHTML = `<a-sky src="#sky"></a-sky>`; */
-    document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0});
-    console.log(cielo);
-  }
+    document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0});  }
 },500);
 init();
 
