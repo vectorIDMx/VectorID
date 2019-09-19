@@ -185,7 +185,6 @@ const pantalla = document.getElementsByTagName('body')[0];
 let movimiento = 1;
 //desplazamiento
 pantalla.addEventListener('touchmove', function () {
-    cantidadBalas++;
     console.log('moviendo');
     document.getElementById('dedo').emit('out');
 });
