@@ -1,10 +1,13 @@
+//import haySensor from './aframe.js'
+
 //Parametros de inicio
-const cantidadCubos = 20;
-let cantidadBalas = 60;
+const cantidadCubos = 25;
+let cantidadBalas = 100;
 let timePlayAgain = 0;
 const valorCubo = 10;
 const valorResta = 10;
 let tiempo = 60;
+let tini = tiempo; //guarda el tiempo con el que se inicia
 
 //Variables globales
 let puntos = 0;
@@ -17,6 +20,12 @@ let elementoApuntado = 'no';
 let statusCubos = []; //array que cambia el estatus del cubo 1=cubo disparado  0=cubo disponible
 var hiloRelojId;
 var hiloMonitoreoId;
+
+
+const grupo1 = 5;
+const grupo2 = 10;
+const grupo3 = 15;
+const grupo4 = 16;
 
 const ventanaContent = [
     {
@@ -36,6 +45,12 @@ const ventanaContent = [
         desc: 'Conseguiste x puntos, Intentalo de nuevo!',
         act: 2,
         but: 'jugar'
+    },
+    {
+        title: 'no sensor!',
+        desc: 'al parecer tu smartphone no cuenta con los sensores necesarios! puedes ocupar tu dedo para desplazarte',
+        act: 3,
+        but: 'ok'
     }
 ];
 ///////FIREBASE//////////////////////////////////////////////////////
@@ -51,13 +66,21 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var datos = firebase.database().ref("ganador");
+var reproducciones = firebase.database().ref("plays");
 
-firebase.database().ref("ganador").once("value").then(function (data){
+firebase.database().ref("ganador").once("value").then(function (data) {
     record = data.val().score;
     nameRecord = data.val().nickname;
-    console.log('record: '+nameRecord+'   '+record);
-    document.getElementById('recordId').setAttribute('text',{value: `Record: ${nameRecord}     Puntaje: ${record}`});
+    console.log('record: ' + nameRecord + '   ' + record);
+
+    document.getElementById('recordId').setAttribute('text', { value: `Record: ${nameRecord}     Puntaje: ${record}` });
+    document.getElementById('recordInst').innerHTML = nameRecord + '  ' + record + 'pts';
 });
+reproducciones.once("value").then(function (data) {
+    let numPlays = data.val().vistas +1;
+    reproducciones.set({vistas: numPlays});
+});
+
 document.getElementById('balasBan').innerHTML = cantidadBalas;
 document.getElementById('tiempoBan').innerHTML = tiempo;
 document.getElementById('puntosBan').innerHTML = puntos;
@@ -69,27 +92,38 @@ function aleat(desde, hasta) {
     return Math.trunc(desde + random);
 }
 for (let i = 0; i < cantidadCubos; i++) {
-    const posIniX = aleat(0, 360);
+    const posIniX = aleat(-75, 75);
     const posIniY = aleat(0, 360);
-    const velocidad = aleat(60000, 60000);
-    const distancia = aleat(4, 4);
-    let ruta = 'src="modelos/muelaCa/carie.obj" mtl="modelos/muelaCa/carie.mtl"';
+    const velocidad = aleat(30000, 60000);
+    const distancia = 3//aleat(4, 4);
+    /* let ruta = 'src="modelos/muelaCa/carie.obj" mtl="modelos/muelaCa/carie.mtl"'; */
+    let ruta = '#carie';
     let prefix = '';
-    let size = '.1 .1 .1';
+    let size = '.5 .5 .5';
+    let shader = '';
     statusCubos.push(0);
 
-    if (i < 2) {
-        ruta = 'src="modelos/muela/muela.obj" mtl="modelos/muela/muela.mtl"';
+
+    if (i < grupo1) {
+        ruta = '#diente';
         prefix = 'not';
-        size = '.1 .1 .1';
-    } else if (i < 4) {
-        ruta = 'src="modelos/cepillo/cepillo.obj" mtl="modelos/cepillo/cepillo.mtl"';
+        size = '.7 .7 .7';
+        shader = 'material="shader: gif"';
+    } else if (i < grupo2) {
+        ruta = '#cep';
         prefix = 'not';
-        size = '.1 .1 .1';
-    } else if (i < 6) {
-        ruta = 'src="modelos/pasta/pasta.obj" mtl="modelos/pasta/pasta.mtl"';
+        size = '1 1 1';
+        shader = '';
+    } else if (i < grupo3) {
+        ruta = '#pasta';
         prefix = 'not';
-        size = '.1 .1 .1';
+        size = '.8 .4 .6';
+        shader = '';
+    } else if (i < grupo4) {
+        ruta = '#clock';
+        prefix = 'clock';
+        size = '.5 .5 .5';
+        shader = 'material="shader: gif"';
     }
     console.log(ruta);
 
@@ -102,15 +136,26 @@ for (let i = 0; i < cantidadCubos; i++) {
      </a-entity> 
  </a-entity>`; */
 
- cubos.innerHTML +=`<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
+    /*  cubos.innerHTML +=`<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
+     <a-entity rotation="0 0 0"
+         animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: ${velocidad}; easing: linear; loop: true;">
+         <a-obj-model ${ruta} id="${prefix}cubo${i}" class="cubo" scale="${size}" position="0 0 -${distancia}"
+             animation="property: rotation; to: 0 360 360; dur: 10000; easing: linear; loop: true;"
+             animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
+         </a-obj-model>
+     </a-entity>
+    </a-entity>`
+    } */
+    cubos.innerHTML += `<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
  <a-entity rotation="0 0 0"
-     animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: ${velocidad}; easing: linear; loop: true;">
-     <a-obj-model ${ruta} id="${prefix}cubo${i}" class="cubo" scale="${size}" position="0 0 -${distancia}"
-         animation="property: rotation; to: 0 360 360; dur: 10000; easing: linear; loop: true;"
-         animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;">
-     </a-obj-model>
+     animation="property: rotation; from: -30 0 0; to: 30 360 0; dur: ${velocidad}; easing: linear; loop: true; dir: alternate;">
+     <a-plane id="${prefix}cubo${i}" class="cubo" scale="${size}" position="0 0 -${distancia}" ${shader} src="${ruta}" opacity=".9"
+         animation="property: rotation; to: 0 0 0; dur: 10000; easing: linear; loop: true;"
+         animation__out="startEvents: out; property: scale; to: .001 .001 .001; dur: 500;"
+         animation__in="startEvents: in; property: scale; to: ${size}; dur: 500;">
+     </a-plane>
  </a-entity>
-</a-entity>`
+</a-entity>`;
 }
 
 //agrega evento mouseenter y mouseleave a cubos y elementos disparables
@@ -136,101 +181,143 @@ document.getElementById('continuar').addEventListener('mouseleave', function (ev
     console.log('elemento: ' + elementoApuntado);
 })
 
-
-
-//disparo
 const pantalla = document.getElementsByTagName('body')[0];
-pantalla.addEventListener('touchstart', function (ev) {
+let movimiento = 1;
+//desplazamiento
+pantalla.addEventListener('touchmove', function () {
+    cantidadBalas++;
+    console.log('moviendo');
+    document.getElementById('dedo').emit('out');
+});
 
-    if (statusGame == 0) {
-        cantidadBalas--;
-        if (cantidadBalas <= 0) {
-            statusGame = 1;
+pantalla.addEventListener('touchstart', function () {
+    console.log('touchstart');
+    movimiento = 0;
+    window.setTimeout(function () {
+        movimiento = 1;
+    }, 100);
+})
+//disparo
+pantalla.addEventListener('touchend', function (ev) {
+    if (movimiento == 0) {
+        if (statusGame == 0) {
+            cantidadBalas--;
+            if (cantidadBalas <= 0) {
+                statusGame = 1;
+            }
+            console.log('balas: ' + cantidadBalas);
+            document.getElementById('balasBan').innerHTML = cantidadBalas;
         }
-        console.log('balas: ' + cantidadBalas);
-        document.getElementById('balasBan').innerHTML = cantidadBalas;
-    }
-    document.getElementById('crashId').emit('anCrash');
-    //disparo en cubo
-    if (elementoApuntado.indexOf('cubo') == 0) {
-        const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
-        if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
-        {
-            puntos += valorCubo;
-            document.getElementById('puntosId').setAttribute('text', { value: 'Puntaje:' + puntos });
-            document.getElementById('puntosBan').innerHTML = puntos;
-            statusCubos[numCubo] = 1;
-            console.log('disparo en cubo');
-            const cubo = document.getElementById(elementoApuntado);
-            cubo.emit('out');
-            const padreCubo = document.getElementById(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length));
+        document.getElementById('crashId').emit('anCrash');
+        //disparo en cubo
+        if (elementoApuntado.indexOf('cubo') == 0) {
+            const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
+            if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
+            {
+                puntos += valorCubo;
+                document.getElementById('puntosId').setAttribute('text', { value: 'Puntaje:' + puntos });
+                document.getElementById('puntosBan').innerHTML = puntos;
+                statusCubos[numCubo] = 1;
+                console.log('disparo en cubo');
+                const cubo = document.getElementById(elementoApuntado);
+                cubo.emit('out');
+                const padreCubo = document.getElementById(numCubo);
 
-            window.setTimeout(function (ev) {
-                const x = aleat(0, 360);
-                const y = aleat(0, 360);
-                const z = aleat(0, 360);
-                const dist = -aleat(4, 4);
-                padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
-                cubo.setAttribute('scale', { x: .1, y: .1, z: .1 });
-                cubo.setAttribute('position', { x: 0, y: 0, z: dist });
-                statusCubos[numCubo] = 0;
-                console.log('aparece de nuevo--------------------------------------s');
-            }, 500);
-        }
+                window.setTimeout(function (ev) {
+                    const x = 0;//aleat(0, 360);
+                    const y = aleat(0, 360);
+                    const z = 0;//aleat(0, 360);
+                    const dist = -aleat(4, 4);
+                    //console.log(padreCubo);
+                    padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
+                    console.log(padreCubo);
 
-    }
-    //disparo Notcubo
-    else if (elementoApuntado.indexOf('not') == 0) {
-        console.log('disparo en notcubo: ' + elementoApuntado);
-        const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
-        if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
-        {
-            puntos -= valorResta;
-            if (puntos < 0) {
-                puntos = 0;
+                    console.log('este: ' + numCubo);
+                    cubo.emit('in');
+                    statusCubos[numCubo] = 0;
+                    console.log('aparece de nuevo--------------------------------------s');
+                }, 500);
             }
 
-            document.getElementById('puntosId').setAttribute('text', { value: 'Puntaje:' + puntos });
-            document.getElementById('puntosBan').innerHTML = puntos;
-            statusCubos[numCubo] = 1;
-            console.log('disparo en cubo');
-            const cubo = document.getElementById(elementoApuntado);
-            cubo.emit('out');
-            const padreCubo = document.getElementById(elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length));
+        }
+        //disparo Notcubo
+        else if (elementoApuntado.indexOf('not') == 0) {
+            navigator.vibrate(40);
+            console.log('disparo en notcubo: ' + elementoApuntado);
+            const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
+            if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
+            {
+                puntos -= valorResta;
+                if (puntos < 0) {
+                    puntos = 0;
+                }
 
-            window.setTimeout(function (ev) {
-                const x = aleat(0, 360);
-                const y = aleat(0, 360);
-                const z = aleat(0, 360);
-                const dist = -aleat(4, 4);
-                padreCubo.setAttribute('rotation', { x: x, y: y, z: z });
-                cubo.setAttribute('scale', { x: .1, y: .1, z: .1 });
-                cubo.setAttribute('position', { x: 0, y: 0, z: dist });
-                statusCubos[numCubo] = 0;
-                console.log('aparece de nuevo--------------------------------------s');
-            }, 500);
+                document.getElementById('puntosId').setAttribute('text', { value: 'Puntaje:' + puntos });
+                document.getElementById('puntosBan').innerHTML = puntos;
+                statusCubos[numCubo] = 1;
+                console.log('disparo en cubo');
+                const cubo = document.getElementById(elementoApuntado);
+                cubo.emit('out');
+                const padreCubo = document.getElementById(numCubo);
+
+                window.setTimeout(function (ev) {
+                    const x = 0;//aleat(0, 360);
+                    const y = aleat(0, 360);
+                    const z = 0;//aleat(0, 360);
+                    const dist = -aleat(4, 4);
+
+                    padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
+
+                    console.log(padreCubo);
+                    console.log('este: ' + numCubo);
+                    cubo.emit('in');
+
+                    statusCubos[numCubo] = 0;
+                    console.log('aparece de nuevo--------------------------------------s');
+                }, 500);
+            }
+        }
+        //disparo clock
+        else if (elementoApuntado.indexOf('clock') == 0) {
+            console.log('disparo en reloj: ' + elementoApuntado);
+            const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
+            if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
+            {
+                tiempo += 4;
+                if (tiempo >= tini) {
+                    tiempo = tini;
+                }
+                statusCubos[numCubo] = 1;
+                console.log('disparo en cubo');
+                const cubo = document.getElementById(elementoApuntado);
+                cubo.emit('out');
+                const padreCubo = document.getElementById(numCubo);
+
+                window.setTimeout(function (ev) {
+                    const x = 0;//aleat(0, 360);
+                    const y = aleat(0, 360);
+                    const z = 0;//aleat(0, 360);
+                    const dist = -aleat(4, 4);
+
+                    padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
+
+                    console.log(padreCubo);
+                    console.log('este: ' + numCubo);
+                    cubo.emit('in');
+
+                    statusCubos[numCubo] = 0;
+                    console.log('aparece de nuevo--------------------------------------s');
+                }, 500);
+            }
+        }
+        //disparo en boton continuar
+        else if ((elementoApuntado == 'continuar') && (statusGame != 0)) {
+            iniciaJuego();
         }
     }
-    //disparo en boton continuar
-    else if ((elementoApuntado == 'continuar') && (statusGame != 0)) {
-        statusGame = 0;
-        console.log('disparo en continuar');
-        //ocultar initial screen
-        const listaIniScr = document.getElementsByClassName('initialScreen');
-        for (let i = 0; i < listaIniScr.length; i++) {
-            listaIniScr[i].emit('out');
-        }
-        document.getElementById('cubos').setAttribute('scale', { x: 1, y: 1, z: 1 });
-        const listaDash = document.getElementsByClassName('dashboard');
-        for (let i = 0; i < listaDash.length; i++) {
-            listaDash[i].emit('in');
-            console.log('elementos: ' + i);
-        }
-        //hilo cuenta regresiva
-        hiloRelojId = setInterval(hiloReloj, 1000);
-        //hilo monitoreo de variables
-        hiloMonitoreoId = setInterval(hiloMonitoreo, 500);
-    }
+
+
+
 });
 
 //funcion monitoreo
@@ -238,14 +325,13 @@ function hiloMonitoreo() {
     if (statusGame == 1) {// juego terminado
         console.log('juego terminado');
         document.getElementById('cubos').setAttribute('scale', { x: .001, y: .001, z: .001 });
-        if(puntos > record)
-        {
+        if (puntos > record) {
             showVentana(ventanaContent[0]);
-        }else{
+        } else {
             ventanaContent[2].desc = `Conseguiste ${puntos} puntos, Intentalo de nuevo!`;
             showVentana(ventanaContent[2]);
         }
-        
+
         clearInterval(hiloMonitoreoId);
         clearInterval(hiloRelojId);
     }
@@ -258,6 +344,11 @@ function hiloReloj() {
     if (tiempo <= 0) {
         statusGame = 1;
         clearInterval(hiloRelojId);
+    }
+    const porcent = (tiempo / tini) * 100;
+    document.getElementById('lineaTiempo').style.width = porcent + '%';
+    if (porcent < 25) {
+        document.getElementById('lineaTiempo').style.background = '#ec5555';
     }
 }
 
@@ -280,6 +371,13 @@ function accion(num) {
             //document.getElementById('ventana').style.display = 'none';
             location.reload();
         } break;
+        case 3: {
+            console.log('ejecuta accion 3');
+            //showVentana(ventanaContent[0]);
+            //document.getElementById('ventana').style.display = 'none';
+            document.getElementById('ventana').style.display = 'none';
+            iniciaJuego();
+        } break;
     }
 }
 function showVentana(objeto) {
@@ -296,10 +394,10 @@ function showVentana(objeto) {
 
 
 //quitar VR button
-window.setTimeout(function (ev) {
+/* window.setTimeout(function (ev) {
     const boton = document.getElementsByClassName('a-enter-vr-button')[0];
     boton.style.display = 'none';
-}, 1500);
+}, 1500); */
 
 function validar(e, num) {
     tecla = (document.all) ? e.keyCode : e.which;
@@ -318,7 +416,7 @@ function sendData() {
 
     console.log("dato enviandose");
     firebase.database().ref("ganador").once("value").then(function (data) {
-        
+
         var recordActualmente = parseInt(data.val().score);
         /**/console.log("valorActual: " + recordActualmente);
         if (puntos > recordActualmente) {
@@ -352,4 +450,23 @@ function arrayJSON(nombre, telefono, email, nickname, score) {
         score: score
     }
     return data;
+}
+function iniciaJuego() {
+    statusGame = 0;
+    console.log('disparo en continuar');
+    //ocultar initial screen
+    const listaIniScr = document.getElementsByClassName('initialScreen');
+    for (let i = 0; i < listaIniScr.length; i++) {
+        listaIniScr[i].emit('out');
+    }
+    document.getElementById('cubos').setAttribute('scale', { x: 1, y: 1, z: 1 });
+    const listaDash = document.getElementsByClassName('dashboard');
+    for (let i = 0; i < listaDash.length; i++) {
+        listaDash[i].emit('in');
+        console.log('elementos: ' + i);
+    }
+    //hilo cuenta regresiva
+    hiloRelojId = setInterval(hiloReloj, 1000);
+    //hilo monitoreo de variables
+    hiloMonitoreoId = setInterval(hiloMonitoreo, 500);
 }

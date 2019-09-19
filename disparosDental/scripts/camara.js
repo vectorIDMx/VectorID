@@ -21,7 +21,7 @@ const constraints = {
   }
 };
 
-async function init() {
+/* async function init() {
 
   console.log("id de la fuentey: " + constraints.video.optional[0].sourceId);
   try {
@@ -30,7 +30,7 @@ async function init() {
   } catch (e) {
     errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
   }
-}
+} */
 
 var strm;
 // Success
@@ -76,5 +76,23 @@ async function init() {
 }
 //////////////////////
 
+window.setTimeout(function () {
+  console.log(haySensor);
+  if (haySensor) {
+    iniciaJuego();
+  } else {
+    /* console.log('ejecuta esto');
+    const cielo = document.getElementById('skyCont')//.innerHTML = `<a-sky src="#sky"></a-sky>`;
+    cielo.innerHTML = `<a-sky src="#sky"></a-sky>`; */
+    //document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0});  
+    showVentana(ventanaContent[3]);
+  }
+},500);
+function startGame(){
+  init();
+  document.getElementById('instrucciones').style.display = 'none';
+  
+}
 
-init();
+
+

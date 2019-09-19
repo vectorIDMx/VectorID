@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DentalVR</title>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <!-- <script src="scripts/aframe.js"></script> -->
+    <!-- <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> -->
+    <script src="scripts/aframe.js"></script>
+    <script src="scripts/gif.js"> </script>
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,20 +34,47 @@
     <div id="puntuacionBan">
 
         <ul class="inline">
-            <li>Balas:</li>
-            <li id="balasBan">0</li>
-            <li id="tiempoBan">60</li>
-            <li>Puntos:</li>
-            <li id="puntosBan">0</li>
+            <li><strong>Balas:</strong></li>
+            <li ><strong id="balasBan">0</strong></li>
+            <li id="tiempoBan"> 60</li>
+            <li><strong>Puntos:</strong> </li>
+            <li ><strong id="puntosBan">0</strong></li>
         </ul>
-
+<div id="lineaTiempo"></div>
     </div>
+    
     <div id="ventana">
         <!-- <div class="container cont">
             <div class="row items"><h3>Titulo</h3></div>
             <div class="row items"><p>Descripcion de la ventana</p></div>
             <div class="row items" onClick="accion()"><button>Accion</button></div>    
         </div> -->
+    </div>
+    <div id="instrucciones">
+        <div class="container contInst">
+            <img src="images/logopp.png" alt="">
+            <div class="anton contRecord"><span class="azul">Record Actual:</span><span id="recordInst">No</span></div>
+            
+            <p id="bienvenida" >
+                Bienvenido a <span class="anton azul" style="font-weight: 100">Healthy Mouth Game</span>, el juego de Realidad Aumentada que pondra a prueba tu punteria!!
+            </p>
+            <button onClick="startGame()">Jugar</button>
+            <button>Ver demo</button>
+            <h6 class="azul anton">Dinamica del Juego</h6>
+            <ol id="listaInst">
+                <li>Busca con tu camara a tu alrededor las muelas con caries</li>
+                <li>Apunta con la mirilla y dispara tocando la pantalla</li>
+                <li>Entre mas muelas con caries elimines mas puntos conseguiras</li>
+                <li>Evita disparar a los objetos que ayudan a cuidar tu boca</li>
+                <li>Diviertete y trata de superar el record actual!!</li>
+            </ol>
+            
+            <p id="nota">
+                Nota: Recuerda que debes permitir el acceso a tu camara para jugar juegos de Realidad Aumentada
+            </p>
+            
+        </div>
+
     </div>
     <div id="formulario">
         <div id="for" class="container">
@@ -78,7 +108,14 @@
     <footer>
         <img src="images/powvector.png" alt="">
     </footer>
-    <a-scene>
+    <a-scene id="escena" vr-mode-ui="enabled: false">
+        <a-assets>
+            <img id="diente" src="images/diente.gif">
+            <img id="clock" src="images/clock.gif">
+            <img id="carie" src="images/carie.png">
+            <img id="cep" src="images/cepillo.png">
+            <img id="pasta" src="images/pasta.png">
+        </a-assets>
         <a-entity id="global" rotation="0 180 0">
             <a-entity id="cubos" scale=".0001 .0001 .0001">
                 <!-- <a-entity id="0">
@@ -114,17 +151,17 @@
 
             <a-entity id="escenaInicial">
                 <a-entity id="logo" position="0 0 -1.5" scale="1 1 1" rotation="0 0 0">
-                    <a-sphere position="0 1 0" radius=".125" material="color: #00FFFF;"></a-sphere>
+                    <a-sphere position="0 1 0" radius=".125" material="color: yellow;"></a-sphere>
                     <a-entity animation="property: rotation; dur: 3000; to: 0 360 0; loop: true; easing: linear;">
                         <a-ring position="0 1 0" radius-inner=".15" radius-outer=".2" rotation="-80 0 0"
-                            material="color:#003399;" opacity=".5"></a-ring>
+                            material="color: red;" opacity=".5"></a-ring>
                         <a-ring position="0 1 0" radius-inner=".2" radius-outer=".25" rotation="-80 0 0"
-                            material="color:#00FFFF;" opacity=".5"></a-ring>
+                            material="color: yellow;" opacity=".5"></a-ring>
 
                         <a-ring position="0 .99 0" radius-inner=".15" radius-outer=".2" rotation="100 0 0"
-                            material="color:#003399;" opacity=".5"></a-ring>
+                            material="color: red;" opacity=".5"></a-ring>
                         <a-ring position="0 .99 0" radius-inner=".2" radius-outer=".25" rotation="100 0 0"
-                            material="color:#00FFFF;" opacity=".5"></a-ring>
+                            material="color: yellow;" opacity=".5"></a-ring>
                         <!-- <a-animation attribute="rotation" dur="3000" to="0 360 0" repeat="indefinite" easing="linear">
                         </a-animation> -->
                     </a-entity>
@@ -190,9 +227,17 @@
 
 
 
-        <a-entity camera look-controls>
+        <a-entity camera look-controls="hmdEnabled: false; reverseTouchDrag: true;">
             <a-plane position="0 0 -.1" width=".01" height=".01" opacity=".5" material="src: images/mirilla.png">
             </a-plane>
+            <a-entity >
+                <a-plane id="dedo" position="-.012 -.045 -.099" width=".017" height=".02" opacity=".9" material="src: images/dedo.png"
+                animation="property: position; to: .02 -.045 -.099; dur: 2000; dir: alternate; easing:linear; loop: true;"
+                animation__2="startEvents: out; property: scale; to: .001 .001 .001; dur: 1000; easing: linear;">
+                </a-plane>
+            </a-entity>
+            <!-- <a-plane position="0 0 -.091" width=".02" height=".02" opacity=".9" material="shader: gif" src= "#diente">
+            </a-plane> -->
             <a-plane id="crashId" position="0 0 -.049" width=".001" height=".001" opacity="0" material="color:yellow;"
                 animation="startEvents: anCrash; property: opacity; from: 1; to: 0; dur: 100;">
                 <!-- <a-animation attribute="opacity" begin="anCrash" dur="100" from="1" to="0"></a-animation> -->
@@ -206,6 +251,7 @@
             </a-gltf-model>
 
         </a-entity>
+
     </a-scene>
 
 

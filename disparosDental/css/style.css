@@ -98,7 +98,7 @@ footer img {
 }
 
 #for {
-  margin-top: 55px;
+  margin-top: 65px;
   width: 90vw;
   background: rgba(34, 225, 250, 0.4);
   border-radius: 10px;
@@ -140,5 +140,96 @@ footer img {
   font-size: 2rem;
   font-family: 'Anton', sans-serif;
   color: #0065c4;
+  background: white;
+  width: 50px;
+  text-align: center;
+  border: solid 2px #0065c4;
+  border-radius: 25px;
+}
+
+#instrucciones {
+  color: white;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 3;
+  background: #133341;
+}
+
+#instrucciones .contInst {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#instrucciones img {
+  width: 100%;
+  padding: 20px;
+}
+
+#instrucciones button {
+  border: none;
+  border-radius: 5px;
+  background: #4deab9;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  color: #267349;
+  font-weight: 700;
+}
+
+.anton {
+  font-family: 'Anton', sans-serif;
+}
+
+.contRecord {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.azul {
+  color: #1fbdec;
+}
+
+#listaInst {
+  color: white;
+  font-size: .8rem;
+  padding: 0px 20px;
+}
+
+#bienvenida {
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#nota {
+  color: #ec5555;
+  font-weight: 700;
+  font-size: .8rem;
+  text-align: center;
+}
+
+#lineaTiempo {
+  background: #3db11af1;
+  height: 10px;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
