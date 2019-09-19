@@ -86,6 +86,8 @@ window.setTimeout(function () {
     cielo.innerHTML = `<a-sky src="#sky"></a-sky>`; */
     //document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0});  
     showVentana(ventanaContent[3]);
+    document.getElementById('dedo').setAttribute('width',.017);
+    document.getElementById('dedo').setAttribute('height',.02);
   }
 },500);
 function startGame(){
