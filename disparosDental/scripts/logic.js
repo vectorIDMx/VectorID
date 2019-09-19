@@ -48,7 +48,7 @@ const ventanaContent = [
     },
     {
         title: 'no sensor!',
-        desc: 'al parecer tu smartphone no cuenta con los sensores necesarios! puedes ocupar tu dedo para desplazarte',
+        desc: 'al parecer tu smartphone no cuenta con los sensores necesarios, pero puedes ocupar tu dedo para desplazarte!',
         act: 3,
         but: 'ok'
     }
@@ -125,7 +125,7 @@ for (let i = 0; i < cantidadCubos; i++) {
         size = '.5 .5 .5';
         shader = 'material="shader: gif"';
     }
-    console.log(ruta);
+    //console.log(ruta);
 
     /* cubos.innerHTML += `<a-entity id="${i}" rotation="${posIniX} ${posIniY} 0">
     <a-entity rotation="0 0 0" animation="property: rotation; from: 0 0 0; to: 360 360 0; dur: ${velocidad}; easing: linear; loop: true;">
@@ -164,37 +164,37 @@ for (i = 0; i < listCubos.length; i++) {
     listCubos[i].addEventListener("mouseenter", function (ev) {
 
         elementoApuntado = ev.target.id;
-        console.log('elemento: ' + elementoApuntado);
+        //console.log('elemento: ' + elementoApuntado);
     });
     listCubos[i].addEventListener("mouseleave", function (ev) {
 
         elementoApuntado = 'no';
-        console.log('elemento: ' + elementoApuntado);
+        //console.log('elemento: ' + elementoApuntado);
     });
 }
 document.getElementById('continuar').addEventListener('mouseenter', function (ev) {
     elementoApuntado = ev.target.id;
-    console.log('elemento: ' + elementoApuntado);
+    //console.log('elemento: ' + elementoApuntado);
 })
 document.getElementById('continuar').addEventListener('mouseleave', function (ev) {
     elementoApuntado = 'no';
-    console.log('elemento: ' + elementoApuntado);
+    //console.log('elemento: ' + elementoApuntado);
 })
 
 const pantalla = document.getElementsByTagName('body')[0];
 let movimiento = 1;
 //desplazamiento
 pantalla.addEventListener('touchmove', function () {
-    console.log('moviendo');
+    //console.log('moviendo');
     document.getElementById('dedo').emit('out');
 });
 
 pantalla.addEventListener('touchstart', function () {
-    console.log('touchstart');
+    //console.log('touchstart');
     movimiento = 0;
     window.setTimeout(function () {
         movimiento = 1;
-    }, 100);
+    }, 200);
 })
 //disparo
 pantalla.addEventListener('touchend', function (ev) {
@@ -204,7 +204,7 @@ pantalla.addEventListener('touchend', function (ev) {
             if (cantidadBalas <= 0) {
                 statusGame = 1;
             }
-            console.log('balas: ' + cantidadBalas);
+            //console.log('balas: ' + cantidadBalas);
             document.getElementById('balasBan').innerHTML = cantidadBalas;
         }
         document.getElementById('crashId').emit('anCrash');
@@ -217,7 +217,7 @@ pantalla.addEventListener('touchend', function (ev) {
                 document.getElementById('puntosId').setAttribute('text', { value: 'Puntaje:' + puntos });
                 document.getElementById('puntosBan').innerHTML = puntos;
                 statusCubos[numCubo] = 1;
-                console.log('disparo en cubo');
+                //console.log('disparo en cubo');
                 const cubo = document.getElementById(elementoApuntado);
                 cubo.emit('out');
                 const padreCubo = document.getElementById(numCubo);
@@ -229,12 +229,12 @@ pantalla.addEventListener('touchend', function (ev) {
                     const dist = -aleat(4, 4);
                     //console.log(padreCubo);
                     padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
-                    console.log(padreCubo);
+                    //console.log(padreCubo);
 
-                    console.log('este: ' + numCubo);
+                    //console.log('este: ' + numCubo);
                     cubo.emit('in');
                     statusCubos[numCubo] = 0;
-                    console.log('aparece de nuevo--------------------------------------s');
+                    //console.log('aparece de nuevo--------------------------------------s');
                 }, 500);
             }
 
@@ -242,7 +242,7 @@ pantalla.addEventListener('touchend', function (ev) {
         //disparo Notcubo
         else if (elementoApuntado.indexOf('not') == 0) {
             navigator.vibrate(40);
-            console.log('disparo en notcubo: ' + elementoApuntado);
+            //console.log('disparo en notcubo: ' + elementoApuntado);
             const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
             if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
             {
@@ -254,7 +254,7 @@ pantalla.addEventListener('touchend', function (ev) {
                 document.getElementById('puntosId').setAttribute('text', { value: 'Puntaje:' + puntos });
                 document.getElementById('puntosBan').innerHTML = puntos;
                 statusCubos[numCubo] = 1;
-                console.log('disparo en cubo');
+                //console.log('disparo en cubo');
                 const cubo = document.getElementById(elementoApuntado);
                 cubo.emit('out');
                 const padreCubo = document.getElementById(numCubo);
@@ -267,18 +267,18 @@ pantalla.addEventListener('touchend', function (ev) {
 
                     padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
 
-                    console.log(padreCubo);
-                    console.log('este: ' + numCubo);
+                    //console.log(padreCubo);
+                    //console.log('este: ' + numCubo);
                     cubo.emit('in');
 
                     statusCubos[numCubo] = 0;
-                    console.log('aparece de nuevo--------------------------------------s');
+                    //console.log('aparece de nuevo--------------------------------------s');
                 }, 500);
             }
         }
         //disparo clock
         else if (elementoApuntado.indexOf('clock') == 0) {
-            console.log('disparo en reloj: ' + elementoApuntado);
+            //console.log('disparo en reloj: ' + elementoApuntado);
             const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
             if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
             {
@@ -287,7 +287,7 @@ pantalla.addEventListener('touchend', function (ev) {
                     tiempo = tini;
                 }
                 statusCubos[numCubo] = 1;
-                console.log('disparo en cubo');
+                //console.log('disparo en cubo');
                 const cubo = document.getElementById(elementoApuntado);
                 cubo.emit('out');
                 const padreCubo = document.getElementById(numCubo);
@@ -300,12 +300,12 @@ pantalla.addEventListener('touchend', function (ev) {
 
                     padreCubo.setAttribute('rotation', { x: 0, y: y, z: 0 });
 
-                    console.log(padreCubo);
-                    console.log('este: ' + numCubo);
+                    //console.log(padreCubo);
+                    //console.log('este: ' + numCubo);
                     cubo.emit('in');
 
                     statusCubos[numCubo] = 0;
-                    console.log('aparece de nuevo--------------------------------------s');
+                    //console.log('aparece de nuevo--------------------------------------s');
                 }, 500);
             }
         }
@@ -322,7 +322,7 @@ pantalla.addEventListener('touchend', function (ev) {
 //funcion monitoreo
 function hiloMonitoreo() {
     if (statusGame == 1) {// juego terminado
-        console.log('juego terminado');
+        //console.log('juego terminado');
         document.getElementById('cubos').setAttribute('scale', { x: .001, y: .001, z: .001 });
         if (puntos > record) {
             showVentana(ventanaContent[0]);
@@ -355,27 +355,28 @@ function hiloReloj() {
 function accion(num) {
     switch (num) {
         case 0: {
-            console.log('ejecuta accion 0');
+            //console.log('ejecuta accion 0');
             document.getElementById('ventana').style.display = 'none';
             document.getElementById('formulario').style.display = 'flex';
             document.getElementsByTagName('input')[0].focus();
         } break;
         case 1: {
-            console.log('ejecuta accion 1');
+            //console.log('ejecuta accion 1');
             location.reload();
         } break;
         case 2: {
-            console.log('ejecuta accion 2');
+            //console.log('ejecuta accion 2');
             //showVentana(ventanaContent[0]);
             //document.getElementById('ventana').style.display = 'none';
             location.reload();
         } break;
         case 3: {
-            console.log('ejecuta accion 3');
+            //console.log('ejecuta accion 3');
             //showVentana(ventanaContent[0]);
             //document.getElementById('ventana').style.display = 'none';
             document.getElementById('ventana').style.display = 'none';
             iniciaJuego();
+            document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0}); 
         } break;
     }
 }
@@ -413,18 +414,18 @@ function sendData() {
     showVentana(ventanaContent[1]);
 
 
-    console.log("dato enviandose");
+    //console.log("dato enviandose");
     firebase.database().ref("ganador").once("value").then(function (data) {
 
         var recordActualmente = parseInt(data.val().score);
-        /**/console.log("valorActual: " + recordActualmente);
+        /**///console.log("valorActual: " + recordActualmente);
         if (puntos > recordActualmente) {
             const nick = document.getElementById("nickId").value;
             const nombre = document.getElementById("nombreId").value;
             const mail = document.getElementById("mailId").value;
             const tel = document.getElementById("telId").value;
 
-            console.log(nick + nombre + mail + tel);
+            //console.log(nick + nombre + mail + tel);
             var arrayData = arrayJSON(nombre, tel, mail, nick, puntos);
             datos.set(arrayData);
             //alert("Tus datos se han guardado!");
@@ -452,7 +453,7 @@ function arrayJSON(nombre, telefono, email, nickname, score) {
 }
 function iniciaJuego() {
     statusGame = 0;
-    console.log('disparo en continuar');
+    console.log('Juego Iniciado');
     //ocultar initial screen
     const listaIniScr = document.getElementsByClassName('initialScreen');
     for (let i = 0; i < listaIniScr.length; i++) {
@@ -462,7 +463,7 @@ function iniciaJuego() {
     const listaDash = document.getElementsByClassName('dashboard');
     for (let i = 0; i < listaDash.length; i++) {
         listaDash[i].emit('in');
-        console.log('elementos: ' + i);
+        //console.log('elementos: ' + i);
     }
     //hilo cuenta regresiva
     hiloRelojId = setInterval(hiloReloj, 1000);
