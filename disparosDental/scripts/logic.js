@@ -470,3 +470,12 @@ function iniciaJuego() {
     //hilo monitoreo de variables
     hiloMonitoreoId = setInterval(hiloMonitoreo, 500);
 }
+function verDemo(){
+    document.getElementById('videoDemo').style.display = 'flex';
+    document.getElementById('vid').play();
+}
+document.getElementById('salirVideo').addEventListener('touchstart', function(){
+    //console.log('salir del video');
+    document.getElementById('videoDemo').style.display = 'none';
+    document.getElementById('vid').currentTime = 0;
+});

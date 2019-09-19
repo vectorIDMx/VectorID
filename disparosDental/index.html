@@ -51,6 +51,13 @@
         </div> -->
     </div>
     <div id="instrucciones">
+        <div id="videoDemo">
+            <div id="salirVideo">
+                <img src="images/equis.png" alt="">
+            </div>
+            <video id="vid" src="video/demoDentalEdit.mp4" controls></video>
+        </div>
+        
         <div class="container contInst">
             <img src="images/logopp.png" alt="">
             <div class="anton contRecord"><span class="azul">Record Actual:</span><span id="recordInst">No</span></div>
@@ -59,7 +66,7 @@
                 Bienvenido a <span class="anton azul" style="font-weight: 100">Healthy Mouth Game</span>, el juego de Realidad Aumentada que pondra a prueba tu punteria!!
             </p>
             <button onClick="startGame()">Jugar</button>
-            <button>Ver demo</button>
+            <button onClick="verDemo()">Ver demo</button>
             <h6 class="azul anton">Dinamica del Juego</h6>
             <ol id="listaInst">
                 <li>Busca con tu camara a tu alrededor las muelas con caries</li>
