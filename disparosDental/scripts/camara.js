@@ -81,7 +81,7 @@ async function init() {
   
 },500); */
 function startGame(){
-  init();
+  //init();
   document.getElementById('instrucciones').style.display = 'none';
   if (haySensor) {
     iniciaJuego();
