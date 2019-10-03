@@ -1093,7 +1093,9 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 	/**
 		ARController.getUserMedia gets a device camera video feed and calls the given onSuccess callback with it.
 
-		Tries to start playing the video. Playing the video can fail on Chrome for Android,
+		Tries to start playing the video. Playing the video can fail on 
+		
+		for Android,
 		so ARController.getUserMedia adds user input event listeners to the window
 		that try to start playing the video. On success, the event listeners are removed.
 

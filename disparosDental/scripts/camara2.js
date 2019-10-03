@@ -137,9 +137,13 @@ return video;
 function startGame(){
   //init();
   hola({
-    onSuccess: function(video) {
-      console.log("Got video", video);
-    }
+    onSuccess : function(video),
+    onError : function(error),
+
+    width : number | {min: number, ideal: number, max: number},
+    height : number | {min: number, ideal: number, max: number},
+
+    facingMode : 'environment' | 'user' | 'left' | 'right' | { exact: 'environment' | ... }
   });
   document.getElementById('instrucciones').style.display = 'none';
   if (haySensor) {
