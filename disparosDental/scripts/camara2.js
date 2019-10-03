@@ -1,7 +1,8 @@
 
 var hola = function(configuration) {
   console.log('inicia camara');
-var facing = configuration.facingMode || 'environment';
+/* var facing = configuration.facingMode || 'environment'; */
+var facing = 'environment';
 
 var onSuccess = configuration.onSuccess;
 var onError = configuration.onError || function(err) { console.error("ARController.getUserMedia", err); };
@@ -83,9 +84,10 @@ mediaDevicesConstraints.facingMode = facing;
 navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 var hdConstraints = {
   audio: false,
-  video: {
+  /* video: {
     mandatory: constraints
-    }
+    } */
+    video: mediaDevicesConstraints
 };
 
 if ( false ) {
@@ -137,13 +139,9 @@ return video;
 function startGame(){
   //init();
   hola({
-    onSuccess : function(video),
-    onError : function(error),
-
-    width : number | {min: number, ideal: number, max: number},
-    height : number | {min: number, ideal: number, max: number},
-
-    facingMode : 'environment' | 'user' | 'left' | 'right' | { exact: 'environment' | ... }
+    onSuccess: function(video) {
+      console.log("Got video", video);
+    }
   });
   document.getElementById('instrucciones').style.display = 'none';
   if (haySensor) {
