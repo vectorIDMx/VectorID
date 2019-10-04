@@ -76,10 +76,10 @@ firebase.database().ref("ganador").once("value").then(function (data) {
     document.getElementById('recordId').setAttribute('text', { value: `Record: ${nameRecord}     Puntaje: ${record}` });
     document.getElementById('recordInst').innerHTML = nameRecord + '  ' + record + 'pts';
 });
-reproducciones.once("value").then(function (data) {
+/* reproducciones.once("value").then(function (data) {
     let numPlays = data.val().vistas +1;
     reproducciones.set({vistas: numPlays});
-});
+}); */
 
 document.getElementById('balasBan').innerHTML = cantidadBalas;
 document.getElementById('tiempoBan').innerHTML = tiempo;
@@ -363,14 +363,14 @@ function accion(num) {
         case 1: {
             //console.log('ejecuta accion 1');
             //location.reload();
-            window.open('https://www.vectorid.mx/disparosdental/');
+            window.open('https://www.vectorid.mx/disparosdental/','_self');
         } break;
         case 2: {
             //console.log('ejecuta accion 2');
             //showVentana(ventanaContent[0]);
             //document.getElementById('ventana').style.display = 'none';
             //location.reload();
-            window.open('https://www.vectorid.mx/disparosdental/');
+            window.open('https://www.vectorid.mx/disparosdental/','_self');
         } break;
         case 3: {
             //console.log('ejecuta accion 3');
