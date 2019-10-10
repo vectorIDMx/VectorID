@@ -74,7 +74,7 @@ firebase.database().ref("ganador").once("value").then(function (data) {
     console.log('record: ' + nameRecord + '   ' + record);
 
     document.getElementById('recordId').setAttribute('text', { value: `Record: ${nameRecord}     Puntaje: ${record}` });
-    document.getElementById('recordInst').innerHTML = nameRecord + '  ' + record + 'pts';
+    //document.getElementById('recordInst').innerHTML = nameRecord + '  ' + record + 'pts';
 });
 /* reproducciones.once("value").then(function (data) {
     let numPlays = data.val().vistas +1;
@@ -172,14 +172,14 @@ for (i = 0; i < listCubos.length; i++) {
         //console.log('elemento: ' + elementoApuntado);
     });
 }
-document.getElementById('continuar').addEventListener('mouseenter', function (ev) {
+/* document.getElementById('continuar').addEventListener('mouseenter', function (ev) {
     elementoApuntado = ev.target.id;
     //console.log('elemento: ' + elementoApuntado);
-})
-document.getElementById('continuar').addEventListener('mouseleave', function (ev) {
+}) */
+/* document.getElementById('continuar').addEventListener('mouseleave', function (ev) {
     elementoApuntado = 'no';
     //console.log('elemento: ' + elementoApuntado);
-})
+}) */
 
 const pantalla = document.getElementsByTagName('body')[0];
 let movimiento = 1;
@@ -363,14 +363,14 @@ function accion(num) {
         case 1: {
             //console.log('ejecuta accion 1');
             //location.reload();
-            window.open('https://www.vectorid.mx/disparosdental/','_self');
+            //window.open('https://www.vectorid.mx/disparosdentalv2/','_self');
         } break;
         case 2: {
             //console.log('ejecuta accion 2');
             //showVentana(ventanaContent[0]);
             //document.getElementById('ventana').style.display = 'none';
             //location.reload();
-            window.open('https://www.vectorid.mx/disparosdental/','_self');
+            //window.open('https://www.vectorid.mx/disparosdentalv2/','_self');
         } break;
         case 3: {
             //console.log('ejecuta accion 3');
@@ -383,10 +383,19 @@ function accion(num) {
     }
 }
 function showVentana(objeto) {
+    let link = '';
+    switch(objeto.act){
+        case 1:{
+            link = 'href="index.html"';
+        }break;
+        case 2:{
+            link = 'href="index.html"';
+        }break;
+    }
     const content = `<div class="container cont">
     <div class="row items"><h3>${objeto.title}</h3></div>
     <div class="row items"><p>${objeto.desc}</p></div>
-    <div class="row items" onClick="accion(${objeto.act})"><button>${objeto.but}</button></div>    
+    <div class="row items" ><a ${link}><button onClick="accion(${objeto.act})">${objeto.but}</button></a></div>    
 </div>`
     document.getElementById('ventana').innerHTML = content;
     document.getElementById('ventana').style.display = 'flex';
@@ -472,12 +481,3 @@ function iniciaJuego() {
     //hilo monitoreo de variables
     hiloMonitoreoId = setInterval(hiloMonitoreo, 500);
 }
-function verDemo(){
-    document.getElementById('videoDemo').style.display = 'flex';
-    document.getElementById('vid').play();
-}
-document.getElementById('salirVideo').addEventListener('touchstart', function(){
-    //console.log('salir del video');
-    document.getElementById('videoDemo').style.display = 'none';
-    document.getElementById('vid').currentTime = 0;
-});

@@ -81,8 +81,9 @@ async function init() {
   
 },500); */
 function startGame(){
+  console.log('empezando startGame')
   //init();
-  document.getElementById('instrucciones').style.display = 'none';
+  //document.getElementById('instrucciones').style.display = 'none';
   if (haySensor) {
     iniciaJuego();
   } else {
@@ -95,5 +96,7 @@ function startGame(){
     document.getElementById('dedo').setAttribute('height',.02);
   }
 }
-startGame();
-
+window.onload = function() {
+  //funciones a ejecutar
+  this.startGame();
+};
