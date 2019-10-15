@@ -84,7 +84,7 @@ function startGame(){
   console.log('empezando startGame')
   //init();
   //document.getElementById('instrucciones').style.display = 'none';
-  if (haySensor || ipad) {
+  if ((haySensor) && (ipad==0)) {
     iniciaJuego();
   } else {
     /* console.log('ejecuta esto');
