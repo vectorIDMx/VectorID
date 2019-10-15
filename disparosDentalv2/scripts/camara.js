@@ -86,6 +86,8 @@ function startGame(){
   //document.getElementById('instrucciones').style.display = 'none';
   if ((haySensor) && (ipad==0)) {
     iniciaJuego();
+    alert('ipad' +ipad);
+    alert('sensor' +haySensor);
   } else {
     /* console.log('ejecuta esto');
     const cielo = document.getElementById('skyCont')//.innerHTML = `<a-sky src="#sky"></a-sky>`;
