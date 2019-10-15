@@ -84,14 +84,19 @@ function startGame(){
   console.log('empezando startGame')
   //init();
   //document.getElementById('instrucciones').style.display = 'none';
-  if (haySensor) {
+  if (haySensor || ipad) {
     iniciaJuego();
   } else {
     /* console.log('ejecuta esto');
     const cielo = document.getElementById('skyCont')//.innerHTML = `<a-sky src="#sky"></a-sky>`;
     cielo.innerHTML = `<a-sky src="#sky"></a-sky>`; */
     //document.getElementById('global').setAttribute('rotation',{x:0, y:0, z:0});  
-    showVentana(ventanaContent[3]);
+    
+    if(ipad){
+      showVentana(ventanaContent[4]);
+    }else{
+      showVentana(ventanaContent[3]);
+    }
     document.getElementById('dedo').setAttribute('width',.017);
     document.getElementById('dedo').setAttribute('height',.02);
   }
