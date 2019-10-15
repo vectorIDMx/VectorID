@@ -50,13 +50,13 @@ const ventanaContent = [
     {
         title: 'no sensor!',
         desc: 'al parecer tu smartphone no cuenta con los sensores necesarios, pero puedes ocupar tu dedo para desplazarte!',
-        act: 4,
+        act: 3,
         but: 'ok'
     },
     {
         title: 'ios',
         desc: 'al parecer tu smartphone no cuenta con los recursos necesarios, pero puedes ocupar tu dedo para desplazarte!',
-        act: 4,
+        act: 3,
         but: 'ok'
     }
 ];
