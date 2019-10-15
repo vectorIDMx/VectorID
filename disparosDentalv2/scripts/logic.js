@@ -92,6 +92,13 @@ document.getElementById('balasBan').innerHTML = cantidadBalas;
 document.getElementById('tiempoBan').innerHTML = tiempo;
 document.getElementById('puntosBan').innerHTML = puntos;
 
+if(navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    ){
+       ipad = 1;
+     }
+
 
 function aleat(desde, hasta) {
     let diferencia = hasta - desde;
@@ -475,13 +482,6 @@ function arrayJSON(nombre, telefono, email, nickname, score) {
 }
 
 function iniciaJuego() {
-    
-    if(navigator.userAgent.match(/iPhone/i)
-    || navigator.userAgent.match(/iPad/i)
-    || navigator.userAgent.match(/iPod/i)
-    ){
-       ipad = 1;
-     }
     statusGame = 0;
     console.log('Juego Iniciado');
     //ocultar initial screen
