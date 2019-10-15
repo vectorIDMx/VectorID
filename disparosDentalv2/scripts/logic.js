@@ -246,6 +246,7 @@ pantalla.addEventListener('touchend', function (ev) {
             if(ipad == 0){
                 navigator.vibrate(40);
             }
+            
             //console.log('disparo en notcubo: ' + elementoApuntado);
             const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
             if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
@@ -466,11 +467,15 @@ function arrayJSON(nombre, telefono, email, nickname, score) {
     }
     return data;
 }
+
 function iniciaJuego() {
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        ipad = 1;
-    }
-        
+    
+    if(navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    ){
+       ipad = 1;
+     }
     statusGame = 0;
     console.log('Juego Iniciado');
     //ocultar initial screen
