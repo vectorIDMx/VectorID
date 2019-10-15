@@ -14,6 +14,7 @@ let puntos = 0;
 let statusGame = 2; //0=iniciado 1=terminado
 let record = 0;
 let nameRecord = 'holi';
+let ipad = 0;
 
 const cubos = document.getElementById('cubos');
 let elementoApuntado = 'no';
@@ -242,6 +243,9 @@ pantalla.addEventListener('touchend', function (ev) {
         //disparo Notcubo
         else if (elementoApuntado.indexOf('not') == 0) {
             //navigator.vibrate(40);
+            if(ipad == 0){
+                navigator.vibrate(40);
+            }
             //console.log('disparo en notcubo: ' + elementoApuntado);
             const numCubo = elementoApuntado.substring(elementoApuntado.indexOf('cubo') + 4, elementoApuntado.length);
             if (statusCubos[numCubo] == 0)// si el estatus es cero entonces es un disparo valido
@@ -463,6 +467,10 @@ function arrayJSON(nombre, telefono, email, nickname, score) {
     return data;
 }
 function iniciaJuego() {
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        ipad = 1;
+    }
+        
     statusGame = 0;
     console.log('Juego Iniciado');
     //ocultar initial screen
