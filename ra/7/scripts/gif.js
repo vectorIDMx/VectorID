@@ -565,7 +565,7 @@
 	    this.__height = THREE.Math.nearestPowerOfTwo(frames[0].height);
 	    this.__cnv.width = this.__width;
 	    this.__cnv.height = this.__height;
-	    this.__draw();
+	    this.__draw(0);
 	    if (this.__autoplay) {
 	      this.play();
 	    } else {
