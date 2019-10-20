@@ -158,8 +158,13 @@
     function miFuncion() {
 
       gifG.components.material.shader.nextFrame(idx);
+      idx++;
 
-      if (direccion) {
+      if (idx > 60) {
+        idx = 0;
+      }
+
+      /* if (direccion) {
         idx++;
       } else {
         idx--;
@@ -178,7 +183,7 @@
         idx = 42;
       } else if (idx < 0) {
         clearInterval(intervalID);
-      }
+      } */
     }
     document.getElementById('planeLogo').addEventListener('animationcomplete', function () {
       document.getElementById('gif').emit('gifIn');
@@ -195,7 +200,7 @@
       }, 1000);
       window.setTimeout(function () {
         //gifG.components.material.shader.__startTime = Date.now();
-        intervalID = window.setInterval(miFuncion, 50);
+        intervalID = window.setInterval(miFuncion, 150);
         window.setTimeout(function () {
           //gifG.components.material.shader.__startTime = Date.now();
           if (language == 'es') {
