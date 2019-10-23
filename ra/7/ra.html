@@ -99,6 +99,12 @@
       </a-plane>
       <!-- <a-box position="0 -.11 0" opacity=".99" scale="1.4 .2 3" material="src: images/nada.png; color: yellow;"></a-box>
       <a-cylinder rotation="-90 0 0" scale="2 .2 2"></a-cylinder> -->
+      <a-box id="espanol" position="0 0 0" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;"
+      animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
+      animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"></a-box>
+      <a-box id="ingles" position="1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEn.png;"
+      animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
+      animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"></a-box>
 
     </a-marker>
 
@@ -122,31 +128,27 @@
   var paramstr = window.location.search.substr(1);
   var paramarr = paramstr.split("&");
   var params = {};
-  var language;
+  
   /* var audFondo = new Audio();
   audFondo.src = "audio/tambores.ogg"; */
   var aud1 = new Audio();
   aud1.src = "audio/espanol.mpeg";
   var aud2 = new Audio();
   aud2.src = "audio/ingles.mp3";
+  document.getElementById('espanol').addEventListener('click', function(){
+    console.log('holi, soy español');
+  })
+  document.getElementById('ingles').addEventListener('click', function(){
+    console.log('holi, soy english');
+  })
 
-  for (var i = 0; i < paramarr.length; i++) {
-    var tmparr = paramarr[i].split("=");
-    params[tmparr[0]] = tmparr[1];
-  }
-  language = params['lang'];
-  if (language) {
-    //console.log('El valor del parámetro variable es: ' + language);
-  } else {
-    //console.log('No se envió el parámetro variable');
-  }
   function imgLoaded() {
 
     gifG = document.getElementById('gif');
     gifG.pause();
     audioFondo = document.getElementById('audio');
     console.log('audioFondo: ', audioFondo);
-    audioFondo.volume = 1;
+    audioFondo.volume = .4;
     audioFondo.muted = false;
     console.log('audioFondo: ', audioFondo);
 
@@ -201,19 +203,24 @@
       window.setTimeout(function () {
         //gifG.components.material.shader.__startTime = Date.now();
         intervalID = window.setInterval(miFuncion, 150);
-        window.setTimeout(function () {
-          //gifG.components.material.shader.__startTime = Date.now();
-          if (language == 'es') {
-            aud1.play();
-          } else {
-            aud2.play();
-          }
-
-        }, 3500);
+        document.getElementById('espanol').emit('btnAudio');
+        document.getElementById('ingles').emit('btnAudio');
       }, 3500);
 
     });
   }
+  // Component to change to a sequential color on click.
+/* AFRAME.registerComponent('cursor-listener', {
+  init: function () {
+    var lastIndex = -1;
+    var COLORS = ['red', 'green', 'blue'];
+    this.el.addEventListener('click', function (evt) {
+      lastIndex = (lastIndex + 1) % COLORS.length;
+      this.setAttribute('material', 'color', COLORS[lastIndex]);
+      console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+  }
+}); */
 
 </script>
 
