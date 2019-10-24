@@ -49,6 +49,9 @@
             document.getElementById("plane").emit("planeout");
             document.getElementById("qr").emit("qrout");
 
+            document.getElementById("plane").emit("planeout2");
+            document.getElementById("qr").emit("qrout2");
+
             document.getElementById("logo").emit("inLogo");
             document.getElementById("planeLogo").emit("subelogo");
             //audFondo.play();
@@ -73,7 +76,7 @@
 </script>
 
 <body style='margin : 0px; overflow: hidden;' id="cuerpo" onload="imgLoaded()">
-  <audio id="audio" src="audio/tambores.mp3" autoplay loop muted></audio>
+  <audio id="audio" src="audio/tambores.mp3" autoplay loop muted onload="audioLoaded()"></audio>
   <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
   <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
@@ -99,22 +102,27 @@
       </a-plane>
       <!-- <a-box position="0 -.11 0" opacity=".99" scale="1.4 .2 3" material="src: images/nada.png; color: yellow;"></a-box>
       <a-cylinder rotation="-90 0 0" scale="2 .2 2"></a-cylinder> -->
-      <a-box id="espanol" position="0 0 0" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;"
+      <a-box id="espanol" position="-1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;"
       animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
-      animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"></a-box>
+      animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
+      animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;"></a-box>
       <a-box id="ingles" position="1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEn.png;"
       animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
-      animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"></a-box>
+      animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"
+      animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;"></a-box>
 
     </a-marker>
 
 
     <a-plane id="plane" position="0 0 -.098" width="2" height="2" material="color:black;" opacity=".4"
-      animation="startEvents: planeout; property: opacity; dur: 1000; to: 0;">
+      animation="startEvents: planeout; property: opacity; dur: 1000; to: 0;"
+      animation__2="startEvents: planeout2; property: scale; dur: 3000; to: .0001 .0001 .0001;">
 
     </a-plane>
     <a-plane id="qr" position="0 0 -.097" width=".02" height=".02" material="src:images/enfoca.png;" opacity=".9"
-      animation="startEvents: qrout; property: opacity; dur: 1000; to: 0;">
+      animation="startEvents: qrout; property: opacity; dur: 1000; to: 0;"
+      animation__2="startEvents: qrout2; property: scale; dur: 3000; to: .0001 .0001 .0001;">
+      
 
     </a-plane>
     <a-entity camera></a-entity>
@@ -125,10 +133,7 @@
   let status = 0;
   let gifG;
   var intervalID;
-  var paramstr = window.location.search.substr(1);
-  var paramarr = paramstr.split("&");
-  var params = {};
-  
+
   /* var audFondo = new Audio();
   audFondo.src = "audio/tambores.ogg"; */
   var aud1 = new Audio();
@@ -137,20 +142,31 @@
   aud2.src = "audio/ingles.mp3";
   document.getElementById('espanol').addEventListener('click', function(){
     console.log('holi, soy español');
+    aud1.play();
+    document.getElementById('espanol').emit('btnAudioout');
+    document.getElementById('ingles').emit('btnAudioout');
   })
   document.getElementById('ingles').addEventListener('click', function(){
     console.log('holi, soy english');
+    aud2.play();
+    document.getElementById('espanol').emit('btnAudioout');
+    document.getElementById('ingles').emit('btnAudioout');
   })
-
-  function imgLoaded() {
-
-    gifG = document.getElementById('gif');
-    gifG.pause();
+  function audioLoaded(){
     audioFondo = document.getElementById('audio');
     console.log('audioFondo: ', audioFondo);
     audioFondo.volume = .4;
     audioFondo.muted = false;
     console.log('audioFondo: ', audioFondo);
+  }
+  function imgLoaded() {
+    window.setTimeout(function(){
+      audioLoaded();
+    },5000);
+    console.log('imgLoaded()');
+    gifG = document.getElementById('gif');
+    gifG.pause();
+    
 
 
 
@@ -209,6 +225,16 @@
 
     });
   }
+  aud1.addEventListener('ended', function(){
+    console.log('termino la pista 1');
+    document.getElementById('espanol').emit('btnAudio');
+    document.getElementById('ingles').emit('btnAudio');
+  });
+  aud2.addEventListener('ended', function(){
+    console.log('termino la pista 2');
+    document.getElementById('espanol').emit('btnAudio');
+    document.getElementById('ingles').emit('btnAudio');
+  });
   // Component to change to a sequential color on click.
 /* AFRAME.registerComponent('cursor-listener', {
   init: function () {
