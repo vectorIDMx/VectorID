@@ -110,6 +110,8 @@
       animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
       animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"
       animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;"></a-box>
+      <a-plane id="espanol1" position="-25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0"></a-plane>
+      <a-plane id="ingles1" position="25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0"></a-plane>
 
     </a-marker>
 
@@ -152,6 +154,21 @@
     document.getElementById('espanol').emit('btnAudioout');
     document.getElementById('ingles').emit('btnAudioout');
   })
+  document.getElementById('espanol1').addEventListener('click', function(){
+    console.log('holi, soy español');
+    aud1.play();
+    document.getElementById('espanol').emit('btnAudioout');
+    document.getElementById('ingles').emit('btnAudioout');
+  })
+  document.getElementById('ingles1').addEventListener('click', function(){
+    console.log('holi, soy english');
+    aud2.play();
+    document.getElementById('espanol').emit('btnAudioout');
+    document.getElementById('ingles').emit('btnAudioout');
+  })
+
+
+
   function audioLoaded(){
     audioFondo = document.getElementById('audio');
     console.log('audioFondo: ', audioFondo);
