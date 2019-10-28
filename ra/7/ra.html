@@ -84,7 +84,7 @@
     </a-assets>
 
     <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
-      url="pattern-reyna.patt">
+      url="pattern-targetReyna.patt">
 
       <a-plane id="gif" rotation="-90 0 0" opacity="0" width="2" height="2" material="shader: gif;" gif="" src="#reyna"
         position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;"></a-plane>
@@ -148,30 +148,36 @@
 
     var audFondo = new Audio();
     audFondo.src = "audio/tambores.mp3";
+    audFondo.loop = true;
+    audFondo.volume = .4;
 
     
 
     document.getElementById('espanol').addEventListener('click', function () {
       console.log('holi, soy español');
       aud1.play();
+      audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('ingles').addEventListener('click', function () {
       console.log('holi, soy english');
       aud2.play();
+      audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('espanol1').addEventListener('click', function () {
       console.log('holi, soy español');
       aud1.play();
+      audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('ingles1').addEventListener('click', function () {
       console.log('holi, soy english');
       aud2.play();
+      audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
@@ -230,16 +236,16 @@
       console.log('termino la pista 1');
       document.getElementById('espanol').emit('btnAudio');
       document.getElementById('ingles').emit('btnAudio');
+      audFondo.volume = .4;
     });
     aud2.addEventListener('ended', function () {
       console.log('termino la pista 2');
       document.getElementById('espanol').emit('btnAudio');
       document.getElementById('ingles').emit('btnAudio');
+      audFondo.volume = .4;
     });
     audFondo.addEventListener('canplay', function(){
       console.log('audioFondo canplay');
-      audFondo.volume = .4;
-      audFondo.autoplay = true;
       audFondo.play();
     })
 
