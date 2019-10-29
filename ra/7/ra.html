@@ -3,20 +3,18 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-136675623-1');
-    </script> -->
+    </script>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 <script src="scripts/gif.js"> </script>
-<!-- <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> -->
-<!-- <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>  -->
 <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -30,7 +28,6 @@
       markerObj = document.querySelector('a-marker');
       markerObj.hidden = true;
 
-      //dino.setAttribute('animation-mixer', {clip: 'C4D Animation Take', loop: 'repeat'});
     },
 
     tick: function () {
@@ -42,7 +39,6 @@
             return;
 
           isTargetFound = true;
-          //console.log("marker visible");
 
           cuenta2++;
           if (cuenta2 == 1) {
@@ -54,12 +50,9 @@
 
             document.getElementById("logo").emit("inLogo");
             document.getElementById("planeLogo").emit("subelogo");
-            //audFondo.play();
-            //gif.play();
-            /* document.getElementById("swipe").emit("planein"); */
+            
           }
 
-          //document.getElementById("videoScene").emit("an1");
         }
         else {
 
@@ -67,7 +60,6 @@
             return;
 
           isTargetFound = false;
-          //console.log("marker invisible");
 
         }
       }
@@ -76,8 +68,6 @@
 </script>
 
 <body style='margin : 0px; overflow: hidden;' id="cuerpo" onload="imgLoaded()">
-  <!-- <audio id="audio" src="audio/tambores.mp3" autoplay loop muted onload="audioLoaded()"></audio> -->
-  <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
   <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
       <img id="reyna" src="images/reyna4-320.gif">
@@ -100,8 +90,7 @@
         animation="property: rotation; dur: 2000; to: -90 360 0; easing: linear; loop: true;"
         animation__2="startEvents:fondoout; property: scale; dur: 1500; to: .0001 .0001 .0001; easing: linear;">
       </a-plane>
-      <!-- <a-box position="0 -.11 0" opacity=".99" scale="1.4 .2 3" material="src: images/nada.png; color: yellow;"></a-box>
-      <a-cylinder rotation="-90 0 0" scale="2 .2 2"></a-cylinder> -->
+      
       <a-box id="espanol" position="-1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;"
         animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
         animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
@@ -136,8 +125,6 @@
 <script>
 
   window.onload = function () {
-    // Carga completa
-    //alert('pagina cargada completamente');
     let status = 0;
     let gifG;
     var intervalID;
@@ -154,43 +141,30 @@
     
 
     document.getElementById('espanol').addEventListener('click', function () {
-      console.log('holi, soy español');
       aud1.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('ingles').addEventListener('click', function () {
-      console.log('holi, soy english');
       aud2.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('espanol1').addEventListener('click', function () {
-      console.log('holi, soy español');
       aud1.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('ingles1').addEventListener('click', function () {
-      console.log('holi, soy english');
       aud2.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
 
-
-    /* window.setTimeout(function () {
-      audioFondo = document.getElementById('audio');
-      console.log('audioFondo: ', audioFondo);
-      audioFondo.volume = .4;
-      audioFondo.muted = false;
-      console.log('audioFondo: ', audioFondo);
-    }, 5000); */
-    console.log('imgLoaded()');
     gifG = document.getElementById('gif');
     gifG.pause();
 
@@ -209,11 +183,7 @@
         idx = 0;
       }
     }
-    /* document.getElementById('planeLogo').addEventListener('animationcomplete', function () {
-      document.getElementById('gif').emit('gifIn');
-      console.log('animationcomplete');
 
-    }); */
     document.getElementById('logo').addEventListener('animationcomplete__2', function () {
       document.getElementById('fondo').emit('fondoout');
 
@@ -223,7 +193,6 @@
         document.getElementById('gif').emit('gifin');
       }, 3000);
       window.setTimeout(function () {
-        //gifG.components.material.shader.__startTime = Date.now();
         intervalID = window.setInterval(miFuncion, 150);
         document.getElementById('espanol').emit('btnAudio');
         document.getElementById('ingles').emit('btnAudio');
