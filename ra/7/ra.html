@@ -211,8 +211,14 @@
       document.getElementById('ingles').emit('btnAudio');
       audFondo.volume = .4;
     });
+    var iniciador = 1;
     audFondo.addEventListener('canplay', function(){
-      audFondo.play();
+      if(iniciador){
+        window.setTimeout(function(){
+          audFondo.play();
+        },5000);
+      }
+      
     })
 
 
