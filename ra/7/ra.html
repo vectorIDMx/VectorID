@@ -129,7 +129,7 @@
     let gifG;
     var intervalID;
     var aud1 = new Audio();
-    aud1.src = "audio/espanol.mpeg";
+    aud1.src = "audio/espanol.mp3";
     var aud2 = new Audio();
     aud2.src = "audio/ingles.mp3";
 
@@ -211,7 +211,7 @@
       document.getElementById('ingles').emit('btnAudio');
       audFondo.volume = .4;
     });
-    var iniciador = 1;
+    /* var iniciador = 1;
     audFondo.addEventListener('canplay', function(){
       if(iniciador){
         window.setTimeout(function(){
@@ -219,7 +219,11 @@
         },5000);
       }
       
-    })
+    }) */
+    window.setInterval(function(){
+          audFondo.play();
+          console.log('playing');
+        },3000);
 
 
   }
