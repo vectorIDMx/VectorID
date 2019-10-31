@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head id="head">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
     <script>
@@ -17,7 +17,17 @@
 <script src="scripts/gif.js"> </script>
 <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script id="arjs"></script>
+<title>La Reyna</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="css/stylera.css">
 <script>
   var isTargetFound = false;
   var interacted = false;
@@ -68,6 +78,34 @@
 </script>
 
 <body style='margin : 0px; overflow: hidden;' id="cuerpo" onload="imgLoaded()">
+  <div id="instrucciones">
+
+    <div class="container contInst">
+        <img src="images/logo2.png" alt="">
+
+        <p id="bienvenida">
+            Bienvenidos a <span class="anton azul" style="font-weight: 100;">L a &nbsp; R e y n a</span>, conoce mas
+            sobre nuestro excelente crema de agave con <strong style="color: #860404">Realidad Aumentada</strong> !
+        </p>
+        
+        <button onclick="verani()">Ver Animación!</button>
+        
+        <h6 class="azul anton">Importante!</h6>
+        <ol id="listaInst">
+            <li>Haz click en Ver Animacion</li>
+            <li>Permite el acceso a tu camara</li>
+            <li>Ubica la etiqueta de la botella</li>
+            <li>Sube el volumen de tu celular y presiona las cajas en Realidad Aumentada</li>
+            <li>Diviertete y observa la Realidad Aumentada!!</li>
+        </ol>
+
+        <p id="nota">
+            Nota: Recuerda que debes permitir el acceso a tu camara para ver animaciones en Realidad Aumentada
+        </p>
+
+    </div>
+
+</div>
   <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
       <img id="reyna" src="images/reyna4-320.gif">
@@ -133,10 +171,7 @@
     var aud2 = new Audio();
     aud2.src = "audio/ingles.mp3";
 
-    var audFondo = new Audio();
-    audFondo.src = "audio/tambores2.mp3";
-    audFondo.loop = true;
-    audFondo.volume = .4;
+    
 
     
 
@@ -220,12 +255,22 @@
       }
       
     }) */
-    window.setInterval(function(){
+    /* window.setInterval(function(){
           audFondo.play();
           console.log('playing');
-        },3000);
+        },3000); */
 
 
+  }
+  var audFondo = new Audio();
+    audFondo.src = "audio/tambores2.mp3";
+    audFondo.loop = true;
+    audFondo.volume = .4;
+  function verani(){
+    audFondo.play();
+      console.log('playing');
+      document.getElementById('instrucciones').style.display = 'none';
+      
   }
 </script>
 
