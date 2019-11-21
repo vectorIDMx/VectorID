@@ -214,7 +214,7 @@
       gifG.components.material.shader.nextFrame(idx);
       idx++;
 
-      if (idx > 60) {
+      if (idx > 240) {
         idx = 0;
       }
     }
@@ -228,7 +228,7 @@
         document.getElementById('gif').emit('gifin');
       }, 3000);
       window.setTimeout(function () {
-        intervalID = window.setInterval(gifIteration, 150);
+        intervalID = window.setInterval(gifIteration, 10);
         console.log(gifG);
         document.getElementById('espanol').emit('btnAudio');
         document.getElementById('ingles').emit('btnAudio');
