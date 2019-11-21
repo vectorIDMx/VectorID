@@ -209,7 +209,7 @@
     var idx = 0;
     var direccion = true;
     var loop = 0;
-    function miFuncion() {
+    function gifIteration() {
 
       gifG.components.material.shader.nextFrame(idx);
       idx++;
@@ -228,7 +228,8 @@
         document.getElementById('gif').emit('gifin');
       }, 3000);
       window.setTimeout(function () {
-        intervalID = window.setInterval(miFuncion, 150);
+        intervalID = window.setInterval(gifIteration, 150);
+        console.log(gifG);
         document.getElementById('espanol').emit('btnAudio');
         document.getElementById('ingles').emit('btnAudio');
       }, 3500);
