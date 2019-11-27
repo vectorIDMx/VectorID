@@ -176,6 +176,13 @@
 </body>
 
 <script>
+  window.reproducir = function() {
+          document.getElementById("video").play();
+      };
+
+      window.pausar = function() {
+          document.getElementById("video").pause();
+      };
 
   window.onload = function () {
     let status = 0;
@@ -190,13 +197,7 @@
       console.log('click en cuerpo');
       document.getElementById("pantalla").emit("anPantalla");
     });
-    window.reproducir = function() {
-          document.getElementById("video").play();
-      };
-
-      window.pausar = function() {
-          document.getElementById("video").pause();
-      };
+    
 
     
 
