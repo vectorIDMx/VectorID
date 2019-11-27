@@ -170,32 +170,32 @@
     aud1.src = "audio/espanol.mp3";
     var aud2 = new Audio();
     aud2.src = "audio/ingles.mp3";
+    
+    document.getElementById('cuerpo').addEventListener('click', function(){
+      console.log('click en cuerpo');
+    });
 
     
 
     
 
     document.getElementById('espanol').addEventListener('click', function () {
-      aud1.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('ingles').addEventListener('click', function () {
-      aud2.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
 
     document.getElementById('espanol1').addEventListener('click', function () {
-      aud1.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
     })
     document.getElementById('ingles1').addEventListener('click', function () {
-      aud2.play();
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
