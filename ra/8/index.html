@@ -62,6 +62,7 @@
             document.getElementById("planeLogo").emit("subelogo");
             
           }
+          window.reproducir();
 
         }
         else {
@@ -70,7 +71,7 @@
             return;
 
           isTargetFound = false;
-
+          window.pausar();
         }
       }
     }
@@ -109,10 +110,24 @@
   <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
       <img id="calaveras" src="images/calaveras.gif">
+      <video id="video" width="320" height="180" controls>
+        <source src="video/videoplayback.mp4" type="video/mp4">
+    </video>
     </a-assets>
 
     <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
       url="pattern-targetReyna.patt">
+      <a-entity id="pantalla" rotation="-90 0 0"
+      animation="startEvents: anPantalla; property: rotation; dur: 2000; to: 0 0 0;">
+        <a-video id="videoScene" src="#video" width="3" height="1.5" position="0 0 0" rotation="0 0 0" opacity="1"></a-video>
+        <a-box  position="0 0 -.35" scale="3 1.5 .6" material="color:red;"></a-box>
+        <!-- <a-animation
+          attribute="rotation"
+          begin="anPantalla"
+          dur="2000"
+          to="0 0 0"
+        ></a-animation> -->
+      </a-entity>
 
       <a-plane id="gif" rotation="-90 0 0" opacity="0" width="2" height="2" material="shader: gif;" gif="" src="#calaveras"
         position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;"></a-plane>
@@ -173,7 +188,15 @@
     
     document.getElementById('cuerpo').addEventListener('click', function(){
       console.log('click en cuerpo');
+      document.getElementById("pantalla").emit("anPantalla");
     });
+    window.reproducir = function() {
+          document.getElementById("video").play();
+      };
+
+      window.pausar = function() {
+          document.getElementById("video").pause();
+      };
 
     
 
