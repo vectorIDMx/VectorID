@@ -4,13 +4,13 @@
 <head id="head">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136675623-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'UA-136675623-1');
-    </script>
+    gtag('config', 'UA-136675623-1');
+  </script>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
@@ -18,15 +18,13 @@
 <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script id="arjs"></script>
 <title>Calaveras AR</title>
-    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="css/stylera.css">
 <script>
   var isTargetFound = false;
@@ -60,9 +58,9 @@
 
             document.getElementById("logo").emit("inLogo");
             document.getElementById("planeLogo").emit("subelogo");
-            
+
           }
-          window.reproducir();
+          //window.reproducir();
 
         }
         else {
@@ -71,7 +69,7 @@
             return;
 
           isTargetFound = false;
-          window.pausar();
+          //window.pausar();
         }
       }
     }
@@ -82,55 +80,51 @@
   <div id="instrucciones">
 
     <div class="container contInst">
-        <img src="images/logo2.png" alt="">
+      <img src="images/logo2.png" alt="">
 
-        <p id="bienvenida">
-            Bienvenidos a <span class="anton azul" style="font-weight: 100;">L a &nbsp; R e y n a</span>, conoce mas
-            sobre nuestro excelente crema de agave con <strong style="color: #860404">Realidad Aumentada</strong> !
-        </p>
-        
-        <button onclick="verani()">Ver Animación!</button>
-        
-        <h6 class="azul anton">Importante!</h6>
-        <ol id="listaInst">
-            <li>Haz click en Ver Animacion</li>
-            <li>Permite el acceso a tu camara</li>
-            <li>Ubica la etiqueta de la botella</li>
-            <li>Sube el volumen de tu celular y presiona las cajas en Realidad Aumentada</li>
-            <li>Diviertete y observa la Realidad Aumentada!!</li>
-        </ol>
+      <p id="bienvenida">
+        Bienvenidos a <span class="anton azul" style="font-weight: 100;">L a &nbsp; R e y n a</span>, conoce mas
+        sobre nuestro excelente crema de agave con <strong style="color: #860404">Realidad Aumentada</strong> !
+      </p>
 
-        <p id="nota">
-            Nota: Recuerda que debes permitir el acceso a tu camara para ver animaciones en Realidad Aumentada
-        </p>
+      <button onclick="verani()">Ver Animación!</button>
+
+      <h6 class="azul anton">Importante!</h6>
+      <ol id="listaInst">
+        <li>Haz click en Ver Animacion</li>
+        <li>Permite el acceso a tu camara</li>
+        <li>Ubica la etiqueta de la botella</li>
+        <li>Sube el volumen de tu celular y presiona las cajas en Realidad Aumentada</li>
+        <li>Diviertete y observa la Realidad Aumentada!!</li>
+      </ol>
+
+      <p id="nota">
+        Nota: Recuerda que debes permitir el acceso a tu camara para ver animaciones en Realidad Aumentada
+      </p>
 
     </div>
 
-</div>
+  </div>
   <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
       <img id="calaveras" src="images/calaveras.gif">
-      <video id="video" width="320" height="180" controls>
+      <!-- <video id="video" width="320" height="180" controls>
         <source src="video/ddm.mp4" type="video/mp4">
-    </video>
+      </video> -->
     </a-assets>
 
     <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
       url="pattern-targetReyna.patt">
-      <a-entity id="pantalla" rotation="-90 0 0"
-      animation="startEvents: anPantalla; property: rotation; dur: 2000; to: 0 0 0;">
-        <a-video id="videoScene" src="#video" width="3" height="1.5" position="0 0 0" rotation="0 0 0" opacity="1"></a-video>
-        <a-box  position="0 0 -.35" scale="3 1.5 .6" material="color:red;"></a-box>
-        <!-- <a-animation
-          attribute="rotation"
-          begin="anPantalla"
-          dur="2000"
-          to="0 0 0"
-        ></a-animation> -->
-      </a-entity>
+      <!-- <a-entity id="pantalla" rotation="-90 0 0"
+        animation="startEvents: anPantalla; property: rotation; dur: 2000; to: 0 0 0;">
+        <a-video id="videoScene" src="#video" width="3" height="1.5" position="0 0 0" rotation="0 0 0" opacity="1">
+        </a-video>
+        <a-box position="0 0 -.35" scale="3 1.5 .6" material="color:red;"></a-box>
+      </a-entity> -->
 
-      <a-plane id="gif" rotation="-90 0 0" opacity="0" width="2" height="2" material="shader: gif;" gif="" src="#calaveras"
-        position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;"></a-plane>
+      <a-plane id="gif" rotation="-90 0 0" opacity="0" width="2" height="2" material="shader: gif;" gif=""
+        src="#calaveras" position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;">
+      </a-plane>
 
       <a-entity id="logo" scale=".001 .001 .001"
         animation=" startEvents: inLogo; property: rotation; dur: 1000; from: 0 0 0; to: 0 360 0; loop: 5; easing: linear;"
@@ -143,7 +137,7 @@
         animation="property: rotation; dur: 1500; to: -90 360 0; easing: linear; loop: true;"
         animation__2="startEvents:fondoout; property: scale; dur: 1500; to: .0001 .0001 .0001; easing: linear;">
       </a-plane>
-      
+
       <a-box id="espanol" position="-1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;" opacity=".9"
         animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
         animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
@@ -176,13 +170,13 @@
 </body>
 
 <script>
-  window.reproducir = function() {
-          document.getElementById("video").play();
-      };
+ /*  window.reproducir = function () {
+    document.getElementById("video").play();
+  };
 
-      window.pausar = function() {
-          document.getElementById("video").pause();
-      };
+  window.pausar = function () {
+    document.getElementById("video").pause();
+  }; */
 
   window.onload = function () {
     let status = 0;
@@ -192,16 +186,16 @@
     aud1.src = "audio/espanol.mp3";
     var aud2 = new Audio();
     aud2.src = "audio/ingles.mp3";
-    
-    document.getElementById('cuerpo').addEventListener('click', function(){
+
+    document.getElementById('cuerpo').addEventListener('click', function () {
       console.log('click en cuerpo');
       document.getElementById("pantalla").emit("anPantalla");
     });
-    
 
-    
 
-    
+
+
+
 
     document.getElementById('espanol').addEventListener('click', function () {
       audFondo.volume = .1;
@@ -229,7 +223,7 @@
     gifG = document.getElementById('gif');
     gifG.pause();
 
-    var idx = 0;   
+    var idx = 0;
 
     function gifIteration() {
 
@@ -286,14 +280,14 @@
 
   }
   var audFondo = new Audio();
-    audFondo.src = "audio/fondo-comp.mp3";
-    audFondo.loop = true;
-    audFondo.volume = .4;
-  function verani(){
+  audFondo.src = "audio/fondo-comp.mp3";
+  audFondo.loop = true;
+  audFondo.volume = .4;
+  function verani() {
     audFondo.play();
-      console.log('playing');
-      document.getElementById('instrucciones').style.display = 'none';
-      
+    console.log('playing');
+    document.getElementById('instrucciones').style.display = 'none';
+
   }
 </script>
 
