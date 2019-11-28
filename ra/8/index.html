@@ -59,6 +59,10 @@
             document.getElementById("logo").emit("inLogo");
             document.getElementById("planeLogo").emit("subelogo");
 
+            window.setTimeout(function(){
+              document.getElementById('fondo').emit('fondoout');
+            },2500)
+
           }
           //window.reproducir();
 
@@ -127,7 +131,7 @@
       </a-plane>
 
       <a-entity id="logo" scale=".001 .001 .001"
-        animation=" startEvents: inLogo; property: rotation; dur: 1000; from: 0 0 0; to: 0 360 0; loop: 5; easing: linear;"
+        animation=" startEvents: inLogo; property: rotation; dur: 2000; from: 0 -15 0; to: 0 15 0; loop: true; easing: linear; dir: alternate"
         animation__2=" startEvents: inLogo; property: scale; dur: 5000; from: .001 .001 .001; to: 1 1 1; easing: linear;">
         <a-plane id="planeLogo" position="0 0.1 -.5" rotation="-90 0 0" opacity=".9" width="1.5" height=".5"
           material="src: images/logo.png"
@@ -233,7 +237,7 @@
     }
 
     document.getElementById('logo').addEventListener('animationcomplete__2', function () {
-      document.getElementById('fondo').emit('fondoout');
+      
 
       window.setTimeout(function () {
         gifG.components.material.shader.nextFrame(0);
