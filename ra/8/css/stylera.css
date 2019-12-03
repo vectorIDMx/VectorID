@@ -148,7 +148,7 @@ footer img {
 }
 
 #instrucciones {
-  color: white;
+  color: #921c1e;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -159,18 +159,21 @@ footer img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  text-align: center;
 }
 
 #instrucciones .contInst {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: absolute;
+  bottom: 0px;
+  top: 40vh;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -178,17 +181,18 @@ footer img {
 }
 
 #instrucciones img {
-  width: 100%;
-  padding: 20px;
+  width: 80%;
+  max-width: 50vh;
+  margin-top: 15px;
 }
 
 #instrucciones button {
   border: none;
   border-radius: 5px;
-  background: #a34c31;
+  background: #489623;
   width: 100px;
-  height: 50px;
-  margin: 10px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
   color: #ffffff;
   font-weight: 700;
 }
@@ -207,17 +211,18 @@ footer img {
 }
 
 .azul {
-  color: #2b1f11;
+  color: #C39339;
 }
 
 #listaInst {
-  color: #2b1f11;
+  color: #420a0a;
   font-size: .8rem;
   padding: 0px 20px;
+  text-align: left;
 }
 
 #bienvenida {
-  padding-top: 20px;
+  padding-top: 0px;
   font-weight: 700;
   font-size: 1rem;
   text-align: center;

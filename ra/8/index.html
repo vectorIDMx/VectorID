@@ -59,12 +59,12 @@
             document.getElementById("logo").emit("inLogo");
             document.getElementById("planeLogo").emit("subelogo");
 
-            window.setTimeout(function(){
+            window.setTimeout(function () {
               document.getElementById('fondo').emit('fondoout');
-            },2500)
+            }, 2500)
 
           }
-          //window.reproducir();
+          window.reproducir();
 
         }
         else {
@@ -73,7 +73,7 @@
             return;
 
           isTargetFound = false;
-          //window.pausar();
+          window.pausar();
         }
       }
     }
@@ -82,20 +82,20 @@
 
 <body style='margin : 0px; overflow: hidden;' id="cuerpo" onload="imgLoaded()">
   <div id="instrucciones">
-
+    <img src="images/logo3.png" alt="">
     <div class="container contInst">
-      <img src="images/logo2.png" alt="">
+
 
       <p id="bienvenida">
-        Bienvenidos a <span class="anton azul" style="font-weight: 100;">L a &nbsp; R e y n a</span>, conoce mas
-        sobre nuestro excelente crema de agave con <strong style="color: #860404">Realidad Aumentada</strong> !
+        <span class="anton azul" style="font-weight: 100;">Los dorados de villa</span> te invitan a disrutar la mejor
+        experiencia en <strong style="color: #921c1e">Realidad Aumentada</strong> !
       </p>
 
-      <button onclick="verani()">Ver Animación!</button>
+      <button onclick="verani()">Empezar!</button>
 
       <h6 class="azul anton">Importante!</h6>
-      <ol id="listaInst">
-        <li>Haz click en Ver Animacion</li>
+      <ol id="listaInst" style="font-weight: 600;">
+        <li>Haz click en Empezar</li>
         <li>Permite el acceso a tu camara</li>
         <li>Ubica la etiqueta de la botella</li>
         <li>Sube el volumen de tu celular y presiona las cajas en Realidad Aumentada</li>
@@ -112,36 +112,38 @@
   <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
       <img id="calaveras" src="images/calaveras.gif">
-      <!-- <video id="video" width="320" height="180" controls>
+      <video id="video" width="320" height="180" controls>
         <source src="video/ddm.mp4" type="video/mp4">
-      </video> -->
+      </video>
     </a-assets>
 
     <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
       url="pattern-targetReyna.patt">
-      <!-- <a-entity id="pantalla" rotation="-90 0 0"
-        animation="startEvents: anPantalla; property: rotation; dur: 2000; to: 0 0 0;">
+      <a-entity id="pantalla" rotation="-90 90 0" scale=".001 .001 .001"
+        animation="startEvents: anPantalla; property: rotation; dur: 2000; to: -90 0 0;"
+        animation__2="startEvents: anPantalla; property: scale; dur: 2000; to: 1 1 1;"
+        animation__3="startEvents: anPantallaOut; property: rotation; dur: 2000; to: -90 90 0;"
+        animation__4="startEvents: anPantallaOut; property: scale; dur: 2000; to: .001 .001 .001;">
         <a-video id="videoScene" src="#video" width="3" height="1.5" position="0 0 0" rotation="0 0 0" opacity="1">
         </a-video>
         <a-box position="0 0 -.35" scale="3 1.5 .6" material="color:red;"></a-box>
-      </a-entity> -->
+      </a-entity>
 
       <a-plane id="gif" rotation="-90 0 0" opacity="0" width="2" height="2" material="shader: gif;" gif=""
-        src="#calaveras" position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;">
+        src="#calaveras" position="0 0 0" 
+        animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;"
+        animation__2="startEvents: gifOut; property: scale; dur: 2000; to: .001 .001 .001;">
       </a-plane>
 
       <a-entity id="logo" scale=".001 .001 .001"
         animation=" startEvents: inLogo; property: rotation; dur: 2000; from: 0 -15 0; to: 0 15 0; loop: true; easing: linear; dir: alternate"
-        animation__2=" startEvents: inLogo; property: position; dur: 5000; from: 0 0 0; to: 0 0 .5; easing: linear;"
-        animation__3=" startEvents: inLogo; property: scale; dur: 400; from: .001 .001 .001; to: 1 1 1; easing: linear;"
-        >
+        animation__2=" startEvents: inLogo; property: position; dur: 1000; delay:3000; from: 0 0 0; to: 0 0 -1; easing: linear;"
+        animation__3=" startEvents: inLogo; property: scale; dur: 400; from: .001 .001 .001; to: 1 1 1; easing: linear;">
         <a-plane id="planeLogo" position="0 0.1 -.5" rotation="-90 0 0" opacity=".9" width="1.5" height=".5"
-          material="src: images/logo.png"
-          
-          ></a-plane>
+          material="src: images/logo.png"></a-plane>
       </a-entity>
-      <a-plane id="fondo" position="0 .1 0" rotation="-90 0 0" material="src: images/fondo.png" opacity=".7"
-        animation="property: rotation; dur: 1500; to: -90 360 0; easing: linear; loop: true;"
+      <a-plane id="fondo" scale=".7 .7 .7" position="0 .1 0" rotation="-90 0 0" material="src: images/fondo.png"
+        opacity=".7" animation="property: rotation; dur: 1500; to: -90 360 0; easing: linear; loop: true;"
         animation__2="startEvents:fondoout; property: scale; dur: 1500; to: .0001 .0001 .0001; easing: linear;">
       </a-plane>
 
@@ -177,23 +179,28 @@
 </body>
 
 <script>
- /*  window.reproducir = function () {
-    document.getElementById("video").play();
-  };
-
-  window.pausar = function () {
-    document.getElementById("video").pause();
-  }; */
+   window.reproducir = function () {
+     document.getElementById("video").play();
+   };
+ 
+   window.pausar = function () {
+     document.getElementById("video").pause();
+   };
 
   window.onload = function () {
     let status = 0;
     let gifG;
     var intervalID;
+    var touchCuenta = 0;
 
 
     document.getElementById('cuerpo').addEventListener('click', function () {
       console.log('click en cuerpo');
-      //document.getElementById("pantalla").emit("anPantalla");
+      touchCuenta++;
+      if (touchCuenta > 2) {
+        //document.getElementById("pantalla").emit("anPantalla");
+      }
+
     });
 
 
@@ -205,22 +212,31 @@
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
+
     })
     document.getElementById('ingles').addEventListener('click', function () {
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
     })
 
     document.getElementById('espanol1').addEventListener('click', function () {
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
     })
     document.getElementById('ingles1').addEventListener('click', function () {
       audFondo.volume = .1;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
     })
 
 
@@ -240,7 +256,7 @@
     }
 
     document.getElementById('logo').addEventListener('animationcomplete__2', function () {
-      
+
 
       window.setTimeout(function () {
         gifG.components.material.shader.nextFrame(0);
@@ -257,7 +273,7 @@
     });
 
 
-    
+
     /* var iniciador = 1;
     audFondo.addEventListener('canplay', function(){
       if(iniciador){
@@ -279,7 +295,7 @@
   audFondo.loop = true;
   audFondo.volume = .4;
   function verani() {
-    audFondo.play();
+    //audFondo.play();
     console.log('playing');
     document.getElementById('instrucciones').style.display = 'none';
 
