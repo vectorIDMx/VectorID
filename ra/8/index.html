@@ -16,12 +16,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-<script src="scripts/gif.js"> </script>
+
 <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 <!-- <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="scripts/gif.js"> </script>
 <title>Calaveras AR</title>
 <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -124,51 +125,50 @@
     <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
       url="pattern-targetCalavera.patt">
       <a-entity rotation="90 0 0">
-        
-      <a-entity id="confeti"></a-entity>
-      <a-entity id="confeti2"></a-entity>
+        <a-entity id="confeti"></a-entity>
+        <a-entity id="confeti2"></a-entity>
 
-      <a-entity id="pantalla" rotation="-90 90 0" scale=".001 .001 .001"
-        animation="startEvents: anPantalla; property: rotation; dur: 2000; to: -90 0 0;"
-        animation__2="startEvents: anPantalla; property: scale; dur: 2000; to: 1 1 1;"
-        animation__3="startEvents: anPantallaOut; property: rotation; dur: 2000; to: -90 90 0;"
-        animation__4="startEvents: anPantallaOut; property: scale; dur: 2000; to: .001 .001 .001;">
-        <a-video id="videoScene" src="#video1" width="3" height="1.5" position="0 0 0" rotation="0 0 0" opacity="1">
-        </a-video>
-        <!-- <a-box position="0 0 -.35" scale="3 1.5 .6" material="color:red;"></a-box> -->
-      </a-entity>
+        <a-entity id="pantalla" rotation="-90 90 0" scale=".001 .001 .001"
+          animation="startEvents: anPantalla; property: rotation; dur: 2000; to: -90 0 0;"
+          animation__2="startEvents: anPantalla; property: scale; dur: 2000; to: 1 1 1;"
+          animation__3="startEvents: anPantallaOut; property: rotation; dur: 2000; to: -90 90 0;"
+          animation__4="startEvents: anPantallaOut; property: scale; dur: 2000; to: .001 .001 .001;">
+          <a-video id="videoScene" src="#video1" width="3" height="1.5" position="0 0 0" rotation="0 0 0" opacity="1">
+          </a-video>
+          <!-- <a-box position="0 0 -.35" scale="3 1.5 .6" material="color:red;"></a-box> -->
+        </a-entity>
 
-      <a-plane id="gif" rotation="-90 0 0" opacity="0" width="1.5" height="1.5" material="shader: gif;" gif=""
-        src="#calaveras" position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;"
-        animation__2="startEvents: gifOut; property: scale; dur: 2000; to: .001 .001 .001;">
-      </a-plane>
-      <!-- <a-plane id="gifFondo" position=".5 -.1 0" rotation="-90 0 0" opacity="1" width="1" height="1" material="color: #EEEEEE;"></a-plane> -->
+        <a-plane id="gif" rotation="-90 0 0" opacity="0" width="1.5" height="1.5" material="shader: gif;" gif=""
+          src="#calaveras" position="0 0 0" animation="startEvents: gifin; property: opacity; dur: 1000; to: .9;"
+          animation__2="startEvents: gifOut; property: scale; dur: 2000; to: .001 .001 .001;">
+        </a-plane>
+        <!-- <a-plane id="gifFondo" position=".5 -.1 0" rotation="-90 0 0" opacity="1" width="1" height="1" material="color: #EEEEEE;"></a-plane> -->
 
 
-      <a-entity id="logo" scale=".001 .001 .001"
-        animation=" startEvents: inLogo; property: rotation; dur: 2000; from: 0 -15 0; to: 0 15 0; loop: true; easing: linear; dir: alternate"
-        animation__2=" startEvents: inLogo; property: position; dur: 1000; delay:3000; from: 0 0 0; to: 0 0 -1; easing: linear;"
-        animation__3=" startEvents: inLogo; property: scale; dur: 400; from: .001 .001 .001; to: 1 1 1; easing: linear;">
-        <a-plane id="planeLogo" position="0 0.1 -.5" rotation="-90 0 0" opacity=".9" width="1.5" height=".5"
-          material="src: images/logo.png"></a-plane>
-      </a-entity>
-      <a-plane id="fondo" scale=".7 .7 .7" position="0 .1 0" rotation="-90 0 0" material="src: images/fondo.png"
-        opacity=".7" animation="property: rotation; dur: 1500; to: -90 360 0; easing: linear; loop: true;"
-        animation__2="startEvents:fondoout; property: scale; dur: 1500; to: .0001 .0001 .0001; easing: linear;">
-      </a-plane>
+        <a-entity id="logo" scale=".001 .001 .001"
+          animation=" startEvents: inLogo; property: rotation; dur: 2000; from: 0 -15 0; to: 0 15 0; loop: true; easing: linear; dir: alternate"
+          animation__2=" startEvents: inLogo; property: position; dur: 1000; delay:3000; from: 0 0 0; to: 0 0 -1; easing: linear;"
+          animation__3=" startEvents: inLogo; property: scale; dur: 400; from: .001 .001 .001; to: 1 1 1; easing: linear;">
+          <a-plane id="planeLogo" position="0 0.1 -.5" rotation="-90 0 0" opacity=".9" width="1.5" height=".5"
+            material="src: images/logo.png"></a-plane>
+        </a-entity>
+        <a-plane id="fondo" scale=".7 .7 .7" position="0 .1 0" rotation="-90 0 0" material="src: images/fondo.png"
+          opacity=".7" animation="property: rotation; dur: 1500; to: -90 360 0; easing: linear; loop: true;"
+          animation__2="startEvents:fondoout; property: scale; dur: 1500; to: .0001 .0001 .0001; easing: linear;">
+        </a-plane>
 
-      <a-box id="espanol" position="-1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;" opacity=".9"
-        animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
-        animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
-        animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
-      </a-box>
-      <a-box id="ingles" position="1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEn.png;" opacity=".9"
-        animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
-        animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"
-        animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
-      </a-box>
-      <a-plane id="espanol1" position="-25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0"></a-plane>
-      <a-plane id="ingles1" position="25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0"></a-plane>
+        <a-box id="espanol" position="-1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEs.png;" opacity=".9"
+          animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
+          animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
+          animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
+        </a-box>
+        <a-box id="ingles" position="1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEn.png;" opacity=".9"
+          animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
+          animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"
+          animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
+        </a-box>
+        <a-plane id="espanol1" position="-25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0"></a-plane>
+        <a-plane id="ingles1" position="25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0"></a-plane>
 
       </a-entity>
 
@@ -268,7 +268,7 @@
       gifG.components.material.shader.nextFrame(idx);
       idx++;
 
-      if (idx > 240) {
+      if (idx > 60) {//numero de frames en gif
         idx = 0;
       }
     }
@@ -342,19 +342,19 @@
   var confetis = '';
   var confetis2 = '';
   for (var i = 0; i < 30; i++) {
-    var posx = Math.random()*.2;
-    var posy = Math.random()*.2;
-    var posz = Math.random()*.2;
-    var rot = Math.random()*180;
-    var R = parseInt((Math.random()*240)+16).toString(16);
-    var G = parseInt((Math.random()*240)+16).toString(16);
-    var B = parseInt((Math.random()*240)+16).toString(16);
+    var posx = Math.random() * .2;
+    var posy = Math.random() * .2;
+    var posz = Math.random() * .2;
+    var rot = Math.random() * 180;
+    var R = parseInt((Math.random() * 240) + 16).toString(16);
+    var G = parseInt((Math.random() * 240) + 16).toString(16);
+    var B = parseInt((Math.random() * 240) + 16).toString(16);
 
-    confetis += `<a-entity position="${posx-.7} ${posy} ${posz}" rotation="0 30 0">
+    confetis += `<a-entity position="${posx - .7} ${posy} ${posz}" rotation="0 30 0">
     <a-entity rotation="${rot} 0 ${rot}" scale=".01 .01 .01"
-    animation="property: position; delay: ${i*100}; dur: 1500; from: 0 0 .5; to: 0 0 -1; loop: 10; easing: linear;"
-    animation__2="property: scale; delay: ${i*100}; dur: 10; to: 1 1 1; easing: linear;"
-    animation__3="property: scale; delay: ${i*100+15000}; dur: 10; to: .01 .01 .01; easing: linear;">
+    animation="property: position; delay: ${i * 100}; dur: 1500; from: 0 0 .5; to: 0 0 -1; loop: 10; easing: linear;"
+    animation__2="property: scale; delay: ${i * 100}; dur: 10; to: 1 1 1; easing: linear;"
+    animation__3="property: scale; delay: ${i * 100 + 15000}; dur: 10; to: .01 .01 .01; easing: linear;">
       <a-entity class="paper" scale=".05 .05 .05"
           animation="property: rotation; dur: 1500; from: 0 0 0; to: 360 360 360; loop: true; easing: linear;"
           >
@@ -367,19 +367,19 @@
   }
 
   for (var i = 0; i < 30; i++) {
-    var posx = Math.random()*.2;
-    var posy = Math.random()*.2;
-    var posz = Math.random()*.2;
-    var rot = Math.random()*180;
-    var R = parseInt((Math.random()*240)+16).toString(16);
-    var G = parseInt((Math.random()*240)+16).toString(16);
-    var B = parseInt((Math.random()*240)+16).toString(16);
+    var posx = Math.random() * .2;
+    var posy = Math.random() * .2;
+    var posz = Math.random() * .2;
+    var rot = Math.random() * 180;
+    var R = parseInt((Math.random() * 240) + 16).toString(16);
+    var G = parseInt((Math.random() * 240) + 16).toString(16);
+    var B = parseInt((Math.random() * 240) + 16).toString(16);
 
-    confetis += `<a-entity position="${posx+.7} ${posy} ${posz}" rotation="0 -30 0">
+    confetis += `<a-entity position="${posx + .7} ${posy} ${posz}" rotation="0 -30 0">
     <a-entity rotation="${rot} 0 ${rot}" scale=".01 .01 .01"
-    animation="property: position; delay: ${i*100}; dur: 1500; from: 0 0 .5; to: 0 0 -1; loop: 10; easing: linear;"
-    animation__2="property: scale; delay: ${i*100}; dur: 10; to: 1 1 1; easing: linear;"
-    animation__3="property: scale; delay: ${i*100+15000}; dur: 10; to: .01 .01 .01; easing: linear;">
+    animation="property: position; delay: ${i * 100}; dur: 1500; from: 0 0 .5; to: 0 0 -1; loop: 10; easing: linear;"
+    animation__2="property: scale; delay: ${i * 100}; dur: 10; to: 1 1 1; easing: linear;"
+    animation__3="property: scale; delay: ${i * 100 + 15000}; dur: 10; to: .01 .01 .01; easing: linear;">
       <a-entity class="paper" scale=".05 .05 .05"
           animation="property: rotation; dur: 1500; from: 0 0 0; to: 360 360 360; loop: true; easing: linear;"
           >
@@ -392,18 +392,18 @@
   }
 
   for (var i = 0; i < 30; i++) {
-    var posx = Math.random()*1.6;
-    var posy = Math.random()*.2;
-    var posz = Math.random()*.2;
-    var rot = Math.random()*180;
-    var R = parseInt((Math.random()*240)+16).toString(16);
-    var G = parseInt((Math.random()*240)+16).toString(16);
-    var B = parseInt((Math.random()*240)+16).toString(16);
+    var posx = Math.random() * 1.6;
+    var posy = Math.random() * .2;
+    var posz = Math.random() * .2;
+    var rot = Math.random() * 180;
+    var R = parseInt((Math.random() * 240) + 16).toString(16);
+    var G = parseInt((Math.random() * 240) + 16).toString(16);
+    var B = parseInt((Math.random() * 240) + 16).toString(16);
 
-    confetis2 += `<a-entity position="${posx-.8} 0 0" rotation="0 0 0">
+    confetis2 += `<a-entity position="${posx - .8} 0 0" rotation="0 0 0">
     <a-entity rotation="${rot} 0 ${rot}" scale=".01 .01 .01"
-    animation="property: position; delay: ${i*100}; dur: 1500; from: 0 0 -1; to: 0 0 .5; loop: 10; easing: linear;"
-    animation__2="property: scale; delay: ${i*100}; dur: 10; to: 1 1 1; easing: linear;">
+    animation="property: position; delay: ${i * 100}; dur: 1500; from: 0 0 -1; to: 0 0 .5; loop: 10; easing: linear;"
+    animation__2="property: scale; delay: ${i * 100}; dur: 10; to: 1 1 1; easing: linear;">
       <a-entity class="paper" scale=".05 .05 .05"
           animation="property: rotation; dur: 1500; from: 0 0 0; to: 360 360 360; loop: true; easing: linear;"
           >
@@ -414,7 +414,7 @@
           
         </a-entity>`;
   }
-  
+
   /* var papelito = document.getElementById('paper');
   var z=0;
   window.setInterval(function(){
