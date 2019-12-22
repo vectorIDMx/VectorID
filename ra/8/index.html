@@ -89,7 +89,7 @@
 
 
       <p id="bienvenida">
-        <span class="anton azul" style="font-weight: 100;">Los dorados de villa</span> te invitan a disrutar la mejor
+        <span class="anton azul" style="font-weight: 100;">Los dorados de villa</span> te invitan a disfrutar la mejor
         experiencia en <strong style="color: #921c1e">Realidad Aumentada</strong> !
       </p>
 
@@ -209,6 +209,11 @@
     });
   }
 });
+
+document.getElementById('cuerpo').addEventListener('click', function(){
+  console.log('click en cuerpo');
+});
+
   function play1() {
     document.getElementById("video1").play();
   }
