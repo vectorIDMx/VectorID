@@ -218,7 +218,7 @@
     var touchCuenta = 0;
 
 
-    document.getElementById('espanol').addEventListener('click', function () {
+    document.getElementById('espanol').addEventListener('touchstart', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -228,7 +228,7 @@
       play1();
 
     })
-    document.getElementById('ingles').addEventListener('click', function () {
+    document.getElementById('ingles').addEventListener('touchstart', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -238,7 +238,7 @@
       play2();
     })
 
-    document.getElementById('espanol1').addEventListener('click', function () {
+    document.getElementById('espanol1').addEventListener('touchstart', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -247,7 +247,7 @@
       document.getElementById("videoScene").setAttribute('src', '#video1');
       play1();
     })
-    document.getElementById('ingles1').addEventListener('click', function () {
+    document.getElementById('ingles1').addEventListener('touchstart', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
