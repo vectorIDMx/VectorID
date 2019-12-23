@@ -448,8 +448,21 @@
 
     papelito.setAttribute('position',{x:0,y:0,z:z});
   },10); */
-
   
+  while(working)
+  {
+    coffe.drink();
+    work.execute();
+    if(coffee == "empty")
+    {
+      if(coffeePot == "empty")
+      {
+        coffeePot.brew();
+      }
+      cofee.refill();
+    }
+  }
+
 
 </script>
 
