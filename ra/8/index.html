@@ -156,21 +156,21 @@
           animation__2="startEvents:fondoout; property: scale; dur: 1500; to: .0001 .0001 .0001; easing: linear;">
         </a-plane>
 
-        <a-box id="espanol" cursor-listener position="-1 .5 1" scale=".0001 .0001 .0001"
+        <a-box id="espanol" collider-check position="-1 .5 1" scale=".0001 .0001 .0001"
           material="src: images/cuboEs.png;" opacity=".9"
           animation="property: rotation; dur: 10000; to: 0 360 360; loop: true; easing: linear;"
           animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
           animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
         </a-box>
-        <a-box id="ingles" cursor-listener position="1 .5 1" scale=".0001 .0001 .0001"
+        <a-box id="ingles" collider-check position="1 .5 1" scale=".0001 .0001 .0001"
           material="src: images/cuboEn.png;" opacity=".9"
           animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
           animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"
           animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
         </a-box>
-        <a-plane id="espanol1" cursor-listener position="-25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0">
+        <a-plane id="espanol1" collider-check position="-25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0">
         </a-plane>
-        <a-plane id="ingles1" cursor-listener position="25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0">
+        <a-plane id="ingles1" collider-check position="25 .5 1" width="50" height="1" rotation="-90 0 0" opacity="0">
         </a-plane>
 
       </a-entity>
@@ -202,15 +202,15 @@
   window.pausar = function () {
     document.getElementById("video").pause();
   }; */
-  AFRAME.registerComponent('cursor-listener', {
-    init: function () {
+  AFRAME.registerComponent('collider-check', {
+  dependencies: ['raycaster'],
 
-      this.el.addEventListener('click', function (evt) {
-
-        console.log('I was clicked at: ');
-      });
-    }
-  });
+  init: function () {
+    this.el.addEventListener('raycaster-intersection', function () {
+      console.log('Player hit something!');
+    });
+  }
+});
 
   document.getElementById('cuerpo').addEventListener('click', function () {
     console.log('click en cuerpo');
