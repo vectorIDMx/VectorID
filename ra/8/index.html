@@ -89,7 +89,7 @@
 
 
       <p id="bienvenida">
-        <span class="anton azul" style="font-weight: 100;">Los dorados de vsilla</span> te invitan a disfrutar la mejor
+        <span class="anton azul" style="font-weight: 100;">Los dorados de villa</span> te invitan a disfrutar la mejor
         experiencia en <strong style="color: #921c1e">Realidad Aumentada</strong> !
       </p>
 
@@ -203,10 +203,8 @@
     document.getElementById("video").pause();
   }; */
   AFRAME.registerComponent('collider-check', {
-  dependencies: ['raycaster'],
-
   init: function () {
-    this.el.addEventListener('raycaster-intersection', function (evt) {
+    this.el.addEventListener('click', function (evt) {
       console.log('Player hit something!');
       console.log(evt);
     });
@@ -237,7 +235,7 @@
     var intervalID;
     var touchCuenta = 0;
 
-
+/* 
     document.getElementById('espanol').addEventListener('click', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
@@ -279,7 +277,7 @@
       document.getElementById("videoScene").setAttribute('src', '#video2');
       play2();
       console.log('click');
-    })
+    }) */
 
 
     gifG = document.getElementById('gif');
