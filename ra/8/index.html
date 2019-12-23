@@ -215,18 +215,7 @@
   document.getElementById('cuerpo').addEventListener('click', function () {
     console.log('click en cuerpo');
   });
-  document.getElementById('espanol1').addEventListener('click', function () {
-    console.log('click en espanol1');
-  });
-  document.getElementById('espanol').addEventListener('click', function () {
-    console.log('click en espanol');
-  });
-  document.getElementById('ingles').addEventListener('click', function () {
-    console.log('click en ingles');
-  });
-  document.getElementById('ingles1').addEventListener('click', function () {
-    console.log('click en ingles1');
-  });
+
 
   function play1() {
     document.getElementById("video1").play();
@@ -248,7 +237,7 @@
     var touchCuenta = 0;
 
 
-    document.getElementById('espanol').addEventListener('touchstart', function () {
+    document.getElementById('espanol').addEventListener('click', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -259,7 +248,7 @@
       console.log('click');
 
     })
-    document.getElementById('ingles').addEventListener('touchstart', function () {
+    document.getElementById('ingles').addEventListener('click', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -270,7 +259,7 @@
       console.log('click');
     })
 
-    document.getElementById('espanol1').addEventListener('touchstart', function () {
+    document.getElementById('espanol1').addEventListener('click', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -280,7 +269,7 @@
       play1();
       console.log('click');
     })
-    document.getElementById('ingles1').addEventListener('touchstart', function () {
+    document.getElementById('ingles1').addEventListener('click', function () {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
