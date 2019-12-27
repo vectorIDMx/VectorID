@@ -215,27 +215,30 @@
       }
     }); */
 
-/*   document.getElementById('cuerpo').addEventListener('click', function (ev) {
+  document.getElementById('cuerpo').addEventListener('click', function (ev) {
     console.log('click en x:' + window.event.clientX);
     console.log('click en y:' + window.event.clientY);
-    if (window.event.clientX < (widthScreen / 2)) {
-      audFondo.volume = 0;
-      document.getElementById('espanol').emit('btnAudioout');
-      document.getElementById('ingles').emit('btnAudioout');
-      document.getElementById("pantalla").emit("anPantalla");
-      document.getElementById("gif").emit("gifOut");
-      document.getElementById("videoScene").setAttribute('src', '#video1');
-      play1();
-    } else {
-      audFondo.volume = 0;
-      document.getElementById('espanol').emit('btnAudioout');
-      document.getElementById('ingles').emit('btnAudioout');
-      document.getElementById("pantalla").emit("anPantalla");
-      document.getElementById("gif").emit("gifOut");
-      document.getElementById("videoScene").setAttribute('src', '#video2');
-      play2();
+    if (startAni) {
+      if (window.event.clientX < (widthScreen / 2)) {
+        audFondo.volume = 0;
+        document.getElementById('espanol').emit('btnAudioout');
+        document.getElementById('ingles').emit('btnAudioout');
+        document.getElementById("pantalla").emit("anPantalla");
+        document.getElementById("gif").emit("gifOut");
+        document.getElementById("videoScene").setAttribute('src', '#video1');
+        play1();
+      } else {
+        audFondo.volume = 0;
+        document.getElementById('espanol').emit('btnAudioout');
+        document.getElementById('ingles').emit('btnAudioout');
+        document.getElementById("pantalla").emit("anPantalla");
+        document.getElementById("gif").emit("gifOut");
+        document.getElementById("videoScene").setAttribute('src', '#video2');
+        play2();
+      }
     }
-  }); */
+
+  });
 
 
   function play1() {
@@ -257,49 +260,49 @@
     var intervalID;
     var touchCuenta = 0;
 
-    
-        document.getElementById('espanol').addEventListener('click', function () {
-          audFondo.volume = 0;
-          document.getElementById('espanol').emit('btnAudioout');
-          document.getElementById('ingles').emit('btnAudioout');
-          document.getElementById("pantalla").emit("anPantalla");
-          document.getElementById("gif").emit("gifOut");
-          document.getElementById("videoScene").setAttribute('src', '#video1');
-          play1();
-          console.log('click');
-    
-        })
-        document.getElementById('ingles').addEventListener('click', function () {
-          audFondo.volume = 0;
-          document.getElementById('espanol').emit('btnAudioout');
-          document.getElementById('ingles').emit('btnAudioout');
-          document.getElementById("pantalla").emit("anPantalla");
-          document.getElementById("gif").emit("gifOut");
-          document.getElementById("videoScene").setAttribute('src', '#video2');
-          play2();
-          console.log('click');
-        })
-    
-        document.getElementById('espanol1').addEventListener('click', function () {
-          audFondo.volume = 0;
-          document.getElementById('espanol').emit('btnAudioout');
-          document.getElementById('ingles').emit('btnAudioout');
-          document.getElementById("pantalla").emit("anPantalla");
-          document.getElementById("gif").emit("gifOut");
-          document.getElementById("videoScene").setAttribute('src', '#video1');
-          play1();
-          console.log('click');
-        })
-        document.getElementById('ingles1').addEventListener('click', function () {
-          audFondo.volume = 0;
-          document.getElementById('espanol').emit('btnAudioout');
-          document.getElementById('ingles').emit('btnAudioout');
-          document.getElementById("pantalla").emit("anPantalla");
-          document.getElementById("gif").emit("gifOut");
-          document.getElementById("videoScene").setAttribute('src', '#video2');
-          play2();
-          console.log('click');
-        })
+
+    /* document.getElementById('espanol').addEventListener('click', function () {
+      audFondo.volume = 0;
+      document.getElementById('espanol').emit('btnAudioout');
+      document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
+      document.getElementById("videoScene").setAttribute('src', '#video1');
+      play1();
+      console.log('click');
+ 
+    })
+    document.getElementById('ingles').addEventListener('click', function () {
+      audFondo.volume = 0;
+      document.getElementById('espanol').emit('btnAudioout');
+      document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
+      document.getElementById("videoScene").setAttribute('src', '#video2');
+      play2();
+      console.log('click');
+    })
+ 
+    document.getElementById('espanol1').addEventListener('click', function () {
+      audFondo.volume = 0;
+      document.getElementById('espanol').emit('btnAudioout');
+      document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
+      document.getElementById("videoScene").setAttribute('src', '#video1');
+      play1();
+      console.log('click');
+    })
+    document.getElementById('ingles1').addEventListener('click', function () {
+      audFondo.volume = 0;
+      document.getElementById('espanol').emit('btnAudioout');
+      document.getElementById('ingles').emit('btnAudioout');
+      document.getElementById("pantalla").emit("anPantalla");
+      document.getElementById("gif").emit("gifOut");
+      document.getElementById("videoScene").setAttribute('src', '#video2');
+      play2();
+      console.log('click');
+    }) */
 
 
     gifG = document.getElementById('gif');
@@ -374,12 +377,13 @@
   }
 
   //fuera del onload
-
+  var startAni = 0;
 
   function verani() {
     audFondo.play();
     console.log('playing');
     document.getElementById('instrucciones').style.display = 'none';
+    startAni = 1;
 
   }
   var audFondo = new Audio();
