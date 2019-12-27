@@ -223,7 +223,7 @@
   document.getElementById('cuerpo').addEventListener('click', function (ev) {
     console.log('click en x:' + window.event.clientX);
     console.log('click en y:' + window.event.clientY);
-    if (startAni) {
+    if (startAni==10) {
       if (window.event.clientX < (widthScreen / 2)) {
         audFondo.volume = 0;
         document.getElementById('espanol').emit('btnAudioout');
