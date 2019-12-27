@@ -219,11 +219,12 @@
         });
       }
     }); */
+    
 
   document.getElementById('cuerpo').addEventListener('click', function (ev) {
     console.log('click en x:' + window.event.clientX);
     console.log('click en y:' + window.event.clientY);
-    if (startAni==10) {
+    if (startAni==1) {
       if (window.event.clientX < (widthScreen / 2)) {
         audFondo.volume = 0;
         document.getElementById('espanol').emit('btnAudioout');
@@ -396,7 +397,10 @@
     audFondo.play();
     console.log('playing');
     document.getElementById('instrucciones').style.display = 'none';
-    startAni = 1;
+    window.setTimeout(function(){
+      startAni = 1;
+    },500);
+    
 
   }
   var audFondo = new Audio();
