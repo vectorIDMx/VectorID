@@ -216,8 +216,8 @@
     }); */
 
   document.getElementById('cuerpo').addEventListener('click', function (ev) {
-    console.log('click en x:' + ev.page.x);
-    console.log('click en y:' + ev.page.y);
+    console.log('click en x:' + window.event.clientX);
+    console.log('click en y:' + window.event.clienty);
     if (ev.page.x < (widthScreen / 2)) {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
