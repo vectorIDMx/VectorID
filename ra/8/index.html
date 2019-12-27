@@ -111,7 +111,7 @@
     </div>
 
   </div>
-  <a-scene vr-mode-ui="enabled: false"  embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
+  <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8;">
     <a-assets>
       <img id="calaveras" src="images/calaveras_60_500.gif">
       <video id="video1" width="320" height="180">
@@ -162,9 +162,8 @@
           animation__2=" startEvents: btnAudio; property: scale; from: .0001 .0001 .0001; dur: 1500; to: .5 .5 .5;"
           animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
         </a-box>
-        <a-box id="ingles" collider-check position="1 .5 1" scale=".0001 .0001 .0001"
-          material="src: images/cuboEn.png;" opacity=".9"
-          animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
+        <a-box id="ingles" collider-check position="1 .5 1" scale=".0001 .0001 .0001" material="src: images/cuboEn.png;"
+          opacity=".9" animation="property: rotation; dur: 8000; to: 0 360 360; loop: true; easing: linear;"
           animation__2=" startEvents: btnAudio; property: scale; dur: 1500; to: .5 .5 .5;"
           animation__3=" startEvents: btnAudioout; property: scale; dur: 1500; from: .5 .5 .5; to: .0001 .0001 .0001;">
         </a-box>
@@ -202,17 +201,23 @@
   window.pausar = function () {
     document.getElementById("video").pause();
   }; */
-  AFRAME.registerComponent('collider-check', {
-  init: function () {
-    this.el.addEventListener('click', function (evt) {
-      console.log('Player hit something!');
-      console.log(evt);
-    });
-  }
-});
+  var widthScreen = screen.width;
+  var heightScreen = screen.height;
+  console.log(widthScreen);
+  console.log(heightScreen);
 
-  document.getElementById('cuerpo').addEventListener('click', function () {
-    console.log('click en cuerpo');
+/*   AFRAME.registerComponent('collider-check', {
+    init: function () {
+      this.el.addEventListener('click', function (evt) {
+        console.log('Player hit something!');
+        console.log(evt);
+      });
+    }
+  }); */
+
+  document.getElementById('cuerpo').addEventListener('click', function (ev) {
+    console.log('click en x:' + ev.page.x);
+    console.log('click en y:' + ev.page.y);
   });
 
 
@@ -235,49 +240,49 @@
     var intervalID;
     var touchCuenta = 0;
 
-/* 
-    document.getElementById('espanol').addEventListener('click', function () {
-      audFondo.volume = 0;
-      document.getElementById('espanol').emit('btnAudioout');
-      document.getElementById('ingles').emit('btnAudioout');
-      document.getElementById("pantalla").emit("anPantalla");
-      document.getElementById("gif").emit("gifOut");
-      document.getElementById("videoScene").setAttribute('src', '#video1');
-      play1();
-      console.log('click');
-
-    })
-    document.getElementById('ingles').addEventListener('click', function () {
-      audFondo.volume = 0;
-      document.getElementById('espanol').emit('btnAudioout');
-      document.getElementById('ingles').emit('btnAudioout');
-      document.getElementById("pantalla").emit("anPantalla");
-      document.getElementById("gif").emit("gifOut");
-      document.getElementById("videoScene").setAttribute('src', '#video2');
-      play2();
-      console.log('click');
-    })
-
-    document.getElementById('espanol1').addEventListener('click', function () {
-      audFondo.volume = 0;
-      document.getElementById('espanol').emit('btnAudioout');
-      document.getElementById('ingles').emit('btnAudioout');
-      document.getElementById("pantalla").emit("anPantalla");
-      document.getElementById("gif").emit("gifOut");
-      document.getElementById("videoScene").setAttribute('src', '#video1');
-      play1();
-      console.log('click');
-    })
-    document.getElementById('ingles1').addEventListener('click', function () {
-      audFondo.volume = 0;
-      document.getElementById('espanol').emit('btnAudioout');
-      document.getElementById('ingles').emit('btnAudioout');
-      document.getElementById("pantalla").emit("anPantalla");
-      document.getElementById("gif").emit("gifOut");
-      document.getElementById("videoScene").setAttribute('src', '#video2');
-      play2();
-      console.log('click');
-    }) */
+    /* 
+        document.getElementById('espanol').addEventListener('click', function () {
+          audFondo.volume = 0;
+          document.getElementById('espanol').emit('btnAudioout');
+          document.getElementById('ingles').emit('btnAudioout');
+          document.getElementById("pantalla").emit("anPantalla");
+          document.getElementById("gif").emit("gifOut");
+          document.getElementById("videoScene").setAttribute('src', '#video1');
+          play1();
+          console.log('click');
+    
+        })
+        document.getElementById('ingles').addEventListener('click', function () {
+          audFondo.volume = 0;
+          document.getElementById('espanol').emit('btnAudioout');
+          document.getElementById('ingles').emit('btnAudioout');
+          document.getElementById("pantalla").emit("anPantalla");
+          document.getElementById("gif").emit("gifOut");
+          document.getElementById("videoScene").setAttribute('src', '#video2');
+          play2();
+          console.log('click');
+        })
+    
+        document.getElementById('espanol1').addEventListener('click', function () {
+          audFondo.volume = 0;
+          document.getElementById('espanol').emit('btnAudioout');
+          document.getElementById('ingles').emit('btnAudioout');
+          document.getElementById("pantalla").emit("anPantalla");
+          document.getElementById("gif").emit("gifOut");
+          document.getElementById("videoScene").setAttribute('src', '#video1');
+          play1();
+          console.log('click');
+        })
+        document.getElementById('ingles1').addEventListener('click', function () {
+          audFondo.volume = 0;
+          document.getElementById('espanol').emit('btnAudioout');
+          document.getElementById('ingles').emit('btnAudioout');
+          document.getElementById("pantalla").emit("anPantalla");
+          document.getElementById("gif").emit("gifOut");
+          document.getElementById("videoScene").setAttribute('src', '#video2');
+          play2();
+          console.log('click');
+        }) */
 
 
     gifG = document.getElementById('gif');
@@ -348,9 +353,12 @@
     console.log('pagina lista');
     document.getElementById('btnEmpezar').style.visibility = 'visible';
 
+
   }
 
   //fuera del onload
+  
+
   function verani() {
     audFondo.play();
     console.log('playing');
@@ -448,20 +456,7 @@
 
     papelito.setAttribute('position',{x:0,y:0,z:z});
   },10); */
-  
-  while(working)
-  {
-    coffe.drink();
-    work.execute();
-    if(coffee == "empty")
-    {
-      if(coffeePot == "empty")
-      {
-        coffeePot.brew();
-      }
-      cofee.refill();
-    }
-  }
+
 
 
 </script>
