@@ -123,7 +123,7 @@
     </a-assets>
 
     <a-marker markerhandler emitevents="true" type="pattern" url="pattern-targetCalavera.patt">
-      <a-entity rotation="90 0 0">
+      <a-entity rotation="0 0 0">
         <a-entity id="confeti"></a-entity>
         <a-entity id="confeti2"></a-entity>
 
@@ -215,10 +215,10 @@
       }
     }); */
 
-  document.getElementById('cuerpo').addEventListener('click', function (ev) {
+/*   document.getElementById('cuerpo').addEventListener('click', function (ev) {
     console.log('click en x:' + window.event.clientX);
-    console.log('click en y:' + window.event.clienty);
-    if (ev.page.x < (widthScreen / 2)) {
+    console.log('click en y:' + window.event.clientY);
+    if (window.event.clientX < (widthScreen / 2)) {
       audFondo.volume = 0;
       document.getElementById('espanol').emit('btnAudioout');
       document.getElementById('ingles').emit('btnAudioout');
@@ -235,7 +235,7 @@
       document.getElementById("videoScene").setAttribute('src', '#video2');
       play2();
     }
-  });
+  }); */
 
 
   function play1() {
@@ -257,7 +257,7 @@
     var intervalID;
     var touchCuenta = 0;
 
-    /* 
+    
         document.getElementById('espanol').addEventListener('click', function () {
           audFondo.volume = 0;
           document.getElementById('espanol').emit('btnAudioout');
@@ -299,7 +299,7 @@
           document.getElementById("videoScene").setAttribute('src', '#video2');
           play2();
           console.log('click');
-        }) */
+        })
 
 
     gifG = document.getElementById('gif');
