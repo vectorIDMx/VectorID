@@ -251,8 +251,10 @@
         play2();
       }
     }
-    if(videoPlaying){
-      window.open('https://www.youtube.com/');
+    if(videoPlaying == 1){
+      window.open('https://youtu.be/DQrqVq5nf34');
+    }else if(videoPlaying == 2){
+      window.open('https://youtu.be/6WkhkoDR_qc');
     }
 
   });
@@ -270,7 +272,7 @@
   }
   function play2() {
     window.setTimeout(function(){
-      videoPlaying = 1;
+      videoPlaying = 2;
     },500);
     document.getElementById("video2").play();
   }
