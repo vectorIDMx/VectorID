@@ -260,13 +260,18 @@
 
   function play1() {
     document.getElementById("video1").play();
-    videoPlaying = 1;
+    window.setTimeout(function(){
+      videoPlaying = 1;
+    },500);
+    
   }
   function pause1() {
     document.getElementById("video1").pause();
   }
   function play2() {
-    videoPlaying = 1;
+    window.setTimeout(function(){
+      videoPlaying = 1;
+    },500);
     document.getElementById("video2").play();
   }
   function pause2() {
