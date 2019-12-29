@@ -208,6 +208,7 @@
   var widthScreen = screen.width;
   var heightScreen = screen.height;
   var startAni = 0;
+  var videoPlaying = 0;
   console.log(widthScreen);
   console.log(heightScreen);
 
@@ -222,10 +223,13 @@
     
 
   document.getElementById('cuerpo').addEventListener('click', function (ev) {
-    console.log('click en x:' + window.event.clientX);
-    console.log('click en y:' + window.event.clientY);
-    if (startAni==1) {
-      if (window.event.clientX < (widthScreen / 2)) {
+    var clicx = window.event.clientX;
+    var clicy = window.event.clientY;
+    console.log('click en x:' + clicx);
+    console.log('click en y:' + clicy);
+    
+    if (startAni==1 && videoPlaying == 0) {
+      if (clicx < (widthScreen / 2)) {
         audFondo.volume = 0;
         document.getElementById('espanol').emit('btnAudioout');
         document.getElementById('ingles').emit('btnAudioout');
@@ -247,17 +251,22 @@
         play2();
       }
     }
+    if(videoPlaying){
+      window.open('https://www.youtube.com/');
+    }
 
   });
 
 
   function play1() {
     document.getElementById("video1").play();
+    videoPlaying = 1;
   }
   function pause1() {
     document.getElementById("video1").pause();
   }
   function play2() {
+    videoPlaying = 1;
     document.getElementById("video2").play();
   }
   function pause2() {
@@ -374,6 +383,7 @@
       document.getElementById("confeti").emit("confin");
       document.getElementById("confeti2").emit("confin");
       audFondo.volume = .4;
+      videoPlaying = 0;
     });
     document.getElementById('video2').addEventListener('ended', function () {
       document.getElementById('pantalla').emit('anPantallaOut');
@@ -383,6 +393,7 @@
       document.getElementById("confeti").emit("confin");
       document.getElementById("confeti2").emit("confin");
       audFondo.volume = .4;
+      videoPlaying = 0;
     });
     console.log('pagina lista');
     document.getElementById('btnEmpezar').style.visibility = 'visible';
