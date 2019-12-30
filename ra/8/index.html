@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="css/stylera.css">
+<link rel="stylesheet" href="css/loader.css">
 <script>
   var isTargetFound = false;
   var interacted = false;
@@ -93,7 +94,12 @@
         experiencia en <strong style="color: #921c1e">Realidad Aumentada</strong> !
       </p>
 
-      <button id="btnEmpezar" onclick="verani()" style="visibility: hidden;">Empezar!</button>
+      <button id="btnEmpezar" onclick="verani()" style="display: none;">Empezar!</button>
+      <div id="loader-containerId" class="loader-container">
+        <div class="loader1"></div>
+        <div class="loader2"></div>
+        <div class="loading">Loading</div>
+      </div>
 
       <h6 class="azul anton">Importante!</h6>
       <ol id="listaInst" style="font-weight: 600;">
@@ -403,7 +409,8 @@
       videoPlaying = 0;
     });
     console.log('pagina lista');
-    document.getElementById('btnEmpezar').style.visibility = 'visible';
+    document.getElementById('btnEmpezar').style.display = 'inline-block';
+    document.getElementById('loader-containerId').style.display = 'none';
 
 
   }
@@ -415,6 +422,7 @@
     audFondo.play();
     console.log('playing');
     document.getElementById('instrucciones').style.display = 'none';
+    
     window.setTimeout(function(){
       startAni = 1;
     },500);
