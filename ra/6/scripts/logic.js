@@ -49,3 +49,4 @@ document.getElementById('pred7').addEventListener('click', function(e){
     //alert("click al plano7");
     window.open('skype:+51930484626?call');
 })
+

@@ -10,6 +10,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-136675623-1');
+        
     </script>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 </head>
@@ -17,6 +18,7 @@
 <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
 
 <script src="scripts/markerDetect.js"></script>
 <link rel="stylesheet" href="css/styles.css">
@@ -26,12 +28,17 @@
         <img src="images/powvector.png" alt="Powered by VectorId">
     </div>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8; borderColor: #FF0D4A;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; patternRatio: 0.8; borderColor: #FF0D4A;" >
         <a-assets>
 
         </a-assets>
-        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type="pattern"
+        <a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" type="pattern"
             url="pattern-qr_ra_6_rosa.patt">
+
+              <a-entity  geometry="primitive: box" position="1 0 0"
+              event-set__enter="_event: mouseenter; material.color: yellowgreen; scale: 3 1 1"
+             event-set__leave="_event: mouseleave; material.color: skyblue; scale: 1 1 1"
+             animation__gira1="startEvents: click; property: rotation; from: -90 0 0; to: -90 360 0; dur: 1000; easing: linear; loop: 2;"></a-entity>
             <!-- <a-plane width="50" height="50" material="color: #031D2B" opacity=".5" position="0 -.5 0" rotation="-90 0 0"></a-plane> -->
             <a-entity id="global" position="0 .2 0" scale="1 1 1">
                 <!-- <a-plane width="1" height=".4" rotation="-90 0 0"  material="src: images/logo_kapta.png" opacity=".9"></a-plane> -->
@@ -53,7 +60,7 @@
                 <!--redes--------------------------->
                 <a-entity id="redes" position="0 -.15 0" scale=".001 .001 .001"
                     animation__crece="startEvents: redCrece; property: scale; from: .01 .01 .01; to: 1 1 1; easing: linear; dur: 1000">
-                    <a-entity rotation="0 0 0">
+                    <a-entity link="href: pag2.html" rotation="0 0 0">
 
                         <a-cylinder id="cilbox1" position="0 0 -1" scale=".25 .001 .25" material="src: images/red1.png"
                             animation="property: rotation; to: 0 360 360; dur: 5000; easing: linear; loop: true;">
@@ -127,7 +134,7 @@
                 </a-entity> -->
                 <a-entity id="planosRedes" position="0 .05 0">
                     <!-- <a-plane id="pred1" position="4.75 0 -1" width="10" height=".4" rotation="-90 0 0"></a-plane> -->
-                    <a-plane id="pred2" position="5.5 0 -.62" width="10" height=".5" rotation="-90 0 0" opacity="0">
+                    <a-plane id="pred2" position="5.5 0 -.62" width="10" height=".5" rotation="-90 0 0" opacity="1">
                     </a-plane>
                     <a-plane id="pred3" position="5.72 0 .22" width="10" height=".5" rotation="-90 0 0" opacity="0">
                     </a-plane>
@@ -151,16 +158,18 @@
         </a-marker>
         <a-entity id="planoInicial">
             <a-plane id="plane" position="0 0 -.098" width="2" height="2" material="color:black;" opacity=".4"
-                animation="property: opacity; startEvents: planeout; dur: 1000; to: 0;">
+            animation="property: opacity; startEvents: planeout; dur: 1000; to: 0;"
+                animation__2="property: scale; startEvents: planeout; dur: 1000; to: .0001 .0001 .0001;">
             </a-plane>
             <a-plane id="qr" position="0 0 -.097" width=".02" height=".02" material="src:images/enfoca.png;"
-                opacity=".9" animation="property: opacity; startEvents: qrout; dur: 1000; to: 0;">
+                opacity=".9" animation="property: opacity; startEvents: qrout; dur: 1000; to: 0;"
+                animation__2="property: scale; startEvents: qrout; dur: 1000; to: .0001 .0001 .0001;">
             </a-plane>
         </a-entity>
 
 
 
-        <a-entity camera></a-entity>
+        <a-entity camera look-controls mouse-cursor></a-entity>
     </a-scene>
 
     <script src="scripts/logic.js"></script>
